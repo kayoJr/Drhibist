@@ -1,0 +1,98 @@
+@import 'utility';
+
+body{
+    background: $dark-bg;
+}
+
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+    margin-top: 5rem;
+    padding: 2rem;
+    background: $light-bg;
+    h1 {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        color: $white;
+        letter-spacing: 1.8px;
+    }
+
+    .formElement {
+        width: 50%;
+        position: relative;
+        height: 80px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        font-size: 1.2rem;
+        input {
+            width: 100%;
+            height: 100%;
+            color: $green;
+            border: none;
+            outline: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            background-color: $light-bg;
+            margin-top: 10px;
+            &:focus+.labelName .contentName,
+            &:valid+.labelName .contentName {
+                transform: translateY(-200%);
+                font-size: 1.2rem;
+                color: $white;
+                padding: 0;
+            }
+
+            &:focus+.labelName::after,
+            &:valid+.labelName::after {
+                transform: translateX(0);
+            }
+        }
+
+        label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-bottom: 1px solid $green;
+            color: $green;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+                height: 100%;
+                width: 100%;
+                border-bottom: 3px solid $purple;
+                transform: translateX(-100%);
+                transition: transform .5s ease;
+            }
+        }
+
+        .contentName {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            transition: all .3s ease;
+        }
+    }
+
+
+    
+}
+@media(max-width:769px){
+    form{
+        margin: 5rem 2rem;
+        .formElement{
+            width: 100%;
+        }
+    }
+}

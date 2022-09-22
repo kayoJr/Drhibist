@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dosis";
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  background-color: #60B000;
+  color: #fff;
+}
+.btn:hover {
+  background-color: #8A1668;
+}
+
+body {
+  background: #343a40;
+}
+
+form {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  margin-top: 5rem;
+  padding: 2rem;
+  background: #454d55;
+}
+form h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #fff;
+  letter-spacing: 1.8px;
+}
+form .formElement {
+  width: 50%;
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+form .formElement input {
+  width: 100%;
+  height: 100%;
+  color: #60B000;
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #454d55;
+  margin-top: 10px;
+}
+form .formElement input:focus + .labelName .contentName, form .formElement input:valid + .labelName .contentName {
+  transform: translateY(-200%);
+  font-size: 1.2rem;
+  color: #fff;
+  padding: 0;
+}
+form .formElement input:focus + .labelName::after, form .formElement input:valid + .labelName::after {
+  transform: translateX(0);
+}
+form .formElement label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid #60B000;
+  color: #60B000;
+}
+form .formElement label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid #8A1668;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+form .formElement .contentName {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 769px) {
+  form {
+    margin: 5rem 2rem;
+  }
+  form .formElement {
+    width: 100%;
+  }
+}/*# sourceMappingURL=login.css.map */

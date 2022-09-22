@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dosis";
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  background-color: #60B000;
+  color: #fff;
+}
+.btn:hover {
+  background-color: #8A1668;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Dosis";
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.btn {
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  background-color: #60B000;
+  color: #fff;
+}
+.btn:hover {
+  background-color: #8A1668;
+}
+
+.table {
+  width: 85%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+}
+.table thead {
+  border-radius: 10px;
+}
+.table td,
+.table th {
+  padding: 12px 15px;
+  border: 1px solid #fff;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #fff;
+}
+.table th {
+  background-color: #8A1668;
+  color: #fff;
+}
+.table tbody tr a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+@media (max-width: 769px) {
+  .table thead {
+    display: none;
+  }
+  .table tbody,
+.table tr,
+.table td {
+    display: block;
+    width: 100%;
+  }
+  .table tbody tr {
+    margin-bottom: 2rem;
+  }
+  .table tbody tr a {
+    font-size: 1rem;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+body {
+  font-family: "Dosis";
+  background-color: #454d55;
+}
+
+.topbar .navbar {
+  background: #343a40;
+}
+
+#sidebar {
+  background-color: #343a40;
+}
+
+.sidebar_toggle {
+  background-color: #60B000;
+}
+
+.sidebar_user_info {
+  background-color: #8A1668;
+}
+
+#sidebar.active .logo_section {
+  background-color: #8A1668;
+}
+
+.user_img {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.logo_section a {
+  background-color: #fff;
+}
+
+.list-unstyled li a span {
+  font-size: 1.4rem;
+}
+
+form {
+  background-color: #343a40;
+  max-width: 700px;
+  padding: 2rem;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+}
+form h3, form h4 {
+  color: #fff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+form .form-elements {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+form div {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+form div input,
+form div select {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 1.2rem;
+}
+form div label {
+  color: #fff;
+  font-size: 1.3rem;
+}
+form input[type=submit] {
+  margin: 3rem auto 0;
+}
+form .search-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+form .search-form input {
+  margin: 0;
+}
+form .search-form input[type=submit] {
+  margin-left: 1rem;
+  width: 50%;
+}
+
+.detail {
+  cursor: pointer;
+}
+
+.pharmacy .search-form {
+  display: flex;
+  flex-direction: column;
+}
+.pharmacy .search-form div {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+}
+.pharmacy .search-form select {
+  margin-right: 1rem;
+}
+.pharmacy .search-form input[type=number] {
+  width: 50%;
+}
+.pharmacy .search-form i {
+  cursor: pointer;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.detail {
+  background-color: #343a40;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 700px;
+}
+.detail h3 {
+  text-align: center;
+  color: #fff;
+}
+.detail p {
+  color: #fff;
+  margin: 2rem auto;
+  font-size: 1.3rem;
+}
+
+.action {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.add-detail {
+  margin: 1rem auto;
+}
+.add-detail .search-form {
+  flex-direction: column;
+}
+.add-detail .search-form textarea {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 10px;
+}
+
+.hide {
+  display: none;
+}
+
+.lab-order form {
+  margin-top: 2rem;
+}
+.lab-order form .catagory {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.lab-order form .catagory .items h4 {
+  margin-top: 1rem;
+  border: 1px solid #fff;
+  padding: 0.8rem 0.5rem;
+}
+.lab-order form .catagory .items div {
+  margin-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.lab-order form .catagory .items div label {
+  margin-left: 10px;
+  white-space: nowrap;
+}
+
+.prescription form h4 {
+  text-align: center;
+}
+.prescription form textarea {
+  padding: 10px;
+  font-size: 1.2rem;
+}/*# sourceMappingURL=custom.css.map */

@@ -1,0 +1,189 @@
+@import "./../../style/_utility.scss";
+@import "./../../style/table";
+body {
+	font-family: "Dosis";
+	background-color: $light-bg;
+}
+.topbar {
+	.navbar {
+		background: $dark-bg;
+	}
+}
+#sidebar {
+	background-color: $dark-bg;
+}
+.sidebar_toggle {
+	background-color: $green;
+}
+.sidebar_user_info {
+	background-color: $purple;
+}
+#sidebar.active {
+	.logo_section {
+		background-color: $purple;
+	}
+}
+.user_img {
+	background-color: $white;
+	padding: 5px;
+	border-radius: 50%;
+}
+.logo_section a {
+	background-color: $white;
+}
+.list-unstyled li a span {
+	font-size: 1.4rem;
+}
+
+//registration form
+form {
+	background-color: $dark-bg;
+	max-width: 700px;
+	padding: 2rem;
+	margin: 5rem auto;
+	display: flex;
+	flex-direction: column;
+	h3, h4 {
+		color: $white;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+	.form-elements {
+		display: grid;
+		gap: 2rem;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	div {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		input,
+		select {
+			width: 100%;
+			padding: 10px 5px;
+			font-size: 1.2rem;
+		}
+		label {
+			color: $white;
+			font-size: 1.3rem;
+		}
+	}
+
+	input[type="submit"] {
+		margin: 3rem auto 0;
+	}
+	.search-form {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: row;
+		input {
+			margin: 0;
+		}
+		input[type="submit"] {
+			margin-left: 1rem;
+			width: 50%;
+		}
+	}
+}
+//nurse form
+.detail {
+	cursor: pointer;
+}
+//pharmacy
+.pharmacy {
+	.search-form {
+		display: flex;
+		flex-direction: column;
+		div {
+			display: flex;
+			flex-direction: row;
+			margin-bottom: 2rem;
+		}
+		select {
+			margin-right: 1rem;
+		}
+		input[type="number"] {
+			width: 50%;
+		}
+		i {
+			cursor: pointer;
+			color: $white;
+			margin-bottom: 2rem;
+		}
+	}
+}
+//doctor
+.detail {
+	background-color: $dark-bg;
+	padding: 2rem;
+	margin: 2rem auto;
+    max-width: 700px;
+	h3 {
+		text-align: center;
+		color: $white;
+	}
+	p {
+		color: $white;
+		margin: 2rem auto;
+		font-size: 1.3rem;
+	}
+}
+.action {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+.add-detail {
+	margin: 1rem auto;
+	.search-form {
+		flex-direction: column;
+		textarea {
+			width: 100%;
+			margin-bottom: 2rem;
+			padding: 10px;
+		}
+	}
+}
+.hide {
+	display: none;
+}
+.lab-order {
+	form {
+		margin-top: 2rem;
+		.catagory {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 2rem;
+			.items {
+				// border-right: 1px solid $white;
+				h4 {
+					margin-top: 1rem;
+					border: 1px solid $white;
+					padding: 0.8rem 0.5rem;
+				}
+				div {
+					margin-top: 1rem;
+					display: flex;
+					align-items: flex-start;
+					flex-direction: row;
+					label {
+						margin-left: 10px;
+						white-space: nowrap;
+					}
+				}
+			}
+		}
+	}
+}
+.prescription {
+	form {
+		h4 {
+			text-align: center;
+		}
+		textarea {
+			padding: 10px;
+			font-size: 1.2rem;
+		}
+	}
+}

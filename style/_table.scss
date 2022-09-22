@@ -1,0 +1,74 @@
+@import "utility";
+
+.table {
+	width: 85%;
+	border-collapse: collapse;
+	margin: 2rem auto ;
+
+	thead {
+		border-radius: 10px;
+	}
+
+	td,
+	th {
+		padding: 12px 15px;
+		border: 1px solid $white;
+		text-align: center;
+		font-size: 1.4rem;
+		color: $white;
+	}
+
+	th {
+		background-color: $purple;
+		color: #fff;
+	}
+
+	tbody {
+		tr {
+			a {
+				color: $white;
+				font-weight: bold;
+				font-size: 1.2rem;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.table {
+		thead {
+			display: none;
+		}
+		tbody,
+		tr,
+		td {
+			display: block;
+			width: 100%;
+		}
+		tbody {
+			tr {
+				margin-bottom: 2rem;
+				a {
+					font-size: 1rem;
+				}
+			}
+		}
+		td {
+			text-align: right;
+			padding-left: 50%;
+			text-align: right;
+			position: relative;
+			&::before {
+				content: attr(data-label);
+				position: absolute;
+				left: 0;
+				width: 50%;
+				padding-left: 15px;
+				font-size: 15px;
+				font-weight: bold;
+				text-align: left;
+			}
+		}
+	}
+}
