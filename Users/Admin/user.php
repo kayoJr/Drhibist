@@ -1,3 +1,7 @@
+<?php
+require '../../backend/auth.php';
+require '../../backend/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,7 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 		<!-- site metas -->
-		<title>Pharmacy</title>
+		<title>Doctor</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<meta name="author" content="" />
@@ -29,7 +33,6 @@
 		<link rel="stylesheet" href="../styles/responsive.css" />
 		<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 		<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
-		<link rel="stylesheet" href="../styles/font-awesome.min.css" />
 		<link rel="stylesheet" href="../styles/custom.css" />
 	</head>
 	<body class="dashboard dashboard_1">
@@ -65,20 +68,9 @@
 						</div>
 					</div>
 					<div class="sidebar_blog_2">
-						<ul class="list-unstyled components">
-							<li class="active">
-								<a href="index.html"
-									><i class="fa-solid fa-money-check-dollar"></i>
-									<span>Sell</span></a
-								>
-							</li>
-							<li>
-								<a href="store.html"
-									><i class="fa-solid fa-magnifying-glass"></i>
-									<span>Store</span></a
-								>
-							</li>
-						</ul>
+						<?php
+							include './side_nav.php';
+						?>
 					</div>
 				</nav>
 				<!-- end sidebar -->
@@ -105,24 +97,63 @@
 					<!-- dashboard inner -->
 					<div class="midde_cont">
 						<div class="container-fluid">
-                            <form action="test.php" method="POST" class="pharmacy">
-                                <h3>Sell</h3>
-                                <div class="search-form" id="sell">
-                                    <div class="element">
-                                        <select name="medicine" id="medicine">
-                                            <option value="medicine">Name 1</option>
-                                            <option value="medicine">Name 2</option>
-                                            <option value="medicine">Name 3</option>
-                                        </select>
-                                        <input type="number" name="quantity" id="quantity" min="0" required>
-                                    </div>
-                                    
-                                    <i class="fa-solid fa-circle-plus fa-3x" id="plus"></i>
-
-                                        <input type="submit" name="sell" value="Sell" class="btn btn-primary">
-                                </div>
-                            </form>
-                            
+						<div class="info">
+						<p class="error">
+							<?php
+							@$err = $_REQUEST['err'];
+							echo $err;
+							?>
+						</p>
+						<p class="succ">
+							<?php
+							@$lout = $_REQUEST['msg'];
+							echo $lout;
+							?>
+						</p>
+						</div>
+							<?php
+								$phone = $_SESSION['user'];
+								$sql = "SELECT * FROM `users` WHERE `phone` != '$phone'";
+								$res = $conn->query($sql);
+								echo "
+								<table class='table'>
+								<thead>
+									<th>Name</th>
+									<th>Phone</th>
+									<th>Role</th>
+                                    <th>Action</th>
+								</thead>
+								";
+					
+								if($res){
+									while($row = $res->fetch_assoc()){
+										$name = $row['name'];
+										$phone = $row['phone'];
+										$role_temp = $row['role'];
+										$id = $row['id'];
+										if($role_temp == 1){
+											$role = 'Admin';
+										}else if($role_temp == 2){
+											$role = 'Reception';
+										}
+										echo "
+										<tbody>
+									<tr>
+										<td data-label='Name'>$name</td>
+										<td data-label='Phone'>$phone</td>
+										<td data-label='Role'>$role</td>
+										<td data-label='Action' class='delete'>
+                                            <a href='../../backend/delete.php?id=$id'>Delete</a>
+                                        </td>
+										
+									</tr>
+								</tbody>
+										";
+									}
+								}
+							?>
+							
+							</table>
 						</div>
 						<!-- footer -->
 					</div>

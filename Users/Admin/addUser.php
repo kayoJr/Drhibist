@@ -1,3 +1,7 @@
+<?php
+require '../../backend/auth.php';
+require '../../backend/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,7 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 		<!-- site metas -->
-		<title>Reception</title>
+		<title>Admin</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<meta name="author" content="" />
@@ -29,7 +33,6 @@
 		<link rel="stylesheet" href="../styles/responsive.css" />
 		<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 		<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
-		<link rel="stylesheet" href="../styles/font-awesome.min.css" />
 		<link rel="stylesheet" href="../styles/custom.css" />
 	</head>
 	<body class="dashboard dashboard_1">
@@ -59,26 +62,27 @@
 									/>
 								</div>
 								<div class="user_info">
-									<h6>User Name</h6>
+								<?php
+									$phone = $_SESSION['user'];
+									$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
+									$res = $conn->query($sql);
+									while($row = mysqli_fetch_assoc($res)){
+										$name = $row['name'];
+									}
+									?>
+									<h6>
+									<?php
+											echo $name;
+										?>
+									</h6>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="sidebar_blog_2">
-						<ul class="list-unstyled components">
-							<li class="active">
-								<a href="index.html"
-									><i class="fa-solid fa-address-card"></i>
-									<span>Register</span></a
-								>
-							</li>
-							<li>
-								<a href="#"
-									><i class="fa-solid fa-magnifying-glass"></i>
-									<span>Search</span></a
-								>
-							</li>
-						</ul>
+					<?php
+							include './side_nav.php';
+						?>
 					</div>
 				</nav>
 				<!-- end sidebar -->
@@ -105,54 +109,47 @@
 					<!-- dashboard inner -->
 					<div class="midde_cont">
 						<div class="container-fluid">
-                            <form action="" class="search">
-                                <h3>Search For Patient</h3>
-                                <div class="search-form">
-                                        <input type="number" name="search" id="search" min="0" required placeholder="Phone or Card Number">
-                                        <input type="submit" value="Search" class="btn btn-primary">
+						<div class="info">
+						<p class="error">
+							<?php
+							@$err = $_REQUEST['err'];
+							echo $err;
+							?>
+						</p>
+						<p class="succ">
+							<?php
+							@$lout = $_REQUEST['msg'];
+							echo $lout;
+							?>
+						</p>
+						</div>
+							<form action="../../backend/add_user.php" method="POST">
+                                <h3>Add User</h3>
+                                <div class="form-elements">
+                                    <div>
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" required>
+                                    </div>
+                                    <div>
+                                        <label for="phone">Phone</label>
+                                        <input type="number" name="phone" id="phone" required min="0">
+                                    </div>
+                                    <div>
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" id="password" required>
+                                    </div>
+                                    <div>
+                                        <label for="role">Role</label>
+                                        <select name="role" id="role">
+                                            <option value="admin">Admin</option>
+                                            <option value="reception">Reception</option>
+                                            <option value="nurse">Nurse</option>
+                                        </select>
+                                    </div>
                                 </div>
+                                <input type="submit" name="add_user" value="Add User" class="btn btn-primary">
                             </form>
-                            <table class="table">
-                                <thead>
-                                    <th>SNo</th>
-                                    <th>Name</th>
-                                    <th>Age</th>
-                                    <th>Sex</th>
-                                    <th>Card No</th>
-                                    <th>Phone</th>
-                                    <th>Date</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td data-label="SNo">1</td>
-                                        <td data-label="Name">kayo</td>
-                                        <td data-label="Age">22</td>
-                                        <td data-label="Sex">male</td>
-                                        <td data-label="Card No">1120</td>
-                                        <td data-label="Phone">23187741</td>
-                                        <td data-label="Date">2022/6/12</td>
-                                    </tr>
-                                    <tr>
-                                        <td data-label="SNo">2</td>
-                                        <td data-label="Name">kayo</td>
-                                        <td data-label="Age">22</td>
-                                        <td data-label="Sex">male</td>
-                                        <td data-label="Card No">1120</td>
-                                        <td data-label="Phone">23187741</td>
-                                        <td data-label="Date">2022/6/12</td>
-                                    </tr>
-                                    <tr>
-                                        <td data-label="SNo">3</td>
-                                        <td data-label="Name">kayo</td>
-                                        <td data-label="Age">22</td>
-                                        <td data-label="Sex">male</td>
-                                        <td data-label="Card No">1120</td>
-                                        <td data-label="Phone">23187741</td>
-                                        <td data-label="Date">2022/6/12</td>
-                                    </tr>
-                                 
-                                </tbody>
-                            </table>
+
 						</div>
 						<!-- footer -->
 					</div>

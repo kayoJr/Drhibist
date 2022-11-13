@@ -29,7 +29,6 @@
 		<link rel="stylesheet" href="../styles/responsive.css" />
 		<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 		<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
-		<link rel="stylesheet" href="../styles/font-awesome.min.css" />
 		<link rel="stylesheet" href="../styles/custom.css" />
 	</head>
 	<body class="dashboard dashboard_1">

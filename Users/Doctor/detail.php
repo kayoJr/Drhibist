@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 		<!-- site metas -->
-		<title>Reception</title>
+		<title>Pharmacy</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<meta name="author" content="" />
@@ -29,7 +29,6 @@
 		<link rel="stylesheet" href="../styles/responsive.css" />
 		<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 		<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
-		<link rel="stylesheet" href="../styles/font-awesome.min.css" />
 		<link rel="stylesheet" href="../styles/custom.css" />
 	</head>
 	<body class="dashboard dashboard_1">
@@ -68,8 +67,8 @@
 						<ul class="list-unstyled components">
 							<li class="active">
 								<a href="index.html"
-									><i class="fa-solid fa-address-card"></i>
-									<span>Record</span></a
+									><i class="fa-solid fa-money-check-dollar"></i>
+									<span>Patient</span></a
 								>
 							</li>
 						</ul>
@@ -99,49 +98,7 @@
 					<!-- dashboard inner -->
 					<div class="midde_cont">
 						<div class="container-fluid">
-                            <form action="" class="search">
-                                <h3>Add Result</h3>
-                                <div class="form-elements">
-                                    <div>
-                                        <label for="bp">BP</label>
-                                        <input type="number" name="bp" id="bp" required min="0">
-                                    </div>
-                                    <div>
-                                        <label for="pr">PR</label>
-                                        <input type="number" name="pr" id="pr" required min="0">
-                                    </div>
-                                    <div>
-                                        <label for="saturation">Saturation</label>
-                                        <input type="number" name="saturation" id="saturation" min="0" required>
-                                    </div>
-                                    <div>
-                                        <label for="respiratory">Respiratory</label>
-                                        <input type="number" name="respiratory" id="respiratory" min="0" required>
-                                    </div>
-                                    <div>
-                                        <label for="temp">Temperature</label>
-                                        <input type="number" name="temp" id="temp" min="0" required>
-                                    </div>
-                                    <div>
-                                        <label for="height">Height</label>
-                                        <input type="number" name="height" id="height" min="0" required>
-                                    </div>
-                                    <div>
-                                        <label for="weight">Weight</label>
-                                        <input type="number" name="weight" id="weight" min="0" required>
-                                    </div>
-                                    <div>
-                                        <label for="head">Head Circumference</label>
-                                        <input type="number" name="head" id="head" min="0" required>
-                                    </div>
-                                    <div>
-                                        <label for="muac">MUAC</label>
-                                        <input type="number" name="muac" id="muac" min="0" required>
-                                    </div>
-                                </div>
-                                <input type="submit" class="btn btn-primary" value="Add Record">
-                            </form>
-                           
+                            
 						</div>
 						<!-- footer -->
 					</div>

@@ -10,8 +10,8 @@ $(document).ready(function () {
 
 var ps = new PerfectScrollbar("#sidebar");
 
-// const sell = document.getElementById('sell');
-// const btn = document.getElementById('plus');
+const sell = document.getElementById("sell");
+const btn = document.getElementById("plus");
 
 // btn.addEventListener('click', () => {
 // 	const para = document.createElement('div')
@@ -24,6 +24,17 @@ var ps = new PerfectScrollbar("#sidebar");
 
 // 	para.insertBefore(btn, sell)
 // });
+
+let i = 1;
+// btn.addEventListener("click", () => {
+// 	i++;
+// 	let element = document.createElement('div');
+// 	element.classList.add('element');
+// 	element.innerHTML = `<select name='medicine' id='medicine'> <option>Hello${i}</option> </select> <input type='number' name='quantity'>`
+// 	//sell.insertBefore(btn);
+// 	sell.append(element);
+// });
+
 // $(function () {
 //     var duplicates = 0,
 //         $original = $('.element').clone(true);
@@ -31,11 +42,11 @@ var ps = new PerfectScrollbar("#sidebar");
 //     function DuplicateForm () {
 //         var newForm;
 
-//         duplicates++; 
+//         duplicates++;
 
 //         newForm = $original.clone(true).insertBefore($('.fa-3x'));
 
-//         $.each($('input', newForm), function(i, item) {            
+//         $.each($('input', newForm), function(i, item) {
 // 		    $(item).attr('name', $(item).attr('name') + duplicates);
 //         });
 
@@ -46,22 +57,3 @@ var ps = new PerfectScrollbar("#sidebar");
 //         DuplicateForm();
 //     });
 // });
-
-const btn_lab = document.getElementById('btn-lab');
-const btn_detail = document.getElementById('btn-detail');
-const btn_pres = document.getElementById('btn-pres');
-const lab = document.getElementById('lab');
-const pat_detail = document.getElementById('patient-detail');
-const pres = document.getElementById('prescription');
-
-btn_lab.addEventListener('click', () => {
-	lab.classList.toggle('hide')
-});
-btn_detail.addEventListener('click', () => {
-	pat_detail.classList.toggle('hide')
-});
-btn_pres.addEventListener('click', () => {
-	pres.classList.toggle('hide')
-});
-
-

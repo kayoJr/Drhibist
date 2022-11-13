@@ -1,3 +1,7 @@
+<?php
+require_once "../../backend/db.php";
+require '../../backend/auth.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -29,7 +33,6 @@
 		<link rel="stylesheet" href="../styles/responsive.css" />
 		<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 		<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
-		<link rel="stylesheet" href="../styles/font-awesome.min.css" />
 		<link rel="stylesheet" href="../styles/custom.css" />
 	</head>
 	<body class="dashboard dashboard_1">
@@ -59,20 +62,27 @@
 									/>
 								</div>
 								<div class="user_info">
-									<h6>User Name</h6>
+									<?php
+									$phone = $_SESSION['user'];
+									$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
+									$res = $conn->query($sql);
+									while($row = mysqli_fetch_assoc($res)){
+										$name = $row['name'];
+									}
+									?>
+									<h6>
+										<?php
+											echo $name;
+										?>
+									</h6>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="sidebar_blog_2">
-						<ul class="list-unstyled components">
-							<li class="active">
-								<a href="index.html"
-									><i class="fa-solid fa-address-card"></i>
-									<span>Record</span></a
-								>
-							</li>
-						</ul>
+						<?php
+							include './side_nav.php';
+						?>
 					</div>
 				</nav>
 				<!-- end sidebar -->
@@ -103,10 +113,104 @@
                                 <h3>Search For Patient</h3>
                                 <div class="search-form">
                                         <input type="number" name="search" id="search" min="0" required placeholder="Phone or Card Number">
-                                        <input type="submit" value="Search" class="btn btn-primary">
+                                        <input type="submit" name="searching" value="Search" class="btn btn-primary">
                                 </div>
                             </form>
-                            <table class="table">
+							<?php
+								if(isset($_GET['searching'])){
+									$phone = $_GET['search'];
+									$search_sql = "SELECT * FROM `patient` WHERE `phone`='$phone' OR `id` = '$phone'";
+									$rs = $conn->query($search_sql);
+									echo "
+									<table class='table'>
+									<thead>
+										<th>SNo</th>
+										<th>Name</th>
+										<th>Age</th>
+										<th>Sex</th>
+										<th>Card No</th>
+										<th>Phone</th>
+										<th>Action</th>
+									</thead>
+									";
+										if($rs){
+											while($result = $rs->fetch_assoc()){
+												$card = $result['id'];
+												$pt_name = $result['name'];
+												$pt_phone = $result['phone'];
+												$age = $result['age'];
+												$sex = $result['sex'];
+												echo "	
+												<tbody>
+													<tr>
+														<td data-label='SNo'>$card</td>
+														<td data-label='Name'>$pt_name</td>
+														<td data-label='Age'>$age</td>
+														<td data-label='Sex'>$sex</td>
+														<td data-label='Card No'>$card</td>
+														<td data-label='Phone'>$pt_phone</td>						
+														<td class='detail' data-label='Detail'><a href='./detail.php?id=$card'>Add</a></td>
+													</tr>
+												</tbody>
+												";
+									}
+								}
+								}
+								?>
+							<?php
+								if(isset($_GET['searching'])){
+									$phone = $card;
+									$search_sql = "SELECT * FROM `nurse_exam` WHERE `patient_id` = '$phone' ORDER BY `date` DESC";
+									$rs = $conn->query($search_sql);
+									echo "
+									<table class='table'>
+									<thead>
+										<th>BP</th>
+										<th>PR</th>
+										<th>Saturation</th>
+										<th>Respiratory</th>
+										<th>Temperature</th>
+										<th>Height</th>
+										<th>Weight</th>
+										<th>Head</th>
+										<th>MUAC</th>
+										<th>Date</th>
+									</thead>
+									";
+										if($rs){
+											while($result = $rs->fetch_assoc()){
+												$bp = $result['BP'];
+												$pr = $result['PR'];
+												$saturation = $result['saturation'];
+												$respiratory = $result['respiratory'];
+												$temp = $result['temprature'];
+												$height = $result['height'];
+												$weight = $result['weight'];
+												$head = $result['head_circum'];
+												$muac = $result['MUAC'];
+												$date = $result['date'];
+												echo "	
+												<tbody>
+													<tr>
+													<td data-label='BP'>$bp</td>
+													<td data-label='PR'>$pr</td>
+													<td data-label='Saturation'>$saturation</td>
+													<td data-label='Respiratory'>$respiratory</td>
+													<td data-label='Temperature'>$temp</td>
+													<td data-label='Height'>$height</td>
+													<td data-label='Weight'>$weight</td>
+													<td data-label='Head'>$head</td>
+													<td data-label='MUAC'>$muac</td>
+													<td data-label='Date'>$date</td>
+													</tr>
+												</tbody>
+												";
+									}
+								}
+								}
+								?>
+								</table>
+                            <!-- <table class="table">
                                 <thead>
                                     <th>Name</th>
                                     <th>Age</th>
@@ -134,10 +238,10 @@
                                         <td data-label="Weight">46</td>
                                         <td data-label="Head">20</td>
                                         <td data-label="MUAC">18</td>
-                                        <td class="detail" data-label="Detail"><a href="./detail.html">Add</a></td>
+                                        <td class="detail" data-label="Detail"><a href="./detail.php">Add</a></td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table> -->
 						</div>
 						<!-- footer -->
 					</div>

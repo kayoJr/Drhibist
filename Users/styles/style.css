@@ -614,9 +614,8 @@ a:focus {
 .topbar {
     position: fixed;
     width: 100%;
-    padding-left: 280px;
+    padding-left: 200px;
     z-index: 2;
-    background: #15283c;
     top: 0;
     transition: ease all 0.3s;
     left: 0;
@@ -810,8 +809,8 @@ span {
 }
 
 #sidebar {
-    min-width: 280px;
-    max-width: 280px;
+    min-width: 200px;
+    max-width: 200px;
     color: #fff;
     transition: all 0.3s;
     position: relative;
@@ -903,7 +902,7 @@ a[data-toggle="collapse"] {
     min-height: 100vh;
     transition: ease all 0.3s;
     position: relative;
-    padding: 60px 25px 25px 305px;
+    padding: 60px 25px 25px 250px;
 }
 
 .page_title {
@@ -1152,7 +1151,6 @@ a[data-toggle="collapse"] {
     margin-top: 10px;
 }
 
-#rebenue {}
 
 .graph_revenue {
     padding: 0;
@@ -2346,7 +2344,6 @@ h2.invoice_head small {
     background-color: #fff;
 }
 
-.table_row tbody {}
 
 .table_row tbody tr {
     border: none;
@@ -2580,7 +2577,6 @@ ul.inbox-nav li a i {
     top: 1px;
 }
 
-ul.inbox-nav li a span.label {}
 
 ul.labels-info li h4 {
     color: #5c5c5e;
@@ -3112,7 +3108,6 @@ ul.labels-category li p {
     padding: 7px 0;
 }
 
-.bottom_list .left_rating p.ratings a {}
 
 .fa.fa-star {
     color: #ff9800;

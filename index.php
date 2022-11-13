@@ -15,20 +15,35 @@
 		<title>Login</title>
 	</head>
 	<body>
-        <form action="process.php" method="post" id="myForm">
+        <form action="./backend/login.php" method="post" id="myForm">
             <h1>
                 Dr Hibist Pediatrician
             </h1>
+            <div class="logo">
+                <img src="./img/logo.png" alt="">
+            </div>
+            <p class="error">
+                <?php
+                @$msg = $_REQUEST['msg'];
+                echo $msg;
+                ?>
+            </p>
+            <p class="succ">
+                <?php
+                @$lout = $_REQUEST['lout'];
+                echo $lout;
+                ?>
+            </p>
             <div class="formElement">
-                <input type="number" min="0" name="uname" id="uname" autocomplete="off" required>
-                <label for="uname" class="labelName"><span class="contentName">Phone Number</span></label>
+                <input type="number" min="0" name="phone" id="phone" autocomplete="off" required>
+                <label for="phone" class="labelName"><span class="contentName">Phone Number</span></label>
             </div>
             <div class="formElement">
                 <input type="password" name="pass" id="pass" autocomplete="on" required>
                 <label for="pass" class="labelName"><span class="contentName">Password</span></label>
             </div>
             <div>
-                <input type="submit" value="Login" class="btn btn-primary" name="Login" onclick="login()">
+                <input type="submit" name="login" value="Login" class="btn btn-primary" name="Login" onclick="login()">
             </div>
         </form>
 	</body>

@@ -1,3 +1,7 @@
+<?php
+require '../../backend/auth.php';
+require '../../backend/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,7 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 		<!-- site metas -->
-		<title>Doctor</title>
+		<title>Admin</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<meta name="author" content="" />
@@ -29,7 +33,6 @@
 		<link rel="stylesheet" href="../styles/responsive.css" />
 		<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 		<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
-		<link rel="stylesheet" href="../styles/font-awesome.min.css" />
 		<link rel="stylesheet" href="../styles/custom.css" />
 	</head>
 	<body class="dashboard dashboard_1">
@@ -59,32 +62,27 @@
 									/>
 								</div>
 								<div class="user_info">
-									<h6>User Name</h6>
+								<?php
+									$phone = $_SESSION['user'];
+									$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
+									$res = $conn->query($sql);
+									while($row = mysqli_fetch_assoc($res)){
+										$name = $row['name'];
+									}
+									?>
+									<h6>
+									<?php
+											echo $name;
+										?>
+									</h6>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="sidebar_blog_2">
-						<ul class="list-unstyled components">
-							<li class="active">
-								<a href="index.html"
-									><i class="fa-solid fa-home"></i>
-									<span>Home</span></a
-								>
-							</li>
-							<li>
-								<a href="user.html"
-									><i class="fa-solid fa-user"></i>
-									<span>Users</span></a
-								>
-							</li>
-							<li>
-								<a href="addUser.html"
-									><i class="fa-solid fa-user-plus"></i>
-									<span>Add Users</span></a
-								>
-							</li>
-						</ul>
+					<?php
+							include './side_nav.php';
+						?>
 					</div>
 				</nav>
 				<!-- end sidebar -->
@@ -111,25 +109,59 @@
 					<!-- dashboard inner -->
 					<div class="midde_cont">
 						<div class="container-fluid">
-							<table class="table">
-								<thead>
-									<th>Name</th>
-									<th>Phone</th>
-									<th>Role</th>
-                                    <th>Action</th>
-								</thead>
-								<tbody>
-									<tr>
-										<td data-label="Name">Kayo</td>
-										<td data-label="Phone">22458569</td>
-										<td data-label="Role">Doctor</td>
-										<td data-label="Action">
-                                            edit, delete
-                                        </td>
-										
-									</tr>
-								</tbody>
-							</table>
+						<div class="info">
+						<p class="error">
+							<?php
+							@$err = $_REQUEST['err'];
+							echo $err;
+							?>
+						</p>
+						<p class="succ">
+							<?php
+							@$lout = $_REQUEST['msg'];
+							echo $lout;
+							?>
+						</p>
+						</div>
+							<form action="../../backend/add_med.php" method="POST">
+                                <h3>Add Medicine</h3>
+                                <div class="form-elements">
+                                    <div>
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" required>
+                                    </div>
+                                    <div>
+                                        <label for="type">Type</label>
+                                        <input type="text" name="type" id="type" required min="0">
+                                    </div>
+                                    <div>
+                                        <label for="amount">Amount</label>
+                                        <input type="number" name="amount" id="amount" required>
+                                    </div>
+                                    <div>
+                                        <label for="org_price">Original Price</label>
+                                        <input type="number" name="org_price" id="org_price" required>
+                                    </div>
+                                    <div>
+                                        <label for="sell_price">Sell Price</label>
+                                        <input type="number" name="sell_price" id="sell_price" required>
+                                    </div>
+                                    <div>
+                                        <label for="reg_date">Registered Date</label>
+                                        <input type="date" name="reg_date" id="reg_date" required>
+                                    </div>
+                                    <div>
+                                        <label for="exp_date">Expire Date</label>
+                                        <input type="date" name="exp_date" id="exp_date" required>
+                                    </div>
+                                    <div>
+                                        <label for="me">hello</label>
+                                        <input type="submit" name="add_med" value="Add Medicine" class="btn btn-primary">
+                                    </div>
+                                    
+                                </div>
+                            </form>
+
 						</div>
 						<!-- footer -->
 					</div>

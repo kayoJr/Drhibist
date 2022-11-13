@@ -29,7 +29,6 @@
 		<link rel="stylesheet" href="../styles/responsive.css" />
 		<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 		<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
-		<link rel="stylesheet" href="../styles/font-awesome.min.css" />
 		<link rel="stylesheet" href="../styles/custom.css" />
 	</head>
 	<body class="dashboard dashboard_1">
@@ -69,7 +68,13 @@
 							<li class="active">
 								<a href="index.html"
 									><i class="fa-solid fa-money-check-dollar"></i>
-									<span>Patient</span></a
+									<span>Sell</span></a
+								>
+							</li>
+							<li>
+								<a href="store.html"
+									><i class="fa-solid fa-magnifying-glass"></i>
+									<span>Store</span></a
 								>
 							</li>
 						</ul>
@@ -99,7 +104,34 @@
 					<!-- dashboard inner -->
 					<div class="midde_cont">
 						<div class="container-fluid">
-                            
+							<table class="table">
+								<thead>
+									<th>Name</th>
+									<th>Quantity</th>
+									<th>Exp Date</th>
+									<th>Price</th>
+									<th>Date</th>
+									<th>Batch No</th>
+								</thead>
+								<tbody>
+									<tr>
+										<td data-label="Name">1</td>
+										<td data-label="Quantity">15</td>
+										<td data-label="Exp Date">22/15/8</td>
+										<td data-label="Price">56</td>
+										<td data-label="Date">12/78/85</td>
+										<td data-label="Batch No">23187741</td>
+									</tr>
+									<tr>
+										<td data-label="Name">2</td>
+										<td data-label="Quantity">15</td>
+										<td data-label="Exp Date">22/58/88</td>
+										<td data-label="Price">22</td>
+										<td data-label="Date">12/77/77</td>
+										<td data-label="Batch No">23187741</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 						<!-- footer -->
 					</div>

@@ -21,8 +21,29 @@ form {
         margin-bottom: 2rem;
         color: $white;
         letter-spacing: 1.8px;
+        text-align: center;
     }
-
+    .error, .succ{
+        font-size: 1.5rem;
+        letter-spacing: 1.5px;
+        font-weight: normal;
+    }
+    .error{
+        color: red;
+    }
+    .succ{
+        color: $green;
+    }
+    .logo{
+        display: grid;
+        place-items: center;
+        img{
+            background: $white;
+            border-radius: 10px;
+            width: 35%;
+        }
+    }
+    
     .formElement {
         width: 50%;
         position: relative;
@@ -42,7 +63,7 @@ form {
             margin-top: 10px;
             &:focus+.labelName .contentName,
             &:valid+.labelName .contentName {
-                transform: translateY(-200%);
+                transform: translateY(-180%);
                 font-size: 1.2rem;
                 color: $white;
                 padding: 0;

@@ -3,8 +3,7 @@
 .table {
 	width: 85%;
 	border-collapse: collapse;
-	margin: 2rem auto ;
-
+	margin: 2rem auto;
 	thead {
 		border-radius: 10px;
 	}
@@ -36,6 +35,9 @@
 }
 
 @media (max-width: 769px) {
+	.mob_table{
+		display: none;
+	}
 	.table {
 		thead {
 			display: none;
