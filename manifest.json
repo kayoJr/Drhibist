@@ -1,0 +1,36 @@
+{
+	"name": "Dr Hibist Pediatrician",
+	"short_name": "Dr Hibist",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#fdfdfd",
+	"theme_color": "#8a1668",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "./img/logo.png",
+			"type": "image/png",
+			"sizes": "72x72"
+		},
+		{
+			"src": "./img/logo.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "./img/logo.png",
+			"type": "image/png",
+			"sizes": "128x128"
+		},
+		{
+			"src": "./img/logo.png",
+			"type": "image/png",
+			"sizes": "144x144"
+		},
+		{
+			"src": "./img/logo.png",
+			"type": "image/png",
+			"sizes": "152x152"
+		}
+	]
+}

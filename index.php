@@ -13,6 +13,7 @@
 		/>
         <link rel="stylesheet" href="./style/login.css">
 		<title>Login</title>
+        <link rel="manifest" href="manifest.json" />
 	</head>
 	<body>
         <form action="./backend/login.php" method="post" id="myForm">
@@ -48,3 +49,13 @@
         </form>
 	</body>
 </html>
+<script>
+    if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register("./serviceWorker.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+  })
+}
+</script>
