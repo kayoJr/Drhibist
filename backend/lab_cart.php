@@ -13,6 +13,6 @@ if(isset($_POST['submit'])){
     if(!$rs){
         echo $conn->error;
     }else{
-        header("Location:../Users/Doctor?msg=Added");
+        header("Location:../Users/Doctor/index.php?search=$pat&searching=Search");
     }
 }

@@ -98,7 +98,7 @@ require '../../backend/auth.php';
 				<!-- dashboard inner -->
 				<div class="midde_cont">
 					<div class="container-fluid">
-					<div id="feedback">
+						<div id="feedback">
 							<?php
 							@$msg = $_REQUEST['msg'];
 							echo "<p>$msg</p>"
@@ -200,94 +200,273 @@ require '../../backend/auth.php';
 												";
 								}
 							}
-						}
+
 						?>
-						</table>
-						<div class="action">
-							<button class="btn btn-primary" id="btn-lab">Laboratory</button>
-							<button class="btn btn-primary" id="btn-detail">Detail</button>
-							<!-- <button class="btn btn-primary" id="btn-radio">
+							</table>
+							<div class="action">
+								<button class="btn btn-primary" id="btn-lab">Laboratory</button>
+								<button class="btn btn-primary" id="btn-detail">Detail</button>
+								<!-- <button class="btn btn-primary" id="btn-radio">
 									Ultrasound
 								</button> -->
-							<!-- <button class="btn btn-primary" id="btn-pres">Prescribe</button> -->
-						</div>
-						<div class="detail hide" id="patient-detail">
-							<h3>Patient Detail</h3>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Quibusdam cupiditate aliquam ullam vitae neque nihil accusamus
-								quos, similique itaque quae iure, aut consectetur rem dolore?
-							</p>
-							<div class="lab-result">
-								<p>Lab result goes here</p>
+								<!-- <button class="btn btn-primary" id="btn-pres">Prescribe</button> -->
 							</div>
-							<form action="" class="add-detail">
-								<h3>Write Detail</h3>
-								<div class="search-form">
-									<div>
-										<textarea name="detail" id="detail" cols="60" rows="10">
-											</textarea>
-									</div>
-									<input type="submit" value="Add Detail" class="btn btn-primary" />
+							<div class="detail hide" id="patient-detail">
+								<h3>Patient Detail</h3>
+								<?php
+									$pat_det = "SELECT * FROM `pat_detail` WHERE `pat_id` = '$pat_id' ORDER BY `id` DESC";
+									$re = $conn->query($pat_det);
+									while($det = $re->fetch_assoc()){
+										$date = $det['date'];
+										$detail = $det['detail'];
+								?>
+								<div class="details">
+									<p class="date"><?php echo @$date; ?></p>
+									<p class="para_detail"><?php echo @$detail; ?></p>
 								</div>
-							</form>
-						</div>
-						<div class="lab-order hide" id="lab">
-							<form method="post" id="insert_form" action="../../backend/lab_cart.php">
-								<select name="name" class="form-control selectpicker" data-live-search="true" id="authors">
-									<option selected="" disabled="">Laboratory Type</option>
-									<?php
-									require 'data.php';
-									$authors = loadAuthors();
-									foreach ($authors as $author) {
-										echo "<option id='" . $author['id'] . "' value='" . $author['name'] . "'>" . $author['name'] . "</option>";
+								<?php
 									}
 									?>
-								</select>
-								<input type="text" class="hide" name="doc" id="doc" value="<?php echo $id; ?>">
-								<input type="text" class="hide" name="pat" id="pat" value="<?php echo $pat_id; ?>">
-								<input type="text" name="books" id="books" readonly class="form-control">
-								<div align="center">
-									<input type="submit" name="submit" id="submit_button" class="btn btn-primary" value="Add To Cart" data-toggle="modalss" data-target="#exampleModalCenter" />
-								</div>
-							</form>
-							<div class="cart">
-								<h3 class="center">Cart</h3>
-								<div class="elements">
-									<div class="middle-cart">
-										<?php
-										$date = date("Y-m-d");
-										$sql = "SELECT * FROM `lab_cart` WHERE `date` = '$date' ORDER BY `id` DESC";
-										$rs = mysqli_query($con, $sql);
-										if (mysqli_num_rows($rs)) {
-											while ($row = mysqli_fetch_assoc($rs)) {
-												$id = $row['id'];
-										?>
+								<div class="lab-result">
+									<table class="table">
+										<thead>
+											<th>Para</th>
+											<th>Result</th>
+											<th>Ref.Range</th>
+										</thead>
 
-												<div class="element">
-													<div>
-														<?php
-														echo "<a href='../../backend/remove_cart.php?rn=$id'><b>X</b></a>";
-
-														echo  "<h4>" . $row['name']."</h4>";
-														?>
-													</div>
-												</div>
 
 										<?php
-											}
+										$lab_sql = "SELECT * FROM `lab_res` WHERE `pat_id` = '$pat_id'";
+										$lab_res = $conn->query($lab_sql);
+										while ($lab = $lab_res->fetch_assoc()) {
+											$wbc = $lab['WBC'];
+											$lymph_num = $lab['Lymph#'];
+											$mid_num = $lab['Mid#'];
+											$gran_num = $lab['Gran#'];
+											$lymph_per = $lab['Lymph%'];
+											$mid_per = $lab['Mid%'];
+											$gran_per = $lab['Gran%'];
+											$hgb = $lab['HGB'];
+											$rbc = $lab['RBC'];
+											$xxx = $lab['XXX'];
+											$mcv = $lab['MCV'];
+											$mch = $lab['MCH'];
+											$mchc = $lab['MCHC'];
+											$rdw_cv = $lab['RDW-CV'];
+											$rdw_sd = $lab['RDW-SD'];
+											$plt = $lab['PLT'];
+											$mpv = $lab['MPV'];
+											$pdw = $lab['PDW'];
+											$pct = $lab['PCT'];
+											echo "
+											<tbody>
+											<tr>
+												<td>WBC</td>
+												<td>$wbc x 10<sup>9</sup>/L</td>
+												<td>4.0-10.0</td>
+											</tr>
+											<tr>
+												<td>Lymph#</td>
+												<td>$lymph_num x 10<sup>9</sup>/L</td>
+												<td>0.8-4.0</td>
+											</tr>
+											<tr>
+												<td>Mid#</td>
+												<td>$mid_num x 10<sup>9</sup>/L</td>
+												<td>0.1-1.5</td>
+											</tr>
+											<tr>
+												<td>Gran#</td>
+												<td>$gran_num x 10<sup>9</sup>/L</td>
+												<td>20.0-7.0</td>
+											</tr>
+											<tr>
+												<td>Lymph%</td>
+												<td>$lymph_per%</td>
+												<td>20.0-40.0</td>											</tr>
+											<tr>
+												<td>Mid%</td>
+												<td>$mid_per%</td>
+												<td>3.0-15.0</td>
+											</tr>
+											<tr>
+												<td>Gran%</td>
+												<td>$gran_per%</td>
+												<td>50.0-70.0</td>
+											</tr>
+											<tr>
+												<td>HGB</td>
+												<td>$hgb g/dL</td>
+												<td>11.0-16.0</td>
+											</tr>
+											<tr>
+												<td>RBC</td>
+												<td>$rbc x 10<sup>12</sup>/L</td>
+												<td>3.50-5.50</td>
+											</tr>
+											<tr>
+												<td>XXX</td>
+												<td>$xxx%</td>
+												<td>33.0-54.0</td>
+											</tr>
+										</tbody>";
 										}
-
 										?>
+									</table>
+									<table class="table">
+										<thead>
+											<th>Para</th>
+											<th>Result</th>
+											<th>Ref.Range</th>
+										</thead>
 
+
+										<?php
+										$lab_sql = "SELECT * FROM `lab_res` WHERE `pat_id` = '$pat_id'";
+										$lab_res = $conn->query($lab_sql);
+										while ($lab = $lab_res->fetch_assoc()) {
+											$wbc = $lab['WBC'];
+											$lymph_num = $lab['Lymph#'];
+											$mid_num = $lab['Mid#'];
+											$gran_num = $lab['Gran#'];
+											$lymph_per = $lab['Lymph%'];
+											$mid_per = $lab['Mid%'];
+											$gran_per = $lab['Gran%'];
+											$hgb = $lab['HGB'];
+											$rbc = $lab['RBC'];
+											$xxx = $lab['XXX'];
+											$mcv = $lab['MCV'];
+											$mch = $lab['MCH'];
+											$mchc = $lab['MCHC'];
+											$rdw_cv = $lab['RDW-CV'];
+											$rdw_sd = $lab['RDW-SD'];
+											$plt = $lab['PLT'];
+											$mpv = $lab['MPV'];
+											$pdw = $lab['PDW'];
+											$pct = $lab['PCT'];
+											echo "
+											<tbody>
+											<tr>
+												<td>MCV</td>
+												<td>$mcv fL</td>
+												<td>4.0-10.0</td>
+											</tr>
+											<tr>
+												<td>MCH</td>
+												<td>$mch pg</td>
+												<td>0.8-4.0</td>
+											</tr>
+											<tr>
+												<td>MCHC</td>
+												<td>$mchc g/dL</td>
+												<td>3.50-5.50</td>
+											</tr>
+											<tr>
+												<td>RDW-CV</td>
+												<td>$rdw_cv %</td>
+												<td>0.1-1.5</td>
+											</tr>
+											<tr>
+												<td>RDW-SD</td>
+												<td>$rdw_sd fL</td>
+												<td>20.0-7.0</td>
+											</tr>
+											<tr>
+												<td>PLT</td>
+												<td>$plt x 10<sup>9</sup>/L</td>
+												<td>20.0-40.0</td>											</tr>
+											<tr>
+												<td>MPV</td>
+												<td>$mpv fL</td>
+												<td>3.0-15.0</td>
+											</tr>
+											<tr>
+												<td>PDW</td>
+												<td>$pdw</td>
+												<td>50.0-70.0</td>
+											</tr>
+											<tr>
+												<td>PCT</td>
+												<td>$pct %</td>
+												<td>11.0-16.0</td>
+											</tr>
+										</tbody>";
+										}
+										?>
+									</table>
+								</div>
+								<form action="../../backend/add_detail.php" method="POST" class="add-detail">
+									<h3>Write Detail</h3>
+									<div class="search-form">
+										<div>
+											<textarea name="detail" id="detail" cols="60" rows="10">
+											</textarea>
+											<input type="hidden" name="pat_id" value="<?php echo $pat_id; ?>">
+										</div>
+										<input type="submit" value="Add Detail" name="submit" class="btn btn-primary" />
 									</div>
-									<div class="bottom-cart">
-										<!-- <a href="#" data-modal-target="#modal">Confirm Order</a> -->
-										<button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Send To Lab</button>
+								</form>
+							</div>
+							<div class="lab-order hide" id="lab">
+								<form method="post" id="insert_form" action="../../backend/lab_cart.php">
+									<select name="name" class="form-control selectpicker" data-live-search="true" id="authors">
+										<option selected="" disabled="">Laboratory Type</option>
+										<?php
+										require 'data.php';
+										$authors = loadAuthors();
+										foreach ($authors as $author) {
+											echo "<option id='" . $author['id'] . "' value='" . $author['name'] . "'>" . $author['name'] . "</option>";
+										}
+										?>
+									</select>
+									<input type="text" class="hide" name="doc" id="doc" value="<?php echo $id; ?>">
+									<input type="text" class="hide" name="pat" id="pat" value="<?php echo $pat_id; ?>">
+									<input type="text" name="books" id="books" readonly class="form-control">
+									<div align="center">
+										<input type="submit" name="submit" id="submit_button" class="btn btn-primary" value="Send to Laboratory" data-toggle="modalss" data-target="#exampleModalCenter" />
+									</div>
+								</form>
+								<div class="cart">
+									<h3 class="center">Cart</h3>
+									<div class="elements">
+										<div class="middle-cart">
+											<?php
+											$date = date("Y-m-d");
+											$sql = "SELECT * FROM `lab_cart` WHERE `patient_id` = '$pat_id' ORDER BY `id` DESC";
+											$rs = mysqli_query($con, $sql);
+											if (mysqli_num_rows($rs)) {
+												while ($row = mysqli_fetch_assoc($rs)) {
+													$id = $row['id'];
+											?>
+
+													<div class="element">
+														<div>
+															<?php
+															echo "<a href='../../backend/remove_lab_cart.php?rn=$id'><b>X</b></a>";
+
+															echo  "<h4>" . $row['name'] . "</h4>";
+															?>
+														</div>
+													</div>
+
+											<?php
+												}
+											}
+
+											?>
+
+										</div>
+										<div class="bottom-cart">
+											<!-- <a href="#" data-modal-target="#modal">Confirm Order</a> -->
+											<!-- <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Send To Lab</button> -->
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 				<!-- footer -->

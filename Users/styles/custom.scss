@@ -416,6 +416,52 @@ input[name='add_med']{
 label[for='me']{
 	visibility: hidden;
 }
+.elements:empty{
+	display: none;
+}
+.lab-req{
+	h4{
+		text-align: center;
+	}
+}
+.lab-name{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	p{
+		margin-right: 1rem;
+		background-color: $white;
+		padding: .5rem;
+		color: #000;
+		font-size: 1.2rem;
+	}
+}
+.lab-res{
+	form{
+		.form{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			.column{
+				margin-right: 4rem;
+				div{
+					display: grid;
+					grid-template-columns: 1fr 2fr;
+					margin-bottom: 2rem;
+				}
+			}
+		}
+	}
+}
+.details{
+	border-bottom: 2px dashed $white;
+	.date{
+		margin: 0;
+		margin-top: 1rem;
+	}
+	.para_detail{
+		margin-top: 1rem;
+	}
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;

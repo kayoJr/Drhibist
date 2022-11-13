@@ -1,11 +1,11 @@
 <?php
 require "db.php";
 $id = $_GET['rn'];
-$sql = "DELETE * FROM `lab_cart` WHERE `id` = '$id'";
+$sql = "DELETE FROM `lab_cart` WHERE `id` = '$id'";
 if(!$conn->query($sql)){
     echo $conn->error;
 }else{
-    header("Location:../Users/Doctor?msg=Deleted");
+    header("Location:../Users/Doctor?msg=Deleted&search=1&searching=Search");
 }
 
 ?>
