@@ -145,6 +145,16 @@ require '../../backend/auth.php';
 										<input type="number" name="phone" id="phone" required>
 									</div>
 								</div>
+								<div class="payment">
+									<div>
+										<label for="system">System</label>
+										<input type="radio" name="payment" id="system" value="system" required>
+									</div>
+									<div>
+										<label for="cash">Cash</label>
+										<input type="radio" name="payment" id="cash" checked value="cash" required>
+									</div>
+								</div>
 								<input type="submit" name="add_pat" class="btn btn-primary" value="Register">
 							</form>
 						</div>

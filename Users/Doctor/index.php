@@ -55,8 +55,8 @@ require '../../backend/auth.php';
 							</div>
 							<div class="user_info">
 								<?php
-								$phone = $_SESSION['user'];
-								$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
+								$phone_doc = $_SESSION['user'];
+								$sql = "SELECT * FROM `users` WHERE `phone` = '$phone_doc'";
 								$res = $conn->query($sql);
 								while ($row = mysqli_fetch_assoc($res)) {
 									$name = $row['name'];
@@ -116,6 +116,25 @@ require '../../backend/auth.php';
 							$phone = $_GET['search'];
 							$search_sql = "SELECT * FROM `patient` WHERE `phone`='$phone' OR `id` = '$phone'";
 							$rs = $conn->query($search_sql);
+							$adm = "SELECT * FROM `admission` WHERE `pat_id` = '$phone' OR `pat_phone` = '$phone'";
+							$r = $conn->query($adm);
+							if($r->num_rows > 0){
+								while($rows = $r->fetch_assoc()){
+									$date = $rows['date'];
+								}
+								echo "
+								<div class='center-btn'>
+								<h2>In Admission Since $date</h2>
+								</div>
+								";
+								
+							}else{
+								echo "
+								<div class='center-btn'>
+								<a class='btn' id='center' href='../../backend/admission.php?id=$phone&doc=$phone_doc'>Send to Admission</a>
+								</div>
+								";
+							}
 							echo "
 									<table class='table'>
 									<thead>

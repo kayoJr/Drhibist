@@ -144,6 +144,20 @@ require '../../backend/db.php';
 							}
 							echo "</table>";
 							echo "<br>";
+							$adm = "SELECT * FROM `admission` WHERE `pat_id` = '$phone' OR `pat_phone` = '$phone'";
+							$r = $conn->query($adm);
+							if($r->num_rows > 0){
+								while($rows = $r->fetch_assoc()){
+									$date = $rows['date'];
+								}
+								echo "
+								<div class='center-btn'>
+								<h2>In Admission Since $date</h2>
+								<a class='btn' href='withdraw.php?id=$phone'>Withdraw</a>
+								</div>
+								";
+								
+							}
 							$lab_sql = "SELECT SUM(price) AS totalPay FROM `lab_cart` WHERE `patient_id`=$card AND `payment`=0 ";
 							$sql_res = $conn->query($lab_sql);
 							if($sql_res){
@@ -161,7 +175,7 @@ require '../../backend/db.php';
 											<h3>$lab_sum ETB</h3>
 											<input type='hidden' name='price' value='$lab_sum'>
 											<a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a>
-										</div>
+										</div>	
 									</div>
 								</div>
 									";

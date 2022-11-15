@@ -2,16 +2,16 @@
 require '../../backend/auth.php';
 require '../../backend/db.php';
 $med_id = $_GET['id'];
-$sql = "SELECT * FROM `medicine` WHERE `id` = '$med_id'";
+$sql = "SELECT * FROM `meds` WHERE `id` = '$med_id'";
 if($rs = $conn->query($sql)){
     while($row = $rs->fetch_assoc()){
         $med_name = $row['name'];
         $type = $row['type'];
         $amount = $row['amount'];
-        $org_price = $row['org_price'];
-        $sell_price = $row['sell_price'];
-        $reg_date = $row['reg_date'];
-        $exp_date = $row['exp_date'];
+        $org_price = $row['cost'];
+        $sell_price = $row['price'];
+        $reg_date = $row['date'];
+        $exp_date = $row['exdate'];
     }
 }
 ?>
@@ -152,20 +152,20 @@ if($rs = $conn->query($sql)){
                                         <input type="number" name="amount" id="amount" value="<?php echo $amount; ?>" required>
                                     </div>
                                     <div>
-                                        <label for="org_price">Original Price</label>
+                                        <label for="org_price">Cost</label>
                                         <input type="number" name="org_price" id="org_price" value="<?php echo $org_price; ?>" required>
                                     </div>
                                     <div>
-                                        <label for="sell_price">Sell Price</label>
-                                        <input type="number" name="sell_price" id="sell_price" value="<?php echo $sell_price; ?>" required>
+                                        <label for="sell_price">Price</label>
+                                        <input type="number" name="sell_price" id="sell_price" value="<?php echo $sell_price; ?>" >
                                     </div>
                                     <div>
                                         <label for="reg_date">Registered Date</label>
-                                        <input type="date" name="reg_date" id="reg_date" value="<?php echo $reg_date; ?>" required>
+                                        <input type="date" name="reg_date" id="reg_date" value="<?php echo $reg_date; ?>" >
                                     </div>
                                     <div>
                                         <label for="exp_date">Expire Date</label>
-                                        <input type="date" name="exp_date" id="exp_date" value="<?php echo $exp_date; ?>" required>
+                                        <input type="date" name="exp_date" id="exp_date" value="<?php echo $exp_date; ?>" >
                                     </div>
                                     <div>
                                         <label for="me">hello</label>

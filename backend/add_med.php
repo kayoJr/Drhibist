@@ -10,7 +10,7 @@ if(isset($_POST['add_med'])){
     $reg_date = $_POST['reg_date'];
     $exp_date = $_POST['exp_date'];
     
-    $sql = "INSERT INTO `medicine`(`name`, `type`, `amount`, `org_price`, `sell_price`, `reg_date`, `exp_date`)
+    $sql = "INSERT INTO `meds`(`name`, `type`, `amount`, `cost`, `price`, `date`, `exdate`)
         VALUES ('$name', '$type', '$amount', '$org_price', '$sell_price', '$reg_date', '$exp_date')";
     if($conn->query($sql)){
         header("Location:../Users/Admin/add.php?msg=Added");

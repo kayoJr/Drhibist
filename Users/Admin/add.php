@@ -139,11 +139,11 @@ require '../../backend/db.php';
                                         <input type="number" name="amount" id="amount" required>
                                     </div>
                                     <div>
-                                        <label for="org_price">Original Price</label>
+                                        <label for="org_price">Cost</label>
                                         <input type="number" name="org_price" id="org_price" required>
                                     </div>
                                     <div>
-                                        <label for="sell_price">Sell Price</label>
+                                        <label for="sell_price">Price</label>
                                         <input type="number" name="sell_price" id="sell_price" required>
                                     </div>
                                     <div>

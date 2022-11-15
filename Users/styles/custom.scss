@@ -387,7 +387,6 @@ form {
 	padding: 1rem 0;
 	text-align: center;
 }
-
 .boxes {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -404,6 +403,11 @@ form {
 		}
 		.btn {
 			margin-top: 0;
+		}
+		a{
+			text-align: center;
+			display: block;
+			margin: 1rem 3rem;
 		}
 	}
 }
@@ -462,6 +466,101 @@ label[for='me']{
 		margin-top: 1rem;
 	}
 }
+form {
+	button:not(.btn2) {
+		background-color: unset;
+		margin: 0;
+	}
+	ul {
+		background-color: $dark-bg;
+		li{
+			a{
+				color: $white;
+				font-size: 1.2rem;
+			}
+		}
+	}
+	.bootstrap-select {
+		background-color: $dark-bg;
+		color: $white;
+	}
+	.dropdown-toggle{
+		border: 2px solid $white;
+
+	}
+	.filter-option-inner-inner {
+		color: $white;
+	}
+	#books {
+		color: $white !important;
+		background: $dark-bg;
+	}
+	input[name='books']{
+		display: none;
+	}
+	table {
+		th,
+		td,
+		select {
+			background-color: $dark-bg;
+		}
+	}
+}
+.return{
+	form {
+		overflow-y: visible;
+		margin: 0 auto;
+		table {
+			th,
+			td,
+			select {
+				background-color: $dark-bg;
+			}
+		}
+		button:not(.btn2) {
+			background-color: unset;
+			margin: 0;
+		}
+		ul {
+			background-color: $dark-bg;
+		}
+		.bootstrap-select {
+			background-color: $dark-bg;
+			color: $white;
+		}
+		.filter-option-inner-inner {
+			color: $white;
+		}
+		#books {
+			color: $white !important;
+			background: $dark-bg;
+		}
+	}
+}
+.payment{
+	margin-top: 2rem;
+	label,input{
+		display: block;
+		margin-right: 1rem;
+		color: #fff;
+	}
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: row;
+	div{
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+	}
+}
+.center-btn{
+	display: grid;
+	place-items: center;
+	a{
+		margin: 0 auto;
+	}
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;
@@ -475,10 +574,16 @@ label[for='me']{
 		visibility: hidden;
 	}
 	.modal-content,
-	.modal-content * {
+	.modal-content *,
+	#withdrawal,
+	#withdrawal *,
+	.total * {
+		color: #000;
 		visibility: visible;
 	}
-	.modal-footer * {
+	.modal-footer *,
+	.payment,
+	.payment * {
 		visibility: hidden;
 	}
 	.modal-content {

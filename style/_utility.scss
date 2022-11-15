@@ -69,6 +69,15 @@ input::-webkit-inner-spin-button {
 			}
 		}
 	}
+	.payment{
+		color: #000;
+		label{
+			color: #000 !important;
+		}
+		form{
+			all: unset;
+		}
+	}
 }
 #feedback {
 	display: flex;
@@ -210,6 +219,7 @@ input::-webkit-inner-spin-button {
 		font-size: 2rem;
 	}
 }
+
 @media (max-width: 768px) {
 	.grid-x3 {
 		grid-template-columns: 1fr;

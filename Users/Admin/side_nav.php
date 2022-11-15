@@ -16,6 +16,10 @@
             <span>Pharmacy</span></a>
     </li>
     <li>
+        <a href="return.php"><i class="fa-solid fa-rotate-left"></i>
+            <span>Return</span></a>
+    </li>
+    <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>
     </li>

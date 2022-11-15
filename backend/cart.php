@@ -5,15 +5,17 @@ require './db.php';
 // $num = $_GET['quant'];
 if (isset($_POST['submit'])) {
     $id = $_POST['name'];
-    $type = $_POST['books'];
+    $type = $_POST['book'];
     $quant = $_POST['quant'];
-    $sql = "SELECT * FROM `medicine` WHERE `id` = '$id'";
+    $med_id = $_POST['med_id'];
+    $pat_id = $_POST['pat_id'];
+    $sql = "SELECT * FROM `meds` WHERE `id` = '$id'";
     $rs = mysqli_query($conn, $sql);
     if (mysqli_num_rows($rs)) {
         while ($row = mysqli_fetch_assoc($rs)) {
             $pd_id = $row['id'];
             $pd_name = $row['name'];
-            $pd_price = $row['sell_price'];
+            $pd_price = $row['cost'];
             $amount = $row['amount'];
             $t_price = $pd_price * $quant;
             $sql = "SELECT * FROM `cart` WHERE `id` = '$pd_id'";
@@ -22,7 +24,7 @@ if (isset($_POST['submit'])) {
             $cart = $row['id'];
             if ($amount >= $quant) {
                 $nw_amount = $amount - $quant;
-                $update = "UPDATE `medicine` SET `amount` = '$nw_amount' WHERE `id` = '$id'";
+                $update = "UPDATE `meds` SET `amount` = '$nw_amount' WHERE `id` = '$id'";
                 if ($row[0] > 1) {
                     $upd = "UPDATE `cart` SET `quant` = '$quant' WHERE `id`= '$pd_id'";
                     $query = "UPDATE `cart` SET `id`='$pd_id',`name`='$pd_name',`price`='$pd_price',`quant`='$quant',`sub_price`='$t_price' WHERE `id`='$pd_id'";
@@ -45,8 +47,8 @@ if (isset($_POST['submit'])) {
                     // }
                     // header("Location:index.php?warn=Already Added");
                 } else {
-                    $query = "INSERT INTO `cart` (`id`, `name`, `type`, `price`,`quant`, `sub_price`) values 
-            ('$pd_id', '$pd_name', '$type', '$pd_price', '$quant', '$t_price')";
+                    $query = "INSERT INTO `cart` (`id`, `name`, `type`, `price`,`quant`, `sub_price`, `pat_id`) values 
+            ('$pd_id', '$pd_name', '$type', '$pd_price', '$quant', '$t_price', '$pat_id')";
                     $rs2 = mysqli_query($conn, $query);
                     if (!$rs2) {
                         header("Location:../Users/Pharmacy?msg=Nothing Added");

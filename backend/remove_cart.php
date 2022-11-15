@@ -5,12 +5,12 @@ $sel = "SELECT * FROM `cart` WHERE `id`='$id'";
 $pro = $conn->query($sel);
 while ($row = $pro->fetch_assoc()) {
     $quant_cart = $row['quant'];
-    $med = "SELECT * FROM `medicine` WHERE `id`='$id'";
+    $med = "SELECT * FROM `meds` WHERE `id`='$id'";
     $medd = $conn->query($med);
     while ($rows = $medd->fetch_assoc()) {
         $quant_med = $rows['amount'];
         $new = $quant_cart + $quant_med;
-        $upd = "UPDATE `medicine` SET `amount` = '$new' WHERE `id` = '$id'";
+        $upd = "UPDATE `meds` SET `amount` = '$new' WHERE `id` = '$id'";
         $resl = $conn->query($upd);
         if ($resl) {
             $sql = "DELETE FROM `cart` WHERE `id` = '$id'";

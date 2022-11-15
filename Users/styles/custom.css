@@ -65,6 +65,15 @@ input::-webkit-inner-spin-button {
 .modal .total p:nth-child(2) {
   font-size: 1.5rem;
 }
+.modal .payment {
+  color: #000;
+}
+.modal .payment label {
+  color: #000 !important;
+}
+.modal .payment form {
+  all: unset;
+}
 
 #feedback {
   display: flex;
@@ -275,6 +284,15 @@ input::-webkit-inner-spin-button {
 }
 .modal .total p:nth-child(2) {
   font-size: 1.5rem;
+}
+.modal .payment {
+  color: #000;
+}
+.modal .payment label {
+  color: #000 !important;
+}
+.modal .payment form {
+  all: unset;
 }
 
 #feedback {
@@ -885,6 +903,11 @@ form .search-form input[type=submit] {
 .boxes .box .btn {
   margin-top: 0;
 }
+.boxes .box a {
+  text-align: center;
+  display: block;
+  margin: 1rem 3rem;
+}
 
 #search_med {
   margin: 1rem auto;
@@ -943,6 +966,94 @@ label[for=me] {
   margin-top: 1rem;
 }
 
+form button:not(.btn2) {
+  background-color: unset;
+  margin: 0;
+}
+form ul {
+  background-color: #343a40;
+}
+form ul li a {
+  color: #fff;
+  font-size: 1.2rem;
+}
+form .bootstrap-select {
+  background-color: #343a40;
+  color: #fff;
+}
+form .dropdown-toggle {
+  border: 2px solid #fff;
+}
+form .filter-option-inner-inner {
+  color: #fff;
+}
+form #books {
+  color: #fff !important;
+  background: #343a40;
+}
+form input[name=books] {
+  display: none;
+}
+form table th,
+form table td,
+form table select {
+  background-color: #343a40;
+}
+
+.return form {
+  overflow-y: visible;
+  margin: 0 auto;
+}
+.return form table th,
+.return form table td,
+.return form table select {
+  background-color: #343a40;
+}
+.return form button:not(.btn2) {
+  background-color: unset;
+  margin: 0;
+}
+.return form ul {
+  background-color: #343a40;
+}
+.return form .bootstrap-select {
+  background-color: #343a40;
+  color: #fff;
+}
+.return form .filter-option-inner-inner {
+  color: #fff;
+}
+.return form #books {
+  color: #fff !important;
+  background: #343a40;
+}
+
+.payment {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+.payment label, .payment input {
+  display: block;
+  margin-right: 1rem;
+  color: #fff;
+}
+.payment div {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.center-btn {
+  display: grid;
+  place-items: center;
+}
+.center-btn a {
+  margin: 0 auto;
+}
+
 @media (max-width: 768px) {
   .pharmacy {
     grid-template-columns: 1fr;
@@ -956,10 +1067,16 @@ label[for=me] {
     visibility: hidden;
   }
   .modal-content,
-.modal-content * {
+.modal-content *,
+#withdrawal,
+#withdrawal *,
+.total * {
+    color: #000;
     visibility: visible;
   }
-  .modal-footer * {
+  .modal-footer *,
+.payment,
+.payment * {
     visibility: hidden;
   }
   .modal-content {

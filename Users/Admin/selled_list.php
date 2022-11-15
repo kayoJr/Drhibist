@@ -2,8 +2,6 @@
 require '../../backend/auth.php';
 require '../../backend/db.php';
 
-
-
 // define how many results you want per page
 
 ?>
@@ -115,164 +113,76 @@ require '../../backend/db.php';
 								?>
 							</p>
 						</div>
-						<form action="" method="GET" class="search" id="search_med">
-							<h3>Search For Medicine</h3>
+						<form action="selled_list.php" class="search">
+							<h3>Search</h3>
 							<div class="search-form">
-								<select name="med" class="form-control selectpicker" data-live-search="true" id="authors">
-									<option selected="" disabled="">Select Medicine</option>
-									<?php
-									$sql = "SELECT * FROM `meds`";
-									$rs = $conn->query($sql);
-									foreach ($rs as $author) {
-										echo "<option id='" . $author['id'] . "' value='" . $author['name'] . "'>" . $author['name'] . "</option>";
-										echo "<h4>" . $author['type'] . "</h4>";
-									}
-									?>
-								</select>
-								<input type="submit" name="searching" value="SEARCH" class="btn">
+								<input type="date" name="date" id="search" />
+								<input type="submit" name="search-date" value="Search" class="btn btn-primary" />
 							</div>
 						</form>
-						<a href="add.php" class="btn center">ADD</a>
+
 						<?php
-						if (isset($_GET['searching'])) {
-							@$med_name = $_GET['med'];
-							$search_sql = "SELECT * FROM `meds` WHERE `name` = '$med_name'";
-							$rs = $conn->query($search_sql);
-							echo "
+						if (isset($_GET['search-date'])) {
+						//$sdate = $_GET['search'];
+						$today = $_GET['date'];
+						$search_sql = "SELECT * FROM `pharma_daily_sell` WHERE `date` = '$today'";
+						$rs = $conn->query($search_sql);
+						echo "
 									<table class='table'>
 									<thead>
-										<th>Name</th>
-										<th>Type</th>
-										<th>Amount</th>
-										<th>Cost</th>
-										<th>Price</th>
-										<th>Reg Date</th>
-										<th>Exp Date</th>
-										<th>Action</th>
+                                    <thead>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Amount</th>
+                                    <th>Price</th>
+                                    <th>sub_price</th>
+                                    <th>Date</th>
+                                </thead>
 									</thead>
 									";
-							if ($rs) {
-								while ($result = $rs->fetch_assoc()) {
-									$id = $result['id'];
-									$card = $result['name'];
-									$pt_name = $result['type'];
-									$amount = $result['amount'];
-									$org_price = $result['cost'];
-									$sell_price = $result['price'];
-									$reg_date = $result['date'];
-									$exp_date = $result['exdate'];
-									echo "	
+
+						while ($row = mysqli_fetch_array($rs)) {
+							$id = $row['id'];
+							$name = $row['name'];
+							$type = $row['type'];
+							$price = $row['price'];
+							$amount = $row['quan'];
+							$sub = $row['sub_price'];
+							$date = $row['date'];
+
+							echo "	
 												<tbody>
 													<tr>
-														<td data-label='Name'>$card</td>
-														<td data-label='Type'>$pt_name</td>
+														<td data-label='Name'>$name</td>
+														<td data-label='Type'>$type</td>
 														<td data-label='amount'>$amount</td>
-														<td data-label='Cost'>$org_price</td>
-														<td data-label='Price'>$sell_price</td>
-														<td data-label='Reg Date'>$reg_date</td>
-														<td data-label='Exp Date'>$exp_date</td>
-														<td>
-														<a href='./upd_med.php?id=$id'>update</a>
-														</td>
+														<td data-label='Sell Price'>$price</td>
+														<td data-label='Reg Date'>$sub</td>
+														<td data-label='Exp Date'>$date</td>
+
+														
 													</tr>
 												</tbody>
 												";
-								}
-							} else {
-								echo $conn->error;
-							}
-							echo "</table>";
-						} else if (!isset($_GET['searching'])) {
-							//$search_sql = "SELECT * FROM `medicine` ORDER BY `reg_date` DESC LIMIT 10";
-							//$rs = $conn->query($search_sql);
-							echo "
-									<table class='table'>
-									<thead>
-										<th>Name</th>
-										<th>Type</th>
-										<th>Amount</th>
-										<th>Cost</th>
-										<th>Price</th>
-										<th>Reg Date</th>
-										<th>Exp Date</th>
-										<th>Action</th>
-									</thead>
-									";
-							//if ($rs) {
-								//while ($result = $rs->fetch_assoc()) {
-									
+						}
 
-									$results_per_page = 10;
+						// display the links to the pages
 
-									// find out the number of results stored in database
-									$sql = 'SELECT * FROM `meds` ';
-									$result = mysqli_query($conn, $sql);
-									$number_of_results = mysqli_num_rows($result);
 
-									// determine number of total pages available
-									$number_of_pages = ceil($number_of_results / $results_per_page);
 
-									// determine which page number visitor is currently on
-									if (!isset($_GET['page'])) {
-										$page = 1;
-									} else {
-										$page = $_GET['page'];
-									}
-
-									// determine the sql LIMIT starting number for the results on the displaying page
-									$this_page_first_result = ($page - 1) * $results_per_page;
-
-									// retrieve selected results from database and display them on page
-									$sql = 'SELECT * FROM `meds` ORDER BY `id` ASC LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
-									$result = mysqli_query($con, $sql);
-									while ($row = mysqli_fetch_array($result)) {
-										$id = $row['id'];
-										$card = $row['name'];
-										$pt_name = $row['type'];
-										$amount = $row['amount'];
-										$org_price = $row['cost'];
-										$sell_price = $row['price'];
-										$reg_date = $row['date'];
-										$exp_date = $row['exdate'];
-										echo "	
-												<tbody>
-													<tr>
-														<td data-label='Name'>$card</td>
-														<td data-label='Type'>$pt_name</td>
-														<td data-label='amount'>$amount</td>
-														<td data-label='Cost'>$org_price</td>
-														<td data-label='Price'>$sell_price</td>
-														<td data-label='Reg Date'>$reg_date</td>
-														<td data-label='Exp Date'>$exp_date</td>
-														<td>
-														<a href='./upd_med.php?id=$id'>update</a>
-														</td>
-													</tr>
-												</tbody>
-												";
-									}
-
-									// display the links to the pages
-									
-
-									
-								//}
-							// } else {
-							// 	echo $conn->error;
-							// }
-							echo "</table>";
-							echo '<div class="pagination">';
-							//echo $_GET['page'];
-							for ($page = 1; $page <= $number_of_pages; $page++) {
-								?>
-								
-								<a class="<?php if(@$_GET['page'] == $page){echo 'current_page';}  ?>" href="pharmacy.php?page=<?php echo $page;  ?>"><?php echo $page;  ?></a>
-								<?php
-							}
-
-							echo '</div>';
+						//}
+						// } else {
+						// 	echo $conn->error;
+						// }
+						echo "</table>";
+						echo '<div class="pagination">';
+						//echo $_GET['page'];
+						// for ($page = 1; $page <= $number_of_pages; $page++) {
+						// 	
 						}
 						?>
+
+
 					</div>
 					<!-- footer -->
 				</div>

@@ -90,6 +90,65 @@ require '../../backend/db.php';
 				<!-- dashboard inner -->
 				<div class="midde_cont">
 					<div class="container-fluid">
+						<div class="system_income">
+							<h2 class="report">Daily Income</h2>
+							<div class="boxes">
+								<div class="box">
+									<h4>Daily System Only Income</h4>
+									<?php
+									$today = date("Y-m-d");
+										$sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today'";
+										$rs = $conn->query($sql);
+										$row = $rs->fetch_assoc();
+										$sys_sum = $row['value_sum'];
+										echo "<h3>$sys_sum ETB</h3>"
+									?>
+								</div>
+								<div class="box">
+									<h4>Daily Cash Only Income</h4>
+									<?php
+									$today = date("Y-m-d");
+										$sql = "SELECT SUM(payment) AS rece FROM `patient` WHERE `date` = '$today'";
+										$rs = $conn->query($sql);
+										$row = $rs->fetch_assoc();
+										$rec_sum = $row['rece'];
+
+										$sql = "SELECT SUM(sub_price) AS phar FROM `pharma_daily_sell` WHERE `date` = '$today'";
+										$rs = $conn->query($sql);
+										$row = $rs->fetch_assoc();
+										$phar_sum = $row['phar'];
+
+										$sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today'";
+										$rs = $conn->query($sql);
+										$row = $rs->fetch_assoc();
+										$sys_sum = $row['value_sum'];
+
+										$tot_sum = ($rec_sum + $phar_sum) - $sys_sum;
+
+										echo "<h3>$tot_sum ETB</h3>"
+									?>
+								</div>
+								<div class="box">
+									<h4>Daily Total Income</h4>
+									<?php
+													$today = date("Y-m-d");
+													$sql = "SELECT SUM(payment) AS rece FROM `patient` WHERE `date` = '$today'";
+													$rs = $conn->query($sql);
+													$row = $rs->fetch_assoc();
+													$rec_sum = $row['rece'];
+			
+													$sql = "SELECT SUM(sub_price) AS phar FROM `pharma_daily_sell` WHERE `date` = '$today'";
+													$rs = $conn->query($sql);
+													$row = $rs->fetch_assoc();
+													$phar_sum = $row['phar'];
+
+													$tot_sum = $rec_sum + $phar_sum;
+			
+													echo "<h3>$tot_sum ETB</h3>"
+									?>
+								</div>
+							</div>
+						</div>
 						<div class="daily-report">
 							<h2 class="report">Daily Report</h4>
 								<div class="boxes">
@@ -105,7 +164,7 @@ require '../../backend/db.php';
 										$today = date("Y-m-d");
 										if (isset($_GET['search'])) {
 											$today = $_GET['date'];
-										}
+										
 										$sql = "SELECT SUM(payment) AS value_sum FROM `patient` WHERE `date` = '$today'";
 										$sql2 = "SELECT COUNT(payment) AS count_sum FROM `patient` WHERE `date` = '$today'";
 										$res = $conn->query($sql);
@@ -126,6 +185,7 @@ require '../../backend/db.php';
 												<h3>$count Patients Registered Today</h3>
 												";
 										}
+									}
 										?>
 									</div>
 									<div class="box">
@@ -133,6 +193,41 @@ require '../../backend/db.php';
 									</div>
 									<div class="box">
 										<h4>Pharmacy</h4>
+										<form action="index.php" method="GET">
+											<div class="form-elements">
+												<input type="date" name="date" id="date">
+												<input type="submit" value="Search" name="search_phar" class="btn btn-primary">
+											</div>
+										</form>
+										<?php
+										$today = date("Y-m-d");
+										if (isset($_GET['search_phar'])) {
+											$today = $_GET['date'];
+										
+										$sql = "SELECT SUM(sub_price) AS value_sum FROM `pharma_daily_sell` WHERE `date` = '$today'";
+										$sql2 = "SELECT COUNT(id) AS count_sum FROM `pharma_daily_sell` WHERE `date` = '$today'";
+										$res = $conn->query($sql);
+										$res2 = $conn->query($sql2);
+										if ($res) {
+											while ($row = $res->fetch_assoc()) {
+												$sum = $row['value_sum'];
+											}
+											echo "
+												<h3>$sum ETB</h3>
+												";
+										}
+										if ($res2) {
+											while ($row = $res2->fetch_assoc()) {
+												$count = $row['count_sum'];
+											}
+											echo "
+												<h3>$count drugs selled today</h3>
+												";
+										}
+									}
+									
+									?>
+									<a class="btn btn-primary" href="selled_list.php?id=<?php echo $today; ?>" >List</a>
 									</div>
 									<div class="box">
 										<h4>Ultrasound</h4>

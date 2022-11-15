@@ -116,6 +116,9 @@ require '../../backend/auth.php';
 							echo "<p>$msg</p>"
 							?>
 						</div>
+                        <div class="center-btn">
+                             <h2>Sell To Patient In Admission</h2>
+                        </div>
 						<div class="pharmacy">
 							<form method="post" id="insert_form" action="../../backend/cart.php">
 								<div class="table-responsive">
@@ -124,6 +127,7 @@ require '../../backend/auth.php';
 											<th>Name</th>
 											<th>Type</th>
 											<th>Quantity</th>
+											<th>Patient Id</th>
 										</tr>
 										<tbody>
 											<tr>
@@ -149,6 +153,9 @@ require '../../backend/auth.php';
 												</td>
 												<td data-label="Quantity">
 													<input type="number" name="quant" id="quant" min="0" required>
+												</td>
+												<td data-label="Patient Id">
+													<input type="number" name="pat_id" id="pat_id" min="0" required>
 												</td>
 											</tr>
 										</tbody>
@@ -269,25 +276,13 @@ require '../../backend/auth.php';
 							echo $num . "$";
 							?></p>
 					</div>
-					<div class="payment">
-						<form action="../../backend/confirm.php" method="GET">
-							<div>
-								<label for="system">System</label>
-								<input type="radio" name="payment" id="system" value="system" required>
-							</div>
-							<div>
-								<label for="cash">Cash</label>
-								<input type="radio" name="payment" id="cash" checked value="cash" required>
-								<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
-							</div>
-						</div>
+			
 					</div>
 					<div class="modal-footer">
 						
 						<button type="button" class="btn btn-secondary" id="btnPrint" data-dismiss="modal">PRINT</button>
-						<!-- <a class="btn" href="../../backend/confirm.php">DONE</a> -->
-						<input type="submit" class="btn" value="Done" name="submit">
-					</form>
+						<a class="btn" href="../../backend/confirm_addm.php">DONE</a>
+				
 					<!-- <button type="button" name="done" class="btn btn-secondary" data-dismiss="modal">DONE</button> -->
 				</div>
 			</div>
