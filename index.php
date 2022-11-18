@@ -12,8 +12,10 @@
 			rel="stylesheet"
 		/>
         <link rel="stylesheet" href="./style/login.css">
-		<title>Login</title>
         <link rel="manifest" href="manifest.json" />
+        <link rel="apple-touch-icon" href="./img/favicon.ico">
+        <meta name="theme-color" content="#8a1668"/>
+		<title>Login</title>
 	</head>
 	<body>
         <form action="./backend/login.php" method="post" id="myForm">

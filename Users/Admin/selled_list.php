@@ -2,6 +2,13 @@
 require '../../backend/auth.php';
 require '../../backend/db.php';
 
+$med_id = @$_GET['rm'];
+$today = date("Y-m-d");
+@$sql = "DELETE FROM `pharma_daily_sell` WHERE `id` = '$med_id'";
+if(!$conn->query($sql)){
+	echo $conn->error;
+}
+
 // define how many results you want per page
 
 ?>
@@ -149,7 +156,11 @@ require '../../backend/db.php';
 							$amount = $row['quan'];
 							$sub = $row['sub_price'];
 							$date = $row['date'];
-
+							if($amount == 0){
+								$rmv = "X";
+							}else{
+								$rmv = '';
+							}
 							echo "	
 												<tbody>
 													<tr>
@@ -158,7 +169,7 @@ require '../../backend/db.php';
 														<td data-label='amount'>$amount</td>
 														<td data-label='Sell Price'>$price</td>
 														<td data-label='Reg Date'>$sub</td>
-														<td data-label='Exp Date'>$date</td>
+														<td data-label='Exp Date'><span class='rmv'>$date <a href='./selled_list.php?rm=$id'>$rmv</a></span></td>
 
 														
 													</tr>
