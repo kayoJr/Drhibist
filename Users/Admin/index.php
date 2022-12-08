@@ -101,23 +101,26 @@ require '../../backend/db.php';
 							<?php
 
 							?>
-							<div class="boxes">
+							<!-- <div class="boxes">
 								<div class="box">
 
 									<?php
-									$today = date("Y-m-d");
-									if (isset($_GET['search_income'])) {
-										$today = $_GET['date'];
-										if ($today == "") {
-											$today = date("Y-m-d");
-										}
-									}
-									echo "<h4>Daily System Only Income ($today)</h4>";
-									$sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today'";
-									$rs = $conn->query($sql);
-									$row = $rs->fetch_assoc();
-									$sys_sum = $row['value_sum'];
-									echo "<h3>$sys_sum ETB</h3>"
+									// $today = date("Y-m-d");
+									// if (isset($_GET['search_income'])) {
+									// 	$today = $_GET['date'];
+									// 	if ($today == "") {
+									// 		$today = date("Y-m-d");
+									// 	}
+									// }
+									// echo "<h4>Daily System Only Income ($today)</h4>";
+									// $sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today' AND `reason` = 'pharmacy'";
+									// $rs = $conn->query($sql);
+									// $row = $rs->fetch_assoc();
+									// $sys_sum = $row['value_sum'];
+									// if(!$sys_sum>0){
+									// 	$sys_sum = 0;
+									// }
+									// echo "<h3>$sys_sum ETB</h3>"
 									?>
 								</div>
 								<div class="box">
@@ -130,24 +133,24 @@ require '../../backend/db.php';
 										}
 									}
 									echo "<h4>Daily Cash Only Income ($today)</h4>";
-									$sql = "SELECT SUM(payment) AS rece FROM `patient` WHERE `date` = '$today'";
-									$rs = $conn->query($sql);
-									$row = $rs->fetch_assoc();
-									$rec_sum = $row['rece'];
+									// $sql = "SELECT SUM(payment) AS rece FROM `patient` WHERE `date` = '$today' AND `reason` = 'pharmacy'";
+									// $rs = $conn->query($sql);
+									// $row = $rs->fetch_assoc();
+									// $rec_sum = $row['rece'];
 
 									$sql = "SELECT SUM(sub_price) AS phar FROM `pharma_daily_sell` WHERE `date` = '$today'";
 									$rs = $conn->query($sql);
 									$row = $rs->fetch_assoc();
 									$phar_sum = $row['phar'];
 
-									$sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today'";
+									$sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today' AND `reason` = 'pharmacy'";
 									$rs = $conn->query($sql);
 									$row = $rs->fetch_assoc();
 									$sys_sum = $row['value_sum'];
 
-									$tot_sum = ($rec_sum + $phar_sum) - $sys_sum;
+									$tots_sum = $phar_sum - $sys_sum;
 
-									echo "<h3>$tot_sum ETB</h3>"
+									echo "<h3>$tots_sum ETB</h3>"
 									?>
 								</div>
 								<div class="box">
@@ -160,22 +163,119 @@ require '../../backend/db.php';
 										}
 									}
 									echo "<h4>Daily Total Income ($today)</h4>";
-									$sql = "SELECT SUM(payment) AS rece FROM `patient` WHERE `date` = '$today'";
-									$rs = $conn->query($sql);
-									$row = $rs->fetch_assoc();
-									$rec_sum = $row['rece'];
+									// $sql = "SELECT SUM(payment) AS rece FROM `patient` WHERE `date` = '$today'";
+									// $rs = $conn->query($sql);
+									// $row = $rs->fetch_assoc();
+									// $rec_sum = $row['rece'];
 
 									$sql = "SELECT SUM(sub_price) AS phar FROM `pharma_daily_sell` WHERE `date` = '$today'";
 									$rs = $conn->query($sql);
 									$row = $rs->fetch_assoc();
 									$phar_sum = $row['phar'];
 
-									$tot_sum = $rec_sum + $phar_sum;
+									$tot_sum = $phar_sum;
 
 									echo "<h3>$tot_sum ETB</h3>"
 									?>
 								</div>
+							</div> -->
+
+							<div class="boxes">
+								<div class="box">
+								<?php
+									$today = date("Y-m-d");
+									if (isset($_GET['search_income'])) {
+										$today = $_GET['date'];
+										if ($today == "") {
+											$today = date("Y-m-d");
+										}
+									}
+									$sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today' AND `reason` = 'pharmacy'";
+									$rs = $conn->query($sql);
+									$row = $rs->fetch_assoc();
+									$sys_sum = $row['value_sum'];
+									if(!$sys_sum>0){
+										$sys_sum = 0;
+									}
+									?>
+									<h4>Pharmacy (<?php echo $today; ?>)</h4>
+									<div class="sells">
+										<div>
+											<h3>System</h3>
+											<h3><?php echo $sys_sum; ?></h3>
+										</div>
+										<div>
+											<h3>Cash</h3>
+											<h3><?php echo $tots_sum; ?></h3>
+										</div>
+										<div>
+											<h3>Total</h3>
+											<h3><?php echo $tot_sum; ?></h3>
+										</div>
+									</div>
+								</div>
+								
+								<div class="box">
+									<h4>Reception (<?php echo $today; ?>)</h4>
+									<?php
+									$today = date("Y-m-d");
+								$sql_rec = "SELECT SUM(price) AS rec FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'reception'";
+								$rs_rec = $conn->query($sql_rec);
+								$row_rec = $rs_rec->fetch_assoc();
+								$rec_sys_sum = $row_rec['rec'];
+
+								$sql_rec = "SELECT SUM(price) AS rec_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'reception'";
+								$rs_rec_cash = $conn->query($sql_rec);
+								$row_rec_cash = $rs_rec_cash->fetch_assoc();
+								$rec_cash_sum = $row_rec_cash['rec_cash'];
+									?>
+								<div class="sells">
+										<div>
+											<h3>System</h3>
+											<h3><?php echo $rec_sys_sum; ?></h3>
+										</div>
+										<div>
+											<h3>Cash</h3>
+											<h3><?php echo $rec_cash_sum; ?></h3>
+										</div>
+										<div>
+											<h3>Total</h3>
+											<h3><?php echo $rec_sys_sum + $rec_cash_sum; ?></h3>
+										</div>
+									</div>
+								</div>
+
+								<div class="box">
+									<h4>Laboratory (<?php echo $today; ?>)</h4>
+									<?php
+									$today = date("Y-m-d");
+								$sql_lab = "SELECT SUM(price) AS lab FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'laboratory'";
+								$rs_lab = $conn->query($sql_lab);
+								$row_lab = $rs_lab->fetch_assoc();
+								$lab_sys_sum = $row_lab['lab'];
+
+								$sql_lab = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'laboratory'";
+								$rs_lab_cash = $conn->query($sql_lab);
+								$row_lab_cash = $rs_lab_cash->fetch_assoc();
+								$lab_cash_sum = $row_lab_cash['lab_cash'];
+									?>
+								<div class="sells">
+										<div>
+											<h3>System</h3>
+											<h3><?php echo $lab_sys_sum; ?></h3>
+										</div>
+										<div>
+											<h3>Cash</h3>
+											<h3><?php echo $lab_cash_sum; ?></h3>
+										</div>
+										<div>
+											<h3>Total</h3>
+											<h3><?php echo $lab_sys_sum + $lab_cash_sum; ?></h3>
+										</div>
+									</div>
+								</div>
 							</div>
+							
 						</div>
 						<div class="daily-report">
 							<h2 class="report">Daily Report</h4>
@@ -324,7 +424,7 @@ require '../../backend/db.php';
 										$year = $todays[0];
 
 										$sql = "SELECT SUM(price) AS pharma_sum FROM `pharma_daily_sell` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
-										$sql2 = "SELECT SUM(price) AS count_sum FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+										$sql2 = "SELECT SUM(price) AS count_sum FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason`='pharmacy'";
 										$res = $conn->query($sql);
 										$res2 = $conn->query($sql2);
 										if ($res) {

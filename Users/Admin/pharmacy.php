@@ -144,8 +144,8 @@ require '../../backend/db.php';
 										<th>Name</th>
 										<th>Type</th>
 										<th>Amount</th>
-										<th>Cost</th>
-										<th>Price</th>
+										<th>Selling Price</th>
+										<th>Purchase Price</th>
 										<th>Reg Date</th>
 										<th>Exp Date</th>
 										<th>Action</th>
@@ -191,8 +191,8 @@ require '../../backend/db.php';
 										<th>Name</th>
 										<th>Type</th>
 										<th>Amount</th>
-										<th>Cost</th>
-										<th>Price</th>
+										<th>Selling Price</th>
+										<th>Purchase Price</th>
 										<th>Reg Date</th>
 										<th>Exp Date</th>
 										<th>Action</th>

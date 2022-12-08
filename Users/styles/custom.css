@@ -13,6 +13,10 @@ a {
   text-decoration: none;
 }
 
+.hide {
+  display: none !important;
+}
+
 .btn {
   padding: 10px 30px;
   border: none;
@@ -231,6 +235,10 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.hide {
+  display: none !important;
 }
 
 .btn {
@@ -816,36 +824,30 @@ form .search-form input[type=submit] {
   display: none;
 }
 
-.lab-order {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-}
 .lab-order form {
-  margin-top: 2rem;
+  margin: 2rem auto;
 }
-.lab-order form .catagory {
+.lab-order form table thead tr {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1rem;
 }
-.lab-order form .catagory .items h4 {
-  margin-top: 1rem;
-  border: 1px solid #fff;
-  padding: 0.8rem 0.5rem;
-}
-.lab-order form .catagory .items div {
-  margin-top: 1rem;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-}
-.lab-order form .catagory .items div label {
-  margin-left: 10px;
+.lab-order form table thead th {
+  padding: 1rem 0.5rem;
   white-space: nowrap;
+}
+.lab-order form table thead th label {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+.lab-order form table h3 {
+  text-align: left !important;
+  margin: 0.5rem auto !important;
 }
 .lab-order form {
   overflow-y: visible;
-  margin: 0;
+  margin: 0 auto;
 }
 .lab-order form button:not(.btn2) {
   background-color: unset;
@@ -930,9 +932,11 @@ label[for=me] {
 }
 
 .lab-name {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 .lab-name p {
   margin-right: 1rem;
@@ -940,6 +944,7 @@ label[for=me] {
   padding: 0.5rem;
   color: #000;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .lab-res form .form {
@@ -1068,6 +1073,81 @@ form table select {
 }
 #search_income .form-elements input[type=submit] {
   margin-top: 0;
+}
+
+.mgt {
+  margin-top: 0 !important;
+}
+
+.mgb {
+  margin-bottom: 0 !important;
+}
+
+.mgb-1 {
+  margin-bottom: 0.5rem !important;
+}
+
+.stool {
+  align-items: center;
+}
+
+.two-input {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.sells {
+  display: flex;
+  flex-direction: column;
+}
+.sells div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.lab_req_form {
+  max-width: 900px;
+}
+.lab_req_form table thead tr {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) !important;
+}
+
+.lab_result {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.lab_result .lab {
+  padding: 1rem;
+  background-color: #343a40;
+}
+.lab_result .lab h2 {
+  margin-bottom: 2rem;
+}
+.lab_result .lab img {
+  width: 100%;
+}
+.lab_result .lab table thead th.head {
+  background-color: #343a40;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 1rem auto;
+}
+.navigation a {
+  background-color: #8a1668;
+  color: #fff;
+  padding: 0.8rem;
+  border-radius: 50%;
+  transition: all 300ms;
+}
+.navigation a:hover {
+  background-color: #60b000;
 }
 
 @media (max-width: 768px) {

@@ -135,19 +135,50 @@ require '../../backend/db.php';
 														<td data-label='Phone'>$pt_phone</td>
 														<td data-label='Date'>$date</td>
 														<td>
-														<a href='../../backend/date.php?id=$card'>update</a>
+														<button type='button' class='btn mgt mgb' data-toggle='modal' data-target='#exampleModalCenter'>
+														Update
+														</button>
 														</td>
-													</tr>
-												</tbody>
-												";
+														</tr>
+														</tbody>
+														";
+									// <a href='../../backend/date.php?id=$card'>update</a>
 								}
 							}
 							echo "</table>";
 							echo "<br>";
+
+							echo "
+							<div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+  <div class='modal-dialog modal-dialog-centered' role='document'>
+    <div class='modal-content'>
+      <div class='modal-body'>
+	  <form class='mgt mgb' action='../../backend/date.php' method='POST'>
+	  <h2 class='center'>Update User Payment</h2>
+	  <div class='payment'>
+		  <div>
+			  <label for='system'>System</label>
+			  <input type='radio' name='payment' id='system' value='system' required>
+		  </div>
+		  <div>
+			  <label for='cash'>Cash</label>
+			  <input type='radio' name='payment' id='cash' checked value='cash' required>
+		  </div>
+	  </div>
+	  <input type='hidden' name='id' value='$card'>
+	  <input type='submit' class='btn mgt' value='Pay' name='submit'>
+  </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+							";
+
 							$adm = "SELECT * FROM `admission` WHERE `pat_id` = '$phone' OR `pat_phone` = '$phone'";
 							$r = $conn->query($adm);
-							if($r->num_rows > 0){
-								while($rows = $r->fetch_assoc()){
+							if ($r->num_rows > 0) {
+								while ($rows = $r->fetch_assoc()) {
 									$date = $rows['date'];
 								}
 								echo "
@@ -156,29 +187,41 @@ require '../../backend/db.php';
 								<a class='btn' href='withdraw.php?id=$phone'>Withdraw</a>
 								</div>
 								";
-								
 							}
-							$lab_sql = "SELECT SUM(price) AS totalPay FROM `lab_cart` WHERE `patient_id`=$card AND `payment`=0 ";
+							$lab_sql = "SELECT SUM(price) AS totalPay FROM `lab_cart2` WHERE `patient_id`=$card AND `payment`=0 ";
 							$sql_res = $conn->query($lab_sql);
-							if($sql_res){
+							if ($sql_res) {
 								$row = $sql_res->fetch_assoc();
 								$lab_sum = $row['totalPay'];
-							}else{
+							} else {
 								echo $conn->error;
 							}
-
-							echo "
-								<div class='payments'>
-									<div class='grid-x3'>
-										<div class='grid'>
+						?>
+							<div class='payments'>
+								<div class='grid-x3'>
+									<div class='grid'>
+										<form class="mgt mgb" action="../../backend/lab_payment.php" method="POST">
 											<h2>Laboratory Payment</h2>
-											<h3>$lab_sum ETB</h3>
-											<input type='hidden' name='price' value='$lab_sum'>
-											<a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a>
-										</div>	
+											<h3><?php echo $lab_sum; ?> ETB</h3>
+											<input type='hidden' name='price' value='<?php echo $lab_sum; ?>'>
+											<input type="hidden" name="id" value="<?php echo $card; ?>">
+											<div class="payment mgt">
+												<div>
+													<label for="system">System</label>
+													<input type="radio" name="payment" id="system" value="system" required>
+												</div>
+												<div>
+													<label for="cash">Cash</label>
+													<input type="radio" name="payment" id="cash" checked value="cash" required>
+												</div>
+											</div>
+											<input type="submit" class="btn mgt" value="Pay" name="lab_payment">
+											<!-- <a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a> -->
+										</form>
 									</div>
 								</div>
-									";
+							</div>
+						<?php
 						}
 						?>
 					</div>

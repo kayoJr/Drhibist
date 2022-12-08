@@ -129,9 +129,19 @@ require '../../backend/auth.php';
 										<label for="name">Name</label>
 										<input type="text" name="name" id="name" required>
 									</div>
-									<div>
-										<label for="age">Age</label>
-										<input type="number" name="age" id="age" min="0" required>
+									<div class="two-input mgb">
+										<div class="age-input">
+											<label for="age">Age</label>
+											<input type="text" name="age" id="age" min="0" required>
+										</div>
+										<div>
+											<label for="me">Age</label>
+											<select name="age_type" id="age_type">
+												<option value="year">Year(s)</option>
+												<option value="month">Month(s)</option>
+												<option value="day">Day(s)</option>
+											</select>
+										</div>
 									</div>
 									<div>
 										<label for="sex">Sex</label>

@@ -103,50 +103,50 @@
                                 <div class="form-elements">
                                     <div>
                                         <label for="bp">BP</label>
-                                        <input type="number" name="bp" id="bp" required min="0">
+                                        <input type="text" name="bp" id="bp" required min="0">
                                     </div>
                                     <div>
                                         <label for="pr">PR</label>
-                                        <input type="number" name="pr" id="pr" required min="0">
+                                        <input type="number" name="pr" id="pr" required min="0" step=".01">
                                     </div>
                                     <div>
                                         <label for="saturation">Saturation</label>
-                                        <input type="number" name="saturation" id="saturation" min="0" required>
+                                        <input type="number" name="saturation" id="saturation" min="0" required step=".01">
                                     </div>
                                     <div>
                                         <label for="respiratory">Respiratory</label>
-                                        <input type="number" name="respiratory" id="respiratory" min="0" required>
+                                        <input type="number" name="respiratory" id="respiratory" min="0" required step=".01">
                                     </div>
                                     <div>
                                         <label for="temp">Temperature</label>
-                                        <input type="number" name="temp" id="temp" min="0" required>
+                                        <input type="number" name="temp" id="temp" min="0" required step=".01">
                                     </div>
                                     <div>
                                         <label for="height">Height</label>
-                                        <input type="number" name="height" id="height" min="0" required>
+                                        <input type="number" name="height" id="height" min="0" required step=".01">
                                     </div>
                                     <div>
                                         <label for="weight">Weight</label>
-                                        <input type="number" name="weight" id="weight" min="0" required>
+                                        <input type="number" name="weight" id="weight" min="0" required step=".01">
                                     </div>
                                     <div>
                                         <label for="head">Head Circumference</label>
-                                        <input type="number" name="head" id="head" min="0" required>
+                                        <input type="number" name="head" id="head" min="0" required step=".01">
                                     </div>
                                     <div>
                                         <label for="muac">MUAC</label>
-                                        <input type="number" name="muac" id="muac" min="0" required>
+                                        <input type="number" name="muac" id="muac" min="0" required step=".01">
                                     </div>
                                     <div>
 										<?php
 										$id = $_GET['id'];
 										?>
 										<input type="hidden" name="id" value="<?php echo $id; ?>">
+										<label for="me">hello</label>
+										<input type="submit" name="add" class="btn btn-primary mgt" value="Add Record">
                                     </div>
                                 </div>
-                                <input type="submit" name="add" class="btn btn-primary" value="Add Record">
                             </form>
-                           
 						</div>
 						<!-- footer -->
 					</div>

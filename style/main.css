@@ -13,6 +13,10 @@ a {
   text-decoration: none;
 }
 
+.hide {
+  display: none !important;
+}
+
 .btn {
   padding: 10px 30px;
   border: none;

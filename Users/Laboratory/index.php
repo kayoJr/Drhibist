@@ -1,6 +1,7 @@
 <?php
 require_once '../../backend/db.php';
 require '../../backend/auth.php';
+$today = date('Y-m-d');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,133 +154,89 @@ require '../../backend/auth.php';
                             <div class="lab-req">
                                 <h4>Lab Requests</h4>
                                 <div class="lab-name">
-                                    <?php
-                                    $pat_id = @$card;
-                                    $sql = "SELECT * FROM `lab_cart` WHERE `patient_id` = '$pat_id' AND `payment` = 1";
-                                    $res = $conn->query($sql);
-                                    if ($res) {
-                                        while ($row = $res->fetch_assoc()) {
-                                            $name = $row['name'];
-                                    ?>
-                                            <?php echo "<p>$name</p>"; ?>
-                                    <?php
+                                <?php
+                                $pat_id = $card;
+                                $sql = "SELECT * FROM `lab_cart2` WHERE `patient_id` = '$pat_id' AND `payment` = 1";
+                                $res = $conn->query($sql);
+                                if ($res) {
+                                    while ($row = $res->fetch_assoc()) {
+                                        $name = $row['name'];
+                                        // echo $card;
+                                        if ($name == 'CBC') {
+                                            echo "<a class='btn btn-primary' href='res/cbc.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'Blood_Group') {
+
+                                            echo " <a class='btn btn-primary' href='res/blood_group.php?id=$pat_id'> $name</a>";
+                                        } elseif ($name == 'ESR') {
+
+                                            echo "<a class='btn btn-primary' href='res/esr.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'STOOL') {
+
+                                            echo " <a class='btn btn-primary' href='res/stool.php?id=$pat_id'> $name</a>";
+                                        } elseif ($name == 'Urinalysis') {
+                                            echo "<a class='btn btn-primary' href='res/urinalysis.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'FBS_RBS') {
+
+                                            echo "<a class='btn btn-primary' href='res/fbs_rbs.php?id=$pat_id'> $name</a>";
+                                        } elseif ($name == 'Uric_Acid') {
+
+                                            echo "<a class='btn btn-primary' href='res/uric_acid.php?id=$pat_id'> $name</a>";
+                                        } elseif ($name == 'LET') {
+
+                                            echo "<a class='btn btn-primary' href='res/let.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'LFT') {
+
+                                            echo "<a class='btn btn-primary' href='res/lft.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'RFT') {
+                                            echo " <a class='btn btn-primary' href='res/rft.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'Serum') {
+                                            echo " <a class='btn btn-primary' href='res/serum.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'CRP') {
+
+                                            echo " <a class='btn btn-primary' href='res/crp.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'TFT') {
+                                            echo " <a class='btn btn-primary' href='res/tft.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'Coagulation_Profile') {
+                                            echo " <a class='btn btn-primary' href='res/coagulation.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'Gram_Stain') {
+                                            echo " <a class='btn btn-primary' href='res/gram_stain.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'AFB_Sputum') {
+                                            echo " <a class='btn btn-primary' href='res/afb_sputum.php?id=$pat_id'>$name</a>";
+                                        } elseif ($name == 'PICT') {
+
+
+                                            echo "<a class='btn btn-primary' href='res/pict.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'VDRL') {
+                                            echo "<a class='btn btn-primary' href='res/vdrl.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'RPR') {
+                                            echo "<a class='btn btn-primary' href='res/rpr.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'Widal_H') {
+                                            echo "<a class='btn btn-primary' href='res/widal_h.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'Widal_O') {
+
+                                            echo "<a class='btn btn-primary' href='res/widal_o.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'Weil_Felix') {
+                                            echo "<a class='btn btn-primary' href='res/weil_felix.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'liver_viral') {
+
+                                            echo "<a class='btn btn-primary' href='res/liver_viral.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'h_pylori') {
+
+                                            echo "<a class='btn btn-primary' href='res/h_pylori.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'blood_f') {
+
+                                            echo "<a class='btn btn-primary' href='res/blood_film.php?id=$card&nm=$name'> $name</a>";
                                         }
-                                    } else {
-                                        echo 'false';
                                     }
-                                    ?>
+                                }
+                            }
+
+                                ?>
                                 </div>
                             </div>
-                            <div class="lab-res">
-                                <form action="../../backend/lab_res.php" method="POST">
-                                    <div class="form">
-                                        <div class="column">
-                                            <div>
-                                                <label for="wbc">WBC</label>
-                                                <input type="number" name="wbc" id="wbc" step=".01">
-                                                <input type="hidden" name="wbc-name" value="WBC">
-                                            </div>
-                                            <div>
-                                                <label for="lymph#">Lymph#</label>
-                                                <input type="number" name="lymph#" id="lymph#" step=".01">
-                                                <input type="hidden" name="lymph#-name" value="lymph#">
-                                            </div>
-                                            <div>
-                                                <label for="mid#">Mid#</label>
-                                                <input type="number" name="mid#" id="mid#" step=".01">
-                                                <input type="hidden" name="mid#-name">
-                                            </div>
-                                            <div>
-                                                <label for="gran#">Gran#</label>
-                                                <input type="number" name="gran#" id="gran#" step=".01">
-                                                <input type="hidden" name="gran#-name" value="Gran#">
-                                            </div>
-                                            <div>
-                                                <label for="lymph%">Lymph%</label>
-                                                <input type="number" name="lymph%" id="lymph%" step=".01">
-                                                <input type="hidden" name="lymph%-name" value="Lymph%">
-                                            </div>
-                                            <div>
-                                                <label for="mid%">Mid%</label>
-                                                <input type="number" name="mid%" id="mid%" step=".01">
-                                                <input type="hidden" name="mid%-name" value="Mid%">
-                                            </div>
-                                            <div>
-                                            <label for="gran%">Gran%</label>
-                                                <input type="number" name="gran%" id="gran%" step=".01">
-                                                <input type="hidden" name="gran%-name" value="Gran%">
-                                            </div>
-                                            <div>
-                                            <label for="hgb">HGB</label>
-                                                <input type="number" name="hgb" id="hgb" step=".01">
-                                                <input type="hidden" name="hgb-name" value="HGB">
-                                            </div>
-                                            <div>
-                                            <label for="rbc">RBC</label>
-                                                <input type="number" name="rbc" id="rbc" step=".01">
-                                                <input type="hidden" name="rbc-name" value="RBC">
-                                            </div>
-                                            <div>
-                                            <label for="xxx">XXX</label>
-                                                <input type="number" name="xxx" id="xxx" step=".01">
-                                                <input type="hidden" name="XXX-name" value="XXX">
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <div>
-                                            <label for="mcv">MCV</label>
-                                                <input type="number" name="mcv" id="mcv" step=".01">
-                                                <input type="hidden" name="mcv-name" value="MCV">
-                                            </div>
-                                            <div>
-                                            <label for="mch">MCH</label>
-                                                <input type="number" name="mch" id="mch" step=".01">
-                                                <input type="hidden" name="mch-name" value="MCH">
-                                            </div>
-                                            <div>
-                                            <label for="mchc">MCHC</label>
-                                                <input type="number" name="mchc" id="mchc" step=".01">
-                                                <input type="hidden" name="mchc-name" value="MCHC">
-                                            </div>
-                                            <div>
-                                            <label for="rdw-cv">RDW-CV</label>
-                                                <input type="number" name="rdw-cv" id="rdw-cv" step=".01">
-                                                <input type="hidden" name="rdw-cv-name" value="RDW-CV">
-                                            </div>
-                                            <div>
-                                            <label for="rdw-sd">RDW-SD</label>
-                                                <input type="number" name="rdw-sd" id="rdw-sd" step=".01">
-                                                <input type="hidden" name="rdw-sd-name" value="RDW-SD">
-                                            </div>
-                                            <div>
-                                            <label for="plt">PLT</label>
-                                                <input type="number" name="plt" id="plt" step=".01">
-                                                <input type="hidden" name="plt-name" value="PLT">
-                                            </div>
-                                            <div>
-                                            <label for="mpv">MPV</label>
-                                                <input type="number" name="mpv" id="mpv" step=".01">
-                                                <input type="hidden" name="mpv-name" value="MPV">
-                                            </div>
-                                            <div>
-                                            <label for="pdw">PDW</label>
-                                                <input type="number" name="pdw" id="pdw" step=".01">
-                                                <input type="hidden" name="pdw-name" value="PDW">
-                                            </div>
-                                            <div>
-                                            <label for="pct">PCT</label>
-                                                <input type="number" name="pct" id="pct" step=".01">
-                                                <input type="hidden" name="pct-name" value="PCT">
-                                            </div>
-                                        </div>
-                                        <input type="submit" name="submit" value="SEND" class="btn bnt-primary">
-                                        <input type="hidden" name="pat_id" value="<?php echo $pat_id; ?>">
-                                    </div>
-                                </form>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                            <?php
+
+                            ?>
                     </div>
                 </div>
                 <!-- footer -->
@@ -303,7 +260,7 @@ require '../../backend/auth.php';
     </script>
     <!-- custom js -->
     <script src="../js/custom.js"></script>
-    <script src="../js/doctor.js"></script>
+    <script src="../js/lab.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

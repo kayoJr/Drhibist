@@ -118,8 +118,8 @@ require '../../backend/auth.php';
 							$rs = $conn->query($search_sql);
 							$adm = "SELECT * FROM `admission` WHERE `pat_id` = '$phone' OR `pat_phone` = '$phone'";
 							$r = $conn->query($adm);
-							if($r->num_rows > 0){
-								while($rows = $r->fetch_assoc()){
+							if ($r->num_rows > 0) {
+								while ($rows = $r->fetch_assoc()) {
 									$date = $rows['date'];
 								}
 								echo "
@@ -127,8 +127,7 @@ require '../../backend/auth.php';
 								<h2>In Admission Since $date</h2>
 								</div>
 								";
-								
-							}else{
+							} else {
 								echo "
 								<div class='center-btn'>
 								<a class='btn' id='center' href='../../backend/admission.php?id=$phone&doc=$phone_doc'>Send to Admission</a>
@@ -222,266 +221,260 @@ require '../../backend/auth.php';
 
 						?>
 							</table>
+							<div class="center-btn">
+								</div>
+								<?php
+							$pat_det = "SELECT * FROM `pat_detail` WHERE `pat_id` = '$pat_id' ORDER BY `id` DESC";
+							$re = $conn->query($pat_det);
+							while ($det = $re->fetch_assoc()) {
+								// $date = $det['date'];
+								// $detail = $det['detail'];
+								?>
+									<h3>Patient Detail</h3>
+								<table class='table'>
+
+									<thead>
+										<th>C/c</th>
+										<td><?php echo @$det['date']; ?></td>
+									</thead>
+									<thead>
+										<th>C/c</th>
+										<td><?php echo @$det['Cc']; ?></td>
+									</thead>
+									<thead>
+										<th>Duration</th>
+										<td><?php echo @$det['duration']; ?></td>
+									</thead>
+									<thead>
+										<th>Associated Major Symptoms</th>
+										<td><?php echo @$det['Ams']; ?></td>
+									</thead>
+									<thead>
+										<th>Vaccination Hx</th>
+										<td><?php echo @$det['Vhx']; ?></td>
+									</thead>
+									<thead>
+										<th>Any Taken Medication</th>
+										<td><?php echo @$det['md']; ?></td>
+									</thead>
+									<thead>
+										<th>Previous similar HX</th>
+										<td><?php echo @$det['prevhx']; ?></td>
+									</thead>
+									<thead>
+										<th>Any Known Allergy</th>
+										<td><?php echo @$det['allergy']; ?></td>
+									</thead>
+									<thead>
+										<th>Possible DX</th>
+										<td><?php echo @$det['pdx']; ?></td>
+									</thead>
+									<thead>
+										<th>Lab</th>
+										<td><?php echo @$det['lab']; ?></td>
+									</thead>
+									<thead>
+										<th>RX</th>
+										<td><?php echo @$det['rx']; ?></td>
+									</thead>
+
+								</table>
+
+							<?php
+							}
+							?>
 							<div class="action">
 								<button class="btn btn-primary" id="btn-lab">Laboratory</button>
 								<button class="btn btn-primary" id="btn-detail">Detail</button>
+								<?php echo "<a class='btn btn-primary'href='labresu.php?id=$pat_id'>Lab Result</a>" ?>
 								<!-- <button class="btn btn-primary" id="btn-radio">
 									Ultrasound
 								</button> -->
 								<!-- <button class="btn btn-primary" id="btn-pres">Prescribe</button> -->
 							</div>
+
 							<div class="detail hide" id="patient-detail">
-								<h3>Patient Detail</h3>
-								<?php
-									$pat_det = "SELECT * FROM `pat_detail` WHERE `pat_id` = '$pat_id' ORDER BY `id` DESC";
-									$re = $conn->query($pat_det);
-									while($det = $re->fetch_assoc()){
-										$date = $det['date'];
-										$detail = $det['detail'];
-								?>
-								<div class="details">
-									<p class="date"><?php echo @$date; ?></p>
-									<p class="para_detail"><?php echo @$detail; ?></p>
-								</div>
-								<?php
-									}
-									?>
-								<div class="lab-result">
-									<table class="table">
-										<thead>
-											<th>Para</th>
-											<th>Result</th>
-											<th>Ref.Range</th>
-										</thead>
 
 
-										<?php
-										$lab_sql = "SELECT * FROM `lab_res` WHERE `pat_id` = '$pat_id'";
-										$lab_res = $conn->query($lab_sql);
-										while ($lab = $lab_res->fetch_assoc()) {
-											$wbc = $lab['WBC'];
-											$lymph_num = $lab['Lymph#'];
-											$mid_num = $lab['Mid#'];
-											$gran_num = $lab['Gran#'];
-											$lymph_per = $lab['Lymph%'];
-											$mid_per = $lab['Mid%'];
-											$gran_per = $lab['Gran%'];
-											$hgb = $lab['HGB'];
-											$rbc = $lab['RBC'];
-											$xxx = $lab['XXX'];
-											$mcv = $lab['MCV'];
-											$mch = $lab['MCH'];
-											$mchc = $lab['MCHC'];
-											$rdw_cv = $lab['RDW-CV'];
-											$rdw_sd = $lab['RDW-SD'];
-											$plt = $lab['PLT'];
-											$mpv = $lab['MPV'];
-											$pdw = $lab['PDW'];
-											$pct = $lab['PCT'];
-											echo "
-											<tbody>
-											<tr>
-												<td>WBC</td>
-												<td>$wbc x 10<sup>9</sup>/L</td>
-												<td>4.0-10.0</td>
-											</tr>
-											<tr>
-												<td>Lymph#</td>
-												<td>$lymph_num x 10<sup>9</sup>/L</td>
-												<td>0.8-4.0</td>
-											</tr>
-											<tr>
-												<td>Mid#</td>
-												<td>$mid_num x 10<sup>9</sup>/L</td>
-												<td>0.1-1.5</td>
-											</tr>
-											<tr>
-												<td>Gran#</td>
-												<td>$gran_num x 10<sup>9</sup>/L</td>
-												<td>20.0-7.0</td>
-											</tr>
-											<tr>
-												<td>Lymph%</td>
-												<td>$lymph_per%</td>
-												<td>20.0-40.0</td>											</tr>
-											<tr>
-												<td>Mid%</td>
-												<td>$mid_per%</td>
-												<td>3.0-15.0</td>
-											</tr>
-											<tr>
-												<td>Gran%</td>
-												<td>$gran_per%</td>
-												<td>50.0-70.0</td>
-											</tr>
-											<tr>
-												<td>HGB</td>
-												<td>$hgb g/dL</td>
-												<td>11.0-16.0</td>
-											</tr>
-											<tr>
-												<td>RBC</td>
-												<td>$rbc x 10<sup>12</sup>/L</td>
-												<td>3.50-5.50</td>
-											</tr>
-											<tr>
-												<td>XXX</td>
-												<td>$xxx%</td>
-												<td>33.0-54.0</td>
-											</tr>
-										</tbody>";
-										}
-										?>
-									</table>
-									<table class="table">
-										<thead>
-											<th>Para</th>
-											<th>Result</th>
-											<th>Ref.Range</th>
-										</thead>
+
+								<h3>Write Detail</h3>
+								<div class="lab-res">
+									<form action="../../backend/add_detail.php" method="POST" class="add-detail">
+										<div class="form">
+
+											<div class="column">
+
+												<label for="C/c">C/C</label>
+												<input type="text" name="cc">
+												<label for="dt">Duration</label>
+												<input type="text" name="dt">
+												<label for="sy">Associated major symptom</label>
+												<input type="text" name="sy">
+												<label for="vc">Vaccination HX</label>
+												<input type="text" name="vc">
+												<label for="md">Any taken Medication</label>
+												<input type="text" name="md">
 
 
-										<?php
-										$lab_sql = "SELECT * FROM `lab_res` WHERE `pat_id` = '$pat_id'";
-										$lab_res = $conn->query($lab_sql);
-										while ($lab = $lab_res->fetch_assoc()) {
-											$wbc = $lab['WBC'];
-											$lymph_num = $lab['Lymph#'];
-											$mid_num = $lab['Mid#'];
-											$gran_num = $lab['Gran#'];
-											$lymph_per = $lab['Lymph%'];
-											$mid_per = $lab['Mid%'];
-											$gran_per = $lab['Gran%'];
-											$hgb = $lab['HGB'];
-											$rbc = $lab['RBC'];
-											$xxx = $lab['XXX'];
-											$mcv = $lab['MCV'];
-											$mch = $lab['MCH'];
-											$mchc = $lab['MCHC'];
-											$rdw_cv = $lab['RDW-CV'];
-											$rdw_sd = $lab['RDW-SD'];
-											$plt = $lab['PLT'];
-											$mpv = $lab['MPV'];
-											$pdw = $lab['PDW'];
-											$pct = $lab['PCT'];
-											echo "
-											<tbody>
-											<tr>
-												<td>MCV</td>
-												<td>$mcv fL</td>
-												<td>4.0-10.0</td>
-											</tr>
-											<tr>
-												<td>MCH</td>
-												<td>$mch pg</td>
-												<td>0.8-4.0</td>
-											</tr>
-											<tr>
-												<td>MCHC</td>
-												<td>$mchc g/dL</td>
-												<td>3.50-5.50</td>
-											</tr>
-											<tr>
-												<td>RDW-CV</td>
-												<td>$rdw_cv %</td>
-												<td>0.1-1.5</td>
-											</tr>
-											<tr>
-												<td>RDW-SD</td>
-												<td>$rdw_sd fL</td>
-												<td>20.0-7.0</td>
-											</tr>
-											<tr>
-												<td>PLT</td>
-												<td>$plt x 10<sup>9</sup>/L</td>
-												<td>20.0-40.0</td>											</tr>
-											<tr>
-												<td>MPV</td>
-												<td>$mpv fL</td>
-												<td>3.0-15.0</td>
-											</tr>
-											<tr>
-												<td>PDW</td>
-												<td>$pdw</td>
-												<td>50.0-70.0</td>
-											</tr>
-											<tr>
-												<td>PCT</td>
-												<td>$pct %</td>
-												<td>11.0-16.0</td>
-											</tr>
-										</tbody>";
-										}
-										?>
-									</table>
-								</div>
-								<form action="../../backend/add_detail.php" method="POST" class="add-detail">
-									<h3>Write Detail</h3>
-									<div class="search-form">
-										<div>
-											<textarea name="detail" id="detail" cols="60" rows="10">
-											</textarea>
-											<input type="hidden" name="pat_id" value="<?php echo $pat_id; ?>">
+											</div>
+											<div class="column">
+												<label for="pc">Previous Similar HX</label>
+												<input type="text" name="pc">
+												<label for="all">Any known Allergy</label>
+												<input type="text" name="all">
+												<label for="dx">Possible DX</label>
+												<input type="text" name="dx">
+												<label for="lab">Lab</label>
+												<input type="text" name="lab">
+												<label for="rx">RX</label>
+												<input type="text" name="rx">
+												<input type="hidden" name="pat_id" value="<?php echo $pat_id; ?>">
+											</div>
+											<input type="submit" value="Add Detail" name="submit" class="btn btn-primary" />
 										</div>
-										<input type="submit" value="Add Detail" name="submit" class="btn btn-primary" />
-									</div>
-								</form>
+									</form>
+								</div>
 							</div>
-							<div class="lab-order hide" id="lab">
-								<form method="post" id="insert_form" action="../../backend/lab_cart.php">
-									<select name="name" class="form-control selectpicker" data-live-search="true" id="authors">
-										<option selected="" disabled="">Laboratory Type</option>
-										<?php
-										require 'data.php';
-										$authors = loadAuthors();
-										foreach ($authors as $author) {
-											echo "<option id='" . $author['id'] . "' value='" . $author['name'] . "'>" . $author['name'] . "</option>";
-										}
-										?>
-									</select>
-									<input type="text" class="hide" name="doc" id="doc" value="<?php echo $id; ?>">
-									<input type="text" class="hide" name="pat" id="pat" value="<?php echo $pat_id; ?>">
-									<input type="text" name="books" id="books" readonly class="form-control">
+
+							<div class="lab-order" id="lab">
+								<form class="lab_req_form" action="../../backend/lab_cart2.php" method="POST">
+									<table>
+										<h3>Laboratory</h3>
+										<thead>
+											<th>
+												<input type="checkbox" id="CBC" name="lab[]" value="CBC">
+												<label for="CBC">CBC</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="Blood Group" name="lab[]" value="Blood_Group">
+												<label for="Blood Group">Blood Group</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="ESR" name="lab[]" value="ESR">
+												<label for="ESR">ESR</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="Stool" name="lab[]" value="STOOL">
+												<label for="Stool">Stool</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="Urinalysis" name="lab[]" value="Urinalysis">
+												<label for="Urinalysis">Urinalysis</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="fbs" name="lab[]" value="FBS_RBS">
+												<label for="fbs">FBS/RBS</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="Uric_Acid" name="lab[]" value="Uric_Acid">
+												<label for="Uric_Acid">Uric Acid</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="let" name="lab[]" value="LET">
+												<label for="let">Liver Enzymatic</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="lft" name="lab[]" value="LFT">
+												<label for="lft">Liver Function</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="rft" name="lab[]" value="RFT">
+												<label for="rft">Renal Function</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="serum" name="lab[]" value="Serum">
+												<label for="serum">Serum Electrolytes</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="crp" name="lab[]" value="CRP">
+												<label for="crp">CRP</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="tft" name="lab[]" value="TFT">
+												<label for="tft">Thyroid Function</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="coagulation" name="lab[]" value="Coagulation_Profile">
+												<label for="coagulation">Coagulation Profile</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="gram" name="lab[]" value="Gram_Stain">
+												<label for="gram">Gram Stain</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="afb" name="lab[]" value="AFB_Sputum">
+												<label for="afb">AFB SPUTUM</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="pict" name="lab[]" value="PICT">
+												<label for="pict">PICT</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="vdrl" name="lab[]" value="VDRL">
+												<label for="vdrl">VDRL</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="rpr" name="lab[]" value="RPR">
+												<label for="rpr">RPR</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="Widal" name="lab[]" value="Widal_H">
+												<label for="Widal">Widal H</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="Widal_o" name="lab[]" value="Widal_O">
+												<label for="Widal_o">Widal O</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="weil" name="lab[]" value="Weil_Felix">
+												<label for="weil">Weil Felix</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="liver" name="lab[]" value="liver_viral">
+												<label for="liver">Liver Viral Markers</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="h_pylori" name="lab[]" value="h_pylori">
+												<label for="h_pylori">H.Pylori Tests</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="blood_f" name="lab[]" value="blood_f">
+												<label for="blood_f">Blood Film</label><br>
+											</th>
+										</thead>
+									</table>
 									<div align="center">
-										<input type="submit" name="submit" id="submit_button" class="btn btn-primary" value="Send to Laboratory" data-toggle="modalss" data-target="#exampleModalCenter" />
+										<input type="text" class="hide" name="pat" id="pat" value="<?php echo $pat_id; ?>">
+										<input type="submit" name="submit" id="submit_button" class="btn btn-primary" value="Order" data-toggle="modalss" data-target="#exampleModalCenter" />
 									</div>
 								</form>
-								<div class="cart">
-									<h3 class="center">Cart</h3>
-									<div class="elements">
-										<div class="middle-cart">
-											<?php
-											$date = date("Y-m-d");
-											$sql = "SELECT * FROM `lab_cart` WHERE `patient_id` = '$pat_id' ORDER BY `id` DESC";
-											$rs = mysqli_query($con, $sql);
-											if (mysqli_num_rows($rs)) {
-												while ($row = mysqli_fetch_assoc($rs)) {
-													$id = $row['id'];
-											?>
-
-													<div class="element">
-														<div>
-															<?php
-															echo "<a href='../../backend/remove_lab_cart.php?rn=$id'><b>X</b></a>";
-
-															echo  "<h4>" . $row['name'] . "</h4>";
-															?>
-														</div>
-													</div>
-
-											<?php
-												}
-											}
-
-											?>
-
-										</div>
-										<div class="bottom-cart">
-											<!-- <a href="#" data-modal-target="#modal">Confirm Order</a> -->
-											<!-- <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Send To Lab</button> -->
-										</div>
+								<form method="post" class="lab_req_form" id="insert_form " action="../../backend/ultra_cart.php">
+									<h3>Ultrasound</h3>
+									<table>
+										<thead>
+											<th>
+												<input type="checkbox" id="abus" name="brands[]" value="Abdominal">
+												<label for="abus">Abdominal US</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="bus" name="brands[]" value="Breast">
+												<label for="bus">Breast US</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="neck" name="brands[]" value="Neck">
+												<label for="neck">Neck US</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="scrotal" name="brands[]" value="Scrotal">
+												<label for="scrotal">Scrotal US</label><br>
+											</th>
+										</thead>
+									</table>
+									<div align="center">
+										<input type="text" class="hide" name="pat" id="pat" value="<?php echo $pat_id; ?>">
+										<input type="submit" name="submit" id="submit_button" class="btn btn-primary" value="Order" data-toggle="modalss" data-target="#exampleModalCenter" />
 									</div>
-								</div>
+								</form>
 							</div>
 						<?php
 						}

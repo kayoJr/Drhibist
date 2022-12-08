@@ -152,24 +152,24 @@ if($rs = $conn->query($sql)){
                                         <input type="number" name="amount" id="amount" value="<?php echo $amount; ?>" required>
                                     </div>
                                     <div>
-                                        <label for="org_price">Cost</label>
+                                        <label for="org_price">Sell Price</label>
                                         <input type="number" name="org_price" id="org_price" value="<?php echo $org_price; ?>" required>
                                     </div>
                                     <div>
-                                        <label for="sell_price">Price</label>
+                                        <label for="sell_price">Purchase Price</label>
                                         <input type="number" name="sell_price" id="sell_price" value="<?php echo $sell_price; ?>" >
                                     </div>
                                     <div>
                                         <label for="reg_date">Registered Date</label>
-                                        <input type="date" name="reg_date" id="reg_date" value="<?php echo $reg_date; ?>" >
+                                        <input type="date" name="reg_date" id="reg_date" value="<?php echo $reg_date; ?>"  required>
                                     </div>
                                     <div>
                                         <label for="exp_date">Expire Date</label>
-                                        <input type="date" name="exp_date" id="exp_date" value="<?php echo $exp_date; ?>" >
+                                        <input type="date" name="exp_date" id="exp_date" value="<?php echo $exp_date; ?>" required>
                                     </div>
                                     <div>
                                         <label for="me">hello</label>
-                                        <input type="submit" name="upd_med" value="Update Medicine" class="btn btn-primary">
+                                        <input type="submit" name="upd_med" value="Update Medicine" class="btn btn-primary mgt">
                                     </div>
                                     <input type="hidden" name="id" value="<?php echo $med_id;  ?>">
                                 </div>
