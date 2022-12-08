@@ -453,8 +453,6 @@ label[for='me']{
 .lab-name{
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
-	align-items: center;
-	justify-content: center;
 	gap: 1rem;
 	p{
 		margin-right: 1rem;
@@ -463,6 +461,11 @@ label[for='me']{
 		color: #000;
 		font-size: 1.2rem;
 		cursor: pointer;
+	}
+	.ultra_detail{
+		p{
+			cursor: default;
+		}
 	}
 }
 .lab-res{
@@ -660,6 +663,25 @@ form {
 		}
 	}
 }
+.ultra_result{
+	.lab{
+		padding: 1rem;
+		background-color: $dark-bg;
+		h2{
+			margin-bottom: 2rem;
+		}
+		img{
+			width: 100%;
+		}
+		table{
+			thead{
+				th.head{
+					background-color: $dark-bg;
+				}
+			}
+		}
+	}
+}
 .navigation{
 	display: flex;
 	align-items: center;
@@ -674,6 +696,37 @@ form {
 		&:hover{
 			background-color: $green;
 		}
+	}
+}
+.abdominal{
+	margin-bottom: 1rem;
+		.ultra_type{
+			width: 100%;
+			.type{
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				flex-direction: row;
+				width: 100%;
+				margin-bottom: 1rem;
+				a{
+					font-size: 2rem;
+					color: $white;
+
+				}
+			}
+			textarea{
+				width: 100%;
+				padding: .5rem;
+			}
+		}
+	
+}
+.ultra-detail{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	.form-element{
+		margin: .5rem auto;
 	}
 }
 @media (max-width: 768px) {

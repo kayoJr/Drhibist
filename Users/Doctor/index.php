@@ -287,6 +287,7 @@ require '../../backend/auth.php';
 								<button class="btn btn-primary" id="btn-lab">Laboratory</button>
 								<button class="btn btn-primary" id="btn-detail">Detail</button>
 								<?php echo "<a class='btn btn-primary'href='labresu.php?id=$pat_id'>Lab Result</a>" ?>
+								<?php echo "<a class='btn btn-primary'href='ultraresu.php?id=$pat_id'>Ultrasound Result</a>" ?>
 								<!-- <button class="btn btn-primary" id="btn-radio">
 									Ultrasound
 								</button> -->
@@ -294,9 +295,6 @@ require '../../backend/auth.php';
 							</div>
 
 							<div class="detail hide" id="patient-detail">
-
-
-
 								<h3>Write Detail</h3>
 								<div class="lab-res">
 									<form action="../../backend/add_detail.php" method="POST" class="add-detail">
@@ -470,8 +468,27 @@ require '../../backend/auth.php';
 											</th>
 										</thead>
 									</table>
-									<div align="center">
-										<input type="text" class="hide" name="pat" id="pat" value="<?php echo $pat_id; ?>">
+									<div class="ultra-detail">
+
+										<div id="abus-text" class="form-element hide">
+											<label for="abdo">Abdominal</label>
+											<textarea name="abdo" id="abdo" cols="30" rows="10"></textarea>
+										</div>
+										<div id="bus-text" class="form-element hide">
+											<label for="breast">Breast</label>
+											<textarea name="breast" id="breast" cols="30" rows="10"></textarea>
+										</div>
+										<div id="neck-text" class="form-element hide">
+											<label for="neck">Neck</label>
+											<textarea name="neck" id="neck" cols="30" rows="10"></textarea>
+										</div>
+										<div id="scrotal-text" class="form-element hide">
+											<label for="scrotal-det">Scrotal</label>
+											<textarea name="scrotal_det" id="scrotal-det" cols="30" rows="10"></textarea>
+										</div>
+									</div>
+										<div align="center">
+											<input type="text" class="hide" name="pat" id="pat" value="<?php echo $pat_id; ?>">
 										<input type="submit" name="submit" id="submit_button" class="btn btn-primary" value="Order" data-toggle="modalss" data-target="#exampleModalCenter" />
 									</div>
 								</form>

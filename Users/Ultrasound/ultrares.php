@@ -1,6 +1,8 @@
 <?php
 require_once '../../backend/db.php';
 require '../../backend/auth.php';
+$type = $_GET['name'];
+$pat_id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,95 +99,120 @@ require '../../backend/auth.php';
 
 				<!-- dashboard inner -->
 				<div class="midde_cont">
-                    <div class="container-fluid">
-                        <div id="feedback">
-                            <?php
-                            @$msg = $_REQUEST['msg'];
-                            echo "<p>$msg</p>"
-                            ?>
-                        </div>
-                        <form action="index.php" class="search">
-                            <h3>Search For Patient</h3>
-                            <div class="search-form">
-                                <input type="number" name="search" id="search" min="0" required placeholder="Phone or Card Number" />
-                                <input type="submit" name="searching" value="Search" class="btn btn-primary" />
-                            </div>
-                        </form>
-                        <?php
-                        if (isset($_GET['searching'])) {
-                            $phone = $_GET['search'];
-                            $search_sql = "SELECT * FROM `patient` WHERE `phone`='$phone' OR `id` = '$phone'";
-                            $rs = $conn->query($search_sql);
-                            echo "
-									<table class='table'>
-									<thead>
-										<th>SNo</th>
-										<th>Name</th>
-										<th>Age</th>
-										<th>Sex</th>
-										<th>Card No</th>
-										<th>Phone</th>
-									</thead>
-									";
-                            if ($rs) {
-                                while ($result = $rs->fetch_assoc()) {
-                                    $card = $result['id'];
-                                    $pt_name = $result['name'];
-                                    $pt_phone = $result['phone'];
-                                    $age = $result['age'];
-                                    $sex = $result['sex'];
-                                    echo "	
-												<tbody>
-													<tr>
-														<td data-label='SNo'>$card</td>
-														<td data-label='Name'>$pt_name</td>
-														<td data-label='Age'>$age</td>
-														<td data-label='Sex'>$sex</td>
-														<td data-label='Card No'>$card</td>
-														<td data-label='Phone'>$pt_phone</td>						
-													</tr>
-												</tbody>
-												";
-                                }
-                            }
-                        ?>
-                            </table>
-                            <div class="lab-req">
-                                <h4>Ultrasound Requests</h4>
-                                <div class="lab-name">
-                                    <?php
-                                    $pat_id = @$card;
-                                    $sql = "SELECT * FROM `ultra_cart` WHERE `patient_id` = '$pat_id' AND `payment` = 1";
-                                    $res = $conn->query($sql);
-                                    if ($res) {
-                                        while ($row = $res->fetch_assoc()) {
-                                            $name = $row['requests'];
-                                            $detail = $row['detail'];
-                                    ?>
-
-											<div>
-												<?php echo "<p class='$name items'>$name</p>"; ?>
-												<div id="<?php echo $name; ?>" class="ultra_detail hide">
-													<p ><?php echo $detail; ?></p>
-													<a href="./ultrares.php?name=<?php echo $name; ?>&id=<?php echo $pat_id; ?>" class="btn">Add Result</a>
-												</div>
-											</div>
-											
-											<?php
-								}
-							} else {
-								echo $conn->error;
-							}
+					<div class="container-fluid">
+						<div id="feedback">
+							<?php
+							@$msg = $_REQUEST['msg'];
+							echo "<p>$msg</p>"
 							?>
+						</div>
+
+						<div class="ultra_result">
+							<?php
+							if ($type == "Abdominal") {
+							?>
+									<form action="../../backend/ultra_res.php" method="POST" >
+								<div class="abdominal">
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Liver And Spleen</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="liver_res" id="liver_res" cols="30" rows="10">
+Liver is normal in size and has homogeneous echo pattern. It has smooth contour and no focal lesion seen. The portal and hepatic veins are also normal. 
+Spleen:  is normal in size and echopattern.
+											</textarea>
+										</div>
+							
+								</div>
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">GB AND BILLARY DUCT</h3>
+												<a href="" id="remove_gb">x</a>
+											</div>
+											<textarea name="gb" id="gb" cols="30" rows="10">
+GB is normal in size and wall thickness. No intraluminal mass lesion or stone seen. Both the intra and extra-hepatic biliary ducts are normal in caliber size.
+											</textarea>
+										</div>
+									
+								</div>
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">BOWELS AND PERITONEUM</h3>
+												<a href="" id="remove_bowel">x</a>
+											</div>
+											<textarea name="bowel" id="bowel" cols="30" rows="10">
+Bowels appear normal in caliber size and wall thickness. No mass lesion seen. 
+No free fluid collection in the peritoneal cavity.
+											</textarea>
+										</div>
+								
+								</div>
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">KIDNEY AND RETROPERITONEAL ORGAN</h3>
+												<a href="" id="remove_kid">x</a>
+											</div>
+											<textarea name="kid" id="kid" cols="30" rows="10">
+Kidneys:  Both kidneys have normal size, shape and position. They have normal parenchymal echopattern. No mass lesion seen. No renal stone or dilatation of the pelvicalyceal system seen.
+Pancreas is normal in size, it has homogeneous echo. No focal lesion, calcifications or dilatation of the duct seen. 
+The abdominal aorta and IVC are also normal in caliber. No para-aortic lymphadenopathy seen.
+
+											</textarea>
+										</div>
+									
+								</div>
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">PELVIC ORGAN</h3>
+												<a href="" id="remove_pel">x</a>
+											</div>
+											<textarea name="pel" id="pel" cols="30" rows="10">
+Urinary bladder: well distended with echo free and normal wall thickness.
+											</textarea>
+										</div>
+								
+								</div>
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Impression:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
+										</div>
 							</div>
-							
-                            </div>
-							
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
+								<div class="abdominal">
+									<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Doctor Name</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<input type="text" name="drname" id="drname"  value="<?php echo $name; ?>" required>
+										</div>
+										</div>
+									<input type="hidden" name="pat" value="<?php echo $pat_id; ?>">
+									<input type="submit" name="abdominal" value="Send" class="btn">
+									</form>
+								</div>
+
+							<?php
+
+							}
+
+							?>
+						</div>
+					</div>
+				</div>
 				<!-- footer -->
 			</div>
 			<!-- end dashboard inner -->

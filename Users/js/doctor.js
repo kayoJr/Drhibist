@@ -11,3 +11,25 @@ btn_detail.addEventListener('click', () => {
 	pat_detail.classList.toggle('hide')
 	btn_detail.classList.toggle('now')
 });
+
+
+//ultrasound
+const abus = document.getElementById('abus-text');
+const bus = document.getElementById('bus-text');
+const neck = document.getElementById('neck-text');
+const scrotal = document.getElementById('scrotal-text');
+const check = document.querySelectorAll('input[name="brands[]"]');
+
+check.forEach(item => {
+	item.addEventListener('change', () => { 
+		if (item.value == "Abdominal") {
+			abus.classList.toggle('hide');
+		} else if (item.value == "Breast") {
+			bus.classList.toggle('hide');
+		} else if (item.value == "Neck") {
+			neck.classList.toggle('hide');
+		} else if (item.value == "Scrotal") {
+			scrotal.classList.toggle('hide');
+		}
+	})
+});

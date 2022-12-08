@@ -934,8 +934,6 @@ label[for=me] {
 .lab-name {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  align-items: center;
-  justify-content: center;
   gap: 1rem;
 }
 .lab-name p {
@@ -945,6 +943,9 @@ label[for=me] {
   color: #000;
   font-size: 1.2rem;
   cursor: pointer;
+}
+.lab-name .ultra_detail p {
+  cursor: default;
 }
 
 .lab-res form .form {
@@ -1133,6 +1134,20 @@ form table select {
   background-color: #343a40;
 }
 
+.ultra_result .lab {
+  padding: 1rem;
+  background-color: #343a40;
+}
+.ultra_result .lab h2 {
+  margin-bottom: 2rem;
+}
+.ultra_result .lab img {
+  width: 100%;
+}
+.ultra_result .lab table thead th.head {
+  background-color: #343a40;
+}
+
 .navigation {
   display: flex;
   align-items: center;
@@ -1148,6 +1163,37 @@ form table select {
 }
 .navigation a:hover {
   background-color: #60b000;
+}
+
+.abdominal {
+  margin-bottom: 1rem;
+}
+.abdominal .ultra_type {
+  width: 100%;
+}
+.abdominal .ultra_type .type {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.abdominal .ultra_type .type a {
+  font-size: 2rem;
+  color: #fff;
+}
+.abdominal .ultra_type textarea {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.ultra-detail {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.ultra-detail .form-element {
+  margin: 0.5rem auto;
 }
 
 @media (max-width: 768px) {

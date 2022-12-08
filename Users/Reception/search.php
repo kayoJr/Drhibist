@@ -196,6 +196,14 @@ require '../../backend/db.php';
 							} else {
 								echo $conn->error;
 							}
+							$ultra_sql = "SELECT SUM(price) AS ultra_payment FROM `ultra_cart` WHERE `patient_id`=$card AND `payment`=0 ";
+							$ultra_res = $conn->query($ultra_sql);
+							if ($ultra_res) {
+								$rows = $ultra_res->fetch_assoc();
+								$ultra_sum = $rows['ultra_payment'];
+							} else {
+								echo $conn->error;
+							}
 						?>
 							<div class='payments'>
 								<div class='grid-x3'>
@@ -216,6 +224,26 @@ require '../../backend/db.php';
 												</div>
 											</div>
 											<input type="submit" class="btn mgt" value="Pay" name="lab_payment">
+											<!-- <a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a> -->
+										</form>
+									</div>
+									<div class='grid'>
+										<form class="mgt mgb" action="../../backend/ultra_payment.php" method="POST">
+											<h2>Ultrasound Payment</h2>
+											<h3><?php echo $ultra_sum; ?> ETB</h3>
+											<input type='hidden' name='price' value='<?php echo $ultra_sum; ?>'>
+											<input type="hidden" name="id" value="<?php echo $card; ?>">
+											<div class="payment mgt">
+												<div>
+													<label for="system">System</label>
+													<input type="radio" name="payment" id="system" value="system" required>
+												</div>
+												<div>
+													<label for="cash">Cash</label>
+													<input type="radio" name="payment" id="cash" checked value="cash" required>
+												</div>
+											</div>
+											<input type="submit" class="btn mgt" value="Pay" name="ultra_payment">
 											<!-- <a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a> -->
 										</form>
 									</div>
