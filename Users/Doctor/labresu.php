@@ -192,7 +192,7 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>CRP</th>
-                                    <td>$crp</td>  
+                                    <td>$crp N.g/ml (mg/L)</td>  
                                 </thead>
                                     
                                     </table>";
@@ -257,7 +257,7 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>FBS</th>
-                                    <td>$fbs</td>  
+                                    <td>$fbs mg/dl</td>  
                                 </thead>
                                     
                                     </table>";
@@ -280,15 +280,15 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>PT</th>
-                                    <td>$PT</td>  
+                                    <td>$PT second</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>PTT</th>
-                                    <td>$PTT</td>  
+                                    <td>$PTT second</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>INR</th>
-                                    <td>$INR</td>  
+                                    <td>$INR second</td>  
                                 </thead>
                                     
                                     </table>";
@@ -360,15 +360,15 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>SGOT</th>
-                                    <td>$sgot</td>  
+                                    <td>$sgot 1U/L</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>SGPT</th>
-                                    <td>$sgpt</td>  
+                                    <td>$sgpt 1U/L</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>ALK_Phosphatase</th>
-                                    <td>$alk_phos</td>  
+                                    <td>$alk_phos 1U/L</td>  
                                 </thead>
                                     
                                     </table>";
@@ -391,15 +391,15 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>Bilirubin_T</th>
-                                    <td>$bt</td>  
+                                    <td>$bt md/dl</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Bilirubin_D</th>
-                                    <td>$bd</td>  
+                                    <td>$bd md/dl</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Albumin</th>
-                                    <td>$albumin</td>  
+                                    <td>$albumin md/dl</td>  
                                 </thead>
                                     
                                     </table>";
@@ -423,19 +423,19 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>Sodium</th>
-                                    <td>$Sodium</td>  
+                                    <td>$Sodium mmol/dl</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Potassium</th>
-                                    <td>$Potassium</td>  
+                                    <td>$Potassium mmol/dl</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Calcium</th>
-                                    <td>$Calsium</td>  
+                                    <td>$Calsium mmol/dl</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Other</th>
-                                    <td>$Other</td>  
+                                    <td>$Other mmol/dl</td>  
                                 </thead>
                                     
                                     </table>";
@@ -708,11 +708,11 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>BUN</th>
-                                    <td>$bun</td>  
+                                    <td>$bun mg/dl</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Creatinine</th>
-                                    <td>$creatinine</td>  
+                                    <td>$creatinine mg/dl</td>  
                                 </thead>
                                 
                                 </table>
@@ -737,15 +737,15 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>T3</th>
-                                    <td>$t3</td>  
+                                    <td>$t3 UL</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>T4</th>
-                                    <td>$t4</td>  
+                                    <td>$t4 NL</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>TSH</th>
-                                    <td>$tsh</td>  
+                                    <td>$tsh NL</td>  
                                 </thead>
                                 
                                 </table>
