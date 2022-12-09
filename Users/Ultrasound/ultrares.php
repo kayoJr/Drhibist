@@ -112,7 +112,7 @@ $pat_id = $_GET['id'];
 							if ($type == "Abdominal") {
 							?>
 									<form action="../../backend/ultra_res.php" method="POST" >
-								<div class="abdominal">
+										<div class="abdominal">
 										<div class="ultra_type" id="liver">
 											<div class="type">
 												<h3 class="mgb">Liver And Spleen</h3>
@@ -203,13 +203,150 @@ Urinary bladder: well distended with echo free and normal wall thickness.
 									<input type="hidden" name="pat" value="<?php echo $pat_id; ?>">
 									<input type="submit" name="abdominal" value="Send" class="btn">
 									</form>
-								</div>
 
+								
 							<?php
 
 							}
+							if($type == "Breast"){
+								?>
+									<form action="../../backend/ultra_res.php" method="POST" >
+								<div class="abdominal">
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Breast Ultrasound Report</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="breast_res" id="breast_res" cols="30" rows="10">
+Normal fibroglandular tissue
+No hypoechoic or hyperechoic lesion is seen. 
+No duct-ectasia is seen 
+Retromamary tissue  appears normal 
+No intramammary or axillary LAP is seen
+
+											</textarea>
+										</div>
+							
+								</div>
+								
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Impression:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
+										</div>
+							</div>
+								<div class="abdominal">
+									<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Doctor Name</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<input type="text" name="drname" id="drname"  value="<?php echo $name; ?>" required>
+										</div>
+										</div>
+									<input type="hidden" name="pat" value="<?php echo $pat_id; ?>">
+									<input type="submit" name="breast" value="Send" class="btn">
+									</form>
+
+							<?php
+							}
+							if($type == "Neck"){
+								?>
+
+								
+<form action="../../backend/ultra_res.php" method="POST" >
+								<div class="abdominal">
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Neck Ultrasound Report</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="neck_res" id="neck_res" cols="30" rows="10">
+Thyroid glands appear normal in size shape and echopattern, no focal mass. 
+Bilateral parotid glad  and submandibular gland normal in size shape and echopattern, no focal mass
+There are no enlarged cervical lymphadenopathy
+Great vessels of the neck appear normal
+											</textarea>
+										</div>
+							
+								</div>
+								
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Impression:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
+										</div>
+							</div>
+								<div class="abdominal">
+									<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Doctor Name</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<input type="text" name="drname" id="drname"  value="<?php echo $name; ?>" required>
+										</div>
+										</div>
+									<input type="hidden" name="pat" value="<?php echo $pat_id; ?>">
+									<input type="submit" name="neck" value="Send" class="btn">
+									</form>
+								<?php
+
+							}if($type == "Scrotal"){
+								?>
+<form action="../../backend/ultra_res.php" method="POST" >
+								<div class="abdominal">
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Scrotal Ultrasound Report</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="scrotal_res" id="scrotal_res" cols="30" rows="10">
+Bilateral testes have normal size, shape and homogenous echotexture.
+There is no focal or diffuse parenchymal abnormality seen.
+Bilateral epidydimis have normal size, shape and echotexture.
+There is normal color doppler flow on both testes and epidydimis.
+There is no scrotal fluid seen bilaterally
+											</textarea>
+										</div>
+							
+								</div>
+								
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Impression:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
+										</div>
+							</div>
+								<div class="abdominal">
+									<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Doctor Name</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<input type="text" name="drname" id="drname"  value="<?php echo $name; ?>" required>
+										</div>
+										</div>
+									<input type="hidden" name="pat" value="<?php echo $pat_id; ?>">
+									<input type="submit" name="scrotal" value="Send" class="btn">
+									</form>
+								<?php
+							}
 
 							?>
+								</div>
+
 						</div>
 					</div>
 				</div>

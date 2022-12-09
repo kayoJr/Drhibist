@@ -4,7 +4,7 @@ const btns = document.querySelectorAll('.items');
 const abdo = document.getElementById('Abdominal');
 const breast = document.getElementById('Breast');
 const neck = document.getElementById('Neck');
-const scortem = document.getElementById('Scrotal');
+const scrotal = document.getElementById('Scrotal');
 
 btns.forEach(item => {
     item.addEventListener('click', (e) => {

@@ -105,10 +105,10 @@ require '../../backend/auth.php';
                             $id = $_GET['id'];
                             $date = date("Y-m-d");
 
-                            $rs1 = $conn->query("SELECT * FROM `abdominal` WHERE patient_id= '$id'");
-                            $rs2 = $conn->query("SELECT * FROM `afb_sputum` WHERE `patient_id`='$id'");
-                            $rs3 = $conn->query("SELECT * FROM `crp` WHERE `patient_id`='$id'");
-                            $rs4 = $conn->query("SELECT * FROM `bf` WHERE `patient_id`='$id'");
+                            $rs1 = $conn->query("SELECT * FROM `abdominal` WHERE `patient_id`= '$id'");
+                            $neck = $conn->query("SELECT * FROM `neck` WHERE `patient_id`='$id'");
+                            $breast = $conn->query("SELECT * FROM `breast` WHERE `patient_id`='$id'");
+                            $scortal = $conn->query("SELECT * FROM `scrotal` WHERE `patient_id`='$id'");
 
                             ?>
                         </div>
@@ -169,6 +169,106 @@ require '../../backend/auth.php';
                                 }
                                 ?>
                             </div>
+                            <div class='lab'>
+                            <?php
+                                if ($neck->num_rows > 0) {
+                                    echo "
+                                <h2 class='center'>Neck Result</h2>
+                                ";
+                                    while ($row = $neck->fetch_assoc()) {
+                                        $result = $row['result'];
+                                        $impression = $row['impression'];
+                                        $drname = $row['drname'];
+                                    }
+                                    echo "<table class='table'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                <thead>
+                                    <th class='head'>Result</th>
+                                    <td>$result</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Impression</th>
+                                    <td>$impression</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Doctor Name</th>
+                                    <td>$drname</td>  
+                                </thead>
+                                    
+                                    </table>";
+                                }
+                                ?>
+                            </div>
+                            <div class='lab'>
+                            <?php
+                                if ($breast->num_rows > 0) {
+                                    echo "
+                                <h2 class='center'>Breast Result</h2>
+                                ";
+                                    while ($row = $breast->fetch_assoc()) {
+                                        $result = $row['result'];
+                                        $impression = $row['impression'];
+                                        $drname = $row['drname'];
+                                    }
+                                    echo "<table class='table'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                <thead>
+                                    <th class='head'>Result</th>
+                                    <td>$result</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Impression</th>
+                                    <td>$impression</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Doctor Name</th>
+                                    <td>$drname</td>  
+                                </thead>
+                                    
+                                    </table>";
+                                }
+                                ?>
+                            </div>
+                            <div class='lab'>
+                            <?php
+                                if ($scortal->num_rows > 0) {
+                                    echo "
+                                <h2 class='center'>Scortal Result</h2>
+                                ";
+                                    while ($row = $scortal->fetch_assoc()) {
+                                        $result = $row['result'];
+                                        $impression = $row['impression'];
+                                        $drname = $row['drname'];
+                                    }
+                                    echo "<table class='table'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                <thead>
+                                    <th class='head'>Result</th>
+                                    <td>$result</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Impression</th>
+                                    <td>$impression</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Doctor Name</th>
+                                    <td>$drname</td>  
+                                </thead>
+                                    
+                                    </table>";
+                                }
+                                ?>
+                            </div>
+                            
                             
                         </div>
 
