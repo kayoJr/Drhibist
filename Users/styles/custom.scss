@@ -685,7 +685,7 @@ form {
 .navigation{
 	display: flex;
 	align-items: center;
-	justify-content: start;
+	justify-content: space-between;
 	margin: 1rem auto;
 	a{
 		background-color: $purple;
@@ -745,9 +745,18 @@ form {
 	.modal-content *,
 	#withdrawal,
 	#withdrawal *,
+	.lab_result,
+	.lab_result *,
+	.ultra_result,
+	.ultra_result *,
 	.total * {
-		color: #000;
+		color: #000 !important;
 		visibility: visible;
+		table{
+			td{
+				color: #000 !important;
+			}
+		}
 	}
 	.modal-footer *,
 	.payment,

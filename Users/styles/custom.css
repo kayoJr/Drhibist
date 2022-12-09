@@ -1151,7 +1151,7 @@ form table select {
 .navigation {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
   margin: 1rem auto;
 }
 .navigation a {
@@ -1212,9 +1212,24 @@ form table select {
 .modal-content *,
 #withdrawal,
 #withdrawal *,
+.lab_result,
+.lab_result *,
+.ultra_result,
+.ultra_result *,
 .total * {
-    color: #000;
+    color: #000 !important;
     visibility: visible;
+  }
+  .modal-content table td,
+.modal-content * table td,
+#withdrawal table td,
+#withdrawal * table td,
+.lab_result table td,
+.lab_result * table td,
+.ultra_result table td,
+.ultra_result * table td,
+.total * table td {
+    color: #000 !important;
   }
   .modal-footer *,
 .payment,
