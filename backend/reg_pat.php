@@ -32,6 +32,13 @@ if(isset($_POST['add_pat'])){
             }else{
                 header("Location: ../Users/Reception/index.php?msg=Patient Added");
             }
+        }else if($payment == "credit"){
+            $sql = "INSERT INTO `credit` (`price`, `reason`) VALUES (100, 'reception')";
+            if(!$conn->query($sql)){
+                echo $conn->error;
+            }else{
+                header("Location: ../Users/Reception/index.php?msg=Patient Added");
+            }
         }
     }else{
         header("Location: ../Users/Reception/index.php?err=Patient Not Added");

@@ -69,28 +69,28 @@ require '../../backend/auth.php';
 								<img class="img-responsive" src="../../img/logo.png" alt="#" />
 							</div>
 							<div class="user_info">
+								<?php
+								$phone = $_SESSION['user'];
+								$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
+								$res = $conn->query($sql);
+								while ($row = mysqli_fetch_assoc($res)) {
+									$name = $row['name'];
+								}
+								?>
+								<h6>
 									<?php
-									$phone = $_SESSION['user'];
-									$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
-									$res = $conn->query($sql);
-									while($row = mysqli_fetch_assoc($res)){
-										$name = $row['name'];
-									}
+									echo $name;
 									?>
-									<h6>
-										<?php
-											echo $name;
-										?>
-									</h6>
-								</div>
+								</h6>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="sidebar_blog_2">
-						<?php
-							include './side_nav.php';
-						?>
-					</div>
+					<?php
+					include './side_nav.php';
+					?>
+				</div>
 			</nav>
 			<!-- end sidebar -->
 			<!-- right content -->
@@ -280,13 +280,17 @@ require '../../backend/auth.php';
 								<input type="radio" name="payment" id="cash" checked value="cash" required>
 								<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
 							</div>
-						</div>
+							<div>
+								<label for="credit">Credit</label>
+								<input type="radio" name="payment" id="credit" value="credit" required>
+							</div>
 					</div>
-					<div class="modal-footer">
-						
-						<button type="button" class="btn btn-secondary" id="btnPrint" data-dismiss="modal">PRINT</button>
-						<!-- <a class="btn" href="../../backend/confirm.php">DONE</a> -->
-						<input type="submit" class="btn" value="Done" name="submit">
+				</div>
+				<div class="modal-footer">
+
+					<button type="button" class="btn btn-secondary" id="btnPrint" data-dismiss="modal">PRINT</button>
+					<!-- <a class="btn" href="../../backend/confirm.php">DONE</a> -->
+					<input type="submit" class="btn" value="Done" name="submit">
 					</form>
 					<!-- <button type="button" name="done" class="btn btn-secondary" data-dismiss="modal">DONE</button> -->
 				</div>
@@ -332,7 +336,7 @@ require '../../backend/auth.php';
 				books.forEach(function(book) {
 					//$('#books').append('<option>Hello</option>')
 					$('#books').val(book.type),
-					$('#med_id').val(book.id)
+						$('#med_id').val(book.id)
 				})
 			})
 		})

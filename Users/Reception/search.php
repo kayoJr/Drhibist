@@ -222,6 +222,10 @@ require '../../backend/db.php';
 													<label for="cash">Cash</label>
 													<input type="radio" name="payment" id="cash" checked value="cash" required>
 												</div>
+												<div>
+													<label for="credit">Credit</label>
+													<input type="radio" name="payment" id="credit" value="credit" required>
+												</div>
 											</div>
 											<input type="submit" class="btn mgt" value="Pay" name="lab_payment">
 											<!-- <a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a> -->

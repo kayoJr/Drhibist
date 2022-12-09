@@ -531,6 +531,117 @@ require '../../backend/db.php';
 									</div>
 								</div>
 						</div>
+						<div class="daily-report">
+							<h2 class="report">Credit Report</h4>
+								<div class="boxes">
+									<div class="box">
+										<h4>Pharmacy</h4>
+										<!-- <form action="index.php" method="GET">
+											<div class="form-elements">
+												<input type="date" name="date" id="date">
+												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
+											</div>
+										</form> -->
+										<?php
+										$today = date("Y-m-d");
+
+											$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE reason = 'pharmacy' AND `status` = 0";
+											$res = $conn->query($sql);
+											if ($res) {
+												while ($row = $res->fetch_assoc()) {
+													$sum = $row['value_sum'];
+												}
+												echo "
+												<h3>$sum ETB</h3>
+												";
+											}
+										
+										?>
+									</div>
+									<div class="box">
+										<h4>Laboratory And Reception</h4>
+										<!-- <form action="index.php" method="GET">
+											<div class="form-elements">
+												<input type="date" name="date" id="date">
+												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
+											</div>
+										</form> -->
+										<?php
+										$today = date("Y-m-d");
+										
+
+											$sql = "SELECT SUM(price) AS lab_sum FROM `credit` WHERE `reason`= 'laboratory' AND `status` = 0";
+											
+											$sql_ultra = "SELECT SUM(price) AS lab_sys FROM `credit` WHERE `reason`= 'reception' AND `status` = 0";
+
+											$ress = $conn->query($sql);
+											$res_sys = $conn->query($sql_ultra);
+											
+											if ($ress) {
+												while ($rows = $ress->fetch_assoc()) {
+													$sum_first = $rows['lab_sum'];
+													// echo "
+													// <h3>$sum_first ETB</h3>
+													// ";
+													if ($res_sys) {
+														while ($rows = $res_sys->fetch_assoc()) {
+															$sums = $rows['lab_sys'];
+														}
+														$sum_sec = $sum_first + $sums;
+														echo "
+														<h3>$sum_sec ETB</h3>
+														";
+													}
+												}
+											}
+										
+										?>
+
+									</div>
+									<div class="box">
+										<h4>Total To Pay</h4>
+										<!-- <form action="index.php" method="GET">
+											<div class="form-elements">
+												<input type="date" name="date" id="date">
+												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
+											</div>
+										</form> -->
+										<?php
+										$today = date("Y-m-d");
+												$sum_sec = $sum_sec + $sum;
+												echo "
+												<h3>$sum_sec ETB</h3>
+												";
+										
+										?>
+
+									</div>
+									<div class="box">
+										<form action="index.php">
+											<input type="hidden" name="tot_pay" value="<?php echo $sum_sec; ?>">
+											<input type="submit" class="btn" value="Pay" name="pay">
+										</form>
+										<?php
+											if(isset($_GET['pay'])){
+												$tot = $_GET['tot_pay'];
+												$sql = "INSERT INTO `income` (`price`, `reason`) VALUES ('$tot', 'credit')";
+												$rs = $conn->query($sql);
+												if($rs){
+													$rss = $conn->query("UPDATE `credit` SET `status` = 1");
+													if(!$rss){
+														echo $conn->error;
+													}else{
+														$sql = "";
+														// header('Location: index.php?msg=Credit Paid');
+													}
+												}
+											}else{
+												echo $conn->error;
+											}
+										?>
+									</div>
+								</div>
+						</div>
 						<div class="month-report">
 							<div class="report">
 								<h2>Month Report</h2>

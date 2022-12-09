@@ -20,6 +20,10 @@
             <span>Return</span></a>
     </li>
     <li>
+        <a href="credit.php"><i class="fa-solid fa-rotate-left"></i>
+            <span>Credit</span></a>
+    </li>
+    <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>
     </li>

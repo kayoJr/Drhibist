@@ -164,6 +164,10 @@ require '../../backend/auth.php';
 										<label for="cash">Cash</label>
 										<input type="radio" name="payment" id="cash" checked value="cash" required>
 									</div>
+									<div>
+										<label for="credit">Credit</label>
+										<input type="radio" name="payment" id="credit" value="credit" required>
+									</div>
 								</div>
 								<input type="submit" name="add_pat" class="btn btn-primary" value="Register">
 							</form>
