@@ -1201,6 +1201,10 @@ form table select {
   justify-content: space-between;
 }
 
+.blocked {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .pharmacy {
     grid-template-columns: 1fr;
