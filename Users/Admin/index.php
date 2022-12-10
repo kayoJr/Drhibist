@@ -495,12 +495,12 @@ require '../../backend/db.php';
 													// <h3>$sum ETB</h3>
 													// ";
 													if ($res_sys) {
-														while ($row = $res->fetch_assoc()) {
-															$sum = $row['lab_sys'];
+														while ($row = $res_sys->fetch_assoc()) {
+															$sum_ultra = $row['lab_sys'];
+															$sum_ultra_total = $sum_first+$sum_ultra;
 														}
-														$sum_sec = $sum_first + $sum;
-														echo "
-														<h3>$sum_sec ETB</h3>
+															echo "
+														<h3>$sum_ultra_total ETB</h3>
 														";
 													}
 												}

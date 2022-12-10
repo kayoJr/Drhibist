@@ -161,7 +161,7 @@ require '../../backend/auth.php';
 										</tbody>
 									</table>
 									<div align="center">
-										<input type="submit" name="submit" id="submit_button" class="btn btn-primary" value="Add To Cart" data-toggle="modalss" data-target="#exampleModalCenter" />
+										<input type="submit" name="submit_adm" id="submit_button" class="btn btn-primary" value="Add To Cart" data-toggle="modalss" data-target="#exampleModalCenter" />
 									</div>
 								</div>
 							</form>

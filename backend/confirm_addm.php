@@ -20,7 +20,7 @@ while ($row = $result->fetch_assoc()) {
         $sql = "TRUNCATE TABLE `cart`";
         $res = $conn->query($sql);
         if ($res) {
-            header("Location:../Users/Pharmacy?msg=Done");
+            header("Location:../Users/Pharmacy/admission.php?msg=Done");
         } else {
             echo mysqli_error($conn);
         }

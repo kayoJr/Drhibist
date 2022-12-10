@@ -354,8 +354,8 @@ require '../../backend/db.php';
 											<input type="hidden" name="id" value="<?php echo $card; ?>">
 											<div class="payment mgt">
 												<div>
-													<label for="system">System</label>
-													<input type="radio" name="payment" id="system" value="system" required>
+													<label for="admission">Admission</label>
+													<input type="radio" name="payment" id="admission" value="admission" required>
 												</div>
 												<div>
 													<label for="cash">Cash</label>
