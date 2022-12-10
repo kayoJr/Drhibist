@@ -90,6 +90,10 @@ require '../../backend/db.php';
 				<!-- dashboard inner -->
 				<div class="midde_cont">
 					<div class="container-fluid">
+					<div class="navigation">
+                            <a href="http://localhost/drhibist/Users/Doctor/index.php?search=<?php echo $id; ?>&searching=Search"><i class="fa-solid fa-chevron-left fa-2x"></i></a>
+                            <button class="btn" id="btnPrint">Print</button>
+                        </div>
 						<?php
 						if (isset($_POST['submit'])) {
 							$name = $_POST['name'];
@@ -111,10 +115,43 @@ require '../../backend/db.php';
 								<form action="../../backend/withdraw_pay" method="POST">
 									<h3 class="center">Your Total Is <?php echo $total; ?></h3>
 									<input type="hidden" name="total" value="<?php echo $total; ?>">
+									<div>
+                                    <label for="name">Patient Name</label>
+                                    <input type="text" name="name" id="name" value="<?php echo $name; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="bed">Bed</label>
+                                    <input type="number" name="bed" id="bed" value="<?php echo $bed; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="ultra">Ultrasound</label>
+                                    <input type="number" name="ultra" id="ultra" value="<?php echo $ultra; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="oxygen">Oxygen</label>
+                                    <input type="number" min="300" max="1200" name="oxygen" id="oxygen" value="<?php echo $oxygen; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="pharmacy">Pharmacy</label>
+                                    <input type="number" name="pharmacy" id="pharmacy" value="<?php echo $pharmacy; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="laboratory">Laboratory</label>
+                                    <input type="number" name="laboratory" id="laboratory" value="<?php echo $laboratory; ?>" readonly>
+									<input type="hidden" name="id" value="<?php echo $pat_id; ?>">
+                                </div>
+                                <div>
+                                    <label for="service">Service Charge</label>
+                                    <input type="text" name="service" id="service" value="<?php echo $s_charge; ?>" readonly>
+                                </div>
 									<div class="payment">
 										<div>
 											<label for="system">System</label>
 											<input type="radio" name="payment" id="system" value="system" required>
+										</div>
+										<div>
+											<label for="credit">Credit</label>
+											<input type="radio" name="payment" id="credit" value="credit" required>
 										</div>
 										<div>
 											<label for="cash">Cash</label>
@@ -123,7 +160,7 @@ require '../../backend/db.php';
 											<input type="hidden" name="id" value="<?php echo $id; ?>">
 										</div>
 									</div>
-									<input type="submit" value="Pay" name="pay">
+									<input type="submit" class="btn" value="Pay" name="pay">
 								</form>
 							</div>
 						<?php

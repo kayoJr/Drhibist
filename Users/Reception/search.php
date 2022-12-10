@@ -91,6 +91,7 @@ require '../../backend/db.php';
 				<!-- dashboard inner -->
 				<div class="midde_cont">
 					<div class="container-fluid">
+					
 						<form action="search.php" class="search">
 							<h3>Search For Patient</h3>
 							<div class="search-form">
@@ -263,6 +264,7 @@ require '../../backend/db.php';
                                 <div>
                                     <!-- <label for="service">Service Charge</label>
                                     <input type="text" name="service" id="service" value="<?php echo "not yet"; ?>" disabled> -->
+									<label for="service">Service Charge</label>
 									<select name="service" id="service">
 										<option value="0.2">0.2</option>
 										<option value="0.3">0.3</option>

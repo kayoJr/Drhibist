@@ -1221,6 +1221,8 @@ form table select {
 .lab_result *,
 .ultra_result,
 .ultra_result *,
+.detail,
+.detail *,
 .total * {
     color: #000 !important;
     visibility: visible;
@@ -1233,12 +1235,15 @@ form table select {
 .lab_result * table td,
 .ultra_result table td,
 .ultra_result * table td,
+.detail table td,
+.detail * table td,
 .total * table td {
     color: #000 !important;
   }
   .modal-footer *,
 .payment,
-.payment * {
+.payment *,
+input[name=pay] {
     visibility: hidden;
   }
   .modal-content {

@@ -759,6 +759,8 @@ form {
 	.lab_result *,
 	.ultra_result,
 	.ultra_result *,
+	.detail,
+	.detail *,
 	.total * {
 		color: #000 !important;
 		visibility: visible;
@@ -770,7 +772,8 @@ form {
 	}
 	.modal-footer *,
 	.payment,
-	.payment * {
+	.payment *,
+	input[name="pay"] {
 		visibility: hidden;
 	}
 	.modal-content {
