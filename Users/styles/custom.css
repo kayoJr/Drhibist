@@ -1036,10 +1036,8 @@ form table select {
 
 .payment {
   margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .payment label, .payment input {
   display: block;
@@ -1049,7 +1047,8 @@ form table select {
 .payment div {
   display: flex;
   align-items: center;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .center-btn {
@@ -1194,6 +1193,12 @@ form table select {
 }
 .ultra-detail .form-element {
   margin: 0.5rem auto;
+}
+
+.addm_detail div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media (max-width: 768px) {

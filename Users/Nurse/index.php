@@ -210,38 +210,32 @@ require '../../backend/auth.php';
 								}
 								?>
 								</table>
-                            <!-- <table class="table">
-                                <thead>
-                                    <th>Name</th>
-                                    <th>Age</th>
-                                    <th>BP</th>
-                                    <th>PR</th>
-                                    <th>Saturation</th>
-                                    <th>Respiratory</th>
-                                    <th>Temperature</th>
-                                    <th>Height</th>
-                                    <th>Weight</th>
-                                    <th>Head</th>
-                                    <th>MUAC</th>
-                                    <th>Action</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td data-label="Name">Kayo</td>
-                                        <td data-label="Age">22</td>
-                                        <td data-label="BP">120</td>
-                                        <td data-label="PR">80</td>
-                                        <td data-label="Saturation">15</td>
-                                        <td data-label="Respiratory">26</td>
-                                        <td data-label="Temperature">30</td>
-                                        <td data-label="Height">150</td>
-                                        <td data-label="Weight">46</td>
-                                        <td data-label="Head">20</td>
-                                        <td data-label="MUAC">18</td>
-                                        <td class="detail" data-label="Detail"><a href="./detail.php">Add</a></td>
-                                    </tr>
-                                </tbody>
-                            </table> -->
+                            <?php
+if(isset($_GET['searching'])){
+	$phone = $_GET['search'];
+	$search_sql = "SELECT * FROM `admission_det` WHERE `patient_id`='$phone' ORDER BY `date` DESC";
+	$rs = $conn->query($search_sql);
+
+	if($rs){
+		while($row = $rs->fetch_assoc()){
+			$detail = $row['detail'];
+			$date = $row['date'];
+			echo "
+			<div class='detail addm_detail'>
+			<div>
+			<p>-> $detail </p>
+			<p>$date </p>
+			</div>
+			</div>
+			";
+			
+			
+
+		}
+	}
+}
+
+?>
 						</div>
 						<!-- footer -->
 					</div>

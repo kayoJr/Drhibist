@@ -1,25 +1,7 @@
 <?php
 require '../../backend/auth.php';
 require '../../backend/db.php';
-$id = $_GET['id'];
-$sql = "SELECT * FROM `admission` WHERE `pat_id`='$id' OR `pat_phone` = '$id'";
-$res = $conn->query($sql);
-while($row = $res->fetch_assoc()){
-    $date = $row['date'];
-    $pat_id = $row['pat_id'];
-}
 
-$pat = "SELECT * FROM `patient` WHERE `id`='$pat_id'";
-$r = $conn->query($pat);
-while($result = $r->fetch_assoc()){
-    $pat_name = $result['name'];
-}
-
-
-$med = "SELECT SUM(tot_amount) AS tot_med FROM `admission_med` WHERE `patient_id` = '$pat_id'";
-$rs = $conn->query($med);
-$rows = $rs->fetch_assoc();
-$tot = $rows['tot_med'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,90 +90,72 @@ $tot = $rows['tot_med'];
 				<!-- dashboard inner -->
 				<div class="midde_cont">
 					<div class="container-fluid">
-                        <form action="">
-                            <div class="form-elements" id="withdrawal">
-                                <?php
-                                $date1 = new DateTime($date);
-                                $date2 = new DateTime(date("Y-m-d"));
-                                $interval = $date1->diff($date2);
-                                $bed = $interval->days * 500;
+						<?php
+						if (isset($_POST['submit'])) {
+							$name = $_POST['name'];
+							$id = $_POST['id'];
+							$bed = $_POST['bed'];
+							$ultra = $_POST['ultra'];
+							$oxygen = $_POST['oxygen'];
+							$pharmacy = $_POST['pharmacy'];
+							$laboratory = $_POST['laboratory'];
+							$service = (float)$_POST['service'];
 
-                                $total = $bed + $tot;
-                                ?>
-                                <div>
-                                    <label for="name">Patient Name</label>
-                                    <input type="text" name="name" id="name" value="<?php echo $pat_name; ?>" disabled>
-                                </div>
-                                <div>
-                                    <label for="bed">Bed</label>
-                                    <input type="text" name="bed" id="bed" value="<?php echo $bed; ?>" disabled>
-                                </div>
-                                <div>
-                                    <label for="XXX">Ultrasound</label>
-                                    <input type="text" name="bed" id="bed" value="<?php echo "Not Yet"; ?>" disabled>
-                                </div>
-                                <div>
-                                    <label for="XXX">Oxygen</label>
-                                    <input type="text" name="bed" id="bed" value="<?php echo "Not Yet"; ?>" disabled>
-                                </div>
-                                <div>
-                                    <label for="pharmacy">Pharmacy</label>
-                                    <input type="text" name="pharmacy" id="pharmacy" value="<?php echo $tot; ?>" disabled>
-                                </div>
-                                <div>
-                                    <label for="service">Service Charge</label>
-                                    <input type="text" name="service" id="service" value="<?php echo "not yet"; ?>" disabled>
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-                            <div class="total">
-                                <label for="total">Total</label>
-                                <input type="text" name="total" id="total" value="<?php echo $total; ?>" disabled>
-                            </div>
+							$ultra = 0;
+							$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory;
+							$s_charge = $total * $service;
+							$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory + $s_charge;
 
-                            <div class="payment">
-							<div>
-								<label for="system">System</label>
-								<input type="radio" name="payment" id="system" value="system" required>
+						?>
+							<div class="detail">
+								<form action="../../backend/withdraw_pay" method="POST">
+									<h3 class="center">Your Total Is <?php echo $total; ?></h3>
+									<input type="hidden" name="total" value="<?php echo $total; ?>">
+									<div class="payment">
+										<div>
+											<label for="system">System</label>
+											<input type="radio" name="payment" id="system" value="system" required>
+										</div>
+										<div>
+											<label for="cash">Cash</label>
+											<input type="radio" name="payment" id="cash" checked value="cash" required>
+											<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
+											<input type="hidden" name="id" value="<?php echo $id; ?>">
+										</div>
+									</div>
+									<input type="submit" value="Pay" name="pay">
+								</form>
 							</div>
-							<div>
-								<label for="cash">Cash</label>
-								<input type="radio" name="payment" id="cash" checked value="cash" required>
-								<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
-							</div>
-						</div>
-				
-						<button type="button" class="btn" id="btnPrint" data-dismiss="modal">PRINT</button>
-						<input type="submit" class="btn" value="Done" name="submit">
-                </form>
-					<!-- footer -->
+						<?php
+						}
+						?>
+						<!-- footer -->
+					</div>
+					<!-- end dashboard inner -->
 				</div>
-				<!-- end dashboard inner -->
 			</div>
 		</div>
-	</div>
-	<!-- jQuery -->
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/popper.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<!-- wow animation -->
-	<script src="../js/animate.js"></script>
-	<!-- select country -->
-	<script src="../js/bootstrap-select.js"></script>
-	<!-- nice scrollbar -->
-	<script src="../js/perfect-scrollbar.min.js"></script>
-	<script>
-		var ps = new PerfectScrollbar("#sidebar");
-	</script>
-	<!-- custom js -->
-	<script src="../js/custom.js"></script>
+		<!-- jQuery -->
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/popper.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<!-- wow animation -->
+		<script src="../js/animate.js"></script>
+		<!-- select country -->
+		<script src="../js/bootstrap-select.js"></script>
+		<!-- nice scrollbar -->
+		<script src="../js/perfect-scrollbar.min.js"></script>
+		<script>
+			var ps = new PerfectScrollbar("#sidebar");
+		</script>
+		<!-- custom js -->
+		<script src="../js/custom.js"></script>
 </body>
 
 </html>
 
 <script>
-    	document.getElementById("btnPrint").onclick = function() {
+	document.getElementById("btnPrint").onclick = function() {
 		window.print();
 	}
 </script>

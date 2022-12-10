@@ -37,5 +37,17 @@ if (isset($_POST['ultra_payment'])) {
                     echo $conn->error;
                 }
             }
+    }else if($payment == 'admission'){
+        $sql = "INSERT INTO `admission_pay` (`price`, `reason`, `pat_id`) VALUES ('$price', 'ultrasound', '$id')";
+            if(!$conn->query($sql)){
+                echo "error".$conn->error;
+            }else{
+                $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
+                if ($conn->query($sql)) {
+                    header("Location:../Users/Reception/search.php?msg=Payed");
+                } else {
+                    echo $conn->error;
+                }
+            }
     }
 }

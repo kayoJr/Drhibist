@@ -572,14 +572,17 @@ form {
 		margin-right: 1rem;
 		color: #fff;
 	}
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	flex-direction: row;
+	// display: flex;
+	// align-items: center;
+	// justify-content: space-evenly;
+	// flex-direction: row;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 	div{
 		display: flex;
 		align-items: center;
-		flex-direction: row;
+		justify-content: center;
+		flex-direction: column;
 	}
 }
 .center-btn{
@@ -727,6 +730,13 @@ form {
 	grid-template-columns: repeat(2, 1fr);
 	.form-element{
 		margin: .5rem auto;
+	}
+}
+.addm_detail{
+	div{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 }
 @media (max-width: 768px) {

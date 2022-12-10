@@ -184,10 +184,121 @@ require '../../backend/db.php';
 								echo "
 								<div class='center-btn'>
 								<h2>In Admission Since $date</h2>
-								<a class='btn' href='withdraw.php?id=$phone'>Withdraw</a>
+								<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#withdrawmodal'>
+  Withdraw</button>
 								</div>
 								";
 							}
+						?>
+							<div class="modal fade" id="withdrawmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										
+										<div class="modal-body">
+										<form action="./withdraw.php" method="POST">
+                            <div class="form-elements" id="withdrawal">
+                                <?php
+								$sql = "SELECT * FROM `admission` WHERE `pat_id`='$phone' OR `pat_phone` = '$phone'";
+								$res = $conn->query($sql);
+								while($row = $res->fetch_assoc()){
+									$date = $row['date'];
+									$pat_id = $row['pat_id'];
+								}
+								
+								$pat = "SELECT * FROM `patient` WHERE `id`='$pat_id'";
+								$r = $conn->query($pat);
+								while($result = $r->fetch_assoc()){
+									$pat_name = $result['name'];
+								}
+								
+								
+								$med = "SELECT SUM(tot_amount) AS tot_med FROM `admission_med` WHERE `patient_id` = '$pat_id'";
+								$rs = $conn->query($med);
+								$rows = $rs->fetch_assoc();
+								$tot = $rows['tot_med'];
+								
+								$lab = "SELECT SUM(price) AS lab_tot FROM `admission_pay` WHERE `pat_id` = '$pat_id' AND `reason`= 'laboratory'";
+								$rss = $conn->query($lab);
+								$rows = $rss->fetch_assoc();
+								$tot_lab = $rows['lab_tot'];
+
+								$ultra = "SELECT SUM(price) AS lab_tot FROM `admission_pay` WHERE `pat_id` = '$pat_id' AND `reason`= 'ultrasound'";
+								$rsss = $conn->query($ultra);
+								$rowss = $rsss->fetch_assoc();
+								$tot_ultra = $rowss['lab_tot'];
+
+
+                                $date1 = new DateTime($date);
+                                $date2 = new DateTime(date("Y-m-d"));
+                                $interval = $date1->diff($date2);
+                                $bed = $interval->days * 500;
+
+                                $total = $bed + $tot + $tot_lab + $tot_ultra;
+                                ?>
+                                <div>
+                                    <label for="name">Patient Name</label>
+                                    <input type="text" name="name" id="name" value="<?php echo $pat_name; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="bed">Bed</label>
+                                    <input type="number" name="bed" id="bed" value="<?php echo $bed; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="ultra">Ultrasound</label>
+                                    <input type="number" name="ultra" id="ultra" value="<?php echo $tot_ultra; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="oxygen">Oxygen</label>
+                                    <input type="number" min="300" max="1200" name="oxygen" id="oxygen">
+                                </div>
+                                <div>
+                                    <label for="pharmacy">Pharmacy</label>
+                                    <input type="number" name="pharmacy" id="pharmacy" value="<?php echo $tot; ?>" readonly>
+                                </div>
+                                <div>
+                                    <label for="laboratory">Laboratory</label>
+                                    <input type="number" name="laboratory" id="laboratory" value="<?php echo $tot_lab; ?>" readonly>
+									<input type="hidden" name="id" value="<?php echo $pat_id; ?>">
+                                </div>
+                                <div>
+                                    <!-- <label for="service">Service Charge</label>
+                                    <input type="text" name="service" id="service" value="<?php echo "not yet"; ?>" disabled> -->
+									<select name="service" id="service">
+										<option value="0.2">0.2</option>
+										<option value="0.3">0.3</option>
+										<option value="0.4">0.4</option>
+										<option value="0.5">0.5</option>
+									</select>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <!-- <div class="total">
+                                <label for="total">Total</label>
+                                <input type="text" name="total" id="total" value="<?php echo $total; ?>" disabled>
+                            </div> -->
+
+                            <!-- <div class="payment">
+							<div>
+								<label for="system">System</label>
+								<input type="radio" name="payment" id="system" value="system" required>
+							</div>
+							<div>
+								<label for="cash">Cash</label>
+								<input type="radio" name="payment" id="cash" checked value="cash" required>
+								<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
+							</div>
+						</div> -->
+				
+						<!-- <button type="button" class="btn" id="btnPrint" data-dismiss="modal">PRINT</button> -->
+						<input type="submit" class="btn" value="Check Total" name="submit">
+                </form>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<?php
 							$lab_sql = "SELECT SUM(price) AS totalPay FROM `lab_cart2` WHERE `patient_id`=$card AND `payment`=0 ";
 							$sql_res = $conn->query($lab_sql);
 							if ($sql_res) {
@@ -204,7 +315,7 @@ require '../../backend/db.php';
 							} else {
 								echo $conn->error;
 							}
-						?>
+							?>
 							<div class='payments'>
 								<div class='grid-x3'>
 									<div class='grid'>
@@ -215,16 +326,20 @@ require '../../backend/db.php';
 											<input type="hidden" name="id" value="<?php echo $card; ?>">
 											<div class="payment mgt">
 												<div>
-													<label for="system">System</label>
 													<input type="radio" name="payment" id="system" value="system" required>
+													<label for="system">System</label>
 												</div>
 												<div>
-													<label for="cash">Cash</label>
 													<input type="radio" name="payment" id="cash" checked value="cash" required>
+													<label for="cash">Cash</label>
 												</div>
 												<div>
-													<label for="credit">Credit</label>
 													<input type="radio" name="payment" id="credit" value="credit" required>
+													<label for="credit">Credit</label>
+												</div>
+												<div>
+													<input type="radio" name="payment" id="admission" value="admission" required>
+													<label for="admission">Admission</label>
 												</div>
 											</div>
 											<input type="submit" class="btn mgt" value="Pay" name="lab_payment">
