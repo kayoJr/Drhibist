@@ -120,7 +120,7 @@ require '../../backend/auth.php';
                              <h2>Sell To Patient In Admission</h2>
                         </div>
 						<div class="pharmacy">
-							<form method="post" id="insert_form" action="../../backend/cart.php">
+							<form method="post" id="insert_form" action="../../backend/cart_adm.php">
 								<div class="table-responsive">
 									<table class="table table-bordered" id="item_table">
 										<tr class="mob_table">
@@ -170,7 +170,7 @@ require '../../backend/auth.php';
 								<div class="elements">
 									<div class="middle-cart">
 										<?php
-										$sql = "SELECT * FROM `cart` order by `id` desc";
+										$sql = "SELECT * FROM `cart_adm` order by `id` desc";
 										$rs = mysqli_query($con, $sql);
 										if (mysqli_num_rows($rs)) {
 											while ($row = mysqli_fetch_assoc($rs)) {
@@ -180,7 +180,7 @@ require '../../backend/auth.php';
 												<div class="element">
 													<div>
 														<?php
-														echo "<a href='../../backend/remove_cart.php?rn=$id'><b>X</b></a>";
+														echo "<a href='../../backend/remove_adm.php?rn=$id'><b>X</b></a>";
 
 														echo  "<h4>" . $row['name'] . "<br>" . $row['sub_price'] . '$' . "</h4>";
 														?>
@@ -206,7 +206,7 @@ require '../../backend/auth.php';
 											<div class="right-list">
 
 												<?php
-												$sql = "SELECT SUM(sub_price) AS total FROM `cart`";
+												$sql = "SELECT SUM(sub_price) AS total FROM `cart_adm`";
 												$rs = mysqli_query($conn, $sql);
 												$val = mysqli_fetch_assoc($rs);
 												$num = $val['total'];
@@ -248,7 +248,7 @@ require '../../backend/auth.php';
 						</tr>
 						<?php
 
-						$sql = "SELECT * FROM `cart`";
+						$sql = "SELECT * FROM `cart_adm`";
 						$rs = mysqli_query($conn, $sql);
 						while ($row = mysqli_fetch_assoc($rs)) {
 						?>

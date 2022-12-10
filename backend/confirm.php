@@ -35,39 +35,41 @@ if (isset($_GET['submit'])) {
 					}
 				}
 			} else {
-				$copy = "INSERT INTO `pharma_daily_sell`( `id`, `name`, `type`, `price`, `quan`, `sub_price`,`date`) VALUES ('$id', '$name','$type','$price','$amount','$sub','$now') ";
-				if ($conn->query($copy)) {
-
-					$sql = "TRUNCATE TABLE `cart`";
-					$res = $conn->query($sql);
-					if ($res) {
-						header("Location:../Users/Pharmacy?msg=Done");
-					} else {
-						echo mysqli_error($conn);
+				if($payment == "cash"){
+					$copy = "INSERT INTO `pharma_daily_sell`( `id`, `name`, `type`, `price`, `quan`, `sub_price`,`date`) VALUES ('$id', '$name','$type','$price','$amount','$sub','$now') ";
+					if ($conn->query($copy)) {
+						
+						$sql = "TRUNCATE TABLE `cart`";
+						$res = $conn->query($sql);
+						if ($res) {
+							header("Location:../Users/Pharmacy?msg=Done");
+						} else {
+							echo mysqli_error($conn);
+						}
 					}
 				}
-			}
-			if ($payment == "system") {
-				$sql = "INSERT INTO `system_payment` (`price`) VALUES ('$tot_price')";
-				if ($conn->query($sql)) {
-					$sql = "TRUNCATE TABLE `cart`";
-					$res = $conn->query($sql);
-					if ($res) {
-						header("Location:../Users/Pharmacy?msg=Done");
-					} else {
-						echo mysqli_error($conn);
+				if ($payment == "system") {
+					$sql = "INSERT INTO `system_payment` (`price`) VALUES ('$tot_price')";
+					if ($conn->query($sql)) {
+						$sql = "TRUNCATE TABLE `cart`";
+						$res = $conn->query($sql);
+						if ($res) {
+							header("Location:../Users/Pharmacy?msg=Done");
+						} else {
+							echo mysqli_error($conn);
+						}
 					}
 				}
-			}
-			if ($payment == "credit") {
-				$sql = "INSERT INTO `credit` (`price`, `reason`) VALUES ('$tot_price', 'pharmacy')";
-				if ($conn->query($sql)) {
-					$sql = "TRUNCATE TABLE `cart`";
-					$res = $conn->query($sql);
-					if ($res) {
-						header("Location:../Users/Pharmacy?msg=Done");
-					} else {
-						echo mysqli_error($conn);
+				if ($payment == "credit") {
+					$sql = "INSERT INTO `credit` (`price`, `reason`) VALUES ('$tot_price', 'pharmacy')";
+					if ($conn->query($sql)) {
+						$sql = "TRUNCATE TABLE `cart`";
+						$res = $conn->query($sql);
+						if ($res) {
+							header("Location:../Users/Pharmacy?msg=Done");
+						} else {
+							echo mysqli_error($conn);
+						}
 					}
 				}
 			}

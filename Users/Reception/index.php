@@ -119,7 +119,8 @@ require '../../backend/auth.php';
 						<p class="succ">
 							<?php
 							@$lout = $_REQUEST['msg'];
-							echo $lout;
+							@$rollno = $_REQUEST['rn'];
+							echo $lout.$rollno;
 							?>
 						</p>
 						</div>
