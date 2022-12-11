@@ -1231,6 +1231,20 @@ form table select {
   width: 100%;
 }
 
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.name p {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.lab_result {
+  margin-bottom: 15rem !important;
+}
+
 @media (max-width: 768px) {
   .pharmacy {
     grid-template-columns: 1fr;
@@ -1261,7 +1275,9 @@ form table select {
 .ultra_result *,
 .detail,
 .detail *,
-.total * {
+.total *,
+.name,
+.name * {
     color: #000 !important;
     visibility: visible;
   }
@@ -1285,7 +1301,11 @@ form table select {
 .detail * table thead,
 .detail * table th,
 .total * table thead,
-.total * table th {
+.total * table th,
+.name table thead,
+.name table th,
+.name * table thead,
+.name * table th {
     border: 2px solid #1b1b1b;
   }
   .modal-content table td,
@@ -1298,7 +1318,9 @@ form table select {
 .ultra_result * table td,
 .detail table td,
 .detail * table td,
-.total * table td {
+.total * table td,
+.name table td,
+.name * table td {
     color: #000 !important;
   }
   .modal-footer *,
@@ -1306,6 +1328,10 @@ form table select {
 .payment *,
 input[name=pay] {
     visibility: hidden;
+  }
+  .lab_result,
+.ultra_result {
+    margin-bottom: 25rem !important;
   }
   .lab-header,
 .lab-header *,

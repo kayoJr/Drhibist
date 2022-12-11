@@ -109,12 +109,18 @@ require '../../backend/auth.php';
                             $neck = $conn->query("SELECT * FROM `neck` WHERE `patient_id`='$id'");
                             $breast = $conn->query("SELECT * FROM `breast` WHERE `patient_id`='$id'");
                             $scortal = $conn->query("SELECT * FROM `scrotal` WHERE `patient_id`='$id'");
+                            $info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
+                            $info_det = $info->fetch_assoc();
 
                             ?>
                         </div>
                         <div class="navigation">
                             <a href="http://localhost/drhibist/Users/Doctor/index.php?search=<?php echo $id; ?>&searching=Search"><i class="fa-solid fa-chevron-left fa-2x"></i></a>
                             <button class="btn" id="btnPrint">Print</button>
+                        </div>
+                        <div class="name">
+                            <p><?php echo $info_det['name']; ?></p>
+                            <p><?php echo $date; ?></p>
                         </div>
                         <div class="ultra_result">
                             <div class='lab'>
@@ -274,6 +280,12 @@ require '../../backend/auth.php';
                         </div>
 
                     </div>
+                    <div class="lab-header">
+                    <img src="../../img/lab_header.png" alt="">
+                </div>
+                <div class="lab-footer">
+                    <img src="../../img/lab_footer.jpg" alt="">
+                </div>
                 </div>
                 <!-- footer -->
             </div>

@@ -769,6 +769,18 @@ form {
 		width: 100%;
 	}
 }
+.name{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	p{
+		color: $white;
+		font-size: 2rem;
+	}
+}
+.lab_result{
+	margin-bottom: 15rem !important;
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;
@@ -801,7 +813,9 @@ form {
 	.ultra_result *,
 	.detail,
 	.detail *,
-	.total * {
+	.total *,
+	.name,
+	.name *{
 		color: #000 !important;
 		visibility: visible;
 		table{
@@ -818,6 +832,10 @@ form {
 	.payment *,
 	input[name="pay"] {
 		visibility: hidden;
+	}
+	.lab_result,
+	.ultra_result{
+		margin-bottom: 25rem !important;
 	}
 	.lab-header,
 	.lab-header *,

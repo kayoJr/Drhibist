@@ -130,12 +130,18 @@ require '../../backend/auth.php';
                             $rs23 = $conn->query("SELECT * FROM `weil` WHERE `patient_id`='$id'");
                             $rs24 = $conn->query("SELECT * FROM `widalh` WHERE `patient_id`='$id'");
                             $rs25 = $conn->query("SELECT * FROM `widalo` WHERE `patient_id`='$id'");
-
+                            
+                            $info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
+                            $info_det = $info->fetch_assoc();
                             ?>
                         </div>
                         <div class="navigation">
                             <a href="http://localhost/drhibist/Users/Doctor/index.php?search=<?php echo $id; ?>&searching=Search"><i class="fa-solid fa-chevron-left fa-2x"></i></a>
                             <button class="btn" id="btnPrint">Print</button>
+                        </div>
+                        <div class="name">
+                            <p><?php echo $info_det['name']; ?></p>
+                            <p><?php echo $date; ?></p>
                         </div>
                         <div class="lab_result">
                             <div class='lab'>
