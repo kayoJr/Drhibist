@@ -142,8 +142,12 @@ require '../../backend/db.php';
                                         <label for="role">Role</label>
                                         <select name="role" id="role">
                                             <option value="admin">Admin</option>
-                                            <option value="reception">Reception</option>
+                                            <option value="doctor">Doctor</option>
+                                            <option value="laboratory">Laboratory</option>
                                             <option value="nurse">Nurse</option>
+                                            <option value="pharmacy">Pharmacy</option>
+                                            <option value="ultrasound">Ultrasound</option>
+                                            <option value="reception">Reception</option>
                                         </select>
                                     </div>
                                 </div>

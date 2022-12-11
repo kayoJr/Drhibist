@@ -15,6 +15,14 @@ if(isset($_POST['add_user'])){
         $role = 2;
     }else if($role_temp == 'nurse'){
         $role = 3;
+    }else if($role_temp == 'doctor'){
+        $role = 4;
+    }else if($role_temp == 'laboratory'){
+        $role = 5;
+    }else if($role_temp == 'ultrasound'){
+        $role = 6;
+    }else if($role_temp == 'pharmacy'){
+        $role = 7;
     }
 
     $sql = "INSERT INTO `users`(`name`, `phone`, `password`, `role`) 
