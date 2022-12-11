@@ -599,6 +599,46 @@ require '../../backend/db.php';
 
 									</div>
 									<div class="box">
+										<h4>Admission</h4>
+										<!-- <form action="index.php" method="GET">
+											<div class="form-elements">
+												<input type="date" name="date" id="date">
+												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
+											</div>
+										</form> -->
+										<?php
+										$today = date("Y-m-d");
+										
+
+											$sql = "SELECT SUM(price) AS lab_sum FROM `credit` WHERE `reason`= 'withdrawal' AND `status` = 0";
+											
+											//$sql_ultra = "SELECT SUM(price) AS lab_sys FROM `credit` WHERE `reason`= 'reception' AND `status` = 0";
+
+											$ress = $conn->query($sql);
+											//$res_sys = $conn->query($sql_ultra);
+											
+											if ($ress) {
+												while ($rows = $ress->fetch_assoc()) {
+													$sum_adm = $rows['lab_sum'];
+													// echo "
+													// <h3>$sum_first ETB</h3>
+													// ";
+													//if ($res_sys) {
+														// while ($rows = $res_sys->fetch_assoc()) {
+														// 	$sums = $rows['lab_sys'];
+														// }
+														//$sum_sec = $sum_first + $sums;
+														echo "
+														<h3>$sum_adm ETB</h3>
+														";
+													//}
+												}
+											}
+										
+										?>
+
+									</div>
+									<div class="box">
 										<h4>Total To Pay</h4>
 										<!-- <form action="index.php" method="GET">
 											<div class="form-elements">
@@ -608,16 +648,13 @@ require '../../backend/db.php';
 										</form> -->
 										<?php
 										$today = date("Y-m-d");
-												$sum_sec = $sum_sec + $sum;
+												$sum_sec = $sum_sec + $sum + $sum_adm;
 												echo "
 												<h3>$sum_sec ETB</h3>
 												";
 										
 										?>
-
-									</div>
-									<div class="box">
-										<form action="index.php">
+											<form action="index.php">
 											<input type="hidden" name="tot_pay" value="<?php echo $sum_sec; ?>">
 											<input type="submit" class="btn" value="Pay" name="pay">
 										</form>
@@ -640,6 +677,7 @@ require '../../backend/db.php';
 											}
 										?>
 									</div>
+									
 								</div>
 						</div>
 						<div class="month-report">
