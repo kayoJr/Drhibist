@@ -296,12 +296,12 @@ require '../../backend/db.php';
 											$today = date("Y-m-d");
 										}
 									}
-								$sql_ultra = "SELECT SUM(price) AS ultra FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'laboratory'";
+								$sql_ultra = "SELECT SUM(price) AS ultra FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
 								$rs_ultra = $conn->query($sql_ultra);
 								$row_lab = $rs_ultra->fetch_assoc();
 								$ultra_sys_sum = $row_lab['ultra'];
 
-								$sql_ultra = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'laboratory'";
+								$sql_ultra = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
 								$rs_ultra_cash = $conn->query($sql_ultra);
 								$row_ultra_cash = $rs_ultra_cash->fetch_assoc();
 								$ultra_cash_sum = $row_ultra_cash['lab_cash'];
