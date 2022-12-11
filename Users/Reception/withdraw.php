@@ -215,6 +215,9 @@ require '../../backend/db.php';
 					</div>
 					<!-- end dashboard inner -->
 				</div>
+				<div class="lab-footer">
+                    <img src="../../img/lab_footer.jpg" alt="">
+                </div>
 			</div>
 		</div>
 		<!-- jQuery -->
