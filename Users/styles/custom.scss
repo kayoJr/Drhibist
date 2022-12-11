@@ -742,6 +742,33 @@ form {
 .blocked{
 	display: none;
 }
+.add_result{
+	h3{
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+	.results{
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-direction: row;
+		width: 100%;
+		h2{
+			padding: 1rem 0;
+		}
+		.adm_result{
+			margin-left: 2rem;
+		}
+	}
+	.total{
+		margin: 2rem 0;
+		display: flex;
+		align-items: flex-end;
+		justify-content: end;
+		width: 100%;
+	}
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;
@@ -750,10 +777,20 @@ form {
 		}
 	}
 }
+@media screen {
+	.lab-header,
+	.lab-header *,
+	.lab-footer,
+	.lab-footer *{
+		display: none;
+	}
+}
+
 @media print {
-	body * {
+	html, body * {
 		visibility: hidden;
 	}
+	
 	.modal-content,
 	.modal-content *,
 	#withdrawal,
@@ -768,6 +805,9 @@ form {
 		color: #000 !important;
 		visibility: visible;
 		table{
+			thead, th{
+				border: 2px solid #1b1b1b;
+			}
 			td{
 				color: #000 !important;
 			}
@@ -778,6 +818,25 @@ form {
 	.payment *,
 	input[name="pay"] {
 		visibility: hidden;
+	}
+	.lab-header,
+	.lab-header *,
+	.lab-footer,
+	.lab-footer *{
+		visibility: visible;
+	}
+
+	.lab-header{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	.lab-footer{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
 	}
 	.modal-content {
 		position: absolute;

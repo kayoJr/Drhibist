@@ -2,7 +2,7 @@
 include 'db.php';
 // $id = $_GET['id'];
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['pay'])) {
     $price = $_POST['tot_price'];
     $payment = $_POST['payment'];
     $id = $_POST['id'];

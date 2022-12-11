@@ -16,6 +16,7 @@ if (isset($_POST['add_pat'])) {
     $sql = "INSERT INTO `patient`(`name`, `age`, `sex`, `phone`) 
             VALUES ('$name', '$age', '$sex', $phone)";
     $res = $conn->query($sql);
+    $idd = " at ".mysqli_insert_id($conn);
 
     if ($res) {
         if ($payment == "system") {
@@ -23,7 +24,6 @@ if (isset($_POST['add_pat'])) {
             if (!$conn->query($sql)) {
                 echo $conn->error;
             } else {
-                $idd = " at ".mysqli_insert_id($conn);
                 header("Location: ../Users/Reception/index.php?msg=Patient Added&rn=$idd");
             }
         } else if ($payment == "cash") {
@@ -31,7 +31,7 @@ if (isset($_POST['add_pat'])) {
             if (!$conn->query($sql)) {
                 echo $conn->error;
             } else {
-                $idd = " at ".mysqli_insert_id($conn);
+              
                 header("Location: ../Users/Reception/index.php?msg=Patient Added&rn=$idd");
             }
         } else if ($payment == "credit") {
@@ -39,7 +39,7 @@ if (isset($_POST['add_pat'])) {
             if (!$conn->query($sql)) {
                 echo $conn->error;
             } else {
-                $idd = " at ".mysqli_insert_id($conn);
+               
                 header("Location: ../Users/Reception/index.php?msg=Patient Added&rn=$idd");
             }
         }

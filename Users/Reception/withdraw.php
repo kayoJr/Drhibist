@@ -106,16 +106,61 @@ require '../../backend/db.php';
 							$service = (float)$_POST['service'];
 
 							$ultra = 0;
-							$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory;
+							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory;
 							$s_charge = $total * $service;
-							$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory + $s_charge;
+							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory + $s_charge;
 
 						?>
 							<div class="detail">
-								<form action="../../backend/withdraw_pay" method="POST">
-									<h3 class="center">Your Total Is <?php echo $total; ?></h3>
-									<input type="hidden" name="total" value="<?php echo $total; ?>">
-									<div>
+								<form action="../../backend/withdraw_pay.php" method="POST">
+								<div class="lab-header">
+                    <img src="../../img/lab_header.png" alt="">
+                </div>				
+							<div class="add_result">
+								<h3 class="center">Discharge</h3>
+								<div class="results">
+
+									<div class="adm_title">
+										<h2>Patient Name</h2>
+										<h2>Bed</h2>
+										<h2>Ultrasound</h2>
+										<h2>Laboratory</h2>
+										<h2>Oxygen</h2>
+										<h2>Pharmacy</h2>
+										<h2>Service Charge</h2>
+								</div>
+								<div class="adm_result">
+									<h2><?php echo $name; ?></h2>
+									<h2><?php echo $bed; ?></h2>
+									<h2><?php echo $ultra; ?></h2>
+									<h2><?php echo $laboratory; ?></h2>
+									<h2><?php echo $oxygen; ?></h2>
+									<h2><?php echo $pharmacy; ?></h2>
+									<h2><?php echo $s_charge; ?></h2>
+								</div>
+								</div>
+								<div class="total">
+									<h2 class="total">Total:- <?php echo $total; ?></h2>
+								</div>
+							</div>
+							<div class="payment">
+										<div>
+											<label for="system">System</label>
+											<input type="radio" name="payment" id="system" value="system" required>
+										</div>
+										<div>
+											<label for="credit">Credit</label>
+											<input type="radio" name="payment" id="credit" value="credit" required>
+										</div>
+										<div>
+											<label for="cash">Cash</label>
+											<input type="radio" name="payment" id="cash" checked value="cash" required>
+											<input type="hidden" name="tot_price" value="<?php echo $total; ?>">
+											<input type="hidden" name="id" value="<?php echo $id; ?>">
+										</div>
+									</div>
+									<!--<input type="hidden" name="total" value="<?php echo $total; ?>">
+								<div>
                                     <label for="name">Patient Name</label>
                                     <input type="text" name="name" id="name" value="<?php echo $name; ?>" readonly>
                                 </div>
@@ -159,7 +204,7 @@ require '../../backend/db.php';
 											<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
 											<input type="hidden" name="id" value="<?php echo $id; ?>">
 										</div>
-									</div>
+									</div> -->
 									<input type="submit" class="btn" value="Pay" name="pay">
 								</form>
 							</div>

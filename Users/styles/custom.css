@@ -1205,6 +1205,32 @@ form table select {
   display: none;
 }
 
+.add_result h3 {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+.add_result .results {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+}
+.add_result .results h2 {
+  padding: 1rem 0;
+}
+.add_result .results .adm_result {
+  margin-left: 2rem;
+}
+.add_result .total {
+  margin: 2rem 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .pharmacy {
     grid-template-columns: 1fr;
@@ -1213,8 +1239,16 @@ form table select {
     margin-top: 2rem;
   }
 }
+@media screen {
+  .lab-header,
+.lab-header *,
+.lab-footer,
+.lab-footer * {
+    display: none;
+  }
+}
 @media print {
-  body * {
+  html, body * {
     visibility: hidden;
   }
   .modal-content,
@@ -1230,6 +1264,29 @@ form table select {
 .total * {
     color: #000 !important;
     visibility: visible;
+  }
+  .modal-content table thead, .modal-content table th,
+.modal-content * table thead,
+.modal-content * table th,
+#withdrawal table thead,
+#withdrawal table th,
+#withdrawal * table thead,
+#withdrawal * table th,
+.lab_result table thead,
+.lab_result table th,
+.lab_result * table thead,
+.lab_result * table th,
+.ultra_result table thead,
+.ultra_result table th,
+.ultra_result * table thead,
+.ultra_result * table th,
+.detail table thead,
+.detail table th,
+.detail * table thead,
+.detail * table th,
+.total * table thead,
+.total * table th {
+    border: 2px solid #1b1b1b;
   }
   .modal-content table td,
 .modal-content * table td,
@@ -1249,6 +1306,24 @@ form table select {
 .payment *,
 input[name=pay] {
     visibility: hidden;
+  }
+  .lab-header,
+.lab-header *,
+.lab-footer,
+.lab-footer * {
+    visibility: visible;
+  }
+  .lab-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .lab-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
   }
   .modal-content {
     position: absolute;

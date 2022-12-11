@@ -878,6 +878,12 @@ require '../../backend/auth.php';
 
                     </div>
                 </div>
+                <div class="lab-header">
+                    <img src="../../img/lab_header.png" alt="">
+                </div>
+                <div class="lab-footer">
+                    <img src="../../img/lab_footer.jpg" alt="">
+                </div>
                 <!-- footer -->
             </div>
             <!-- end dashboard inner -->
