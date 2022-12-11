@@ -8,8 +8,8 @@
             <span>Search</span></a>
     </li>
     <li>
-        <a href="withdraw.php"><i class="fa-solid fa-magnifying-glass"></i>
-            <span>Withdraw</span></a>
+        <a href="admission.php"><i class="fa-solid fa-magnifying-glass"></i>
+            <span>Admission</span></a>
     </li>
     <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
