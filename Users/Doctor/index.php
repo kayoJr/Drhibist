@@ -257,48 +257,60 @@ require '../../backend/auth.php';
 								<table class='table'>
 
 									<thead>
-										<th>C/c</th>
+										<th>Date</th>
 										<td><?php echo @$det['date']; ?></td>
 									</thead>
 									<thead>
 										<th>C/c</th>
-										<td><?php echo @$det['Cc']; ?></td>
+										<td><?php echo @$det['cc']; ?></td>
 									</thead>
 									<thead>
 										<th>Duration</th>
-										<td><?php echo @$det['duration']; ?></td>
+										<td><?php echo @$det['dt']; ?></td>
 									</thead>
 									<thead>
-										<th>Associated Major Symptoms</th>
-										<td><?php echo @$det['Ams']; ?></td>
+										<th>Major Associated symptoms</th>
+										<td><?php echo @$det['sy']; ?></td>
 									</thead>
 									<thead>
-										<th>Vaccination Hx</th>
-										<td><?php echo @$det['Vhx']; ?></td>
+										<th>Other important symptoms</th>
+										<td><?php echo @$det['imp']; ?></td>
 									</thead>
 									<thead>
 										<th>Any Taken Medication</th>
 										<td><?php echo @$det['md']; ?></td>
 									</thead>
 									<thead>
-										<th>Previous similar HX</th>
-										<td><?php echo @$det['prevhx']; ?></td>
+										<th>Current Nutrition</th>
+										<td><?php echo @$det['cn']; ?></td>
 									</thead>
 									<thead>
-										<th>Any Known Allergy</th>
-										<td><?php echo @$det['allergy']; ?></td>
+										<th>Previous Similar Cases</th>
+										<td><?php echo @$det['pc']; ?></td>
 									</thead>
 									<thead>
-										<th>Possible DX</th>
-										<td><?php echo @$det['pdx']; ?></td>
+										<th>Vaccination HX</th>
+										<td><?php echo @$det['vh']; ?></td>
 									</thead>
 									<thead>
-										<th>Lab</th>
+										<th>Any known Allergy</th>
+										<td><?php echo @$det['aka']; ?></td>
+									</thead>
+									<thead>
+										<th>Pertinent Physical Exam</th>
 										<td><?php echo @$det['lab']; ?></td>
 									</thead>
 									<thead>
-										<th>RX</th>
+										<th>Possible DX</th>
+										<td><?php echo @$det['dx']; ?></td>
+									</thead>
+									<thead>
+										<th>RX Given</th>
 										<td><?php echo @$det['rx']; ?></td>
+									</thead>
+									<thead>
+										<th>Action</th>
+										<td><a class="btn mgb" href="edit.php?id=<?php echo @$det['id']; ?>">Edit</a></td>
 									</thead>
 
 								</table>
@@ -330,25 +342,29 @@ require '../../backend/auth.php';
 												<input type="text" name="cc">
 												<label for="dt">Duration</label>
 												<input type="text" name="dt">
-												<label for="sy">Associated major symptom</label>
+												<label for="sy">Major Associated symptoms</label>
 												<input type="text" name="sy">
-												<label for="vc">Vaccination HX</label>
-												<input type="text" name="vc">
+												<label for="imp">Other important symptoms</label>
+												<input type="text" name="imp">
 												<label for="md">Any taken Medication</label>
 												<input type="text" name="md">
+												<label for="cn">Current Nutrition</label>
+												<input type="text" name="cn">
 
 
 											</div>
 											<div class="column">
-												<label for="pc">Previous Similar HX</label>
+												<label for="pc">Previous Similar Cases</label>
 												<input type="text" name="pc">
-												<label for="all">Any known Allergy</label>
-												<input type="text" name="all">
+												<label for="vh">Vaccination HX</label>
+												<input type="text" name="vh">
+												<label for="aka">Any known Allergy</label>
+												<input type="text" name="aka">
+												<label for="lab">Pertinent Physical Exam</label>
+												<input type="text" name="lab">
 												<label for="dx">Possible DX</label>
 												<input type="text" name="dx">
-												<label for="lab">Lab</label>
-												<input type="text" name="lab">
-												<label for="rx">RX</label>
+												<label for="rx">RX Given</label>
 												<input type="text" name="rx">
 												<input type="hidden" name="pat_id" value="<?php echo $pat_id; ?>">
 											</div>

@@ -123,15 +123,15 @@ if($status){
                             $id = $row['patient_id'];
                             $detail = $row['detail'];
                             $date = $row['date'];
-                            $adm_status = "Not In Admission";
+                            $adm_status = "Waiting Patient";
                         $adm = $conn->query("SELECT * FROM `admission` WHERE `pat_id`='$id'");
                         while($row2 = $adm->fetch_assoc()){
                             $adm_pat = $row2['pat_id'];
                         
                         if($id == $adm_pat){
-                            $adm_status = "In Admission";
+                            $adm_status = "Admitted Patient";
                         }else{
-                            $adm_status = "Not In Admission";
+                            $adm_status = "Waiting Patient";
                         }
 
                     }
