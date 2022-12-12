@@ -123,6 +123,9 @@ require '../../backend/db.php';
 							?>
 						</p>
 						</div>
+						<div class="navigation">
+                            <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
+                        </div>
 							<?php
 								$phone = $_SESSION['user'];
 								$sql = "SELECT * FROM `admission` ORDER BY `id` DESC";

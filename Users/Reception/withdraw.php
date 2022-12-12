@@ -91,11 +91,16 @@ require '../../backend/db.php';
 				<div class="midde_cont">
 					<div class="container-fluid">
 					<div class="navigation">
-                            <a href="http://localhost/drhibist/Users/Doctor/index.php?search=<?php echo $id; ?>&searching=Search"><i class="fa-solid fa-chevron-left fa-2x"></i></a>
+                            <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
                             <button class="btn" id="btnPrint">Print</button>
                         </div>
 						<?php
 						if (isset($_POST['submit'])) {
+				
+							$ultra = 0;
+							$oxygen = 0;
+							$pharmacy = 0;
+							$laboratory = 0;
 							$name = $_POST['name'];
 							$id = $_POST['id'];
 							$bed = $_POST['bed'];
@@ -104,8 +109,19 @@ require '../../backend/db.php';
 							$pharmacy = $_POST['pharmacy'];
 							$laboratory = $_POST['laboratory'];
 							$service = (float)$_POST['service'];
-
-							$ultra = 0;
+							if($laboratory == ''){
+								$laboratory = 0;
+							}
+							if($ultra == ''){
+								$ultra = 0;
+							}
+							if($pharmacy == ''){
+								$pharmacy = 0;
+							}
+							if($oxygen == ''){
+								$oxygen = 0;
+							}
+							
 							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory;
 							$s_charge = $total * $service;
 							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory + $s_charge;

@@ -115,7 +115,7 @@ require '../../backend/auth.php';
                             ?>
                         </div>
                         <div class="navigation">
-                            <a href="http://localhost/drhibist/Users/Doctor/index.php?search=<?php echo $id; ?>&searching=Search"><i class="fa-solid fa-chevron-left fa-2x"></i></a>
+                            <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
                             <button class="btn" id="btnPrint">Print</button>
                         </div>
                         <div class="name">

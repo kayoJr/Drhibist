@@ -128,6 +128,7 @@ require '../../backend/auth.php';
 								</div>
 								";
 								?>
+									<div class="messages">
 									<div class="adm-detail">
 										<form action="../../backend/adm_detail.php" method="post">
 											<h3 class="center">Admission Detail</h3>
@@ -136,6 +137,7 @@ require '../../backend/auth.php';
 											<input type="submit" value="Send" name="adm_det" class="btn">
 										</form>
 									</div>
+									
 								<?php
 							} else {
 								echo "
@@ -144,6 +146,17 @@ require '../../backend/auth.php';
 								</div>
 								";
 							}
+							?>
+							<div class="adm-detail">
+										<form action="../../backend/nurse_message.php" method="post">
+											<h3 class="center">Message To Nurse</h3>
+											<input type="hidden" name="id" value="<?php echo $phone;?>">
+											<textarea name="adm_detail" id="adm-detail" cols="30" rows="10"></textarea>
+											<input type="submit" value="Send" name="adm_det" class="btn">
+										</form>
+									</div>
+									</div>
+							<?php
 							echo "
 									<table class='table'>
 									<thead>
@@ -297,6 +310,7 @@ require '../../backend/auth.php';
 								<button class="btn btn-primary" id="btn-lab">Laboratory</button>
 								<button class="btn btn-primary" id="btn-detail">Detail</button>
 								<?php echo "<a class='btn btn-primary'href='labresu.php?id=$pat_id'>Lab Result</a>" ?>
+								<?php echo "<a class='btn btn-primary'href='lab_req.php?id=$pat_id'>Lab Request</a>" ?>
 								<?php echo "<a class='btn btn-primary'href='ultraresu.php?id=$pat_id'>Ultrasound Result</a>" ?>
 								<!-- <button class="btn btn-primary" id="btn-radio">
 									Ultrasound

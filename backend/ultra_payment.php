@@ -20,7 +20,7 @@ if (isset($_POST['ultra_payment'])) {
         } else {
             $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
             if ($conn->query($sql)) {
-                header("Location:../Users/Reception/search.php?msg=Payed");
+                header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
             } else {
                 echo $conn->error;
             }
@@ -32,7 +32,7 @@ if (isset($_POST['ultra_payment'])) {
             }else{
                 $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
                 if ($conn->query($sql)) {
-                    header("Location:../Users/Reception/search.php?msg=Payed");
+                    header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
                 } else {
                     echo $conn->error;
                 }
@@ -44,7 +44,7 @@ if (isset($_POST['ultra_payment'])) {
             }else{
                 $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
                 if ($conn->query($sql)) {
-                    header("Location:../Users/Reception/search.php?msg=Payed");
+                    header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
                 } else {
                     echo $conn->error;
                 }

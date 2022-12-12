@@ -106,7 +106,9 @@ $pat_id = $_GET['id'];
 							echo "<p>$msg</p>"
 							?>
 						</div>
-
+						<div class="navigation">
+                            <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
+                        </div>
 						<div class="ultra_result">
 							<?php
 							if ($type == "Abdominal") {

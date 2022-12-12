@@ -14,7 +14,7 @@ if (isset($_POST['lab_payment'])) {
         } else {
             $sql = "UPDATE `lab_cart2` SET `payment` = 1 WHERE `patient_id` = '$id'";
             if ($conn->query($sql)) {
-                header("Location:../Users/Reception/search.php?msg=Payed");
+                header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
             } else {
                 echo $conn->error;
             }
@@ -26,7 +26,7 @@ if (isset($_POST['lab_payment'])) {
             }else{
                 $sql = "UPDATE `lab_cart2` SET `payment` = 1 WHERE `patient_id` = '$id'";
                 if ($conn->query($sql)) {
-                    header("Location:../Users/Reception/search.php?msg=Payed");
+                    header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
                 } else {
                     echo $conn->error;
                 }
@@ -38,7 +38,7 @@ if (isset($_POST['lab_payment'])) {
             }else{
                 $sql = "UPDATE `lab_cart2` SET `payment` = 1 WHERE `patient_id` = '$id'";
                 if ($conn->query($sql)) {
-                    header("Location:../Users/Reception/search.php?msg=Payed");
+                    header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
                 } else {
                     echo $conn->error;
                 }
@@ -50,7 +50,7 @@ if (isset($_POST['lab_payment'])) {
             }else{
                 $sql = "UPDATE `lab_cart2` SET `payment` = 1 WHERE `patient_id` = '$id'";
                 if ($conn->query($sql)) {
-                    header("Location:../Users/Reception/search.php?msg=Payed");
+                    header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
                 } else {
                     echo $conn->error;
                 }
