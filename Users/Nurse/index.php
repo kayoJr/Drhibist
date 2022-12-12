@@ -211,54 +211,54 @@ require '../../backend/auth.php';
 								?>
 								</table>
                             <?php
-if(isset($_GET['searching'])){
-	$phone = $_GET['search'];
-	$search_sql = "SELECT * FROM `admission_det` WHERE `patient_id`='$phone' ORDER BY `date` DESC";
-	$rs = $conn->query($search_sql);
+// if(isset($_GET['searching'])){
+// 	$phone = $_GET['search'];
+// 	$search_sql = "SELECT * FROM `admission_det` WHERE `patient_id`='$phone' ORDER BY `date` DESC";
+// 	$rs = $conn->query($search_sql);
 
-	if($rs){
-		while($row = $rs->fetch_assoc()){
-			$detail = $row['detail'];
-			$date = $row['date'];
-			echo "
-			<div class='detail addm_detail'>
-			<h2>Message For Admission Patient</h2>
-			<div>
-			<p>-> $detail </p>
-			<p>$date </p>
-			</div>
-			</div>
-			";
+// 	if($rs){
+// 		while($row = $rs->fetch_assoc()){
+// 			$detail = $row['detail'];
+// 			$date = $row['date'];
+// 			echo "
+// 			<div class='detail addm_detail'>
+// 			<h2>Message For Admission Patient</h2>
+// 			<div>
+// 			<p>-> $detail </p>
+// 			<p>$date </p>
+// 			</div>
+// 			</div>
+// 			";
 			
 			
 
-		}
-	}
-}
-if(isset($_GET['searching'])){
-	$phone = $_GET['search'];
-	$search_sql = "SELECT * FROM `nurse_message` WHERE `patient_id`='$phone' ORDER BY `date` DESC";
-	$rs = $conn->query($search_sql);
+// 		}
+// 	}
+// }
+// if(isset($_GET['searching'])){
+// 	$phone = $_GET['search'];
+// 	$search_sql = "SELECT * FROM `nurse_message` WHERE `patient_id`='$phone' ORDER BY `date` DESC";
+// 	$rs = $conn->query($search_sql);
 
-	if($rs){
-		while($row = $rs->fetch_assoc()){
-			$detail = $row['detail'];
-			$date = $row['date'];
-			echo "
-			<div class='detail addm_detail'>
-			<h2>Message From Doctor</h2>
-			<div>
-			<p>-> $detail </p>
-			<p>$date </p>
-			</div>
-			</div>
-			";
+// 	if($rs){
+// 		while($row = $rs->fetch_assoc()){
+// 			$detail = $row['detail'];
+// 			$date = $row['date'];
+// 			echo "
+// 			<div class='detail addm_detail'>
+// 			<h2>Message From Doctor</h2>
+// 			<div>
+// 			<p>-> $detail </p>
+// 			<p>$date </p>
+// 			</div>
+// 			</div>
+// 			";
 			
 			
 
-		}
-	}
-}
+// 		}
+// 	}
+// }
 
 ?>
 						</div>
@@ -285,3 +285,8 @@ if(isset($_GET['searching'])){
 		<script src="../js/custom.js"></script>
 	</body>
 </html>
+<script>
+	window.setInterval( function() {
+  window.location.reload();
+}, 3000);
+</script>

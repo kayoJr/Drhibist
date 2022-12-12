@@ -1260,6 +1260,44 @@ form table select {
   width: 100%;
 }
 
+.message_counter {
+  position: relative;
+}
+.message_counter .unread {
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  background-color: #ff0000;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+}
+
+.doc_message {
+  width: 700px;
+  margin: 2rem auto;
+}
+.doc_message .message_element {
+  background-color: #343a40;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.doc_message .message_element .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.doc_message .message_element p {
+  color: #fff;
+  font-size: 1.6rem;
+}
+.doc_message .message_element .message_detail {
+  margin-top: 1rem;
+  white-space: wrap;
+}
+.doc_message .message_element .message_detail p {
+  padding: 1rem 0;
+}
+
 @media (max-width: 768px) {
   .pharmacy {
     grid-template-columns: 1fr;

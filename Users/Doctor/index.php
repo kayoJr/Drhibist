@@ -129,14 +129,14 @@ require '../../backend/auth.php';
 								";
 								?>
 									<div class="messages">
-									<div class="adm-detail">
+									<!-- <div class="adm-detail">
 										<form action="../../backend/adm_detail.php" method="post">
 											<h3 class="center">Admission Detail</h3>
 											<input type="hidden" name="id" value="<?php echo $phone;?>">
 											<textarea name="adm_detail" id="adm-detail" cols="30" rows="10"></textarea>
 											<input type="submit" value="Send" name="adm_det" class="btn">
 										</form>
-									</div>
+									</div> -->
 									
 								<?php
 							} else {

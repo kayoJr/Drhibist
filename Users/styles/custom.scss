@@ -794,6 +794,42 @@ form {
 		width: 100%;
 	}
 }
+.message_counter{
+	position: relative;
+	.unread{
+		position: absolute;
+		top: 0;
+		right: 2rem;
+		background-color: #ff0000;
+		padding: .5rem 1rem;
+		border-radius: 50%;
+	}
+}
+.doc_message{
+	width: 700px;
+	margin: 2rem auto;
+	.message_element{
+		background-color: $dark-bg;
+		padding: 1rem;
+		margin: 1rem 0;
+		.info{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		p{
+			color: $white;
+			font-size: 1.6rem;
+		}
+		.message_detail{
+			margin-top: 1rem;
+			white-space: wrap;
+			p{
+				padding: 1rem 0;
+			}
+		}
+	}
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;
