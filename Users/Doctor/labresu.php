@@ -490,7 +490,7 @@ require '../../backend/auth.php';
                                     </thead>
                                 <thead>
                                     <th class='head'>ESR</th>
-                                    <td>$esr</td>  
+                                    <td>$esr mm/hr</td>  
                                 </thead>
                                     
                                     </table>";

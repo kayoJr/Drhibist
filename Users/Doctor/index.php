@@ -409,15 +409,15 @@ require '../../backend/auth.php';
 											</th>
 											<th>
 												<input type="checkbox" id="let" name="lab[]" value="LET">
-												<label for="let">Liver Enzymatic</label><br>
+												<label for="let">Liver Enzymatic Test</label><br>
 											</th>
 											<th>
 												<input type="checkbox" id="lft" name="lab[]" value="LFT">
-												<label for="lft">Liver Function</label><br>
+												<label for="lft">Liver Function Test</label><br>
 											</th>
 											<th>
 												<input type="checkbox" id="rft" name="lab[]" value="RFT">
-												<label for="rft">Renal Function</label><br>
+												<label for="rft">Renal Function Test</label><br>
 											</th>
 											<th>
 												<input type="checkbox" id="serum" name="lab[]" value="Serum">
@@ -429,7 +429,7 @@ require '../../backend/auth.php';
 											</th>
 											<th>
 												<input type="checkbox" id="tft" name="lab[]" value="TFT">
-												<label for="tft">Thyroid Function</label><br>
+												<label for="tft">Thyroid Function Test</label><br>
 											</th>
 											<th>
 												<input type="checkbox" id="coagulation" name="lab[]" value="Coagulation_Profile">
