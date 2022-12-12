@@ -482,6 +482,24 @@ if(isset($_POST['submiturine'])){ //urinalysis
            // header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search?msg=Error");
             
     }
+}elseif(isset($_POST['submitcsf'])){ //widalo
+    $csf=$_POST['csf'];
+    $pat_id = $_POST['pat_id'];
+
+        $sql="INSERT INTO `csf`(`patient_id`, `csf`) VALUES ('$pat_id','$csf')";
+        $rs = mysqli_query($conn, $sql);
+        if($rs){
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='csf_Felix'";
+            $rsd=$conn->query($sqld);
+            if($rsd){
+            header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
+            }
+    
+        }else{  
+            echo $conn->error;
+           // header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search?msg=Error");
+            
+    }
 }
 
 ?>  

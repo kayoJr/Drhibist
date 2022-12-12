@@ -468,6 +468,10 @@ require '../../backend/auth.php';
 												<label for="weil">Weil Felix</label><br>
 											</th>
 											<th>
+												<input type="checkbox" id="csf" name="lab[]" value="csf_Felix">
+												<label for="csf">CSF Analyzer</label><br>
+											</th>
+											<th>
 												<input type="checkbox" id="liver" name="lab[]" value="liver_viral">
 												<label for="liver">Liver Viral Markers</label><br>
 											</th>

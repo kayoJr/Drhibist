@@ -142,12 +142,13 @@ if($status){
                         
                         <div class='message_element'>
                             <div class='info'>
-                                <h2>$name</h2>
-                                <h2>$date</h2>
-                                <h2>$adm_status</h2>
+                                <h4>$name</h4>
+                                <h4>$date</h4>
+                                <h4>$adm_status</h4>
                             </div>
                             <div class='message_detail'>
-                                <p>$detail</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa fugiat sit qui quam, aspernatur ullam. Soluta, fuga dolor? Culpa omnis tempora quas reiciendis sint alias vel minima. Distinctio inventore natus nisi voluptate nostrum modi.
+								</p>
                             </div>
                         </div>
                       ";

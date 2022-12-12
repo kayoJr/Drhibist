@@ -1295,6 +1295,7 @@ form table select {
 }
 .doc_message .message_element .message_detail p {
   padding: 1rem 0;
+  line-height: 35px;
 }
 
 @media (max-width: 768px) {

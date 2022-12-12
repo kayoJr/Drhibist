@@ -130,6 +130,7 @@ require '../../backend/auth.php';
                             $rs23 = $conn->query("SELECT * FROM `weil` WHERE `patient_id`='$id'");
                             $rs24 = $conn->query("SELECT * FROM `widalh` WHERE `patient_id`='$id'");
                             $rs25 = $conn->query("SELECT * FROM `widalo` WHERE `patient_id`='$id'");
+                            $rs26 = $conn->query("SELECT * FROM `csf` WHERE `patient_id`='$id'");
                             
                             $info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
                             $info_det = $info->fetch_assoc();
@@ -785,7 +786,7 @@ require '../../backend/auth.php';
                                 
                             </div>
                             <div class='lab'>
-                            <?php
+                               <?php
                                 if ($rs22->num_rows > 0) {
                                     echo "
                                 <h2 class='center'>VDRL Result</h2>
@@ -873,6 +874,27 @@ require '../../backend/auth.php';
                                 <thead>
                                     <th class='head'>Widal O</th>
                                     <td>$widalo</td>  
+                                </thead>
+                                </table>
+                                    ";
+                                }
+                                if ($rs25->num_rows > 0) {
+                                    echo "
+                                <h2 class='center'>Widal_O Result</h2>
+                                ";
+                                    while ($row = $rs25->fetch_assoc()) {
+                                        $csf = $row['csf'];
+                                        
+                                        
+                                    }
+                                    echo "<table class='table'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                <thead>
+                                    <th class='head'>CSF Analyzer</th>
+                                    <td>$csf</td>  
                                 </thead>
                                 </table>
                                     ";
