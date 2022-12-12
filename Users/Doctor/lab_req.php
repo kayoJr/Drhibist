@@ -141,7 +141,7 @@ require '../../backend/auth.php';
                         <div class="lab_requests">
                             <?php
                             $pat_id = $_GET['id'];
-                                $rs = $conn->query("SELECT * FROM `lab_cart` WHERE `patient_id` = '$pat_id'");
+                                $rs = $conn->query("SELECT * FROM `lab_cart2` WHERE `patient_id` = '$pat_id'");
                                 echo "
                                 <table class='table'>
 									<thead>
