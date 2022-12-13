@@ -26,7 +26,13 @@ if(isset($_POST['submit'])){
                 if(!$rss){
                     echo $conn->error;
                 }else{
-                    header("Location: ../Users/Admin/return.php?msg=Returned");
+                    $sql = $conn->query("UPDATE `system_payment` SET `price` = '$new_price' WHERE `med_id` = '$id'");
+                    if($sql){
+
+                        header("Location: ../Users/Admin/return.php?msg=Returned");
+                    }else{
+                        echo $conn->error;
+                    }
                 }
             }
         }else{

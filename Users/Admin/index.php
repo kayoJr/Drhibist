@@ -206,6 +206,12 @@ require '../../backend/db.php';
 										</div>
 										<div>
 											<h3>Cash</h3>
+											<?php
+											if($tots_sum < 0){
+												$tots_sum = 0;
+											}
+
+?>
 											<h3><?php echo $tots_sum; ?></h3>
 										</div>
 										<div>

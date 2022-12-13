@@ -260,7 +260,7 @@ require '../../backend/db.php';
 													</div>
 													<div>
 														<label for="oxygen">Oxygen</label>
-														<input type="number" min="300" max="1200" name="oxygen" id="oxygen">
+														<input type="number" min="0" max="1200" name="oxygen" id="oxygen" required>
 													</div>
 													<div>
 														<label for="pharmacy">Pharmacy</label>
