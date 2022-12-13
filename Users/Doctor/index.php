@@ -469,7 +469,7 @@ require '../../backend/auth.php';
 											</th>
 											<th>
 												<input type="checkbox" id="csf" name="lab[]" value="csf_Felix">
-												<label for="csf">CSF Analyzer</label><br>
+												<label for="csf">CSF Analayzer</label><br>
 											</th>
 											<th>
 												<input type="checkbox" id="liver" name="lab[]" value="liver_viral">
@@ -499,16 +499,20 @@ require '../../backend/auth.php';
 												<label for="abus">Abdominal US</label><br>
 											</th>
 											<th>
-												<input type="checkbox" id="bus" name="brands[]" value="Breast">
-												<label for="bus">Breast US</label><br>
+												<input type="checkbox" id="chest" name="brands[]" value="Chest">
+												<label for="chest">Chest</label><br>
 											</th>
 											<th>
 												<input type="checkbox" id="neck" name="brands[]" value="Neck">
 												<label for="neck">Neck US</label><br>
 											</th>
 											<th>
-												<input type="checkbox" id="scrotal" name="brands[]" value="Scrotal">
-												<label for="scrotal">Scrotal US</label><br>
+												<input type="checkbox" id="trans_fontanelle" name="brands[]" value="Trans_Fontanelle">
+												<label for="trans_fontanelle">Trans Fontanelle</label><br>
+											</th>
+											<th>
+												<input type="checkbox" id="other" name="brands[]" value="other">
+												<label for="other">Trans Fontanelle</label><br>
 											</th>
 										</thead>
 									</table>

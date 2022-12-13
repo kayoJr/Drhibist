@@ -51,6 +51,7 @@ require './db.php';
             ('$pd_id', '$pd_name', '$type', '$pd_price', '$quant', '$t_price', '$pat_id')";
                     $rs2 = mysqli_query($conn, $query);
                     if (!$rs2) {
+                        echo $conn->error;
                         header("Location:../Users/Pharmacy/admission.php?msg=Nothing Added");
                     } else {
                         echo "added";
