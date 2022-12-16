@@ -21,16 +21,35 @@ if (isset($_GET['submit'])) {
 				$price = $row['price'];
 				$upd_amount = $prev_amount + $amount;
 				$new_price = $price * $upd_amount;
-				$upd = "UPDATE `pharma_daily_sell` SET `quan` = '$upd_amount', `sub_price`='$new_price' WHERE `id` = '$id'";
-				if (!$conn->query($upd)) {
-					echo $conn->error;
-				} else {
-					$sql = "TRUNCATE TABLE `cart`";
-					$res = $conn->query($sql);
-					if ($res) {
-						header("Location:../Users/Pharmacy?msg=Done");
+				if ($payment == "cash") {
+					$upd = "UPDATE `pharma_daily_sell` SET `quan` = '$upd_amount', `sub_price`='$new_price' WHERE `id` = '$id'";
+					if (!$conn->query($upd)) {
+						echo $conn->error;
 					} else {
-						echo mysqli_error($conn);
+						$sql = "TRUNCATE TABLE `cart`";
+						$res = $conn->query($sql);
+						if ($res) {
+							header("Location:../Users/Pharmacy?msg=Done");
+						} else {
+							echo mysqli_error($conn);
+						}
+					}
+				} else if ($payment == "system") {
+
+					$upd = "UPDATE `pharma_daily_sell` SET `quan` = '$upd_amount', `sub_price`='$new_price' WHERE `id` = '$id'";
+					if (!$conn->query($upd)) {
+						echo $conn->error;
+					} else {
+						$sql = "INSERT INTO `system_payment` (`med_id`, `price`) VALUES ('$id', '$tot_price')";
+						if ($conn->query($sql)) {
+							$sql = "TRUNCATE TABLE `cart`";
+							$res = $conn->query($sql);
+							if ($res) {
+								header("Location:../Users/Pharmacy?msg=Done");
+							} else {
+								echo mysqli_error($conn);
+							}
+						}
 					}
 				}
 			}
