@@ -159,16 +159,20 @@ require '../../backend/auth.php';
 								<div class="payment">
 									<div>
 										<label for="system">System</label>
-										<input type="radio" name="payment" id="system" value="system" required>
+										<input type="radio" name="payment" id="system" value="system" >
 									</div>
 									<div>
 										<label for="cash">Cash</label>
-										<input type="radio" name="payment" id="cash" checked value="cash" required>
+										<input type="radio" name="payment" id="cash" value="cash" >
 									</div>
-									<div>
-										<label for="credit">Credit</label>
-										<input type="radio" name="payment" id="credit" value="credit" required>
-									</div>
+								</div>
+								<div>
+									<label for="credit">Credit</label>
+									<select name="credit" id="credit">
+										<option value="" disabled selected>None</option>
+										<option value="cigna">Cigna</option>
+										<option value="stc">Save The Children</option>
+									</select>
 								</div>
 								<input type="submit" name="add_pat" class="btn btn-primary" value="Register">
 							</form>

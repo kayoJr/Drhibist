@@ -273,16 +273,20 @@ require '../../backend/auth.php';
 						<form action="../../backend/confirm.php" method="GET">
 							<div>
 								<label for="system">System</label>
-								<input type="radio" name="payment" id="system" value="system" required>
+								<input type="radio" name="payment" id="system" value="system">
 							</div>
 							<div>
 								<label for="cash">Cash</label>
-								<input type="radio" name="payment" id="cash" checked value="cash" required>
+								<input type="radio" name="payment" id="cash" value="cash">
 								<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
 							</div>
 							<div>
 								<label for="credit">Credit</label>
-								<input type="radio" name="payment" id="credit" value="credit" required>
+								<select name="credit" id="credit">
+									<option value="" disabled selected>None</option>
+									<option value="cigna">Cigna</option>
+									<option value="stc">Save The Children</option>
+								</select>
 							</div>
 					</div>
 				</div>

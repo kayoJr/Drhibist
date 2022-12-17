@@ -66,8 +66,7 @@ if (isset($_GET['submit'])) {
 						echo mysqli_error($conn);
 					}
 				}
-			}
-			if ($payment == "system") {
+			}else if ($payment == "system") {
 				$copy = "INSERT INTO `pharma_daily_sell`( `id`, `name`, `type`, `price`, `quan`, `sub_price`,`date`) VALUES ('$id', '$name','$type','$price','$amount','$sub','$now') ";
 				if ($conn->query($copy)) {
 
@@ -90,10 +89,15 @@ if (isset($_GET['submit'])) {
 					}
 				}
 			}
-			if ($payment == "credit") {
-
-				$sql = "INSERT INTO `credit` (`price`, `reason`) VALUES ('$tot_price', 'pharmacy')";
-				if ($conn->query($sql)) {
+			
+		}
+	}
+		if (isset($_GET['credit'])) {
+			$credit = $_GET['credit'];
+			if ($credit == 'cigna') {
+				$sql = "INSERT INTO `credit` (`price`, `reason`, `org`) VALUES ('$tot_price', 'pharmacy', 'cigna')";
+				$rss = $conn->query($sql);
+				if ($rss) {
 					$sql = "TRUNCATE TABLE `cart`";
 					$res = $conn->query($sql);
 					if ($res) {
@@ -101,10 +105,26 @@ if (isset($_GET['submit'])) {
 					} else {
 						echo mysqli_error($conn);
 					}
+				} else {
+					echo $conn->error;
+				}
+			} else if ($credit == 'stc') {
+				$sql = "INSERT INTO `credit` (`price`, `reason`, `org`) VALUES ('$tot_price', 'pharmacy', 'stc')";
+				$rss = $conn->query($sql);
+				if ($rss) {
+					$sql = "TRUNCATE TABLE `cart`";
+					$res = $conn->query($sql);
+					if ($res) {
+						header("Location:../Users/Pharmacy?msg=Done");
+					} else {
+						echo mysqli_error($conn);
+					}
+				} else {
+					echo $conn->error;
 				}
 			}
 		}
-	}
+	
 }
 // $ssq = "SELECT * FROM cart";
 // $result = $conn->query($ssq);

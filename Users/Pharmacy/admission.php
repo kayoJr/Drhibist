@@ -69,28 +69,28 @@ require '../../backend/auth.php';
 								<img class="img-responsive" src="../../img/logo.png" alt="#" />
 							</div>
 							<div class="user_info">
+								<?php
+								$phone = $_SESSION['user'];
+								$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
+								$res = $conn->query($sql);
+								while ($row = mysqli_fetch_assoc($res)) {
+									$name = $row['name'];
+								}
+								?>
+								<h6>
 									<?php
-									$phone = $_SESSION['user'];
-									$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
-									$res = $conn->query($sql);
-									while($row = mysqli_fetch_assoc($res)){
-										$name = $row['name'];
-									}
+									echo $name;
 									?>
-									<h6>
-										<?php
-											echo $name;
-										?>
-									</h6>
-								</div>
+								</h6>
+							</div>
 						</div>
 					</div>
 				</div>
 				<div class="sidebar_blog_2">
-						<?php
-							include './side_nav.php';
-						?>
-					</div>
+					<?php
+					include './side_nav.php';
+					?>
+				</div>
 			</nav>
 			<!-- end sidebar -->
 			<!-- right content -->
@@ -116,9 +116,9 @@ require '../../backend/auth.php';
 							echo "<p>$msg</p>"
 							?>
 						</div>
-                        <div class="center-btn">
-                             <h2>Sell To Patient In Admission</h2>
-                        </div>
+						<div class="center-btn">
+							<h2>Sell To Patient In Admission</h2>
+						</div>
 						<div class="pharmacy">
 							<form method="post" id="insert_form" action="../../backend/cart_adm.php">
 								<div class="table-responsive">
@@ -161,6 +161,7 @@ require '../../backend/auth.php';
 										</tbody>
 									</table>
 									<div align="center">
+
 										<input type="submit" name="submit_adm" id="submit_button" class="btn btn-primary" value="Add To Cart" data-toggle="modalss" data-target="#exampleModalCenter" />
 									</div>
 								</div>
@@ -239,52 +240,63 @@ require '../../backend/auth.php';
 					</button>
 				</div>
 				<div class="modal-body">
-					<table class="table">
-						<tr>
-							<th>Name</th>
-							<th>Each Price</th>
-							<th>Quantity</th>
-							<th>Sub Total Price</th>
-						</tr>
-						<?php
+					<form action="../../backend/confirm_addm.php" method="POST">
 
-						$sql = "SELECT * FROM `cart_adm`";
-						$rs = mysqli_query($conn, $sql);
-						while ($row = mysqli_fetch_assoc($rs)) {
-						?>
+
+						<table class="table">
 							<tr>
-								<td><?php
-									echo $row['name'];
-									?></td>
-								<td><?php
-									echo $row['price'] . "$";
-									?></td>
-								<td><?php
-									echo $row['quant'];
-									?></td>
-								<td><?php
-									echo $row['sub_price'] . "$";
-									?></td>
+								<th>Name</th>
+								<th>Each Price</th>
+								<th>Quantity</th>
+								<th>Sub Total Price</th>
 							</tr>
-						<?php
-						}
-						?>
-					</table>
-					<div class="total">
-						<p>Total</p>
-						<p><?php
-							echo $num . "$";
-							?></p>
-					</div>
-			
-					</div>
-					<div class="modal-footer">
-						
-						<button type="button" class="btn btn-secondary" id="btnPrint" data-dismiss="modal">PRINT</button>
-						<a class="btn" href="../../backend/confirm_addm.php">DONE</a>
-				
+							<?php
+
+							$sql = "SELECT * FROM `cart_adm`";
+							$rs = mysqli_query($conn, $sql);
+							while ($row = mysqli_fetch_assoc($rs)) {
+							?>
+								<tr>
+									<td><?php
+										echo $row['name'];
+										?></td>
+									<td><?php
+										echo $row['price'] . "$";
+										?></td>
+									<td><?php
+										echo $row['quant'];
+										?></td>
+									<td><?php
+										echo $row['sub_price'] . "$";
+										?></td>
+								</tr>
+							<?php
+							}
+							?>
+						</table>
+						<div class="total">
+							<p>Total</p>
+							<p><?php
+								echo $num . "$";
+								?></p>
+						</div>
+						<div>
+							<label for="credit">Credit</label>
+							<select name="credit" id="credit">
+								<option value="" disabled selected>None</option>
+								<option value="cigna">Cigna</option>
+								<option value="stc">Save The Children</option>
+							</select>
+						</div>F
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" id="btnPrint" data-dismiss="modal">PRINT</button>
+					<input type="submit" value="DONE" name="submit" class="btn">
+					<!-- <a class="btn" href="../../backend/confirm_addm.php">DONE</a> -->
+
 					<!-- <button type="button" name="done" class="btn btn-secondary" data-dismiss="modal">DONE</button> -->
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -327,7 +339,7 @@ require '../../backend/auth.php';
 				books.forEach(function(book) {
 					//$('#books').append('<option>Hello</option>')
 					$('#books').val(book.type),
-					$('#med_id').val(book.id)
+						$('#med_id').val(book.id)
 				})
 			})
 		})

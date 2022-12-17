@@ -16,7 +16,7 @@ if (isset($_POST['add_pat'])) {
     $sql = "INSERT INTO `patient`(`name`, `age`, `sex`, `phone`) 
             VALUES ('$name', '$age', '$sex', $phone)";
     $res = $conn->query($sql);
-    $idd = " at ".mysqli_insert_id($conn);
+    $idd =  mysqli_insert_id($conn);
 
     if ($res) {
         if ($payment == "system") {
@@ -24,26 +24,48 @@ if (isset($_POST['add_pat'])) {
             if (!$conn->query($sql)) {
                 echo $conn->error;
             } else {
-                header("Location: ../Users/Reception/index.php?msg=Patient Added&rn=$idd");
+                header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
             }
         } else if ($payment == "cash") {
             $sql = "INSERT INTO `income` (`price`, `reason`) VALUES (100, 'reception')";
             if (!$conn->query($sql)) {
                 echo $conn->error;
             } else {
-              
-                header("Location: ../Users/Reception/index.php?msg=Patient Added&rn=$idd");
+                header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
             }
-        } else if ($payment == "credit") {
-            $sql = "INSERT INTO `credit` (`price`, `reason`) VALUES (100, 'reception')";
-            if (!$conn->query($sql)) {
-                echo $conn->error;
-            } else {
-               
-                header("Location: ../Users/Reception/index.php?msg=Patient Added&rn=$idd");
+        }
+        if (isset($_POST['credit'])) {
+            $credit = $_POST['credit'];
+            if ($credit == 'cigna') {
+                echo $idd;
+                $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (100, 'reception', '$idd', 'cigna')";
+                $rss = $conn->query($sql);
+                if ($rss) {
+                    header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
+                } else {
+                    echo $conn->error;
+                }
+            } else if ($credit == 'stc') {
+                $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (100, 'reception', '$idd', 'stc')";
+                $rss = $conn->query($sql);
+                if ($rss) {
+                    header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
+                } else {
+                    echo $conn->error;
+                }
             }
         }
     } else {
         header("Location: ../Users/Reception/index.php?err=Patient Not Added");
     }
 }
+
+// else if ($payment == "credit") {
+//     $sql = "INSERT INTO `credit` (`price`, `reason`) VALUES (100, 'reception')";
+//     if (!$conn->query($sql)) {
+//         echo $conn->error;
+//     } else {
+       
+//         header("Location: ../Users/Reception/index.php?msg=Patient Added&rn=$idd");
+//     }
+// }

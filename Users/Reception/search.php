@@ -130,9 +130,9 @@ require '../../backend/db.php';
 									$date2 = new DateTime(date("Y-m-d"));
 									$interval = $date1->diff($date2);
 
-									if(($interval->days)>=10){
+									if (($interval->days) >= 10) {
 										$block = "";
-									}else{
+									} else {
 										$block = "blocked";
 									}
 									echo "	
@@ -159,32 +159,40 @@ require '../../backend/db.php';
 							echo "</table>";
 							echo "<br>";
 
-							echo "
+						?>
 							<div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
-  <div class='modal-dialog modal-dialog-centered' role='document'>
-    <div class='modal-content'>
-      <div class='modal-body'>
-	  <form class='mgt mgb' action='../../backend/date.php' method='POST'>
-	  <h2 class='center'>Update User Payment</h2>
-	  <div class='payment'>
-		  <div>
-			  <label for='system'>System</label>
-			  <input type='radio' name='payment' id='system' value='system' required>
-		  </div>
-		  <div>
-			  <label for='cash'>Cash</label>
-			  <input type='radio' name='payment' id='cash' checked value='cash' required>
-		  </div>
-	  </div>
-	  <input type='hidden' name='id' value='$card'>
-	  <input type='submit' class='btn mgt' value='Pay' name='submit'>
-  </form>
-      </div>
-      
-    </div>
-  </div>
-</div>
-							";
+								<div class='modal-dialog modal-dialog-centered' role='document'>
+									<div class='modal-content'>
+										<div class='modal-body'>
+											<form class='mgt mgb' action='../../backend/date.php' method='POST'>
+												<h2 class='center'>Update User Payment</h2>
+												<div class='payment'>
+													<div>
+														<label for='system'>System</label>
+														<input type='radio' name='payment' id='system' value='system'>
+													</div>
+													<div>
+														<label for='cash'>Cash</label>
+														<input type='radio' name='payment' id='cash' value='cash'>
+													</div>
+												</div>
+												<div>
+													<label for="credit">Credit</label>
+													<select name="credit" id="credit">
+														<option value="" disabled selected>None</option>
+														<option value="cigna">Cigna</option>
+														<option value="stc">Save The Children</option>
+													</select>
+												</div>
+												<input type='hidden' name='id' value='<?php echo $card; ?>'>
+												<input type='submit' class='btn mgt' value='Pay' name='submit'>
+											</form>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<?php
 
 							$adm = "SELECT * FROM `admission` WHERE `pat_id` = '$phone' OR `pat_phone` = '$phone'";
 							$r = $conn->query($adm);
@@ -200,7 +208,7 @@ require '../../backend/db.php';
 								</div>
 								";
 							}
-						?>
+							?>
 							<div class="modal fade" id="withdrawmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered" role="document">
 									<div class="modal-content">
@@ -338,21 +346,29 @@ require '../../backend/db.php';
 											<input type="hidden" name="id" value="<?php echo $card; ?>">
 											<div class="payment mgt">
 												<div>
-													<input type="radio" name="payment" id="system" value="system" required>
+													<input type="radio" name="payment" id="system" value="system">
 													<label for="system">System</label>
 												</div>
 												<div>
-													<input type="radio" name="payment" id="cash" checked value="cash" required>
+													<input type="radio" name="payment" id="cash" value="cash">
 													<label for="cash">Cash</label>
 												</div>
 												<div>
-													<input type="radio" name="payment" id="credit" value="credit" required>
+													<input type="radio" name="payment" id="credit" value="credit">
 													<label for="credit">Credit</label>
 												</div>
 												<div>
-													<input type="radio" name="payment" id="admission" value="admission" required>
+													<input type="radio" name="payment" id="admission" value="admission">
 													<label for="admission">Admission</label>
 												</div>
+											</div>
+											<div>
+												<label for="credit">Credit</label>
+												<select name="credit" id="credit">
+													<option value="" disabled selected>None</option>
+													<option value="cigna">Cigna</option>
+													<option value="stc">Save The Children</option>
+												</select>
 											</div>
 											<input type="submit" class="btn mgt" value="Pay" name="lab_payment">
 											<!-- <a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a> -->
@@ -367,12 +383,20 @@ require '../../backend/db.php';
 											<div class="payment mgt">
 												<div>
 													<label for="admission">Admission</label>
-													<input type="radio" name="payment" id="admission" value="admission" required>
+													<input type="radio" name="payment" id="admission" value="admission">
 												</div>
 												<div>
 													<label for="cash">Cash</label>
-													<input type="radio" name="payment" id="cash" checked value="cash" required>
+													<input type="radio" name="payment" id="cash" value="cash">
 												</div>
+											</div>
+											<div>
+												<label for="credit">Credit</label>
+												<select name="credit" id="credit">
+													<option value="" disabled selected>None</option>
+													<option value="cigna">Cigna</option>
+													<option value="stc">Save The Children</option>
+												</select>
 											</div>
 											<input type="submit" class="btn mgt" value="Pay" name="ultra_payment">
 											<!-- <a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a> -->
