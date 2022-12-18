@@ -240,7 +240,6 @@ require '../../backend/auth.php';
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="../../backend/confirm_addm.php" method="POST">
 
 
 						<table class="table">
@@ -280,23 +279,14 @@ require '../../backend/auth.php';
 								echo $num . "$";
 								?></p>
 						</div>
-						<div>
-							<label for="credit">Credit</label>
-							<select name="credit" id="credit">
-								<option value="" disabled selected>None</option>
-								<option value="cigna">Cigna</option>
-								<option value="stc">Save The Children</option>
-							</select>
-						</div>F
+						
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" id="btnPrint" data-dismiss="modal">PRINT</button>
-					<input type="submit" value="DONE" name="submit" class="btn">
-					<!-- <a class="btn" href="../../backend/confirm_addm.php">DONE</a> -->
+					<a class="btn" href="../../backend/confirm_addm.php">DONE</a>
 
 					<!-- <button type="button" name="done" class="btn btn-secondary" data-dismiss="modal">DONE</button> -->
 				</div>
-				</form>
 			</div>
 		</div>
 	</div>

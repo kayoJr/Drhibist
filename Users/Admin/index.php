@@ -185,7 +185,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 
 							<div class="boxes">
 								<div class="box">
-								<?php
+									<?php
 									$today = date("Y-m-d");
 									if (isset($_GET['search_income'])) {
 										$today = $_GET['date'];
@@ -197,7 +197,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 									$rs = $conn->query($sql);
 									$row = $rs->fetch_assoc();
 									$sys_sum = $row['value_sum'];
-									if(!$sys_sum>0){
+									if (!$sys_sum > 0) {
 										$sys_sum = 0;
 									}
 									?>
@@ -210,11 +210,11 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 										<div>
 											<h3>Cash</h3>
 											<?php
-											if($tots_sum < 0){
+											if ($tots_sum < 0) {
 												$tots_sum = 0;
 											}
 
-?>
+											?>
 											<h3><?php echo $tots_sum; ?></h3>
 										</div>
 										<div>
@@ -223,7 +223,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="box">
 									<h4>Reception (<?php echo $today; ?>)</h4>
 									<?php
@@ -233,20 +233,20 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											$today = date("Y-m-d");
 										}
 									}
-								$sql_rec = "SELECT SUM(price) AS rec FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'reception'";
-								$rs_rec = $conn->query($sql_rec);
-								$row_rec = $rs_rec->fetch_assoc();
-								$rec_sys_sum = $row_rec['rec'];
+									$sql_rec = "SELECT SUM(price) AS rec FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'reception'";
+									$rs_rec = $conn->query($sql_rec);
+									$row_rec = $rs_rec->fetch_assoc();
+									$rec_sys_sum = $row_rec['rec'];
 
-								$sql_rec = "SELECT SUM(price) AS rec_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'reception'";
-								$rs_rec_cash = $conn->query($sql_rec);
-								$row_rec_cash = $rs_rec_cash->fetch_assoc();
-								$rec_cash_sum = $row_rec_cash['rec_cash'];
-								if(!$sys_sum>0){
-									$sys_sum = 0;
-								}
+									$sql_rec = "SELECT SUM(price) AS rec_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'reception'";
+									$rs_rec_cash = $conn->query($sql_rec);
+									$row_rec_cash = $rs_rec_cash->fetch_assoc();
+									$rec_cash_sum = $row_rec_cash['rec_cash'];
+									if (!$sys_sum > 0) {
+										$sys_sum = 0;
+									}
 									?>
-								<div class="sells">
+									<div class="sells">
 										<div>
 											<h3>System</h3>
 											<h3><?php echo $rec_sys_sum; ?></h3>
@@ -271,17 +271,17 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											$today = date("Y-m-d");
 										}
 									}
-								$sql_lab = "SELECT SUM(price) AS lab FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'laboratory'";
-								$rs_lab = $conn->query($sql_lab);
-								$row_lab = $rs_lab->fetch_assoc();
-								$lab_sys_sum = $row_lab['lab'];
+									$sql_lab = "SELECT SUM(price) AS lab FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'laboratory'";
+									$rs_lab = $conn->query($sql_lab);
+									$row_lab = $rs_lab->fetch_assoc();
+									$lab_sys_sum = $row_lab['lab'];
 
-								$sql_lab = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'laboratory'";
-								$rs_lab_cash = $conn->query($sql_lab);
-								$row_lab_cash = $rs_lab_cash->fetch_assoc();
-								$lab_cash_sum = $row_lab_cash['lab_cash'];
+									$sql_lab = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'laboratory'";
+									$rs_lab_cash = $conn->query($sql_lab);
+									$row_lab_cash = $rs_lab_cash->fetch_assoc();
+									$lab_cash_sum = $row_lab_cash['lab_cash'];
 									?>
-								<div class="sells">
+									<div class="sells">
 										<div>
 											<h3>System</h3>
 											<h3><?php echo $lab_sys_sum; ?></h3>
@@ -305,18 +305,18 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											$today = date("Y-m-d");
 										}
 									}
-								$sql_ultra = "SELECT SUM(price) AS ultra FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
-								$rs_ultra = $conn->query($sql_ultra);
-								$row_lab = $rs_ultra->fetch_assoc();
-								$ultra_sys_sum = $row_lab['ultra'];
+									$sql_ultra = "SELECT SUM(price) AS ultra FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
+									$rs_ultra = $conn->query($sql_ultra);
+									$row_lab = $rs_ultra->fetch_assoc();
+									$ultra_sys_sum = $row_lab['ultra'];
 
-								$sql_ultra = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
-								$rs_ultra_cash = $conn->query($sql_ultra);
-								$row_ultra_cash = $rs_ultra_cash->fetch_assoc();
-								$ultra_cash_sum = $row_ultra_cash['lab_cash'];
+									$sql_ultra = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
+									$rs_ultra_cash = $conn->query($sql_ultra);
+									$row_ultra_cash = $rs_ultra_cash->fetch_assoc();
+									$ultra_cash_sum = $row_ultra_cash['lab_cash'];
 									?>
-								<div class="sells">
-										
+									<div class="sells">
+
 										<div>
 											<h3>Cash</h3>
 											<h3><?php echo $ultra_cash_sum; ?></h3>
@@ -328,7 +328,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 						<div class="daily-report">
 							<h2 class="report">Daily Report</h4>
@@ -370,7 +370,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 										?>
 									</div>
 									<div class="box">
-									<h4>Laboratory</h4>
+										<h4>Laboratory</h4>
 										<form action="index.php" method="GET">
 											<div class="form-elements">
 												<input type="date" name="date" id="date">
@@ -384,13 +384,13 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 
 											$sql = "SELECT SUM(price) AS lab_sum FROM `income` WHERE `date` = '$today' AND `reason`= 'laboratory'";
 											$sql2 = "SELECT COUNT(price) AS count_lab FROM `income` WHERE `date` = '$today' AND `reason` = 'laboratory'";
-											
+
 											$sql_ultra = "SELECT SUM(price) AS lab_sys FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'laboratory'";
 											$sql_ultra_count = "SELECT COUNT(price) AS lab_sys_count FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'laboratory'";
 
 											$res = $conn->query($sql);
 											$res_sys = $conn->query($sql_ultra);
-											
+
 											$res2 = $conn->query($sql2);
 											$res2_sys = $conn->query($sql_ultra_count);
 											if ($res) {
@@ -424,11 +424,11 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 														echo "
 														<h3>$count Laboratory Exams Done Today</h3>
 														";
-													}else{
+													} else {
 														echo $conn->error;
 													}
 												}
-											}else{
+											} else {
 												echo $conn->error;
 											}
 										}
@@ -474,7 +474,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 										<a class="btn btn-primary" href="selled_list.php?date=<?php echo $today ?>&search-date=Search">List</a>
 									</div>
 									<div class="box">
-									<h4>Ultrasound</h4>
+										<h4>Ultrasound</h4>
 										<form action="index.php" method="GET">
 											<div class="form-elements">
 												<input type="date" name="date" id="date">
@@ -488,13 +488,13 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 
 											$sql = "SELECT SUM(price) AS lab_sum FROM `income` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
 											$sql2 = "SELECT COUNT(price) AS count_lab FROM `income` WHERE `date` = '$today' AND `reason` = 'ultrasound'";
-											
+
 											$sql_ultra = "SELECT SUM(price) AS lab_sys FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
 											$sql_ultra_count = "SELECT COUNT(price) AS lab_sys_count FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
 
 											$res = $conn->query($sql);
 											$res_sys = $conn->query($sql_ultra);
-											
+
 											$res2 = $conn->query($sql2);
 											$res2_sys = $conn->query($sql_ultra_count);
 											if ($res) {
@@ -506,9 +506,9 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 													if ($res_sys) {
 														while ($row = $res_sys->fetch_assoc()) {
 															$sum_ultra = $row['lab_sys'];
-															$sum_ultra_total = $sum_first+$sum_ultra;
+															$sum_ultra_total = $sum_first + $sum_ultra;
 														}
-															echo "
+														echo "
 														<h3>$sum_ultra_total ETB</h3>
 														";
 													}
@@ -528,11 +528,11 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 														echo "
 														<h3>$count Ultrasound Exams Done Today</h3>
 														";
-													}else{
+													} else {
 														echo $conn->error;
 													}
 												}
-											}else{
+											} else {
 												echo $conn->error;
 											}
 										}
@@ -544,7 +544,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 							<h2 class="report">Credit Report</h4>
 								<div class="boxes">
 									<div class="box">
-										<h4>Pharmacy</h4>
+										<h4>Save The Children</h4>
 										<!-- <form action="index.php" method="GET">
 											<div class="form-elements">
 												<input type="date" name="date" id="date">
@@ -554,139 +554,175 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 										<?php
 										$today = date("Y-m-d");
 
-											$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE reason = 'pharmacy' AND `status` = 0";
-											$res = $conn->query($sql);
-											if ($res) {
-												while ($row = $res->fetch_assoc()) {
-													$sum = $row['value_sum'];
-												}
-												echo "
-												<h3>$sum ETB</h3>
-												";
+										$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'stc' AND `status` = 0";
+										$res = $conn->query($sql);
+										if ($res) {
+											while ($row = $res->fetch_assoc()) {
+												$sum = $row['value_sum'];
 											}
-										
+										}
+
 										?>
-									</div>
-									<div class="box">
-										<h4>Laboratory And Reception</h4>
-										<!-- <form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
-											</div>
-										</form> -->
-										<?php
-										$today = date("Y-m-d");
-										
-
-											$sql = "SELECT SUM(price) AS lab_sum FROM `credit` WHERE `reason`= 'laboratory' AND `status` = 0";
-											
-											$sql_ultra = "SELECT SUM(price) AS lab_sys FROM `credit` WHERE `reason`= 'reception' AND `status` = 0";
-
-											$ress = $conn->query($sql);
-											$res_sys = $conn->query($sql_ultra);
-											
-											if ($ress) {
-												while ($rows = $ress->fetch_assoc()) {
-													$sum_first = $rows['lab_sum'];
-													// echo "
-													// <h3>$sum_first ETB</h3>
-													// ";
-													if ($res_sys) {
-														while ($rows = $res_sys->fetch_assoc()) {
-															$sums = $rows['lab_sys'];
-														}
-														$sum_sec = $sum_first + $sums;
-														echo "
-														<h3>$sum_sec ETB</h3>
-														";
+										<div class="sells">
+											<div>
+												<h3>Pharmacy</h3>
+												<?php
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'stc' AND `status` = 0 AND `reason` = 'pharmacy'";
+												$res = $conn->query($sql);
+												if ($res) {
+													while ($row = $res->fetch_assoc()) {
+														$pharmacy = $row['value_sum'];
 													}
 												}
-											}
-										
-										?>
 
-									</div>
-									<div class="box">
-										<h4>Admission</h4>
-										<!-- <form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
+												?>
+												<h3><?php echo $pharmacy; ?></h3>
 											</div>
-										</form> -->
-										<?php
-										$today = date("Y-m-d");
-										
-
-											$sql = "SELECT SUM(price) AS lab_sum FROM `credit` WHERE `reason`= 'withdrawal' AND `status` = 0";
-											
-											//$sql_ultra = "SELECT SUM(price) AS lab_sys FROM `credit` WHERE `reason`= 'reception' AND `status` = 0";
-
-											$ress = $conn->query($sql);
-											//$res_sys = $conn->query($sql_ultra);
-											
-											if ($ress) {
-												while ($rows = $ress->fetch_assoc()) {
-													$sum_adm = $rows['lab_sum'];
-													// echo "
-													// <h3>$sum_first ETB</h3>
-													// ";
-													//if ($res_sys) {
-														// while ($rows = $res_sys->fetch_assoc()) {
-														// 	$sums = $rows['lab_sys'];
-														// }
-														//$sum_sec = $sum_first + $sums;
-														echo "
-														<h3>$sum_adm ETB</h3>
-														";
-													//}
-												}
-											}
-										
-										?>
-
-									</div>
-									<div class="box">
-										<h4>Total To Pay</h4>
-										<!-- <form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
-											</div>
-										</form> -->
-										<?php
-										$today = date("Y-m-d");
-												$sum_sec = $sum_sec + $sum + $sum_adm;
-												echo "
-												<h3>$sum_sec ETB</h3>
-												";
-										
-										?>
-											<form action="index.php">
-											<input type="hidden" name="tot_pay" value="<?php echo $sum_sec; ?>">
-											<input type="submit" class="btn" value="Pay" name="pay">
-										</form>
-										<?php
-											if(isset($_GET['pay'])){
-												$tot = $_GET['tot_pay'];
-												$sql = "INSERT INTO `income` (`price`, `reason`) VALUES ('$tot', 'credit')";
-												$rs = $conn->query($sql);
-												if($rs){
-													$rss = $conn->query("UPDATE `credit` SET `status` = 1");
-													if(!$rss){
-														echo $conn->error;
-													}else{
-														$sql = "";
-														// header('Location: index.php?msg=Credit Paid');
+											<div>
+												<h3>Lab & Rece</h3>
+												<?php
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'stc' AND `status` = 0 AND (`reason` = 'laboratory' OR `reason` = 'reception')";
+												$res = $conn->query($sql);
+												if ($res) {
+													while ($row = $res->fetch_assoc()) {
+														$lab = $row['value_sum'];
 													}
 												}
-											}else{
-												echo $conn->error;
-											}
-										?>
+
+												?>
+												<h3><?php echo $lab; ?></h3>
+											</div>
+											<div>
+												<h3>Admission</h3>
+												<?php
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'stc' AND `status` = 0 AND (`reason` = 'withdrawal')";
+												$res = $conn->query($sql);
+												if ($res) {
+													while ($row = $res->fetch_assoc()) {
+														$addm = $row['value_sum'];
+													}
+												}
+
+												?>
+												<h3><?php echo $addm; ?></h3>
+											</div>
+											<div>
+												<h3>Ultrasound</h3>
+												<?php
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'stc' AND `status` = 0 AND (`reason` = 'ultrasound')";
+												$res = $conn->query($sql);
+												if ($res) {
+													while ($row = $res->fetch_assoc()) {
+														$ultra = $row['value_sum'];
+													}
+												}
+
+												?>
+												<h3><?php echo $ultra; ?></h3>
+											</div>
+											<div>
+												<h3>Total</h3>
+												<h3><?php echo $sum; ?></h3>
+											</div>
+											<form action="../../backend/credit_pay.php" method = 'GET'>
+												<input type="hidden" name="tot_pay" value="<?php echo $sum; ?>">
+												<input type="submit" class="btn" value="Pay" name="pay_stc">
+											</form>
+										</div>
 									</div>
-									
+									<div class="box">
+										<h4>Cigna</h4>
+										<!-- <form action="../../backend/credit_pay.php" method = 'GET' method="GET">
+											<div class="form-elements">
+												<input type="date" name="date" id="date">
+												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
+											</div>
+										</form> -->
+										<?php
+										$today = date("Y-m-d");
+
+										$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'cigna' AND `status` = 0";
+										$res = $conn->query($sql);
+										if ($res) {
+											while ($row = $res->fetch_assoc()) {
+												$sum = $row['value_sum'];
+											}
+										}
+
+										?>
+										<div class="sells">
+											<div>
+												<h3>Pharmacy</h3>
+												<?php
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'cigna' AND `status` = 0 AND `reason` = 'pharmacy'";
+												$res = $conn->query($sql);
+												if ($res) {
+													while ($row = $res->fetch_assoc()) {
+														$pharmacy = $row['value_sum'];
+													}
+												}
+
+												?>
+												<h3><?php echo $pharmacy; ?></h3>
+											</div>
+											<div>
+												<h3>Lab & Rece</h3>
+												<?php
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'cigna' AND `status` = 0 AND (`reason` = 'laboratory' OR `reason` = 'reception')";
+												$res = $conn->query($sql);
+												if ($res) {
+													while ($row = $res->fetch_assoc()) {
+														$lab = $row['value_sum'];
+													}
+												}
+
+												?>
+												<h3><?php echo $lab; ?></h3>
+											</div>
+											<div>
+												<h3>Admission</h3>
+												<?php
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'cigna' AND `status` = 0 AND (`reason` = 'withdrawal')";
+												$res = $conn->query($sql);
+												if ($res) {
+													while ($row = $res->fetch_assoc()) {
+														$addm = $row['value_sum'];
+													}
+												}
+
+												?>
+												<h3><?php echo $addm; ?></h3>
+											</div>
+											<div>
+												<h3>Ultrasound</h3>
+												<?php
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'cigna' AND `status` = 0 AND (`reason` = 'ultrasound')";
+												$res = $conn->query($sql);
+												if ($res) {
+													while ($row = $res->fetch_assoc()) {
+														$ultra = $row['value_sum'];
+													}
+												}
+
+												?>
+												<h3><?php echo $ultra; ?></h3>
+											</div>
+											<div>
+												<h3>Total</h3>
+												<h3><?php echo $sum; ?></h3>
+											</div>
+											<form action="../../backend/credit_pay.php" method = 'GET'>
+												<input type="hidden" name="tot_pay" value="<?php echo $sum; ?>">
+												<input type="submit" class="btn" value="Pay" name="pay_cigna">
+											</form>
+										</div>
+									</div>
+
+
+
+
+								
+
 								</div>
 						</div>
 						<div class="month-report">

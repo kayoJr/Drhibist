@@ -231,13 +231,36 @@ $today = date('Y-m-d');
                                             echo "<a class='btn btn-primary' href='res/csf.php?id=$card&nm=$name'> $name</a>";
                                         }
                                     }
+
+
                                 }
                             }
-
-                                ?>
+                            
+                            ?>
                                 </div>
                             </div>
                             <?php
+                            $search_sql = "SELECT * FROM `lab_message` WHERE `patient_id`='$pat_id' ORDER BY `date` DESC";
+                            $rs = $conn->query($search_sql);
+                        
+                            if($rs){
+                                while($row = $rs->fetch_assoc()){
+                                    $detail = $row['detail'];
+                                    $date = $row['date'];
+                                    echo "
+                                    <div class='detail addm_detail'>
+                                    <h2>Message From Doctor</h2>
+                                    <div>
+                                    <p>-> $detail </p>
+                                    <p>$date </p>
+                                    </div>
+                                    </div>
+                                    ";
+                                    
+                                    
+                        
+                                }
+                            }
 
                             ?>
                     </div>

@@ -155,6 +155,14 @@ require '../../backend/auth.php';
 										<label for="phone">Phone</label>
 										<input type="number" name="phone" id="phone" required>
 									</div>
+									<div>
+										<label for="org">Organization</label>
+										<select name="org" id="org">
+											<option value="" disabled selected>Self</option>
+											<option value="cigma">Cigma</option>
+											<option value="stc">Save The Children</option>
+										</select>
+									</div>
 								</div>
 								<div class="payment">
 									<div>

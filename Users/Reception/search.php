@@ -354,10 +354,6 @@ require '../../backend/db.php';
 													<label for="cash">Cash</label>
 												</div>
 												<div>
-													<input type="radio" name="payment" id="credit" value="credit">
-													<label for="credit">Credit</label>
-												</div>
-												<div>
 													<input type="radio" name="payment" id="admission" value="admission">
 													<label for="admission">Admission</label>
 												</div>

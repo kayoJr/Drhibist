@@ -9,12 +9,13 @@ if (isset($_POST['add_pat'])) {
     $sex = $_POST['sex'];
     $phone = $_POST['phone'];
     $age_type = $_POST['age_type'];
+    $org = $_POST['org'];
     $payment = $_POST['payment'];
 
     $age = $age_num . ' ' . $age_type;
 
-    $sql = "INSERT INTO `patient`(`name`, `age`, `sex`, `phone`) 
-            VALUES ('$name', '$age', '$sex', $phone)";
+    $sql = "INSERT INTO `patient`(`name`, `age`, `sex`, `phone`, `org`) 
+            VALUES ('$name', '$age', '$sex', $phone, '$org')";
     $res = $conn->query($sql);
     $idd =  mysqli_insert_id($conn);
 

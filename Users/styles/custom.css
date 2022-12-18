@@ -893,7 +893,7 @@ form .search-form input[type=submit] {
 
 .boxes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 .boxes .box {
@@ -1413,10 +1413,6 @@ input[name=pay] {
   }
 }
 @media (max-width: 1400px) {
-  .daily-report .boxes {
-    grid-auto-flow: column;
-    overflow-x: scroll;
-  }
   .system_income .boxes {
     grid-auto-flow: column;
     overflow-x: scroll;

@@ -166,6 +166,7 @@ require '../../backend/auth.php';
 										<th>Sex</th>
 										<th>Card No</th>
 										<th>Phone</th>
+										<th>Organization</th>
 									</thead>
 									";
 							if ($rs) {
@@ -175,6 +176,12 @@ require '../../backend/auth.php';
 									$pt_phone = $result['phone'];
 									$age = $result['age'];
 									$sex = $result['sex'];
+									$org = $result['org'];
+									if($org == null){
+										$org = "Self";
+									}else if ($org == "stc"){
+										$org = "Save The Children";
+									}
 									echo "	
 												<tbody>
 													<tr>
@@ -184,6 +191,7 @@ require '../../backend/auth.php';
 														<td data-label='Sex'>$sex</td>
 														<td data-label='Card No'>$card</td>
 														<td data-label='Phone'>$pt_phone</td>						
+														<td data-label='Organization'>$org</td>						
 													</tr>
 												</tbody>
 												";
@@ -373,7 +381,7 @@ require '../../backend/auth.php';
 									</form>
 								</div>
 							</div>
-
+						
 							<div class="lab-order" id="lab">
 								<form class="lab_req_form" action="../../backend/lab_cart2.php" method="POST">
 									<table>
@@ -541,6 +549,14 @@ require '../../backend/auth.php';
 									</div>
 								</form>
 							</div>
+							<div class="adm-detail">
+										<form action="../../backend/lab_message.php" method="post">
+											<h3 class="center">Message To Laboratory</h3>
+											<input type="hidden" name="id" value="<?php echo $phone;?>">
+											<textarea name="adm_detail" id="adm-detail" cols="30" rows="10"></textarea>
+											<input type="submit" value="Send" name="lab_det" class="btn">
+										</form>
+									</div>
 						<?php
 						}
 						?>

@@ -415,7 +415,7 @@ form {
 }
 .boxes {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 	gap: 2rem;
 	.box {
 		background: $dark-bg;
@@ -917,8 +917,8 @@ form {
 @media (max-width: 1400px) {
 	.daily-report{
 		.boxes{
-			grid-auto-flow: column;
-			overflow-x: scroll;
+			// grid-auto-flow: column;
+			// overflow-x: scroll;
 		}
 	}
 	.system_income{
