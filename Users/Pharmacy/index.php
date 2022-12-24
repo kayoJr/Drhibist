@@ -124,6 +124,7 @@ require '../../backend/auth.php';
 											<th>Name</th>
 											<th>Type</th>
 											<th>Quantity</th>
+											<th>Patient Id</th>
 										</tr>
 										<tbody>
 											<tr>
@@ -149,6 +150,9 @@ require '../../backend/auth.php';
 												</td>
 												<td data-label="Quantity">
 													<input type="number" name="quant" id="quant" min="0" required>
+												</td>
+												<td data-label="Patient Id">
+													<input type="number" name="pat_id" id="pat_id" min="0">
 												</td>
 											</tr>
 										</tbody>

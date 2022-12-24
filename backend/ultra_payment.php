@@ -1,10 +1,10 @@
 <?php
 include 'db.php';
-$id = $_GET['id'];
+@$id = $_GET['id'];
 if (isset($_POST['ultra_payment'])) {
     $id = $_POST['id'];
     $price = $_POST['price'];
-    $payment = $_POST['payment'];
+    @$payment = @$_POST['payment'];
 
     if ($payment == 'system') {
         $sql = "INSERT INTO `system_payment` (`price`, `reason`) VALUES ('$price', 'ultrasound')";

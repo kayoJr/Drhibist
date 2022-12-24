@@ -24,7 +24,7 @@ check.forEach(item => {
 	item.addEventListener('change', () => { 
 		if (item.value == "Abdominal") {
 			abus.classList.toggle('hide');
-		} else if (item.value == "Breast") {
+		} else if (item.value == "Chest") {
 			bus.classList.toggle('hide');
 		} else if (item.value == "Neck") {
 			neck.classList.toggle('hide');

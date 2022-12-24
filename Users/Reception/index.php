@@ -159,7 +159,7 @@ require '../../backend/auth.php';
 										<label for="org">Organization</label>
 										<select name="org" id="org">
 											<option value="" disabled selected>Self</option>
-											<option value="cigma">Cigma</option>
+											<option value="cigma">Cigna</option>
 											<option value="stc">Save The Children</option>
 										</select>
 									</div>

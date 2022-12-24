@@ -342,6 +342,23 @@ require '../../backend/db.php';
 										<form class="mgt mgb" action="../../backend/lab_payment.php" method="POST">
 											<h2>Laboratory Payment</h2>
 											<h3><?php echo $lab_sum; ?> ETB</h3>
+											<p class="center det_btn" id="det_btn">Detail</p>
+											<div id="det" class="hide det">
+												<ul>
+
+													<?php
+													$sql = $conn->query("SELECT * FROM `lab_cart2` WHERE `patient_id` = '$card' AND `payment` = 0");
+													while($row = $sql->fetch_assoc()){
+														$name = $row['name'];
+														$id = $row['id'];
+														echo "<li><span>$name</span> <span><a href='../../backend/delete_dup.php?id=$id&pat=$card'><b>X</b></a></span> </li>";
+													}
+													
+													?>
+													
+													</ul>
+												
+											</div>
 											<input type='hidden' name='price' value='<?php echo $lab_sum; ?>'>
 											<input type="hidden" name="id" value="<?php echo $card; ?>">
 											<div class="payment mgt">
@@ -374,6 +391,23 @@ require '../../backend/db.php';
 										<form class="mgt mgb" action="../../backend/ultra_payment.php" method="POST">
 											<h2>Ultrasound Payment</h2>
 											<h3><?php echo $ultra_sum; ?> ETB</h3>
+											<p class="center det_btn" id="det_ultra_btn">Detail</p>
+											<div id="det_ultra" class="hide det">
+												<ul>
+
+													<?php
+													$sql = $conn->query("SELECT * FROM `ultra_cart` WHERE `patient_id` = '$card' AND `payment` = 0");
+													while($row = $sql->fetch_assoc()){
+														$name = $row['requests'];
+														$id = $row['id'];
+														echo "<li><span>$name</span> <span><a href='../../backend/delete_dup_ultra.php?id=$id&pat=$card'><b>X</b></a></span> </li>";
+													}
+													
+													?>
+													
+													</ul>
+												
+											</div>
 											<input type='hidden' name='price' value='<?php echo $ultra_sum; ?>'>
 											<input type="hidden" name="id" value="<?php echo $card; ?>">
 											<div class="payment mgt">

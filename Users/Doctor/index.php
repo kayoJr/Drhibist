@@ -531,8 +531,8 @@ require '../../backend/auth.php';
 											<textarea name="abdo" id="abdo" cols="30" rows="10"></textarea>
 										</div>
 										<div id="bus-text" class="form-element hide">
-											<label for="breast">Breast</label>
-											<textarea name="breast" id="breast" cols="30" rows="10"></textarea>
+											<label for="chest">Chest</label>
+											<textarea name="chest" id="chest" cols="30" rows="10"></textarea>
 										</div>
 										<div id="neck-text" class="form-element hide">
 											<label for="neck">Neck</label>

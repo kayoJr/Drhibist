@@ -2,7 +2,7 @@ const btns = document.querySelectorAll('.items');
 
 //lab
 const abdo = document.getElementById('Abdominal');
-const breast = document.getElementById('Breast');
+const breast = document.getElementById('Chest');
 const neck = document.getElementById('Neck');
 const scrotal = document.getElementById('Scrotal');
 
@@ -10,7 +10,7 @@ btns.forEach(item => {
     item.addEventListener('click', (e) => {
         if (e.target.classList.contains ('Abdominal')) {
             abdo.classList.toggle('hide');
-        } else if (e.target.classList.contains ('Breast')) {
+        } else if (e.target.classList.contains ('Chest')) {
             breast.classList.toggle('hide');
         } else if (e.target.classList.contains ('Neck')) {
             neck.classList.toggle('hide');

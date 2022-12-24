@@ -92,7 +92,7 @@ if (isset($_GET['submit'])) {
 			
 		}
 	}
-	if (isset($_GET['credit'])) {
+		if (isset($_GET['credit'])) {
 			$credit = $_GET['credit'];
 			if ($credit == 'cigna') {
 				$sql = "INSERT INTO `credit` (`price`, `reason`, `org`) VALUES ('$tot_price', 'pharmacy', 'cigna')";

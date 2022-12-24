@@ -11,7 +11,7 @@ $(document).ready(function () {
 var ps = new PerfectScrollbar("#sidebar");
 
 const sell = document.getElementById("sell");
-const btn = document.getElementById("plus");
+// const btn = document.getElementById("plus");
 
 // btn.addEventListener('click', () => {
 // 	const para = document.createElement('div')
@@ -57,3 +57,15 @@ let i = 1;
 //         DuplicateForm();
 //     });
 // });
+const btn = document.getElementById('det_btn');
+const detail = document.getElementById('det')
+
+const btn_ultra = document.getElementById('det_ultra_btn');
+const detail_ultra = document.getElementById('det_ultra')
+
+btn_ultra.addEventListener('click', function (e) { 
+	detail_ultra.classList.toggle('hide');
+})
+btn.addEventListener('click', function (e) { 
+	detail.classList.toggle('hide');
+})
