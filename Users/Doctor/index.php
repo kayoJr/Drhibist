@@ -205,7 +205,7 @@ require '../../backend/auth.php';
 						if (isset($_GET['searching'])) {
 							$pat_id = $card;
 							$search_sql = "SELECT * FROM `nurse_exam` WHERE `patient_id` = '$pat_id' ORDER BY `date` DESC";
-							$rs = $conn->query($search_sql);
+							$rsss = $conn->query($search_sql);
 							echo "
 									<table class='table'>
 									<thead>
@@ -219,20 +219,22 @@ require '../../backend/auth.php';
 										<th>Head</th>
 										<th>MUAC</th>
 										<th>Date</th>
+										<th>Action</th>
 									</thead>
 									";
-							if ($rs) {
-								while ($result = $rs->fetch_assoc()) {
-									$bp = $result['BP'];
-									$pr = $result['PR'];
-									$saturation = $result['saturation'];
-									$respiratory = $result['respiratory'];
-									$temp = $result['temprature'];
-									$height = $result['height'];
-									$weight = $result['weight'];
-									$head = $result['head_circum'];
-									$muac = $result['MUAC'];
-									$date = $result['date'];
+							if ($rsss) {
+								while ($rowss = $rsss->fetch_assoc()) {
+									$nurse_id = $rowss['id'];
+									$bp = $rowss['BP'];
+									$pr = $rowss['PR'];
+									$saturation = $rowss['saturation'];
+									$respiratory = $rowss['respiratory'];
+									$temp = $rowss['temprature'];
+									$height = $rowss['height'];
+									$weight = $rowss['weight'];
+									$head = $rowss['head_circum'];
+									$muac = $rowss['MUAC'];
+									$date = $rowss['date'];
 									echo "	
 												<tbody>
 													<tr>
@@ -246,6 +248,7 @@ require '../../backend/auth.php';
 													<td data-label='Head'>$head</td>
 													<td data-label='MUAC'>$muac</td>
 													<td data-label='Date'>$date</td>
+													<td class='actions' data-label='Action'><a href='./edit_nurse.php?id=$pat_id'>Edit</a> <span><a href='../../backend/delete_nurse.php?rn=$nurse_id&id=$pat_id'>X</a></span></td>
 													</tr>
 												</tbody>
 												";

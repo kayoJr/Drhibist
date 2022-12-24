@@ -134,7 +134,7 @@ if($rs = $conn->query($sql)){
 						</p>
 						</div>
 							<form action="../../backend/upd_pat.php" method="POST">
-                                <h3>Add Medicine</h3>
+                                <h3>Edit Patient</h3>
                                 <div class="form-elements">
                                     <div>
                                         <label for="name">Name</label>

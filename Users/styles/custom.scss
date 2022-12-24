@@ -862,6 +862,18 @@ form {
 		}
 	}
 }
+.actions{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	span{
+		a{
+			font-size: 1.2rem;
+			background-color: #ff0000;
+			padding: .5rem;
+		}
+	}
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;
