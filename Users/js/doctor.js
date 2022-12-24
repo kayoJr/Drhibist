@@ -17,8 +17,10 @@ btn_detail.addEventListener('click', () => {
 const abus = document.getElementById('abus-text');
 const bus = document.getElementById('bus-text');
 const neck = document.getElementById('neck-text');
-const scrotal = document.getElementById('scrotal-text');
+const nb = document.getElementById('nb-text');
+const other = document.getElementById('other-text');
 const check = document.querySelectorAll('input[name="brands[]"]');
+
 
 check.forEach(item => {
 	item.addEventListener('change', () => { 
@@ -28,8 +30,10 @@ check.forEach(item => {
 			bus.classList.toggle('hide');
 		} else if (item.value == "Neck") {
 			neck.classList.toggle('hide');
-		} else if (item.value == "Scrotal") {
-			scrotal.classList.toggle('hide');
+		} else if (item.value == "normal_brain") {
+			nb.classList.toggle('hide');
+		}else if (item.value == "other") {
+			other.classList.toggle('hide');
 		}
 	})
 });

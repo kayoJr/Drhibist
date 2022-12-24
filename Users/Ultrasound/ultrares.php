@@ -193,6 +193,16 @@ Urinary bladder: well distended with echo free and normal wall thickness.
 											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
 										</div>
 							</div>
+							<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Conclusion:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="conclusion" id="conclusion" cols="30" rows="10"></textarea>
+										</div>
+							</div>
 								<div class="abdominal">
 									<div class="ultra_type" id="liver">
 											<div class="type">
@@ -210,21 +220,21 @@ Urinary bladder: well distended with echo free and normal wall thickness.
 							<?php
 
 							}
-							if($type == "Breast"){
+							if($type == "Chest"){
 								?>
 									<form action="../../backend/ultra_res.php" method="POST" >
 								<div class="abdominal">
 										<div class="ultra_type" id="liver">
 											<div class="type">
-												<h3 class="mgb">Breast Ultrasound Report</h3>
+												<h3 class="mgb">Chest Ultrasound Report</h3>
 												<a href="" id="remove">x</a>
 											</div>
 											<textarea name="breast_res" id="breast_res" cols="30" rows="10">
-Normal fibroglandular tissue
-No hypoechoic or hyperechoic lesion is seen. 
-No duct-ectasia is seen 
-Retromamary tissue  appears normal 
-No intramammary or axillary LAP is seen
+Normal chest wall musculature.
+Normal pleural interfaces.
+No pleural collection seen.
+No pleural or parenchymal nodules seen.
+
 
 											</textarea>
 										</div>
@@ -239,6 +249,16 @@ No intramammary or axillary LAP is seen
 												<a href="" id="remove">x</a>
 											</div>
 											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
+										</div>
+							</div>
+							<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Conclusion:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="conclusion" id="conclusion" cols="30" rows="10"></textarea>
 										</div>
 							</div>
 								<div class="abdominal">
@@ -287,6 +307,16 @@ Great vessels of the neck appear normal
 											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
 										</div>
 							</div>
+							<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Conclusion:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="conclusion" id="conclusion" cols="30" rows="10"></textarea>
+										</div>
+							</div>
 								<div class="abdominal">
 									<div class="ultra_type" id="liver">
 											<div class="type">
@@ -301,21 +331,22 @@ Great vessels of the neck appear normal
 									</form>
 								<?php
 
-							}if($type == "Scrotal"){
+							}if($type == "normal_brain"){
 								?>
 <form action="../../backend/ultra_res.php" method="POST" >
 								<div class="abdominal">
 										<div class="ultra_type" id="liver">
 											<div class="type">
-												<h3 class="mgb">Scrotal Ultrasound Report</h3>
+												<h3 class="mgb">Normal Brain Ultrasound Report</h3>
 												<a href="" id="remove">x</a>
 											</div>
 											<textarea name="scrotal_res" id="scrotal_res" cols="30" rows="10">
-Bilateral testes have normal size, shape and homogenous echotexture.
-There is no focal or diffuse parenchymal abnormality seen.
-Bilateral epidydimis have normal size, shape and echotexture.
-There is normal color doppler flow on both testes and epidydimis.
-There is no scrotal fluid seen bilaterally
+Normal cerebral echogenicity.
+Thalami and corpus callosum appear normal
+Normal brain stem and posterior fossa structures, no tonsillar herniation.
+No intra-axial mass or hemorrhage seen.
+No intra axial or extra axial collection seen
+
 											</textarea>
 										</div>
 							
@@ -331,6 +362,16 @@ There is no scrotal fluid seen bilaterally
 											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
 										</div>
 							</div>
+							<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Conclusion:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="conclusion" id="conclusion" cols="30" rows="10"></textarea>
+										</div>
+							</div>
 								<div class="abdominal">
 									<div class="ultra_type" id="liver">
 											<div class="type">
@@ -344,7 +385,57 @@ There is no scrotal fluid seen bilaterally
 									<input type="submit" name="scrotal" value="Send" class="btn">
 									</form>
 								<?php
+							}if($type == "other"){
+								?>
+<form action="../../backend/ultra_res.php" method="POST" >
+								<div class="abdominal">
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Other</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="other_res" id="other_res" cols="30" rows="10"></textarea>
+										</div>
+							
+								</div>
+								
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Impression:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="impression" id="impression" cols="30" rows="10"></textarea>
+										</div>
+							</div>
+								<div class="abdominal">
+									
+										<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Conclusion:</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<textarea name="conclusion" id="conclusion" cols="30" rows="10"></textarea>
+										</div>
+							</div>
+								<div class="abdominal">
+									<div class="ultra_type" id="liver">
+											<div class="type">
+												<h3 class="mgb">Doctor Name</h3>
+												<a href="" id="remove">x</a>
+											</div>
+											<input type="text" name="drname" id="drname"  value="<?php echo $name; ?>" required>
+										</div>
+										</div>
+									<input type="hidden" name="pat" value="<?php echo $pat_id; ?>">
+									<input type="submit" name="other" value="Send" class="btn">
+									</form>
+								<?php
 							}
+
+							?>
+
 
 							?>
 								</div>

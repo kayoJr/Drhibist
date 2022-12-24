@@ -107,8 +107,9 @@ require '../../backend/auth.php';
 
                             $rs1 = $conn->query("SELECT * FROM `abdominal` WHERE `patient_id`= '$id'");
                             $neck = $conn->query("SELECT * FROM `neck` WHERE `patient_id`='$id'");
-                            $breast = $conn->query("SELECT * FROM `breast` WHERE `patient_id`='$id'");
-                            $scortal = $conn->query("SELECT * FROM `scrotal` WHERE `patient_id`='$id'");
+                            $chest = $conn->query("SELECT * FROM `breast` WHERE `patient_id`='$id'");
+                            $normal_brain = $conn->query("SELECT * FROM `normal_brain` WHERE `patient_id`='$id'");
+                            $other = $conn->query("SELECT * FROM `other` WHERE `patient_id`='$id'");
                             $info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
                             $info_det = $info->fetch_assoc();
 
@@ -136,6 +137,7 @@ require '../../backend/auth.php';
                                         $kidney = $row['kidney'];
                                         $pelvic = $row['pelvic'];
                                         $impression = $row['impression'];
+                                        $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
                                     }
                                     echo "<table class='table'>
@@ -168,8 +170,12 @@ require '../../backend/auth.php';
                                     <td>$impression</td>  
                                 </thead>
                                 <thead>
-                                    <th class='head'>Doctor Name</th>
-                                    <td>$drname</td>  
+                                    <th class='head'>Conclusion</th>
+                                    <td>$conclusion</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Reported By:</th>
+                                    <td>Dr. $drname</td>  
                                 </thead>
                                     
                                     </table>";
@@ -185,6 +191,7 @@ require '../../backend/auth.php';
                                     while ($row = $neck->fetch_assoc()) {
                                         $result = $row['result'];
                                         $impression = $row['impression'];
+                                        $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
                                     }
                                     echo "<table class='table'>
@@ -201,8 +208,12 @@ require '../../backend/auth.php';
                                     <td>$impression</td>  
                                 </thead>
                                 <thead>
-                                    <th class='head'>Doctor Name</th>
-                                    <td>$drname</td>  
+                                    <th class='head'>Conclusion</th>
+                                    <td>$conclusion</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Reported By:</th>
+                                    <td>Dr. $drname</td>  
                                 </thead>
                                     
                                     </table>";
@@ -211,13 +222,14 @@ require '../../backend/auth.php';
                             </div>
                             <div class='lab'>
                             <?php
-                                if ($breast->num_rows > 0) {
+                                if ($chest->num_rows > 0) {
                                     echo "
-                                <h2 class='center'>Breast Result</h2>
+                                <h2 class='center'>Chest Result</h2>
                                 ";
-                                    while ($row = $breast->fetch_assoc()) {
+                                    while ($row = $chest->fetch_assoc()) {
                                         $result = $row['result'];
                                         $impression = $row['impression'];
+                                        $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
                                     }
                                     echo "<table class='table'>
@@ -234,8 +246,12 @@ require '../../backend/auth.php';
                                     <td>$impression</td>  
                                 </thead>
                                 <thead>
-                                    <th class='head'>Doctor Name</th>
-                                    <td>$drname</td>  
+                                    <th class='head'>Conclusion</th>
+                                    <td>$conclusion</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Reported By:</th>
+                                    <td>Dr. $drname</td>  
                                 </thead>
                                     
                                     </table>";
@@ -243,14 +259,15 @@ require '../../backend/auth.php';
                                 ?>
                             </div>
                             <div class='lab'>
-                            <?php
-                                if ($scortal->num_rows > 0) {
+                             <?php
+                                if ($normal_brain->num_rows > 0) {
                                     echo "
-                                <h2 class='center'>Scortal Result</h2>
+                                <h2 class='center'>normal_brain Result</h2>
                                 ";
-                                    while ($row = $scortal->fetch_assoc()) {
+                                    while ($row = $normal_brain->fetch_assoc()) {
                                         $result = $row['result'];
                                         $impression = $row['impression'];
+                                        $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
                                     }
                                     echo "<table class='table'>
@@ -267,8 +284,50 @@ require '../../backend/auth.php';
                                     <td>$impression</td>  
                                 </thead>
                                 <thead>
-                                    <th class='head'>Doctor Name</th>
-                                    <td>$drname</td>  
+                                    <th class='head'>Conclusion</th>
+                                    <td>$conclusion</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Reported By:</th>
+                                    <td>Dr. $drname</td>  
+                                </thead>
+                                    
+                                    </table>";
+                                }
+                                ?>
+                            </div>
+                            <div class='lab'>
+                             <?php
+                                if ($other->num_rows > 0) {
+                                    echo "
+                                <h2 class='center'>Other Result</h2>
+                                ";
+                                    while ($row = $other->fetch_assoc()) {
+                                        $result = $row['result'];
+                                        $impression = $row['impression'];
+                                        $conclusion = $row['conclusion'];
+                                        $drname = $row['drname'];
+                                    }
+                                    echo "<table class='table'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                <thead>
+                                    <th class='head'>Result</th>
+                                    <td>$result</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Impression</th>
+                                    <td>$impression</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Conclusion</th>
+                                    <td>$conclusion</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Reported By:</th>
+                                    <td>Dr. $drname</td>  
                                 </thead>
                                     
                                     </table>";

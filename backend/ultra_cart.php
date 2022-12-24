@@ -6,9 +6,10 @@ if (isset($_POST['submit'])) {
     $brands = $_POST['brands'];
     //$detail = $_POST['det'];
     $abdo = $_POST['abdo'];
-    $breast = $_POST['breast'];
+    $breast = $_POST['chest'];
     $neck = $_POST['neck'];
-    $scrotal_det = $_POST['scrotal_det'];
+    $nb_det = $_POST['nb_det'];
+    $other_det = $_POST['other_det'];
     $detail = '';
     foreach ($brands as $brand) {
         // foreach ($detail as $det ){
@@ -17,12 +18,14 @@ if (isset($_POST['submit'])) {
         // }
         if($brand == 'Abdominal'){
             $detail = $abdo;
-        }if($brand == 'Breast'){
+        }if($brand == 'Chest'){
             $detail = $breast;
         }if($brand == 'Neck'){
             $detail = $neck;
-        }if($brand == 'Scrotal'){
-            $detail = $scrotal;
+        }if($brand == 'normal_brain'){
+            $detail = $nb_det;
+        }if($brand == 'other'){
+            $detail = $other_det;
         }
         
             $sql = "INSERT INTO `ultra_cart`(`requests`,`detail`, `patient_id`) VALUES ('$brand','$detail', '$pat')";

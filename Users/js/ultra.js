@@ -4,7 +4,8 @@ const btns = document.querySelectorAll('.items');
 const abdo = document.getElementById('Abdominal');
 const breast = document.getElementById('Chest');
 const neck = document.getElementById('Neck');
-const scrotal = document.getElementById('Scrotal');
+const nb = document.getElementById('normal_brain');
+const other = document.getElementById('other');
 
 btns.forEach(item => {
     item.addEventListener('click', (e) => {
@@ -14,8 +15,10 @@ btns.forEach(item => {
             breast.classList.toggle('hide');
         } else if (e.target.classList.contains ('Neck')) {
             neck.classList.toggle('hide');
-        }  else if (e.target.classList.contains ('Scrotal')) {
-            scrotal.classList.toggle('hide');
+        }  else if (e.target.classList.contains ('normal_brain')) {
+            nb.classList.toggle('hide');
+        }  else if (e.target.classList.contains ('other')) {
+            other.classList.toggle('hide');
         } 
     })
 });

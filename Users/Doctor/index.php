@@ -167,6 +167,7 @@ require '../../backend/auth.php';
 										<th>Card No</th>
 										<th>Phone</th>
 										<th>Organization</th>
+										<th>Action</th>
 									</thead>
 									";
 							if ($rs) {
@@ -192,6 +193,7 @@ require '../../backend/auth.php';
 														<td data-label='Card No'>$card</td>
 														<td data-label='Phone'>$pt_phone</td>						
 														<td data-label='Organization'>$org</td>						
+														<td data-label='Action'><a href='./edit_pat.php?id=$card'>Edit</a></td>						
 													</tr>
 												</tbody>
 												";
@@ -515,12 +517,12 @@ require '../../backend/auth.php';
 												<label for="neck">Neck US</label><br>
 											</th>
 											<th>
-												<input type="checkbox" id="trans_fontanelle" name="brands[]" value="Trans_Fontanelle">
-												<label for="trans_fontanelle">Trans Fontanelle</label><br>
+												<input type="checkbox" id="normal_brain" name="brands[]" value="normal_brain">
+												<label for="normal_brain">Normal Brain</label><br>
 											</th>
 											<th>
 												<input type="checkbox" id="other" name="brands[]" value="other">
-												<label for="other">Trans Fontanelle</label><br>
+												<label for="other">Other</label><br>
 											</th>
 										</thead>
 									</table>
@@ -538,9 +540,13 @@ require '../../backend/auth.php';
 											<label for="neck">Neck</label>
 											<textarea name="neck" id="neck" cols="30" rows="10"></textarea>
 										</div>
-										<div id="scrotal-text" class="form-element hide">
-											<label for="scrotal-det">Scrotal</label>
-											<textarea name="scrotal_det" id="scrotal-det" cols="30" rows="10"></textarea>
+										<div id="nb-text" class="form-element hide">
+											<label for="nb_det">Normal Brain</label>
+											<textarea name="nb_det" id="nb_det" cols="30" rows="10"></textarea>
+										</div>
+										<div id="other-text" class="form-element hide">
+											<label for="other_det">Other</label>
+											<textarea name="other_det" id="other_det" cols="30" rows="10"></textarea>
 										</div>
 									</div>
 										<div align="center">
