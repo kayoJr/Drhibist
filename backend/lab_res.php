@@ -36,7 +36,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
 
     if($rs){
         
-        $sqld="DELETE FROM `lab_cart2` WHERE `name`='Urinalysis'";
+        $sqld="DELETE FROM `lab_cart2` WHERE `name`='Urinalysis' AND `patient_id` = '$pat_id'";
         $rsd=$conn->query($sqld);
         if($rsd){
         
@@ -57,7 +57,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
     $sql="INSERT INTO `afb_sputum`( `patient_id`, `SPOT`, `MORNING`) VALUES ('$pat_id','$Spot','$Morning')";
     $rs = $conn->query($sql);
     if($rs){
-        $sqld="DELETE FROM `lab_cart2` WHERE `name`='AFB_Sputum'";
+        $sqld="DELETE FROM `lab_cart2` WHERE `name`='AFB_Sputum'  AND `patient_id` = '$pat_id'";
         $rsd=$conn->query($sqld);
         if($rsd){
         header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -79,7 +79,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
     $sql="INSERT INTO `stool`( `Appearance`, `Consistency`, `o/p`, `pus`, `mucus`, `petn_id`) VALUES ('$Appearance','$Consistency','$Ova_Parasite','$PUS_cells','$Mucus','$pat_id')";
     $rs = $conn->query($sql);
     if($rs){
-        $sqld="DELETE FROM `lab_cart2` WHERE `name`='STOOL'";
+        $sqld="DELETE FROM `lab_cart2` WHERE `name`='STOOL'  AND `patient_id` = '$pat_id'";
         $rsd=$conn->query($sqld);
         if($rsd){
         header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -101,7 +101,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
     $rs = $conn->query($sql);
  
     if($rs){
-        $sqld="DELETE FROM `lab_cart2` WHERE `name`='Serum'";
+        $sqld="DELETE FROM `lab_cart2` WHERE `name`='Serum'  AND `patient_id` = '$pat_id'";
         $rsd=$conn->query($sqld);
         if($rsd){
         header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -119,7 +119,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
     $rs = $conn->query($sql);
     
     if($rs){
-        $sqld="DELETE FROM `lab_cart2` WHERE `name`='blood_f'";
+        $sqld="DELETE FROM `lab_cart2` WHERE `name`='blood_f'  AND `patient_id` = '$pat_id'";
         $rsd=$conn->query($sqld);
         if($rsd){
         header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -137,7 +137,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
     $rs = $conn->query($sql);
     
     if($rs){
-        $sqld="DELETE FROM `lab_cart2` WHERE `name`='Blood_Group'";
+        $sqld="DELETE FROM `lab_cart2` WHERE `name`='Blood_Group'  AND `patient_id` = '$pat_id'";
         $rsd=$conn->query($sqld);
         if($rsd){
         header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -157,7 +157,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
     $rs = $conn->query($sql);
     
     if($rs){
-        $sqld="DELETE FROM `lab_cart2` WHERE `name`='Coagulation_Profile'";
+        $sqld="DELETE FROM `lab_cart2` WHERE `name`='Coagulation_Profile'  AND `patient_id` = '$pat_id'";
         $rsd=$conn->query($sqld);
         if($rsd){
         header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -174,7 +174,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `esr`(`patient_id`, `ESR`) VALUES ('$pat_id','$esr')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='ESR'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='ESR'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -192,7 +192,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `crp`(`patient_id`, `crp`) VALUES ('$pat_id','$crp')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='CRP'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='CRP'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -210,7 +210,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `fbs`(`patient_id`, `fbs`) VALUES ('$pat_id','$fbs')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='FBS_RBS'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='FBS_RBS'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -228,7 +228,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `gram_stain`(`patient_id`, `gram_stain`) VALUES ('$pat_id','$gram_stain')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Gram_Stain'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Gram_Stain'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -247,7 +247,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `hpylori`(`patient_id`, `hpylori_ag`, `hpylori_ab`) VALUES ('$pat_id','$hpylori_ag', '$hpylori_ab')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='h_pylori'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='h_pylori'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -267,7 +267,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `let`(`patient_id`, `sgot`, `sgpt`, `alk_phos`) VALUES ('$pat_id','$sgot', '$sgpt', '$alk_phos')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='LET'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='LET'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -287,7 +287,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `lft`(`patient_id`, `bt`, `bd`, `albumin`) VALUES ('$pat_id','$bt', '$bd', '$albumin')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='LFT'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='LFT'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -306,7 +306,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `liver_viral`(`patient_id`, `hbs`, `hcv`) VALUES ('$pat_id','$hbs', '$hcv')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='liver_viral'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='liver_viral'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -324,7 +324,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `pict`(`patient_id`, `pict`) VALUES ('$pat_id','$pict')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='PICT'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='PICT' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -343,7 +343,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `rft`(`patient_id`, `bun`, `creatinine`) VALUES ('$pat_id','$bun', '$creatinine')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='RFT'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='RFT' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -361,7 +361,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `rpr`(`patient_id`, `rpr`) VALUES ('$pat_id','$rpr')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='RPR'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='RPR' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -381,7 +381,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `tft`(`patient_id`, `t3`, `t4`, `tsh`) VALUES ('$pat_id','$t3', '$t4', '$tsh')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='TFT'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='TFT' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -399,7 +399,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `uric_acid`(`patient_id`, `uric`) VALUES ('$pat_id','$uric')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Uric_Acid'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Uric_Acid'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -417,7 +417,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `vdrl`(`patient_id`, `vdrl`) VALUES ('$pat_id','$vdrl')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='VDRL'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='VDRL' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -435,7 +435,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `weil`(`patient_id`, `weil`) VALUES ('$pat_id','$weil')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Weil_Felix'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Weil_Felix' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -453,7 +453,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `widalh`(`patient_id`, `widalh`) VALUES ('$pat_id','$widalh')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Widal_H'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Widal_H' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -471,7 +471,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `widalo`(`patient_id`, `widalo`) VALUES ('$pat_id','$widalo')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Widal_O'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='Widal_O' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -489,7 +489,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
         $sql="INSERT INTO `csf`(`patient_id`, `csf`) VALUES ('$pat_id','$csf')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='csf_Felix'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='csf_Felix' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");

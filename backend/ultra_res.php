@@ -26,7 +26,7 @@ if(isset($_POST['abdominal'])){
     )";
     $rs = $conn->query($sql);
     if($rs){
-        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'Abdominal'";
+        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'Abdominal' AND `patient_id` = '$pat_id'";
         $rs = $conn->query($sql);
         if($rs){
             header("Location: ../Users/Ultrasound/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -54,7 +54,7 @@ if(isset($_POST['abdominal'])){
     )";
     $rs = $conn->query($sql);
     if($rs){
-        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'Chest'";
+        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'Chest' AND `patient_id` = '$pat_id'";
         $rs = $conn->query($sql);
         if($rs){
             header("Location: ../Users/Ultrasound/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -81,7 +81,7 @@ if(isset($_POST['abdominal'])){
     )";
     $rs = $conn->query($sql);
     if($rs){
-        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'Neck'";
+        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'Neck' AND `patient_id` = '$pat_id'";
         $rs = $conn->query($sql);
         if($rs){
             header("Location: ../Users/Ultrasound/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -133,7 +133,7 @@ if(isset($_POST['abdominal'])){
     )";
     $rs = $conn->query($sql);
     if($rs){
-        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'normal_brain'";
+        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'normal_brain' AND `patient_id` = '$pat_id'";
         $rs = $conn->query($sql);
         if($rs){
             header("Location: ../Users/Ultrasound/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -160,7 +160,7 @@ if(isset($_POST['abdominal'])){
     )";
     $rs = $conn->query($sql);
     if($rs){
-        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'other' ";
+        $sql = "DELETE FROM `ultra_cart` WHERE `requests` = 'other' AND `patient_id` = '$pat_id'";
         $rs = $conn->query($sql);
         if($rs){
             header("Location: ../Users/Ultrasound/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -171,7 +171,5 @@ if(isset($_POST['abdominal'])){
         echo "error".$conn->error;
     }
 }
-
-
 
 ?>
