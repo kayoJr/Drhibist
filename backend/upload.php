@@ -17,7 +17,7 @@ if (isset($_POST['upload'])) {
 
 	if($up){
 	
-			$sqld="DELETE FROM `lab_cart2` WHERE `name`='CBC'";
+			$sqld="DELETE FROM `lab_cart2` WHERE `name`='CBC'  AND `patient_id` = '$pat_id'";
 			$rsd=$conn->query($sqld);
 			if($rsd){
 		if (move_uploaded_file($tempname, $folder)) {
@@ -30,4 +30,3 @@ if (isset($_POST['upload'])) {
  	}
 }
 }
-?>
