@@ -421,9 +421,6 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 															$count = $row['lab_sys_count'];
 														}
 														$count = $count + $sum;
-														echo "
-														<h3>$count Laboratory Exams Done Today</h3>
-														";
 													} else {
 														echo $conn->error;
 													}
@@ -456,6 +453,9 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 												while ($row = $res->fetch_assoc()) {
 													$sum = $row['value_sum'];
 												}
+												if($sum == ''){
+													$sum = 0;
+												}
 												echo "
 												<h3>$sum ETB</h3>
 												";
@@ -464,9 +464,6 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 												while ($row = $res2->fetch_assoc()) {
 													$count = $row['count_sum'];
 												}
-												echo "
-												<h3>$count drugs selled today</h3>
-												";
 											}
 										}
 
@@ -525,9 +522,6 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 															$count = $row['lab_sys_count'];
 														}
 														$count = $count + $sum;
-														echo "
-														<h3>$count Ultrasound Exams Done Today</h3>
-														";
 													} else {
 														echo $conn->error;
 													}
@@ -537,6 +531,65 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											}
 										}
 										?>
+									</div>
+									<div class="box">
+										<h4>Admission</h4>
+										<form action="index.php" method="GET">
+											<div class="form-elements">
+												<input type="date" name="date" id="date">
+												<input type="submit" value="Search" name="search" class="btn btn-primary">
+											</div>
+										</form>
+										<?php
+										$today = date("Y-m-d");
+										if (isset($_GET['search'])) {
+											$today = $_GET['date'];
+
+											$adm_cash = "SELECT SUM(price) AS adm_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'withdrawal'";
+											$adm_sys = "SELECT SUM(price) AS adm_sys FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'withdrawal'";
+
+											$res = $conn->query($adm_cash);
+											$res_sys = $conn->query($adm_sys);
+
+											if ($res) {
+												while ($row = $res->fetch_assoc()) {
+													$sum_first = $row['adm_cash'];
+													// echo "
+													// <h3>$sum ETB</h3>
+													// ";
+													if ($res_sys) {
+														while ($row = $res_sys->fetch_assoc()) {
+															$sum_ultra = $row['adm_sys'];
+															$sum_ultra_total = $sum_first + $sum_ultra;
+														}
+														echo "
+														<h3>$sum_ultra_total ETB</h3>
+														";
+													}
+												}
+											}
+											if ($res2) {
+												while ($row = $res2->fetch_assoc()) {
+													$sum = $row['count_lab'];
+													// echo "
+													// <h3>$sum ETB</h3>
+													// ";
+													if ($res2_sys) {
+														while ($row = $res2_sys->fetch_assoc()) {
+															$count = $row['lab_sys_count'];
+														}
+														$count = $count + $sum;
+													} else {
+														echo $conn->error;
+													}
+												}
+											} else {
+												echo $conn->error;
+											}
+										}
+										?>
+										<a class="btn btn-primary" href="admission_list.php?date=<?php echo $today ?>&search-date=Search">List</a>
+
 									</div>
 								</div>
 						</div>

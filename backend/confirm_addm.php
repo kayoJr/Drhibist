@@ -19,7 +19,7 @@ while ($row = $result->fetch_assoc()) {
     if (!$res) {
         echo $conn->error;
     } else {
-        $sql = "TRUNCATE TABLE `cart`";
+        $sql = "TRUNCATE TABLE `cart_adm`";
         $res = $conn->query($sql);
         if ($res) {
             header("Location:../Users/Pharmacy/admission.php?msg=Done");

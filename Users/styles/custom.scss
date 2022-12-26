@@ -874,6 +874,15 @@ form {
 		}
 	}
 }
+.edit_ultraresu{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	a{
+		font-size: 2rem;
+		color: $white !important;
+	}
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;
@@ -958,12 +967,7 @@ form {
 	}
 }
 @media (max-width: 1400px) {
-	.daily-report{
-		.boxes{
-			// grid-auto-flow: column;
-			// overflow-x: scroll;
-		}
-	}
+	
 	.system_income{
 		.boxes{
 			grid-auto-flow: column;

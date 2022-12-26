@@ -125,7 +125,8 @@ require '../../backend/db.php';
 							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory;
 							$s_charge = $total * $service;
 							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory + $s_charge;
-
+							
+							
 						?>
 							<div class="detail">
 								<form action="../../backend/withdraw_pay.php" method="POST">
@@ -229,6 +230,9 @@ require '../../backend/db.php';
 								</form>
 							</div>
 						<?php
+						}
+						function bed(){
+							return $bed = "hello";
 						}
 						?>
 						<!-- footer -->

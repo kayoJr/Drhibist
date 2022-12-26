@@ -1342,6 +1342,16 @@ form table select {
   padding: 0.5rem;
 }
 
+.edit_ultraresu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.edit_ultraresu a {
+  font-size: 2rem;
+  color: #fff !important;
+}
+
 @media (max-width: 768px) {
   .pharmacy {
     grid-template-columns: 1fr;

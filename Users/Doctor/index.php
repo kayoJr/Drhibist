@@ -508,7 +508,8 @@ require '../../backend/auth.php';
 									<table>
 										<thead>
 											<th>
-												<input type="checkbox" id="abus" name="brands[]" value="Abdominal">
+												<input type="checkbox" id="/*  */
+												abus" name="brands[]" value="Abdominal">
 												<label for="abus">Abdominal US</label><br>
 											</th>
 											<th>

@@ -1,6 +1,7 @@
 <?php
-require_once '../../backend/db.php';
 require '../../backend/auth.php';
+require '../../backend/db.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@ require '../../backend/auth.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 	<!-- site metas -->
-	<title>Ultrasound</title>
+	<title>Admin</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
@@ -28,7 +29,6 @@ require '../../backend/auth.php';
 	<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 	<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
 	<link rel="stylesheet" href="../styles/custom.css" />
-
 	<style>
 		.btn-group {
 			display: none !important;
@@ -55,12 +55,11 @@ require '../../backend/auth.php';
 							</div>
 							<div class="user_info">
 								<?php
-								$phone_doc = $_SESSION['user'];
-								$sql = "SELECT * FROM `users` WHERE `phone` = '$phone_doc'";
+								$phone = $_SESSION['user'];
+								$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
 								$res = $conn->query($sql);
 								while ($row = mysqli_fetch_assoc($res)) {
 									$name = $row['name'];
-									$id = $row['id'];
 								}
 								?>
 								<h6>
@@ -97,102 +96,108 @@ require '../../backend/auth.php';
 
 				<!-- dashboard inner -->
 				<div class="midde_cont">
-                    <div class="container-fluid">
-                        <div id="feedback">
-                            <?php
-                            @$msg = $_REQUEST['msg'];
-                            echo "<p>$msg</p>"
-                            ?>
-                        </div>
-                        <form action="index.php" class="search">
-                            <h3>Search For Patient</h3>
-                            <div class="search-form">
-                                <input type="number" name="search" id="search" min="0" required placeholder="Phone or Card Number" />
-                                <input type="submit" name="searching" value="Search" class="btn btn-primary" />
-                            </div>
-                        </form>
-                        <?php
-                        if (isset($_GET['searching'])) {
-                            $phone = $_GET['search'];
-                            $search_sql = "SELECT * FROM `patient` WHERE `phone`='$phone' OR `id` = '$phone'";
-                            $rs = $conn->query($search_sql);
-                            echo "
+					<div class="container-fluid">
+						<div class="info" id="info">
+							<p class="error">
+								<?php
+								@$err = $_REQUEST['err'];
+								echo $err;
+								?>
+							</p>
+							<p class="succ">
+								<?php
+								@$lout = $_REQUEST['msg'];
+								echo $lout;
+								?>
+							</p>
+						</div>
+						<form action="admission_list.php" class="search">
+							<h3>Search</h3>
+							<div class="search-form">
+								<input type="date" name="date" id="search" />
+								<input type="submit" name="search-date" value="Search" class="btn btn-primary" />
+							</div>
+						</form>
+						<?php
+						if (isset($_GET['search-date'])) {
+						//$sdate = $_GET['search'];
+						$today = $_GET['date'];
+						$search_sql = "SELECT * FROM `income` WHERE `reason` = 'withdrawal' AND `date` = '$today'";
+						$rs = $conn->query($search_sql);
+						echo "
 									<table class='table'>
 									<thead>
-										<th>SNo</th>
-										<th>Name</th>
-										<th>Age</th>
-										<th>Sex</th>
-										<th>Card No</th>
-										<th>Phone</th>
+                                    <thead>
+                                    <th>Name</th>
+                                    <th>Pharmacy</th>
+                                    <th>Laboratory</th>
+                                    <th>Ultrasound</th>
+                                    <th>Bed, Service Charge & Oxygen</th>
+                                    <th>Total</th>
+                                </thead>
 									</thead>
 									";
-                            if ($rs) {
-                                while ($result = $rs->fetch_assoc()) {
-                                    $card = $result['id'];
-                                    $pt_name = $result['name'];
-                                    $pt_phone = $result['phone'];
-                                    $age = $result['age'];
-                                    $sex = $result['sex'];
-                                    echo "	
-												<tbody>
-													<tr>
-														<td data-label='SNo'>$card</td>
-														<td data-label='Name'>$pt_name</td>
-														<td data-label='Age'>$age</td>
-														<td data-label='Sex'>$sex</td>
-														<td data-label='Card No'>$card</td>
-														<td data-label='Phone'>$pt_phone</td>						
-													</tr>
-												</tbody>
-												";
-                                }
-                            }
-                        ?>
-                            </table>
-							<?php echo "<a class='btn mgt mgb btn-primary'href='ultraresu.php?id=$card'>Ultrasound Result</a>";?>
+                            
+						while ($row = mysqli_fetch_array($rs)) {
+							$id = $row['pat_id'];
+                            $total = $row['price'];
 
-                            <div class="lab-req">
-                                <h4>Ultrasound Requests</h4>
-                                <div class="lab-name">
-                                    <?php
-                                    $pat_id = @$card;
-                                    $sql = "SELECT * FROM `ultra_cart` WHERE `patient_id` = '$pat_id' AND `payment` = 1";
-                                    $res = $conn->query($sql);
-                                    if ($res) {
-                                        while ($row = $res->fetch_assoc()) {
-                                            $name = $row['requests'];
-                                            $detail = $row['detail'];
-                                    ?>
+                            $pat = $conn->query("SELECT `name` FROM `patient` WHERE `id` = '$id'");
+                            $row = $pat->fetch_assoc();
+                            $pat_name = $row['name'];
 
-											<div>
-												<?php echo "<p class='$name items'>$name</p>"; ?>
-												<div id="<?php echo $name; ?>" class="ultra_detail hide">
-													<p ><?php echo $detail; ?></p>
-													<a href="./ultrares.php?name=<?php echo $name; ?>&id=<?php echo $pat_id; ?>" class="btn">Add Result</a>
-												</div>
-											</div>
-											
-											<?php
-								}
-							} else {
-								echo $conn->error;
-							}
-							?>
-							</div>
-							
-                            </div>
-							
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-				<!-- footer -->
+                            $lab = $conn->query("SELECT SUM(price) AS lab_sum FROM `admission_pay` WHERE `reason` = 'laboratory' AND `pat_id` = '$id'");
+                            $lab_row = $lab->fetch_assoc();
+                            $lab_sum = $lab_row['lab_sum'];
+
+                            $ultra = $conn->query("SELECT SUM(price) AS ultra_sum FROM `admission_pay` WHERE `reason` = 'ultrasound' AND `pat_id` = '$id'");
+                            $ultra_row = $ultra->fetch_assoc();
+                            $ultra_sum = $ultra_row['ultra_sum'];
+
+                            $pharm = $conn->query("SELECT SUM(tot_amount) AS pharm_sum FROM `admission_med` WHERE `patient_id` = '$id'");
+                            $pharm_row = $pharm->fetch_assoc();
+                            $pharm_sum = $pharm_row['pharm_sum'];
+                            
+                            $rest = $total - ($lab_sum + $pharm_sum + $ultra_sum);
+                            echo "	
+                            <tbody>
+                                <tr>
+                                    <td data-label='Name'>$pat_name</td>
+                                    <td data-label='Pharmacy'>$pharm_sum</td>
+                                    <td data-label='Laboratory'>$lab_sum</td>
+                                    <td data-label='Ultrasound'>$ultra_sum</td>
+                                    <td data-label='Bed, Service Charge & Oxygen'>$rest</td>
+                                    <td data-label='Total'>$total</td>
+
+                                    
+                                </tr>
+                            </tbody>
+                            ";
+						}
+
+						// display the links to the pages
+
+
+
+						//}
+						// } else {
+						// 	echo $conn->error;
+						// }
+						echo "</table>";
+						echo '<div class="pagination">';
+						//echo $_GET['page'];
+						// for ($page = 1; $page <= $number_of_pages; $page++) {
+						// 	
+						}
+						?>
+
+
+					</div>
+					<!-- footer -->
+				</div>
+				<!-- end dashboard inner -->
 			</div>
-			<!-- end dashboard inner -->
 		</div>
-	</div>
 	</div>
 	<!-- jQuery -->
 	<script src="../js/jquery.min.js"></script>
@@ -209,7 +214,6 @@ require '../../backend/auth.php';
 	</script>
 	<!-- custom js -->
 	<script src="../js/custom.js"></script>
-	<script src="../js/ultra.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -218,7 +222,7 @@ require '../../backend/auth.php';
 
 </html>
 <script>
-	const feedback = document.getElementById("feedback");
+	const feedback = document.getElementById("info");
 	setTimeout(() => {
 		feedback.style.display = "none";
 	}, 3000)
