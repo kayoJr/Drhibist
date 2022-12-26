@@ -240,7 +240,7 @@ $today = date('Y-m-d');
                                 </div>
                             </div>
                             <?php
-                            $search_sql = "SELECT * FROM `lab_message` WHERE `patient_id`='$pat_id' ORDER BY `date` DESC";
+                            $search_sql = "SELECT * FROM `lab_message` WHERE `patient_id`='$pat_id' AND `date` = '$today' ORDER BY `date` DESC";
                             $rs = $conn->query($search_sql);
                         
                             if($rs){
