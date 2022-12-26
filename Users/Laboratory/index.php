@@ -245,14 +245,16 @@ $today = date('Y-m-d');
                         
                             if($rs){
                                 while($row = $rs->fetch_assoc()){
+                                    $msg_id = $row['id'];
                                     $detail = $row['detail'];
                                     $date = $row['date'];
                                     echo "
                                     <div class='detail addm_detail'>
                                     <h2>Message From Doctor</h2>
-                                    <div>
+                                    <div class='edit_ultraresu'>
                                     <p>-> $detail </p>
                                     <p>$date </p>
+                                    <a href='../../backend/delete_lab_msg.php?id=$msg_id&pat=$pat_id'>X</a>
                                     </div>
                                     </div>
                                     ";
