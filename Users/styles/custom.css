@@ -1039,6 +1039,41 @@ form table select {
   background: #343a40;
 }
 
+.return_others form {
+  overflow-y: visible;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.return_others form table {
+  width: 100% !important;
+}
+.return_others form table th,
+.return_others form table td,
+.return_others form table select {
+  background-color: #343a40;
+  color: #fff;
+}
+.return_others form td:first-child {
+  width: 25%;
+}
+.return_others form td:nth-child(2) {
+  width: 25%;
+}
+.return_others form button:not(.btn2) {
+  background-color: unset;
+  margin: 0;
+}
+.return_others form ul {
+  background-color: #343a40;
+}
+.return_others form .bootstrap-select {
+  background-color: #343a40;
+  color: #fff !important;
+}
+.return_others form .filter-option-inner-inner {
+  color: #fff !important;
+}
+
 .payment {
   margin-top: 2rem;
   display: grid;

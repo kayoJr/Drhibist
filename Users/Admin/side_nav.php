@@ -17,10 +17,14 @@
     </li>
     <li>
         <a href="return.php"><i class="fa-solid fa-rotate-left"></i>
-            <span>Return</span></a>
+            <span>Return Pharm</span></a>
     </li>
     <li>
-        <a href="credit.php"><i class="fa-solid fa-rotate-left"></i>
+        <a href="return_other.php"><i class="fa-solid fa-rotate-left"></i>
+            <span>Return Others</span></a>
+    </li>
+    <li>
+        <a href="credit.php"><i class="fa-solid fa-notes-medical"></i>
             <span>Credit</span></a>
     </li>
     <li>

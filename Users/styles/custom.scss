@@ -569,6 +569,42 @@ form {
 		}
 	}
 }
+.return_others{
+	form {
+		overflow-y: visible;
+		margin: 0 auto;
+		max-width: 800px;
+		table {
+			width: 100% !important;
+			th,
+			td,
+			select {
+				background-color: $dark-bg;
+				color: $white;
+			}
+		}
+		td:first-child{
+			width: 25%;
+		}
+		td:nth-child(2){
+			width: 25%;
+		}
+		button:not(.btn2) {
+			background-color: unset;
+			margin: 0;
+		}
+		ul {
+			background-color: $dark-bg;
+		}
+		.bootstrap-select {
+			background-color: $dark-bg;
+			color: $white !important;
+		}
+		.filter-option-inner-inner {
+			color: $white !important;
+		}
+	}
+}
 .payment{
 	margin-top: 2rem;
 	label,input{
