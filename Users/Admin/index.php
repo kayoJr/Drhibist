@@ -101,88 +101,6 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 									<input type="submit" value="Search" name="search_income" class="btn btn-primary">
 								</div>
 							</form>
-							<?php
-
-							?>
-							<!-- <div class="boxes">
-								<div class="box">
-
-									<?php
-									// $today = date("Y-m-d");
-									// if (isset($_GET['search_income'])) {
-									// 	$today = $_GET['date'];
-									// 	if ($today == "") {
-									// 		$today = date("Y-m-d");
-									// 	}
-									// }
-									// echo "<h4>Daily System Only Income ($today)</h4>";
-									// $sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today' AND `reason` = 'pharmacy'";
-									// $rs = $conn->query($sql);
-									// $row = $rs->fetch_assoc();
-									// $sys_sum = $row['value_sum'];
-									// if(!$sys_sum>0){
-									// 	$sys_sum = 0;
-									// }
-									// echo "<h3>$sys_sum ETB</h3>"
-									?>
-								</div>
-								<div class="box">
-									<?php
-									$today = date("Y-m-d");
-									if (isset($_GET['search_income'])) {
-										$today = $_GET['date'];
-										if ($today == "") {
-											$today = date("Y-m-d");
-										}
-									}
-									echo "<h4>Daily Cash Only Income ($today)</h4>";
-									// $sql = "SELECT SUM(payment) AS rece FROM `patient` WHERE `date` = '$today' AND `reason` = 'pharmacy'";
-									// $rs = $conn->query($sql);
-									// $row = $rs->fetch_assoc();
-									// $rec_sum = $row['rece'];
-
-									$sql = "SELECT SUM(sub_price) AS phar FROM `pharma_daily_sell` WHERE `date` = '$today'";
-									$rs = $conn->query($sql);
-									$row = $rs->fetch_assoc();
-									$phar_sum = $row['phar'];
-
-									$sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today' AND `reason` = 'pharmacy'";
-									$rs = $conn->query($sql);
-									$row = $rs->fetch_assoc();
-									$sys_sum = $row['value_sum'];
-
-									$tots_sum = $phar_sum - $sys_sum;
-
-									echo "<h3>$tots_sum ETB</h3>"
-									?>
-								</div>
-								<div class="box">
-									<?php
-									$today = date("Y-m-d");
-									if (isset($_GET['search_income'])) {
-										$today = $_GET['date'];
-										if ($today == "") {
-											$today = date("Y-m-d");
-										}
-									}
-									echo "<h4>Daily Total Income ($today)</h4>";
-									// $sql = "SELECT SUM(payment) AS rece FROM `patient` WHERE `date` = '$today'";
-									// $rs = $conn->query($sql);
-									// $row = $rs->fetch_assoc();
-									// $rec_sum = $row['rece'];
-
-									$sql = "SELECT SUM(sub_price) AS phar FROM `pharma_daily_sell` WHERE `date` = '$today'";
-									$rs = $conn->query($sql);
-									$row = $rs->fetch_assoc();
-									$phar_sum = $row['phar'];
-
-									$tot_sum = $phar_sum;
-
-									echo "<h3>$tot_sum ETB</h3>"
-									?>
-								</div>
-							</div> -->
-
 							<div class="boxes">
 								<div class="box">
 									<?php
@@ -193,13 +111,23 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											$today = date("Y-m-d");
 										}
 									}
-									$sql = "SELECT SUM(price) AS value_sum FROM `system_payment` WHERE `date` = '$today' AND `reason` = 'pharmacy'";
+									$sql = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE `date` = '$today'";
 									$rs = $conn->query($sql);
 									$row = $rs->fetch_assoc();
 									$sys_sum = $row['value_sum'];
 									if (!$sys_sum > 0) {
 										$sys_sum = 0;
 									}
+
+									$sql = "SELECT SUM(sub_price) AS value_sum_cash FROM `cash_payment_pharm` WHERE `date` = '$today'";
+									$rs = $conn->query($sql);
+									$row = $rs->fetch_assoc();
+									$cash_sum = $row['value_sum_cash'];
+									if (!$cash_sum > 0) {
+										$cash_sum = 0;
+									}
+
+									$tot_sum = $sys_sum + $cash_sum;
 									?>
 									<h4>Pharmacy (<?php echo $today; ?>)</h4>
 									<div class="sells">
@@ -210,12 +138,12 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 										<div>
 											<h3>Cash</h3>
 											<?php
-											if ($tots_sum < 0) {
-												$tots_sum = 0;
+											if ($cash_sum < 0) {
+												$cash_sum = 0;
 											}
 
 											?>
-											<h3><?php echo $tots_sum; ?></h3>
+											<h3><?php echo $cash_sum; ?></h3>
 										</div>
 										<div>
 											<h3>Total</h3>
@@ -324,6 +252,68 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 										<div>
 											<h3>Total</h3>
 											<h3><?php echo $ultra_sys_sum + $ultra_cash_sum; ?></h3>
+										</div>
+									</div>
+								</div>
+								<div class="box">
+									<h4>Credit Payment (<?php echo $today; ?>)</h4>
+									<?php
+									if (isset($_GET['search_income'])) {
+										$today = $_GET['date'];
+										if ($today == "") {
+											$today = date("Y-m-d");
+										}
+									}
+
+									$sql_stc = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'stc'";
+									$rs_stc = $conn->query($sql_stc);
+									$row_stc = $rs_stc->fetch_assoc();
+									$stc_cash = $row_stc['lab_cash'];
+
+									$sql_cigna = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'cigna'";
+									$rs_cigna = $conn->query($sql_cigna);
+									$row_cigna = $rs_cigna->fetch_assoc();
+									$cigna_cash = $row_cigna['lab_cash'];
+
+									$total = $stc_cash + $cigna_cash;
+									?>
+									<div class="sells">
+
+										<div>
+											<h3>Save The Children</h3>
+											<h3><?php echo $stc_cash; ?></h3>
+										</div>
+										<div>
+											<h3>Cigna</h3>
+											<h3><?php echo $cigna_cash; ?></h3>
+										</div>
+										<div>
+											<h3>Total</h3>
+											<h3><?php echo $total; ?></h3>
+										</div>
+									</div>
+								</div>
+								<div class="box">
+									<h4>Daily Total Of (<?php echo $today; ?>)</h4>
+									<?php
+									if (isset($_GET['search_income'])) {
+										$today = $_GET['date'];
+										if ($today == "") {
+											$today = date("Y-m-d");
+										}
+									}
+
+									$total = $stc_cash + $cigna_cash;
+									?>
+									<div class="sells">
+									<?php
+
+									$total = $tot_sum + $rec_sys_sum + $rec_cash_sum + 
+											$lab_sys_sum + $lab_cash_sum;
+									?>
+										<div class="center">
+											<h3>Total</h3>
+											<h3><?php echo $total; ?></h3>
 										</div>
 									</div>
 								</div>
@@ -620,7 +610,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											<div>
 												<h3>Pharmacy</h3>
 												<?php
-												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'stc' AND `status` = 0 AND `reason` = 'pharmacy'";
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit_pharm` WHERE `org` = 'stc' AND `status` = 0";
 												$res = $conn->query($sql);
 												if ($res) {
 													while ($row = $res->fetch_assoc()) {
@@ -675,22 +665,20 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											</div>
 											<div>
 												<h3>Total</h3>
-												<h3><?php echo $sum; ?></h3>
+												<h3><?php
+												$total = $pharmacy + $ultra + $addm + $lab;
+												echo $total; ?></h3>
 											</div>
 											<form action="../../backend/credit_pay.php" method = 'GET'>
-												<input type="hidden" name="tot_pay" value="<?php echo $sum; ?>">
+												<input type="hidden" name="tot_pay" value="<?php echo $total; ?>">
+												<input type="hidden" name="org" value="stc">
+												<a href="./pharmacy_det.php?name=stc" class="btn">Pharmacy Detail</a>
 												<input type="submit" class="btn" value="Pay" name="pay_stc">
 											</form>
 										</div>
 									</div>
 									<div class="box">
 										<h4>Cigna</h4>
-										<!-- <form action="../../backend/credit_pay.php" method = 'GET' method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
-											</div>
-										</form> -->
 										<?php
 										$today = date("Y-m-d");
 
@@ -707,7 +695,7 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											<div>
 												<h3>Pharmacy</h3>
 												<?php
-												$sql = "SELECT SUM(price) AS value_sum FROM `credit` WHERE `org` = 'cigna' AND `status` = 0 AND `reason` = 'pharmacy'";
+												$sql = "SELECT SUM(price) AS value_sum FROM `credit_pharm` WHERE `org` = 'cigna' AND `status` = 0 ";
 												$res = $conn->query($sql);
 												if ($res) {
 													while ($row = $res->fetch_assoc()) {
@@ -762,10 +750,13 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											</div>
 											<div>
 												<h3>Total</h3>
-												<h3><?php echo $sum; ?></h3>
+												<h3><?php  
+												$total = $pharmacy + $ultra + $addm + $lab;
+												echo $total; ?></h3>
 											</div>
 											<form action="../../backend/credit_pay.php" method = 'GET'>
-												<input type="hidden" name="tot_pay" value="<?php echo $sum; ?>">
+												<input type="hidden" name="tot_pay" value="<?php echo $total; ?>">
+												<a href="./pharmacy_det.php?name=cigna" class="btn">Pharmacy Detail</a>
 												<input type="submit" class="btn" value="Pay" name="pay_cigna">
 											</form>
 										</div>

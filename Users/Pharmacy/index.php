@@ -70,8 +70,8 @@ require '../../backend/auth.php';
 							</div>
 							<div class="user_info">
 								<?php
-								$phone = $_SESSION['user'];
-								$sql = "SELECT * FROM `users` WHERE `phone` = '$phone'";
+								$phone_user = $_SESSION['user'];
+								$sql = "SELECT * FROM `users` WHERE `phone` = '$phone_user'";
 								$res = $conn->query($sql);
 								while ($row = mysqli_fetch_assoc($res)) {
 									$name = $row['name'];
@@ -153,6 +153,7 @@ require '../../backend/auth.php';
 												</td>
 												<td data-label="Patient Id">
 													<input type="number" name="pat_id" id="pat_id" min="0">
+													<input type="hidden" name="user_id" value="<?php echo $phone_user; ?>">
 												</td>
 											</tr>
 										</tbody>
@@ -167,7 +168,7 @@ require '../../backend/auth.php';
 								<div class="elements">
 									<div class="middle-cart">
 										<?php
-										$sql = "SELECT * FROM `cart` order by `id` desc";
+										$sql = "SELECT * FROM `cart` WHERE `user_id` = '$phone_user' ORDER BY `rn` DESC";
 										$rs = mysqli_query($con, $sql);
 										if (mysqli_num_rows($rs)) {
 											while ($row = mysqli_fetch_assoc($rs)) {
@@ -177,7 +178,7 @@ require '../../backend/auth.php';
 												<div class="element">
 													<div>
 														<?php
-														echo "<a href='../../backend/remove_cart.php?rn=$id'><b>X</b></a>";
+														echo "<a href='../../backend/remove_cart.php?rn=$id&user=$phone_user'><b>X</b></a>";
 
 														echo  "<h4>" . $row['name'] . "<br>" . $row['sub_price'] . '$' . "</h4>";
 														?>
@@ -203,7 +204,7 @@ require '../../backend/auth.php';
 											<div class="right-list">
 
 												<?php
-												$sql = "SELECT SUM(sub_price) AS total FROM `cart`";
+												$sql = "SELECT SUM(sub_price) AS total FROM `cart` WHERE `user_id` = '$phone_user'";
 												$rs = mysqli_query($conn, $sql);
 												$val = mysqli_fetch_assoc($rs);
 												$num = $val['total'];
@@ -245,7 +246,7 @@ require '../../backend/auth.php';
 						</tr>
 						<?php
 
-						$sql = "SELECT * FROM `cart`";
+						$sql = "SELECT * FROM `cart` WHERE `user_id` = '$phone_user'";
 						$rs = mysqli_query($conn, $sql);
 						while ($row = mysqli_fetch_assoc($rs)) {
 						?>
@@ -283,6 +284,7 @@ require '../../backend/auth.php';
 								<label for="cash">Cash</label>
 								<input type="radio" name="payment" id="cash" value="cash">
 								<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
+								<input type="hidden" name="user_id" value="<?php echo $phone_user; ?>">
 							</div>
 							<div>
 								<label for="credit">Credit</label>

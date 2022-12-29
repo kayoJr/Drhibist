@@ -167,7 +167,7 @@ require '../../backend/auth.php';
 
 											<div>
 												<?php echo "<p class='$name items'>$name</p>"; ?>
-												<div id="<?php echo $name; ?>" class="ultra_detail hide">
+												<div id="<?php echo $name; ?>" class="ultra_detail ">
 													<p ><?php echo $detail; ?></p>
 													<a href="./ultrares.php?name=<?php echo $name; ?>&id=<?php echo $pat_id; ?>" class="btn">Add Result</a>
 												</div>

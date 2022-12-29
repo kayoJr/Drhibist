@@ -7,21 +7,21 @@ const neck = document.getElementById('Neck');
 const nb = document.getElementById('normal_brain');
 const other = document.getElementById('other');
 
-btns.forEach(item => {
-    item.addEventListener('click', (e) => {
-        if (e.target.classList.contains ('Abdominal')) {
-            abdo.classList.toggle('hide');
-        } else if (e.target.classList.contains ('Chest')) {
-            breast.classList.toggle('hide');
-        } else if (e.target.classList.contains ('Neck')) {
-            neck.classList.toggle('hide');
-        }  else if (e.target.classList.contains ('normal_brain')) {
-            nb.classList.toggle('hide');
-        }  else if (e.target.classList.contains ('other')) {
-            other.classList.toggle('hide');
-        } 
-    })
-});
+// btns.forEach(item => {
+//     item.addEventListener('click', (e) => {
+//         if (e.target.classList.contains ('Abdominal')) {
+//             abdo.classList.toggle('hide');
+//         } else if (e.target.classList.contains ('Chest')) {
+//             breast.classList.toggle('hide');
+//         } else if (e.target.classList.contains ('Neck')) {
+//             neck.classList.toggle('hide');
+//         }  else if (e.target.classList.contains ('normal_brain')) {
+//             nb.classList.toggle('hide');
+//         }  else if (e.target.classList.contains ('other')) {
+//             other.classList.toggle('hide');
+//         } 
+//     })
+// });
 
 //ultra result
 const liver = document.getElementById('liver_res');

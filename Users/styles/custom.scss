@@ -5,7 +5,11 @@ body {
 	background-color: $light-bg;
 }
 input[type="checkbox"]{
-	transform: scale(2);
+	transform: scale(2) !important;
+}
+input[type="radio"]{
+	margin: .5rem 0;
+	transform: scale(2) !important;
 }
 .topbar {
 	.navbar {
@@ -68,6 +72,10 @@ form {
 		margin-bottom: 2rem;
 		text-align: center;
 	}
+	.search-formmm{
+		width: 100% !important;
+		margin: 0 auto;
+	}
 	.form-elements {
 		display: grid;
 		gap: 2rem;
@@ -82,6 +90,9 @@ form {
 			width: 100%;
 			padding: 10px 5px;
 			font-size: 1.2rem;
+		}
+		input[type="checkbox"]{
+			transform: scale(2) !important;
 		}
 		label {
 			color: $white;
@@ -741,6 +752,12 @@ form {
 			background-color: $green;
 		}
 	}
+	button:disabled{
+		cursor: not-allowed;
+	}
+	button[disabled]{
+		cursor: not-allowed;
+	}
 }
 .abdominal{
 	margin-bottom: 1rem;
@@ -919,6 +936,25 @@ form {
 		color: $white !important;
 	}
 }
+.cigna_result{
+	width: 100%;
+	.body{
+		.cigna_detail{
+			margin: 2rem auto;
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			p{
+				color: $white;
+				font-size: 2rem;
+				padding: .5rem 0;
+			}
+			.inv{
+				visibility: hidden;
+			}
+		}
+	}
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;
@@ -931,7 +967,9 @@ form {
 	.lab-header,
 	.lab-header *,
 	.lab-footer,
-	.lab-footer *{
+	.lab-footer *,
+	.cigna_results,
+	.cigna_results *{
 		display: none;
 	}
 }
@@ -953,7 +991,11 @@ form {
 	.detail *,
 	.total *,
 	.name,
-	.name *{
+	.name *,
+	.credit_detail,
+	.credit_detail *,
+	.cigna_result,
+	.cigna_result *{
 		color: #000 !important;
 		visibility: visible;
 		table{

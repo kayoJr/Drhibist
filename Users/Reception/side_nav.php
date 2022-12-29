@@ -12,6 +12,10 @@
             <span>Admission</span></a>
     </li>
     <li>
+        <a href="cigna.php"><i class="fa-solid fa-magnifying-glass"></i>
+            <span>Cigna</span></a>
+    </li>
+    <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>
     </li>

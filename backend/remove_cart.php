@@ -1,7 +1,8 @@
 <?php
 require "db.php";
 $id = $_GET['rn'];
-$sel = "SELECT * FROM `cart` WHERE `id`='$id'";
+$phone_user = $_GET['user'];
+$sel = "SELECT * FROM `cart` WHERE `id`='$id' AND `user_id`='$phone_user'";
 $pro = $conn->query($sel);
 while ($row = $pro->fetch_assoc()) {
     $quant_cart = $row['quant'];
@@ -13,7 +14,7 @@ while ($row = $pro->fetch_assoc()) {
         $upd = "UPDATE `meds` SET `amount` = '$new' WHERE `id` = '$id'";
         $resl = $conn->query($upd);
         if ($resl) {
-            $sql = "DELETE FROM `cart` WHERE `id` = '$id'";
+            $sql = "DELETE FROM `cart` WHERE `id` = '$id' AND `user_id` = '$phone_user'";
             $res = $conn->query($sql);
             if ($res) {
                 header("Location: ../Users/Pharmacy/index.php?msg=Deleted");
