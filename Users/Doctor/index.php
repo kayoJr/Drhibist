@@ -265,8 +265,14 @@ require '../../backend/auth.php';
 							while ($det = $re->fetch_assoc()) {
 								// $date = $det['date'];
 								// $detail = $det['detail'];
+								$id_det = $det['id'];
 								?>
+								<div class="navigation">
 									<h3>Patient Detail</h3>
+									<a class="btn mgb mgt" href="../../backend/delete_det.php?id=<?php echo $id_det; ?>&pat=<?php echo $pat_id; ?>">X</a>
+									<p></p>
+								</div>
+
 								<table class='table'>
 
 									<thead>

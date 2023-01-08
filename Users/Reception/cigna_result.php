@@ -101,6 +101,7 @@ require '../../backend/db.php';
                             $cigna_id = $_GET['cigna_id'];
                             $pat_id = $_GET['pat_id'];
                             $dob = $_GET['dob'];
+                            
                             $payment = $_GET['payment_det'];
 
                             $sql_pat_det = $conn->query("SELECT * FROM `patient` WHERE `id` = '$pat_id'");
