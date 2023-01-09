@@ -1091,7 +1091,8 @@ form table select {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-.payment label, .payment input {
+.payment label,
+.payment input {
   display: block;
   margin-right: 1rem;
   color: #fff;
@@ -1423,6 +1424,44 @@ form table select {
   visibility: hidden;
 }
 
+.input-sizer {
+  display: inline-grid;
+  vertical-align: top;
+  align-items: center;
+  position: relative;
+  border: solid 1px;
+  width: 100%;
+}
+.input-sizer.stacked {
+  align-items: stretch;
+  width: 100%;
+}
+.input-sizer.stacked::after,
+.input-sizer.stacked input,
+.input-sizer.stacked textarea {
+  grid-area: 2/1;
+}
+.input-sizer::after,
+.input-sizer input,
+.input-sizer textarea {
+  width: auto;
+  min-width: 1em;
+  grid-area: 1/2;
+  padding: 0.25em;
+  margin: 0;
+  resize: none;
+  background: #fff;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+}
+.input-sizer::after {
+  content: attr(data-value) " ";
+  visibility: hidden;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 768px) {
   .pharmacy {
     grid-template-columns: 1fr;
@@ -1442,7 +1481,8 @@ form table select {
   }
 }
 @media print {
-  html, body * {
+  html,
+body * {
     visibility: hidden;
   }
   .modal-content,
@@ -1465,7 +1505,8 @@ form table select {
     color: #000 !important;
     visibility: visible;
   }
-  .modal-content table thead, .modal-content table th,
+  .modal-content table thead,
+.modal-content table th,
 .modal-content * table thead,
 .modal-content * table th,
 #withdrawal table thead,
@@ -1560,7 +1601,8 @@ input[name=pay] {
     grid-auto-flow: column;
     overflow-x: scroll;
   }
-  .system_income .boxes .box h4, .system_income .boxes .box h3 {
+  .system_income .boxes .box h4,
+.system_income .boxes .box h3 {
     white-space: nowrap;
     margin: 2rem 1rem;
   }

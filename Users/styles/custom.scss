@@ -4,11 +4,11 @@ body {
 	font-family: "Dosis";
 	background-color: $light-bg;
 }
-input[type="checkbox"]{
+input[type="checkbox"] {
 	transform: scale(2) !important;
 }
-input[type="radio"]{
-	margin: .5rem 0;
+input[type="radio"] {
+	margin: 0.5rem 0;
 	transform: scale(2) !important;
 }
 .topbar {
@@ -72,7 +72,7 @@ form {
 		margin-bottom: 2rem;
 		text-align: center;
 	}
-	.search-formmm{
+	.search-formmm {
 		width: 100% !important;
 		margin: 0 auto;
 	}
@@ -91,7 +91,7 @@ form {
 			padding: 10px 5px;
 			font-size: 1.2rem;
 		}
-		input[type="checkbox"]{
+		input[type="checkbox"] {
 			transform: scale(2) !important;
 		}
 		label {
@@ -111,10 +111,10 @@ form {
 		input {
 			margin: 0;
 		}
-		button{
+		button {
 			margin: 0;
 		}
-		select{
+		select {
 			align-self: center;
 			margin: 0;
 		}
@@ -356,27 +356,27 @@ form {
 		// 		}
 		// 	}
 		// }
-		table{
-			thead{
-				tr{
+		table {
+			thead {
+				tr {
 					display: grid;
 					grid-template-columns: repeat(4, 1fr);
 					gap: 1rem;
 				}
-				th{
-					padding: 1rem .5rem;
+				th {
+					padding: 1rem 0.5rem;
 					white-space: nowrap;
-					label{
+					label {
 						color: $white;
 						font-size: 1.2rem;
 						font-weight: normal;
-						margin-left: .8rem;
+						margin-left: 0.8rem;
 					}
 				}
 			}
-			h3{
+			h3 {
 				text-align: left !important;
-				margin: .5rem auto !important;
+				margin: 0.5rem auto !important;
 			}
 		}
 	}
@@ -389,8 +389,8 @@ form {
 		}
 		ul {
 			background-color: $dark-bg;
-			li{
-				a{
+			li {
+				a {
 					color: $white;
 					font-size: 1.2rem;
 				}
@@ -400,9 +400,8 @@ form {
 			background-color: $dark-bg;
 			color: $white;
 		}
-		.dropdown-toggle{
+		.dropdown-toggle {
 			border: 2px solid $white;
-
 		}
 		.filter-option-inner-inner {
 			color: $white;
@@ -411,7 +410,7 @@ form {
 			color: $white !important;
 			background: $dark-bg;
 		}
-		input[name='books']{
+		input[name="books"] {
 			display: none;
 		}
 	}
@@ -441,56 +440,56 @@ form {
 		.btn {
 			margin-top: 0;
 		}
-		a{
+		a {
 			text-align: center;
 			display: block;
 			margin: 1rem 3rem;
 		}
 	}
 }
-#search_med{
+#search_med {
 	margin: 1rem auto;
 }
-input[name='add_med']{
+input[name="add_med"] {
 	margin-top: 0 !important;
 }
-label[for='me']{
+label[for="me"] {
 	visibility: hidden;
 }
-.elements:empty{
+.elements:empty {
 	display: none;
 }
-.lab-req{
-	h4{
+.lab-req {
+	h4 {
 		text-align: center;
 	}
 }
-.lab-name{
+.lab-name {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	gap: 1rem;
-	p{
+	p {
 		margin-right: 1rem;
 		background-color: $white;
-		padding: .5rem;
+		padding: 0.5rem;
 		color: #000;
 		font-size: 1.2rem;
 		cursor: pointer;
 	}
-	.ultra_detail{
-		p{
+	.ultra_detail {
+		p {
 			cursor: default;
 		}
 	}
 }
-.lab-res{
-	form{
-		.form{
+.lab-res {
+	form {
+		.form {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
-			.column{
+			.column {
 				margin-right: 4rem;
-				div{
+				div {
 					display: grid;
 					grid-template-columns: 1fr 2fr;
 					margin-bottom: 2rem;
@@ -499,13 +498,13 @@ label[for='me']{
 		}
 	}
 }
-.details{
+.details {
 	border-bottom: 2px dashed $white;
-	.date{
+	.date {
 		margin: 0;
 		margin-top: 1rem;
 	}
-	.para_detail{
+	.para_detail {
 		margin-top: 1rem;
 	}
 }
@@ -516,8 +515,8 @@ form {
 	}
 	ul {
 		background-color: $dark-bg;
-		li{
-			a{
+		li {
+			a {
 				color: $white;
 				font-size: 1.2rem;
 			}
@@ -527,9 +526,8 @@ form {
 		background-color: $dark-bg;
 		color: $white;
 	}
-	.dropdown-toggle{
+	.dropdown-toggle {
 		border: 2px solid $white;
-
 	}
 	.filter-option-inner-inner {
 		color: $white;
@@ -538,7 +536,7 @@ form {
 		color: $white !important;
 		background: $dark-bg;
 	}
-	input[name='books']{
+	input[name="books"] {
 		display: none;
 	}
 	table {
@@ -549,7 +547,7 @@ form {
 		}
 	}
 }
-.return{
+.return {
 	form {
 		overflow-y: visible;
 		margin: 0 auto;
@@ -580,7 +578,7 @@ form {
 		}
 	}
 }
-.return_others{
+.return_others {
 	form {
 		overflow-y: visible;
 		margin: 0 auto;
@@ -594,10 +592,10 @@ form {
 				color: $white;
 			}
 		}
-		td:first-child{
+		td:first-child {
 			width: 25%;
 		}
-		td:nth-child(2){
+		td:nth-child(2) {
 			width: 25%;
 		}
 		button:not(.btn2) {
@@ -616,9 +614,10 @@ form {
 		}
 	}
 }
-.payment{
+.payment {
 	margin-top: 2rem;
-	label,input{
+	label,
+	input {
 		display: block;
 		margin-right: 1rem;
 		color: #fff;
@@ -629,197 +628,195 @@ form {
 	// flex-direction: row;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	div{
+	div {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 	}
 }
-.center-btn{
+.center-btn {
 	display: grid;
 	place-items: center;
-	a{
+	a {
 		margin: 0 auto;
 	}
 }
-.rmv{
+.rmv {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	a{
+	a {
 		color: #ff0000 !important;
 	}
 }
-#search_income{
+#search_income {
 	margin: 1rem auto;
-	.form-elements{
-		input[type="submit"]{
+	.form-elements {
+		input[type="submit"] {
 			margin-top: 0;
 		}
 	}
 }
-.mgt{
+.mgt {
 	margin-top: 0 !important;
 }
-.mgb{
+.mgb {
 	margin-bottom: 0 !important;
 }
-.mgb-1{
-	margin-bottom: .5rem !important;
+.mgb-1 {
+	margin-bottom: 0.5rem !important;
 }
-.stool{
+.stool {
 	align-items: center;
 }
-.two-input{
+.two-input {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
 }
-.sells{
+.sells {
 	display: flex;
 	flex-direction: column;
-	div{
+	div {
 		display: flex;
 		justify-content: space-around;
 	}
 }
-.lab_req_form{
+.lab_req_form {
 	max-width: 900px;
-	table{
-		thead{
-			tr{
+	table {
+		thead {
+			tr {
 				display: grid;
 				grid-template-columns: repeat(5, 1fr) !important;
 			}
 		}
 	}
 }
-.lab_result{
+.lab_result {
 	display: grid;
-	grid-template-columns: repeat(2,1fr);
+	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
-	.lab{
+	.lab {
 		padding: 1rem;
 		background-color: $dark-bg;
-		h2{
+		h2 {
 			margin-bottom: 2rem;
 		}
-		img{
+		img {
 			width: 100%;
 		}
-		table{
-			thead{
-				th.head{
+		table {
+			thead {
+				th.head {
 					background-color: $dark-bg;
 				}
 			}
 		}
 	}
 }
-.ultra_result{
-	.lab{
+.ultra_result {
+	.lab {
 		padding: 1rem;
 		background-color: $dark-bg;
-		h2{
+		h2 {
 			margin-bottom: 2rem;
 		}
-		img{
+		img {
 			width: 100%;
 		}
-		table{
-			thead{
-				th.head{
+		table {
+			thead {
+				th.head {
 					background-color: $dark-bg;
 				}
 			}
 		}
 	}
 }
-.navigation{
+.navigation {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin: 1rem auto;
-	.button{
+	.button {
 		background-color: $purple;
 		color: $white;
-		padding: .8rem;
+		padding: 0.8rem;
 		border-radius: 50%;
 		border: none;
-		transition: all 300ms ;
-		&:hover{
+		transition: all 300ms;
+		&:hover {
 			background-color: $green;
 		}
 	}
-	button:disabled{
+	button:disabled {
 		cursor: not-allowed;
 	}
-	button[disabled]{
+	button[disabled] {
 		cursor: not-allowed;
 	}
 }
-.abdominal{
+.abdominal {
 	margin-bottom: 1rem;
-		.ultra_type{
+	.ultra_type {
+		width: 100%;
+		.type {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			flex-direction: row;
 			width: 100%;
-			.type{
-				display: flex;
-				align-items: center;
-				justify-content: space-around;
-				flex-direction: row;
-				width: 100%;
-				margin-bottom: 1rem;
-				a{
-					font-size: 2rem;
-					color: $white;
-
-				}
-			}
-			textarea{
-				width: 100%;
-				padding: .5rem;
+			margin-bottom: 1rem;
+			a {
+				font-size: 2rem;
+				color: $white;
 			}
 		}
-	
-}
-.ultra-detail{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	.form-element{
-		margin: .5rem auto;
+		textarea {
+			width: 100%;
+			padding: 0.5rem;
+		}
 	}
 }
-.addm_detail{
-	div{
+.ultra-detail {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	.form-element {
+		margin: 0.5rem auto;
+	}
+}
+.addm_detail {
+	div {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 }
-.blocked{
+.blocked {
 	display: none;
 }
-.add_result{
-	h3{
+.add_result {
+	h3 {
 		display: block;
 		text-align: center;
 		width: 100%;
 	}
-	.results{
+	.results {
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
 		flex-direction: row;
 		width: 100%;
-		h2{
+		h2 {
 			padding: 1rem 0;
 		}
-		.adm_result{
+		.adm_result {
 			margin-left: 2rem;
 		}
 	}
-	.total{
+	.total {
 		margin: 2rem 0;
 		display: flex;
 		align-items: flex-end;
@@ -827,132 +824,171 @@ form {
 		width: 100%;
 	}
 }
-.name{
+.name {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	p{
+	p {
 		color: $white;
 		font-size: 2rem;
 	}
 }
-.lab_result{
+.lab_result {
 	margin-bottom: 15rem !important;
 }
-.messages{
+.messages {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	div{
+	div {
 		width: 100%;
 	}
 }
-.message_counter{
+.message_counter {
 	position: relative;
-	.unread{
+	.unread {
 		position: absolute;
 		top: 0;
 		right: 2rem;
 		background-color: #ff0000;
-		padding: .5rem 1rem;
+		padding: 0.5rem 1rem;
 		border-radius: 50%;
 	}
 }
-.doc_message{
+.doc_message {
 	width: 700px;
 	margin: 2rem auto;
-	.message_element{
+	.message_element {
 		background-color: $dark-bg;
 		padding: 1rem;
 		margin: 1rem 0;
-		.info{
+		.info {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 		}
-		p{
+		p {
 			color: $white;
 			font-size: 1.6rem;
 		}
-		.message_detail{
+		.message_detail {
 			margin-top: 1rem;
-			p{
+			p {
 				padding: 1rem 0;
 				line-height: 35px;
-				
 			}
 		}
 	}
 }
-.det_btn{
+.det_btn {
 	color: $white;
 	font-size: 1.2rem;
 	cursor: pointer;
 	border: 1px solid $white;
-	padding: .5rem 0;
+	padding: 0.5rem 0;
 }
-.det{
+.det {
 	display: block;
-	margin: .5rem 0 2rem 0;
-	padding-bottom: .5rem;
+	margin: 0.5rem 0 2rem 0;
+	padding-bottom: 0.5rem;
 	border-bottom: 1px solid $white;
-	ul{
+	ul {
 		width: 100%;
-		li{
+		li {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			width: 100%;
 			padding-top: 1rem;
-			a{
+			a {
 				color: #ff0000;
 				display: block;
-				transition: all 300ms ;
-				&:hover{
+				transition: all 300ms;
+				&:hover {
 					transform: scale(1.3);
 				}
 			}
 		}
 	}
 }
-.actions{
+.actions {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	span{
-		a{
+	span {
+		a {
 			font-size: 1.2rem;
 			background-color: #ff0000;
-			padding: .5rem;
+			padding: 0.5rem;
 		}
 	}
 }
-.edit_ultraresu{
+.edit_ultraresu {
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	a{
+	a {
 		font-size: 2rem;
 		color: $white !important;
 	}
 }
-.cigna_result{
+.cigna_result {
 	width: 100%;
-	.body{
-		.cigna_detail{
+	.body {
+		.cigna_detail {
 			margin: 2rem auto;
 			width: 100%;
 			display: flex;
 			justify-content: space-around;
-			p{
+			p {
 				color: $white;
 				font-size: 2rem;
-				padding: .5rem 0;
+				padding: 0.5rem 0;
 			}
-			.inv{
+			.inv {
 				visibility: hidden;
 			}
 		}
+	}
+}
+.input-sizer {
+	display: inline-grid;
+	vertical-align: top;
+	align-items: center;
+	position: relative;
+	border: solid 1px;
+	//padding: 0.25em 0.5em;
+	//margin: 5px;
+	width: 100%;
+	&.stacked {
+		//padding: 0.5em;
+		align-items: stretch;
+		width: 100%;
+		&::after,
+		input,
+		textarea {
+			grid-area: 2 / 1;
+		}
+	}
+
+	&::after,
+	input,
+	textarea {
+		width: auto;
+		min-width: 1em;
+		grid-area: 1 / 2;
+		padding: 0.25em;
+		margin: 0;
+		resize: none;
+		background: $white;
+		appearance: none;
+		border: none;
+	}
+
+	&::after {
+		content: attr(data-value) " ";
+		visibility: hidden;
+		white-space: pre-wrap;
 	}
 }
 @media (max-width: 768px) {
@@ -969,16 +1005,17 @@ form {
 	.lab-footer,
 	.lab-footer *,
 	.cigna_results,
-	.cigna_results *{
+	.cigna_results * {
 		display: none;
 	}
 }
 
 @media print {
-	html, body * {
+	html,
+	body * {
 		visibility: hidden;
 	}
-	
+
 	.modal-content,
 	.modal-content *,
 	#withdrawal,
@@ -995,14 +1032,15 @@ form {
 	.credit_detail,
 	.credit_detail *,
 	.cigna_result,
-	.cigna_result *{
+	.cigna_result * {
 		color: #000 !important;
 		visibility: visible;
-		table{
-			thead, th{
+		table {
+			thead,
+			th {
 				border: 2px solid #1b1b1b;
 			}
-			td{
+			td {
 				color: #000 !important;
 			}
 		}
@@ -1014,23 +1052,23 @@ form {
 		visibility: hidden;
 	}
 	.lab_result,
-	.ultra_result{
+	.ultra_result {
 		margin-bottom: 25rem !important;
 	}
 	.lab-header,
 	.lab-header *,
 	.lab-footer,
-	.lab-footer *{
+	.lab-footer * {
 		visibility: visible;
 	}
 
-	.lab-header{
+	.lab-header {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 	}
-	.lab-footer{
+	.lab-footer {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -1045,13 +1083,13 @@ form {
 	}
 }
 @media (max-width: 1400px) {
-	
-	.system_income{
-		.boxes{
+	.system_income {
+		.boxes {
 			grid-auto-flow: column;
 			overflow-x: scroll;
-			.box{
-				h4,h3{
+			.box {
+				h4,
+				h3 {
 					white-space: nowrap;
 					margin: 2rem 1rem;
 				}

@@ -113,7 +113,7 @@ require '../../backend/auth.php';
                         <div class="lab_requests">
                             <?php
                             $pat_id = $_GET['id'];
-                                $rs = $conn->query("SELECT * FROM `lab_cart2` WHERE `patient_id` = '$pat_id'");
+                                $rs = $conn->query("SELECT * FROM `ultra_cart` WHERE `patient_id` = '$pat_id'");
                                 echo "
                                 <table class='table'>
 									<thead>
@@ -123,12 +123,13 @@ require '../../backend/auth.php';
                                 ";
                                 if ($rs){
                                     while($row = $rs->fetch_assoc()){
-                                        $name = $row['name'];
+                                        $name = $row['requests'];
                                         $date = $row['date'];
+                                        $detail = $row['detail'];
                                         echo "	
 												<tbody>
 													<tr>
-													<td data-label='Request'>$name</td>
+													<td data-label='Request'>$name ($detail)</td>
 													<td data-label='Date'>$date</td>
 													</tr>
 												</tbody>
