@@ -934,6 +934,11 @@ form {
 }
 .cigna_result {
 	width: 100%;
+	.header{
+		img{
+			width: 100%;
+		}
+	}
 	.body {
 		.cigna_detail {
 			margin: 2rem auto;
@@ -947,6 +952,13 @@ form {
 			}
 			.inv {
 				visibility: hidden;
+			}
+		}
+		.sign{
+			tr{
+				th, td{
+					padding: 2rem 0 !important;
+				}
 			}
 		}
 	}

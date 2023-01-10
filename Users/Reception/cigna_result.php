@@ -101,7 +101,53 @@ require '../../backend/db.php';
                             $cigna_id = $_GET['cigna_id'];
                             $pat_id = $_GET['pat_id'];
                             $dob = $_GET['dob'];
-                            
+                            $todays = explode('-', $dob);
+                            $year = $todays[0];
+                            $month = $todays[1];
+                            $day = $todays[2];
+                            switch ($month) {
+                                case 1:
+                                    $month = "January";
+                                    break;
+                                case 2:
+                                    $month = "February";
+                                    break;
+                                case 3:
+                                    $month = "March";
+                                    break;
+                                case 4:
+                                    $month = "April";
+                                    break;
+                                case 5:
+                                    $month = "May";
+                                    break;
+                                case 6:
+                                    $month = "June";
+                                    break;
+                                case 7:
+                                    $month = "July";
+                                    break;
+                                case 8:
+                                    $month = "August";
+                                    break;
+                                case 9:
+                                    $month = "September";
+                                    break;
+                                case 10:
+                                    $month = "October";
+                                    break;
+                                case 11:
+                                    $month = "November";
+                                    break;
+                                case 12:
+                                    $month = "December";
+                                    break;
+                                default:
+                                    $month = "Unknown";
+                                    break;
+                            }
+                            //$new_dob = $year.'-'.$month.'-'.$day;
+                            $new_dob = $month.' '.$day. ', '.$year;
                             $payment = $_GET['payment_det'];
 
                             $sql_pat_det = $conn->query("SELECT * FROM `patient` WHERE `id` = '$pat_id'");
@@ -126,31 +172,105 @@ require '../../backend/db.php';
 
                             $row5 = $sql_pharm_det->fetch_assoc();
                             $pharm_det = $row5['pharm_sum'];
-                            if($payment == '20'){
+
+                            
+                            if ($payment == '20') {
                                 $paymet_detail = "Copay 20% Covered By Patient";
-                                
+
                                 $total = $lab_det + $ultra_det + $pharm_det;
-                                $calc = ($total*20)/100;
-                                $total = $total - (($total*20)/100);
-                                $total = ceil($total/54);
+                                $total = $total - (($total * 20) / 100);
+                                $total = ceil($total / 54);
+                                $calc = ceil(($total * 54 * 20) / 100);
 
-                                $lab_det = $lab_det - (($lab_det*20)/100);
-                                $ultra_det = $ultra_det - (($ultra_det*20)/100);
-                                $lab_det = ceil($lab_det/54);
-                                $ultra_det = ceil($ultra_det/54);
+                                $lab_det = $lab_det - (($lab_det * 20) / 100);
+                                $ultra_det = $ultra_det - (($ultra_det * 20) / 100);
+                                $lab_det = ceil($lab_det / 54);
+                                $ultra_det = ceil($ultra_det / 54);
 
-                                $pharm_det = $pharm_det - (($pharm_det*20)/100);
-                                $pharm_det = ceil($pharm_det/54);
-
-                            }else{
+                                $pharm_det = $pharm_det - (($pharm_det * 20) / 100);
+                                $pharm_det = ceil($pharm_det / 54);
+                            } else {
                                 $paymet_detail = "Copay 100% Covered By Cigna";
+                                //$total = ceil($total / 54);
+                                $calc = 0;
+                                
+                                $lab_det = ceil($lab_det / 54);
+                                $ultra_det = ceil($ultra_det / 54);
+                                $pharm_det = ceil($pharm_det / 54);
                                 $total = $lab_det + $ultra_det + $pharm_det;
-                                $total = ceil($total/54);
-                                $calc = $total;
                             }
                             ?>
                             <div class="body">
-                                <div class="cigna_detail">
+                                <table class="table">
+                                    <thead>
+                                        <th>Provider Name</th>
+                                        <td>Doctor Hibist Pediatrics Specialty Clinic</td>
+                                    </thead>
+                                    <thead>
+                                        <th>Provider Billing Address</th>
+                                        <td>Ethiopia, Jigjiga Kebele 05</td>
+                                    </thead>
+                                    <thead>
+                                        <th>PIMS ID</th>
+                                        <td>243075</td>
+                                    </thead>
+                                    <thead>
+                                        <th>Payment Method</th>
+                                        <td>Transfer</td>
+                                    </thead>
+                                    <thead>
+                                        <th>Currency</th>
+                                        <td>USD</td>
+                                    </thead>
+                                    <thead>
+                                        <th>Patient Cigna ID Number</th>
+                                        <td><?php echo $cigna_id; ?></td>
+                                    </thead>
+                                    <thead>
+                                        <th>Patient Full Name</th>
+                                        <td><?php echo $pat_det; ?></td>
+                                    </thead>
+                                    <thead>
+                                        <th>Patient Date Of Birth</th>
+                                        <td><?php echo $new_dob; ?></td>
+                                    </thead>
+                                    <thead>
+                                        <th>Total Invoice Amount</th>
+                                        <td><?php echo $total.' USD'; ?></td>
+                                    </thead>
+                                    <thead>
+                                        <th>Patient Diagnosis</th>
+                                        <td><?php echo $doc_det; ?></td>
+                                    </thead>
+                                    <thead>
+                                        <th>Service Given To Patient</th>
+                                        <td>Lab and Medication</td>
+                                    </thead>
+                                    <thead>
+                                        <th>List of Charges Per Service</th>
+                                        <td>
+                                            <div>Lab: <?php echo $lab_det + $ultra_det . " USD"; ?></div>
+                                            <div>Medication: <?php echo $pharm_det . " USD"; ?></div>
+                                        </td>
+                                    </thead>
+                                    <thead>
+                                        <th>Payment Details</th>
+                                        <td><?php echo $paymet_detail; ?></td>
+                                    </thead>
+                                    <thead>
+                                        <th>Provider Signature</th>
+                                        <td>Patient Signature</td>
+                                    </thead>
+                                    <thead class="sign">
+                                        <th><p class="inv"></p> </th>
+                                        <td></td>
+                                    </thead>
+                                    <thead>
+                                        <th>Date: <?php echo date('Y-m-d'); ?></th>
+                                        <td>Date: <?php echo date('Y-m-d'); ?></td>
+                                    </thead>
+                                </table>
+                                <!-- <div class="cigna_detail">
                                     <div class="heading">
                                         <p>Provider Name</p>
                                         <p>Provider Billing Address</p>
@@ -169,7 +289,7 @@ require '../../backend/db.php';
                                         <p>Patient Signature</p>
                                         <p class='inv'>Hello</p>
                                         <p class='inv'>Hello</p>
-                                        <p>Date: <?php echo date('Y-m-d');?></p>
+                                        <p>Date: <?php echo date('Y-m-d'); ?></p>
                                     </div>
                                     <div class="tail">
                                         <p>Doctor Hibist Pediatrics Specialty Clinic</p>
@@ -178,20 +298,20 @@ require '../../backend/db.php';
                                         <p>Transfer</p>
                                         <p>USD</p>
                                         <p><?php echo $cigna_id; ?></p>
-                                        <p><?php echo $pat_det;?></p>
-                                        <p><?php echo $dob;?></p>
-                                        <p><?php echo $total." USD";?></p>
-                                        <p><?php echo $doc_det;?></p>
-                                        <p>Lab and Medication</p>   
-                                        <p>Lab: <?php echo $lab_det + $ultra_det." USD";?></p>  
-                                        <p>Medication: <?php echo $pharm_det." USD";?></p>
-                                        <p><?php echo $paymet_detail;?></p>
+                                        <p><?php echo $pat_det; ?></p>
+                                        <p><?php echo $new_dob; ?></p>
+                                        <p><?php echo $total . " USD"; ?></p>
+                                        <p><?php echo $doc_det; ?></p>
+                                        <p>Lab and Medication</p>
+                                        <p>Lab: <?php echo $lab_det + $ultra_det . " USD"; ?></p>
+                                        <p>Medication: <?php echo $pharm_det . " USD"; ?></p>
+                                        <p><?php echo $paymet_detail; ?></p>
                                         <p>Provider Signature</p>
                                         <p class='inv'>Hello</p>
                                         <p class='inv'>Hello</p>
-                                        <p>Date: <?php echo date('Y-m-d');?></p>
+                                        <p>Date: <?php echo date('Y-m-d'); ?></p>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="total_to_pay">
@@ -227,7 +347,7 @@ require '../../backend/db.php';
 
 </html>
 <script>
-    	document.getElementById("btnPrint").onclick = function() {
-		window.print();
-	}
+    document.getElementById("btnPrint").onclick = function() {
+        window.print();
+    }
 </script>

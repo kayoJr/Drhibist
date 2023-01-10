@@ -1409,6 +1409,9 @@ form table select {
 .cigna_result {
   width: 100%;
 }
+.cigna_result .header img {
+  width: 100%;
+}
 .cigna_result .body .cigna_detail {
   margin: 2rem auto;
   width: 100%;
@@ -1422,6 +1425,9 @@ form table select {
 }
 .cigna_result .body .cigna_detail .inv {
   visibility: hidden;
+}
+.cigna_result .body .sign tr th, .cigna_result .body .sign tr td {
+  padding: 2rem 0 !important;
 }
 
 .input-sizer {
