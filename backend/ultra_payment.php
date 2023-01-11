@@ -7,7 +7,7 @@ if (isset($_POST['ultra_payment'])) {
     @$payment = @$_POST['payment'];
 
     if ($payment == 'system') {
-        $sql = "INSERT INTO `system_payment` (`price`, `reason`) VALUES ('$price', 'ultrasound')";
+        $sql = "INSERT INTO `system_payment` (`price`, `reason`, `pat_id`) VALUES ('$price', 'ultrasound', '$id')";
         if (!$conn->query($sql)) {
             echo $conn->error;
         } else {
@@ -19,7 +19,7 @@ if (isset($_POST['ultra_payment'])) {
             }
         }
     }else if($payment == 'cash'){
-        $sql = "INSERT INTO `income` (`price`, `reason`) VALUES ('$price', 'ultrasound')";
+        $sql = "INSERT INTO `income` (`price`, `reason`, `pat_id`) VALUES ('$price', 'ultrasound', '$id')";
             if(!$conn->query($sql)){
                 echo $conn->error;
             }else{
