@@ -8,7 +8,7 @@ if (isset($_POST['lab_payment'])) {
     $payment = $_POST['payment'];
 
     if ($payment == 'system') {
-        $sql = "INSERT INTO `system_payment` (`price`, `reason`) VALUES ('$price', 'laboratory')";
+        $sql = "INSERT INTO `system_payment` (`price`, `reason`,`pat_id`) VALUES ('$price', 'laboratory', '$id')";
         if (!$conn->query($sql)) {
             echo $conn->error;
         } else {
@@ -20,7 +20,7 @@ if (isset($_POST['lab_payment'])) {
             }
         }
     }else if($payment == 'cash'){
-        $sql = "INSERT INTO `income` (`price`, `reason`) VALUES ('$price', 'laboratory')";
+        $sql = "INSERT INTO `income` (`price`, `reason`,`pat_id`) VALUES ('$price', 'laboratory', '$id')";
             if(!$conn->query($sql)){
                 echo $conn->error;
             }else{
