@@ -21,14 +21,14 @@ if (isset($_POST['add_pat'])) {
 
     if ($res) {
         if ($payment == "system") {
-            $sql = "INSERT INTO `system_payment` (`price`, `reason`) VALUES (100, 'reception')";
+            $sql = "INSERT INTO `system_payment` (`price`, `reason`, `pat_id`) VALUES (100, 'reception', '$idd')";
             if (!$conn->query($sql)) {
                 echo $conn->error;
             } else {
                 header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
             }
         } else if ($payment == "cash") {
-            $sql = "INSERT INTO `income` (`price`, `reason`) VALUES (100, 'reception')";
+            $sql = "INSERT INTO `income` (`price`, `reason`, `pat_id`) VALUES (100, 'reception', '$idd')";
             if (!$conn->query($sql)) {
                 echo $conn->error;
             } else {
