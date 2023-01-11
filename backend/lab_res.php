@@ -240,14 +240,33 @@ if(isset($_POST['submiturine'])){ //urinalysis
             
     }
 }elseif(isset($_POST['submithpylori'])){ //hpylori
-    $hpylori_ag=$_POST['hpylori_ag'];
+    
     $hpylori_ab=$_POST['hpylori_ab'];
     $pat_id = $_POST['pat_id'];
 
-        $sql="INSERT INTO `hpylori`(`patient_id`, `hpylori_ag`, `hpylori_ab`) VALUES ('$pat_id','$hpylori_ag', '$hpylori_ab')";
+        $sql="INSERT INTO `hpylori`(`patient_id`, `hpylori_ab`) VALUES ('$pat_id', '$hpylori_ab')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='h_pylori'  AND `patient_id` = '$pat_id'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='h_pylori_ab'  AND `patient_id` = '$pat_id'";
+            $rsd=$conn->query($sqld);
+            if($rsd){
+            header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
+            }
+    
+        }else{  
+            echo $conn->error;
+           // header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search?msg=Error");
+            
+    }
+}elseif(isset($_POST['submithpyloriag'])){ //hpyloriag
+    
+    $hpylori_ag=$_POST['hpylori_ag'];
+    $pat_id = $_POST['pat_id'];
+
+        $sql="INSERT INTO `hylori_ag`(`patient_id`, `hpylori_ag`) VALUES ('$pat_id', '$hpylori_ag')";
+        $rs = mysqli_query($conn, $sql);
+        if($rs){
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='h_pylori_ag'  AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
@@ -518,5 +537,3 @@ if(isset($_POST['submiturine'])){ //urinalysis
             
     }
 }
-
-?>  

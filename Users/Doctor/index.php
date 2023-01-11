@@ -528,8 +528,12 @@ require '../../backend/auth.php';
 													<label for="liver">Liver Viral Markers</label><br>
 												</th>
 												<th>
-													<input type="checkbox" id="h_pylori" name="lab[]" value="h_pylori">
-													<label for="h_pylori">H.Pylori Tests</label><br>
+													<input type="checkbox" id="h_pylori_ag" name="lab[]" value="h_pylori_ag">
+													<label for="h_pylori_ag">H.Pylori_Ag </label><br>
+												</th>
+												<th>
+													<input type="checkbox" id="h_pylori_ab" name="lab[]" value="h_pylori_ab">
+													<label for="h_pylori_ab">H.Pylori_Ab </label><br>
 												</th>
 												<th>
 													<input type="checkbox" id="blood_f" name="lab[]" value="blood_f">

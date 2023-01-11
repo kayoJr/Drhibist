@@ -328,8 +328,12 @@ require '../../backend/auth.php';
                                 <h2 class='center'>H Pylori Result</h2>
                                 ";
                                     while ($row = $rs9->fetch_assoc()) {
-                                        $hpylori_ag = $row['hpylori_ag'];
                                         $hpylori_ab = $row['hpylori_ab'];
+                                    }
+                                    $rss9 = $conn->query("SELECT * FROM `hylori_ag` WHERE `patient_id`='$id'");
+
+                                    while ($row = $rss9->fetch_assoc()) {
+                                        $hpylori_ag = $row['hpylori_ag'];
                                     }
                                     echo "<table class='table'>
                                     <thead>

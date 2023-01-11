@@ -121,12 +121,12 @@ require '../../../backend/auth.php';
                                         <div class="column">
                                             
                                             <div>
-                                                <label for="hpylori_ab">H.Pylori Ab</label>
-                                                <input type="text" name="hpylori_ab" id="hpylori_ab" step=".01">
+                                                <label for="hpylori_ag">H.Pylori Ag</label>
+                                                <input type="text" name="hpylori_ag" id="hpylori_ag" step=".01">
                                             </div>
                                            
                                             </div>
-                                        <input type="submit" name="submithpylori" value="SEND" class="btn bnt-primary">
+                                        <input type="submit" name="submithpyloriag" value="SEND" class="btn bnt-primary">
                                         <input type="hidden" name="pat_id" value="<?php echo $id; ?>">
                                     </div>
                                 </form>

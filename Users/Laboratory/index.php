@@ -220,9 +220,12 @@ $today = date('Y-m-d');
                                         } elseif ($name == 'liver_viral') {
 
                                             echo "<a class='btn btn-primary' href='res/liver_viral.php?id=$card&nm=$name'> $name</a>";
-                                        } elseif ($name == 'h_pylori') {
+                                        } elseif ($name == 'h_pylori_ab') {
 
                                             echo "<a class='btn btn-primary' href='res/h_pylori.php?id=$card&nm=$name'> $name</a>";
+                                        } elseif ($name == 'h_pylori_ag') {
+
+                                            echo "<a class='btn btn-primary' href='res/h_pylori_ag.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'blood_f') {
 
                                             echo "<a class='btn btn-primary' href='res/blood_film.php?id=$card&nm=$name'> $name</a>";
