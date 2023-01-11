@@ -108,7 +108,7 @@ require '../../../backend/auth.php';
                             <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
                         </div>
                         <div class="titel">
-                        <h2 class="center">CRP RESULT</h2>
+                        <h2 class="center">CSF RESULT</h2>
                         </div>
                         <?php
                         $id = $_GET['id'];
@@ -120,12 +120,75 @@ require '../../../backend/auth.php';
                                         
                                         <div class="column">
                                             <div>
-                                                <label for="csf">CSF Analyzer</label>
-                                                <input type="text" name="csf" id="csf" step=".01">
+                                                <label for="app">Appearance</label>
+                                                <input type="text" name="app" id="app" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="grav">Specific Gravity</label>
+                                                <input type="text" name="grav" id="grav" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="ldh">LDH</label>
+                                                <input type="text" name="ldh" id="ldh" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="glucose">Glucose</label>
+                                                <input type="text" name="glucose" id="glucose" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="protein">Protien</label>
+                                                <input type="text" name="protein" id="protein" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="cells">Cells</label>
+                                                <input type="text" name="cells" id="cells" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="ep_cells">Epithelial Cells</label>
+                                                <input type="text" name="ep_cells" id="ep_cells" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="wbc">WBC & Differ</label>
+                                                <input type="text" name="wbc" id="wbc" step=".01">
                                             </div>
                                            
+                                        </div>
+                                        <div class="column">
+                                            <div>
+                                                <label for="koh">KOH</label>
+                                                <input type="text" name="koh" id="koh" step=".01">
                                             </div>
-                                        <input type="submit" name="submitcsf" value="SEND" class="btn bnt-primary">
+                                            <div>
+                                                <label for="wet">WET mount</label>
+                                                <input type="text" name="wet" id="wet" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="gram">Gram Stain</label>
+                                                <input type="text" name="gram" id="gram" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="afb">AFB Stain</label>
+                                                <input type="text" name="afb" id="afb" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="indian">Indian INK</label>
+                                                <input type="text" name="indian" id="indian" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="vdrl">VDRL</label>
+                                                <input type="text" name="vdrl" id="vdrl" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="rbc">RBC</label>
+                                                <input type="text" name="rbc" id="rbc" step=".01">
+                                            </div>
+                                            <div>
+                                                <label for="me">hello</label>
+                                            <input type="submit" name="submitcsf" value="SEND" class="btn mgt btn-primary">
+                                            </div>
+                                           
+                                        </div>
+                                        
                                         <input type="hidden" name="pat_id" value="<?php echo $id; ?>">
                                     </div>
                                 </form>

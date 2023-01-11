@@ -482,14 +482,31 @@ if(isset($_POST['submiturine'])){ //urinalysis
            // header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search?msg=Error");
             
     }
-}elseif(isset($_POST['submitcsf'])){ //widalo
-    $csf=$_POST['csf'];
+}elseif(isset($_POST['submitcsf'])){ 
+    $app = $_POST['app'];
+    $grav = $_POST['grav'];
+    $ldh = $_POST['ldh'];
+    $glucose = $_POST['glucose'];
+    $protein = $_POST['protein'];
+    $cells = $_POST['cells'];
+    $ep_cells = $_POST['ep_cells'];
+    $wbc = $_POST['wbc'];
+    $koh = $_POST['koh'];
+    $wet = $_POST['wet'];
+    $gram = $_POST['gram'];
+    $afb = $_POST['afb'];
+    $indian = $_POST['indian'];
+    $vdrl = $_POST['vdrl'];
+    $rbc = $_POST['rbc'];
     $pat_id = $_POST['pat_id'];
 
-        $sql="INSERT INTO `csf`(`patient_id`, `csf`) VALUES ('$pat_id','$csf')";
+        $sql="INSERT INTO `csf`(`patient_id`, `appearance`, `gravity`, `ldh`, `glucose`, `protein`, `cells`, `ep_cells`, `wbc`, `koh`, `wet`, `gram_stain`, `afb`, `indian`, `vdrl`, `rbc`)
+            VALUES ('$pat_id', '$app', '$grav', '$ldh', '$glucose',
+                    '$protein', '$cells', '$ep_cells', '$wbc', '$koh',
+                    '$wet', '$gram', '$afb', '$indian', '$vdrl', '$rbc')";
         $rs = mysqli_query($conn, $sql);
         if($rs){
-            $sqld="DELETE FROM `lab_cart2` WHERE `name`='csf_Felix' AND `patient_id` = '$pat_id'";
+            $sqld="DELETE FROM `lab_cart2` WHERE `name`='csf_analysis' AND `patient_id` = '$pat_id'";
             $rsd=$conn->query($sqld);
             if($rsd){
             header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");

@@ -520,7 +520,7 @@ require '../../backend/auth.php';
 													<label for="weil">Weil Felix</label><br>
 												</th>
 												<th>
-													<input type="checkbox" id="csf" name="lab[]" value="csf_Felix">
+													<input type="checkbox" id="csf" name="lab[]" value="csf_analysis">
 													<label for="csf">CSF Analysis</label><br>
 												</th>
 												<th>
@@ -590,6 +590,21 @@ require '../../backend/auth.php';
 											<div id="other-text" class="form-element hide">
 												<label for="other_det">Other</label>
 												<textarea name="other_det" id="other_det" cols="30" rows="10"></textarea>
+											</div>
+										</div>
+										<div align="center">
+											<input type="text" class="hide" name="pat" id="pat" value="<?php echo $pat_id; ?>">
+											<input type="submit" name="submit" id="submit_button" class="btn btn-primary" value="Order" data-toggle="modalss" data-target="#exampleModalCenter" />
+										</div>
+									</form>
+									<form method="post" class="lab_req_form" id="insert_form " action="../../backend/procedure.php">
+										<h3>Procedure</h3>
+										
+										
+										<div style="display: grid; place-items: center;">
+											<div style="display: flex; flex-direction: row;">
+												<label style="margin-right: 1rem;" for="proc">Price</label>
+												<input type="number" name="proc" id="proc">
 											</div>
 										</div>
 										<div align="center">

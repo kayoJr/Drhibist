@@ -335,6 +335,15 @@ require '../../backend/db.php';
 							} else {
 								echo $conn->error;
 							}
+
+							$procedure_sql = "SELECT SUM(price) AS procedure_payment FROM `procedure` WHERE `patient_id`=$card AND `payment`=0 ";
+							$procedure_res = $conn->query($procedure_sql);
+							if ($procedure_res) {
+								$rows = $procedure_res->fetch_assoc();
+								$procedure_sum = $rows['procedure_payment'];
+							} else {
+								echo $conn->error;
+							}
 							?>
 							<div class='payments'>
 								<div class='grid-x3'>
@@ -418,6 +427,40 @@ require '../../backend/db.php';
 												<div>
 													<label for="cash">Cash</label>
 													<input type="radio" name="payment" id="cash" value="cash">
+												</div>
+												
+											</div>
+											<div>
+												<label for="credit">Credit</label>
+												<select name="credit" id="credit">
+													<option value="" disabled selected>None</option>
+													<option value="cigna">Cigna</option>
+													<option value="stc">Save The Children</option>
+												</select>
+											</div>
+											<input type="submit" class="btn mgt" value="Pay" name="ultra_payment">
+											<!-- <a href='../../backend/lab_payment.php?id=$card' class='btn btn-primary'>Pay</a> -->
+										</form>
+									</div>
+									<div class='grid'>
+										<form class="mgt mgb" action="../../backend/procedure_payment.php" method="POST">
+											<h2>Procedure Payment</h2>
+											<h3><?php echo $procedure_sum; ?> ETB</h3>
+
+											<input type='hidden' name='price' value='<?php echo $procedure_sum; ?>'>
+											<input type="hidden" name="id" value="<?php echo $card; ?>">
+											<div class="payment mgt">
+												<div>
+													<input type="radio" name="payment" id="system" value="system">
+													<label for="system">System</label>
+												</div>
+												<div>
+													<input type="radio" name="payment" id="cash" value="cash">
+													<label for="cash">Cash</label>
+												</div>
+												<div>
+													<input type="radio" name="payment" id="admission" value="admission">
+													<label for="admission">Admission</label>
 												</div>
 											</div>
 											<div>

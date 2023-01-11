@@ -1,8 +1,8 @@
 <?php
 require '../../backend/auth.php';
 require '../../backend/db.php';
-$sql = $conn->query("DELETE FROM `pharma_daily_sell` WHERE `quan` = 0");
-$sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
+// $sql = $conn->query("DELETE FROM `pharma_daily_sell` WHERE `quan` = 0");
+// $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 
 ?>
 <!DOCTYPE html>
@@ -111,38 +111,39 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 											$today = date("Y-m-d");
 										}
 									}
-									$sql = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE `date` = '$today'";
-									$rs = $conn->query($sql);
-									$row = $rs->fetch_assoc();
-									$sys_sum = $row['value_sum'];
-									if (!$sys_sum > 0) {
-										$sys_sum = 0;
-									}
+								// 	$sql = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE `date` = '$today'";
+								// 	$rs = $conn->query($sql);
+								// 	$row = $rs->fetch_assoc();
+								// 	$sys_sum = $row['value_sum'];
+								// 	if (!$sys_sum > 0) {
+								// 		$sys_sum = 0;
+								// 	}
 
 									$sql = "SELECT SUM(sub_price) AS value_sum_cash FROM `cash_payment_pharm` WHERE `date` = '$today'";
 									$rs = $conn->query($sql);
 									$row = $rs->fetch_assoc();
 									$cash_sum = $row['value_sum_cash'];
-									if (!$cash_sum > 0) {
-										$cash_sum = 0;
-									}
+								// 	if (!$cash_sum > 0) {
+								// 		$cash_sum = 0;
+								// 	}
 
-									$tot_sum = $sys_sum + $cash_sum;
+								//$tot_sum = $sys_sum + $cash_sum;
+									$tot_sum = $cash_sum;
 									?>
 									<h4>Pharmacy (<?php echo $today; ?>)</h4>
 									<div class="sells">
 										<div>
 											<h3>System</h3>
-											<h3><?php echo $sys_sum; ?></h3>
+											<h3><?php //echo $sys_sum; ?></h3>
 										</div>
 										<div>
 											<h3>Cash</h3>
-											<?php
-											if ($cash_sum < 0) {
-												$cash_sum = 0;
-											}
+							 			<?php
+								// 			if ($cash_sum < 0) {
+								// 				$cash_sum = 0;
+								// 			}
 
-											?>
+								 			?>
 											<h3><?php echo $cash_sum; ?></h3>
 										</div>
 										<div>
@@ -170,9 +171,9 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 									$rs_rec_cash = $conn->query($sql_rec);
 									$row_rec_cash = $rs_rec_cash->fetch_assoc();
 									$rec_cash_sum = $row_rec_cash['rec_cash'];
-									if (!$sys_sum > 0) {
-										$sys_sum = 0;
-									}
+									// if (!$sys_sum > 0) {
+									// 	$sys_sum = 0;
+									// }
 									?>
 									<div class="sells">
 										<div>
@@ -294,6 +295,44 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 									</div>
 								</div>
 								<div class="box">
+									<h4>Procedure Payment (<?php echo $today; ?>)</h4>
+									<?php
+									if (isset($_GET['search_income'])) {
+										$today = $_GET['date'];
+										if ($today == "") {
+											$today = date("Y-m-d");
+										}
+									}
+
+									$sql_stc = "SELECT SUM(price) AS lab_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'procedure'";
+									$rs_stc = $conn->query($sql_stc);
+									$row_stc = $rs_stc->fetch_assoc();
+									$stc_cash = $row_stc['lab_cash'];
+
+									$sql_cigna = "SELECT SUM(price) AS lab_cash FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'procedure'";
+									$rs_cigna = $conn->query($sql_cigna);
+									$row_cigna = $rs_cigna->fetch_assoc();
+									$cigna_cash = $row_cigna['lab_cash'];
+
+									$total_procedure = $stc_cash + $cigna_cash;
+									?>
+									<div class="sells">
+
+										<div>
+											<h3>Cash</h3>
+											<h3><?php echo $stc_cash; ?></h3>
+										</div>
+										<div>
+											<h3>System</h3>
+											<h3><?php echo $cigna_cash; ?></h3>
+										</div>
+										<div>
+											<h3>Total</h3>
+											<h3><?php echo $total_procedure; ?></h3>
+										</div>
+									</div>
+								</div>
+								<div class="box">
 									<h4>Daily Total Of (<?php echo $today; ?>)</h4>
 									<?php
 									if (isset($_GET['search_income'])) {
@@ -308,12 +347,12 @@ $sql2 = $conn->query("DELETE FROM `system_payment` WHERE `price` = 0");
 									<div class="sells">
 									<?php
 
-									$total = $tot_sum + $rec_sys_sum + $rec_cash_sum + 
-											$lab_sys_sum + $lab_cash_sum;
+									$total_gen = $tot_sum  + $rec_cash_sum + 
+										$lab_cash_sum + $total_procedure;
 									?>
 										<div class="center">
 											<h3>Total</h3>
-											<h3><?php echo $total; ?></h3>
+											<h3><?php echo $total_gen; ?></h3>
 										</div>
 									</div>
 								</div>

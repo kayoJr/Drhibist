@@ -226,7 +226,7 @@ $today = date('Y-m-d');
                                         } elseif ($name == 'blood_f') {
 
                                             echo "<a class='btn btn-primary' href='res/blood_film.php?id=$card&nm=$name'> $name</a>";
-                                        }elseif ($name == 'csf_Felix') {
+                                        }elseif ($name == 'csf_analysis') {
 
                                             echo "<a class='btn btn-primary' href='res/csf.php?id=$card&nm=$name'> $name</a>";
                                         }

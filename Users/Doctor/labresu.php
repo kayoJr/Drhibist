@@ -131,7 +131,7 @@ require '../../backend/auth.php';
                             $rs24 = $conn->query("SELECT * FROM `widalh` WHERE `patient_id`='$id'");
                             $rs25 = $conn->query("SELECT * FROM `widalo` WHERE `patient_id`='$id'");
                             $rs26 = $conn->query("SELECT * FROM `csf` WHERE `patient_id`='$id'");
-                            
+
                             $info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
                             $info_det = $info->fetch_assoc();
                             ?>
@@ -582,7 +582,7 @@ require '../../backend/auth.php';
                                     </table>";
                                 }
                                 ?>
-                               
+
                             </div>
                             <div class='lab'>
                                 <?php
@@ -694,8 +694,8 @@ require '../../backend/auth.php';
                                     ";
                                 }
                                 ?>
-                               
-                               
+
+
                             </div>
                             <div class='lab'>
                                 <?php
@@ -706,7 +706,6 @@ require '../../backend/auth.php';
                                     while ($row = $rs18->fetch_assoc()) {
                                         $bun = $row['bun'];
                                         $creatinine = $row['creatinine'];
-                                        
                                     }
                                     echo "<table class='table'>
                                     <thead>
@@ -735,7 +734,6 @@ require '../../backend/auth.php';
                                         $t3 = $row['t3'];
                                         $t4 = $row['t4'];
                                         $tsh = $row['tsh'];
-                                        
                                     }
                                     echo "<table class='table'>
                                     <thead>
@@ -759,7 +757,7 @@ require '../../backend/auth.php';
                                     ";
                                 }
                                 ?>
-                               
+
                                 <?php
                                 if ($rs21->num_rows > 0) {
                                     echo "
@@ -767,8 +765,6 @@ require '../../backend/auth.php';
                                 ";
                                     while ($row = $rs21->fetch_assoc()) {
                                         $uric = $row['uric'];
-                                        
-                                        
                                     }
                                     echo "<table class='table'>
                                     <thead>
@@ -783,18 +779,16 @@ require '../../backend/auth.php';
                                     ";
                                 }
                                 ?>
-                                
+
                             </div>
                             <div class='lab'>
-                               <?php
+                                <?php
                                 if ($rs22->num_rows > 0) {
                                     echo "
                                 <h2 class='center'>VDRL Result</h2>
                                 ";
                                     while ($row = $rs22->fetch_assoc()) {
                                         $vdrl = $row['vdrl'];
-                                        
-                                        
                                     }
                                     echo "<table class='table'>
                                     <thead>
@@ -816,7 +810,6 @@ require '../../backend/auth.php';
                                 ";
                                     while ($row = $rs23->fetch_assoc()) {
                                         $weil = $row['weil'];
-                                        
                                     }
                                     echo "<table class='table'>
                                     <thead>
@@ -839,7 +832,6 @@ require '../../backend/auth.php';
                                 ";
                                     while ($row = $rs24->fetch_assoc()) {
                                         $widalh = $row['widalh'];
-                                        
                                     }
                                     echo "<table class='table'>
                                     <thead>
@@ -855,7 +847,7 @@ require '../../backend/auth.php';
                                     ";
                                 }
                                 ?>
-                               
+
                                 <?php
                                 if ($rs25->num_rows > 0) {
                                     echo "
@@ -863,8 +855,6 @@ require '../../backend/auth.php';
                                 ";
                                     while ($row = $rs25->fetch_assoc()) {
                                         $widalo = $row['widalo'];
-                                        
-                                        
                                     }
                                     echo "<table class='table'>
                                     <thead>
@@ -878,14 +868,26 @@ require '../../backend/auth.php';
                                 </table>
                                     ";
                                 }
-                                if ($rs25->num_rows > 0) {
+                                if ($rs26->num_rows > 0) {
                                     echo "
-                                <h2 class='center'>Widal_O Result</h2>
+                                <h2 class='center'>CSF Analysis Result</h2>
                                 ";
-                                    while ($row = $rs25->fetch_assoc()) {
-                                        $csf = $row['csf'];
-                                        
-                                        
+                                    while ($row = $rs26->fetch_assoc()) {
+                                        $appearance = $row['appearance'];
+                                        $gravity = $row['gravity'];
+                                        $ldh = $row['ldh'];
+                                        $glucose = $row['glucose'];
+                                        $protein = $row['protein'];
+                                        $cells = $row['cells'];
+                                        $ep_cells = $row['ep_cells'];
+                                        $wbc = $row['wbc'];
+                                        $koh = $row['koh'];
+                                        $wet = $row['wet'];
+                                        $gram_stain = $row['gram_stain'];
+                                        $afb = $row['afb'];
+                                        $indian = $row['indian'];
+                                        $vdrl = $row['vdrl'];
+                                        $rbc = $row['rbc'];
                                     }
                                     echo "<table class='table'>
                                     <thead>
@@ -893,15 +895,72 @@ require '../../backend/auth.php';
                                     <th>Result</th>
                                     </thead>
                                 <thead>
-                                    <th class='head'>CSF Analyzer</th>
-                                    <td>$csf</td>  
+                                    <th class='head'>Appearance</th>
+                                    <td>$appearance</td>  
                                 </thead>
+                                <thead>
+                                    <th class='head'>Specific Gravity</th>
+                                    <td>$gravity</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>LDH</th>
+                                    <td>$ldh</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Glucose</th>
+                                    <td>$glucose</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Protein</th>
+                                    <td>$protein</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Cells</th>
+                                    <td>$cells</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Epithelial Cells</th>
+                                    <td>$ep_cells</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>WBC & Differ</th>
+                                    <td>$wbc</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>KOH</th>
+                                    <td>$koh</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>WET Mount</th>
+                                    <td>$wet</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Gram Stain</th>
+                                    <td>$gram_stain</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>AFB Stain</th>
+                                    <td>$afb</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Indian INK</th>
+                                    <td>$indian</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>VDRL</th>
+                                    <td>$vdrl</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>RBC</th>
+                                    <td>$rbc</td>  
+                                </thead>
+                                
                                 </table>
                                     ";
                                 }
                                 ?>
                             </div>
-                        
+
                         </div>
 
                     </div>
@@ -943,7 +1002,7 @@ require '../../backend/auth.php';
 </html>
 
 <script>
-    	document.getElementById("btnPrint").onclick = function() {
-		window.print();
-	}
+    document.getElementById("btnPrint").onclick = function() {
+        window.print();
+    }
 </script>
