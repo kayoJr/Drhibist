@@ -3,10 +3,10 @@
         <a href="index.php"><i class="fa-solid fa-address-card"></i>
             <span>Patient</span></a>
     </li>
-    <!-- <li>
-        <a href="admission.php"><i class="fa-solid fa-address-card"></i>
-            <span>Admission</span></a>
-    </li> -->
+    <li>
+        <a href="messages.php"><i class="fa-solid fa-address-card"></i>
+            <span>Messages</span></a>
+    </li>
     <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>
