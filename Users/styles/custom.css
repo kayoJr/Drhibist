@@ -1468,6 +1468,22 @@ form table select {
   white-space: pre-wrap;
 }
 
+.ultra_result h2 {
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: 16pt !important;
+}
+.ultra_result table {
+  font-family: "Times New Roman", Times, serif !important;
+}
+.ultra_result table th {
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: 14pt;
+}
+.ultra_result table td, .ultra_result table .head {
+  font-family: "Times New Roman", Times, serif !important;
+  font-size: 12pt;
+}
+
 @media (max-width: 768px) {
   .pharmacy {
     grid-template-columns: 1fr;

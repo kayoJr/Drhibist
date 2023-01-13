@@ -139,14 +139,14 @@ require '../../backend/auth.php';
                                     }
                                     echo "
                                     <div class='edit_ultraresu'>
-                                    <h2 class='center'>Abdominal Result</h2>
+                                    <h2 class='center'>Abdominal Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=Abdominal&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
                                     echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
-                                    <th>Result</th>
+                                    <th>Findings</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>Liver and Spleen</th>
@@ -167,10 +167,6 @@ require '../../backend/auth.php';
                                 <thead>
                                     <th class='head'>Pelvic Organ</th>
                                     <td>$pelvic</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impressions</th>
-                                    <td>$impression</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Conclusion</th>
@@ -197,22 +193,18 @@ require '../../backend/auth.php';
                                     }
                                     echo "
                                     <div class='edit_ultraresu'>
-                                    <h2 class='center'>Neck Result</h2>
+                                    <h2 class='center'>Neck Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=Neck&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
                                     echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
-                                    <th>Result</th>
+                                    <th>Findings</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>Result</th>
                                     <td>$result</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impression</th>
-                                    <td>$impression</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Conclusion</th>
@@ -240,22 +232,18 @@ require '../../backend/auth.php';
                                     }
                                     echo "
                                     <div class='edit_ultraresu'>
-                                    <h2 class='center'>Chest Result</h2>
+                                    <h2 class='center'>Chest Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=Chest&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
                                     echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
-                                    <th>Result</th>
+                                    <th>Findings</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>Result</th>
                                     <td>$result</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impression</th>
-                                    <td>$impression</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Conclusion</th>
@@ -283,22 +271,18 @@ require '../../backend/auth.php';
                                     }
                                     echo "
                                     <div class='edit_ultraresu'>
-                                    <h2 class='center'>Normal Brain Result</h2>
+                                    <h2 class='center'>Normal Brain Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=normal_brain&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
                                     echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
-                                    <th>Result</th>
+                                    <th>Findings</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>Result</th>
                                     <td>$result</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impression</th>
-                                    <td>$impression</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Conclusion</th>
@@ -325,22 +309,18 @@ require '../../backend/auth.php';
                                     }
                                     echo "
                                     <div class='edit_ultraresu'>
-                                    <h2 class='center'>Other Result</h2>
+                                    <h2 class='center'>Other Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=other&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
                                     echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
-                                    <th>Result</th>
+                                    <th>Findings</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>Result</th>
                                     <td>$result</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impression</th>
-                                    <td>$impression</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>Conclusion</th>

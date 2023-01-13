@@ -1003,6 +1003,23 @@ form {
 		white-space: pre-wrap;
 	}
 }
+.ultra_result{
+	h2{
+		font-family: 'Times New Roman', Times, serif !important;
+		font-size: 16pt !important;
+	}
+	table{
+		font-family: 'Times New Roman', Times, serif !important;
+		th{
+			font-family: 'Times New Roman', Times, serif !important;
+			font-size: 14pt;
+		}
+		td, .head{
+			font-family: 'Times New Roman', Times, serif !important;
+			font-size: 12pt;
+		}
+	}
+}
 @media (max-width: 768px) {
 	.pharmacy {
 		grid-template-columns: 1fr;
@@ -1057,6 +1074,7 @@ form {
 			}
 		}
 	}
+
 	.modal-footer *,
 	.payment,
 	.payment *,
