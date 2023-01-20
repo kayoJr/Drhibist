@@ -119,6 +119,7 @@ require '../../backend/auth.php';
 									<thead>
 										<th>Request</th>
 										<th>Date</th>
+										<th>Action</th>
 									</thead>
                                 ";
                                 if ($rs){
@@ -130,6 +131,7 @@ require '../../backend/auth.php';
 													<tr>
 													<td data-label='Request'>$name</td>
 													<td data-label='Date'>$date</td>
+													<td data-label='Date'><a href='../../backend/delete_dup_doc.php?name=$name&pat=$pat_id'><b>X</b></a></td>
 													</tr>
 												</tbody>
 												";

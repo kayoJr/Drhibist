@@ -352,7 +352,7 @@ require '../../backend/db.php';
 											<h2>Laboratory Payment</h2>
 											<h3><?php echo $lab_sum; ?> ETB</h3>
 											<p class="center det_btn" id="det_btn">Detail</p>
-											<div id="det" class="hide det">
+											<div id="det" class="det">
 												<ul>
 
 													<?php
@@ -401,7 +401,7 @@ require '../../backend/db.php';
 											<h2>Ultrasound Payment</h2>
 											<h3><?php echo $ultra_sum; ?> ETB</h3>
 											<p class="center det_btn" id="det_ultra_btn">Detail</p>
-											<div id="det_ultra" class="hide det">
+											<div id="det_ultra" class="det">
 												<ul>
 
 													<?php
