@@ -152,8 +152,9 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Hematology Result</h2>";
                                     while ($row = $rs1->fetch_assoc()) {
                                         $image = $row['filename'];
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
+                                        echo "<img src='../../img/Screenshots/$image'>";
                                     }
-                                    echo "<img src='../../img/Screenshots/$image'>";
                                 }
                                 ?>
                             </div>
@@ -164,11 +165,11 @@ require '../../backend/auth.php';
                                 <h2 class='center'>AFB Sputum Result</h2>
                                 ";
                                     while ($row = $rs2->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $spot = $row['SPOT'];
                                         $morning = $row['MORNING'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -182,6 +183,7 @@ require '../../backend/auth.php';
                                     </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -190,19 +192,20 @@ require '../../backend/auth.php';
                                 <h2 class='center'>CRP Result</h2>
                                 ";
                                     while ($row = $rs3->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $crp = $row['crp'];
+                                        echo "<table class='table'>
+                                        <thead>
+                                        <th>Test</th>
+                                        <th>Result</th>
+                                        </thead>
+                                        <thead>
+                                        <th class='head'>CRP</th>
+                                        <td>$crp N.g/ml (mg/L)</td>  
+                                        </thead>
+                                        
+                                        </table>";
                                     }
-                                    echo "<table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>CRP</th>
-                                    <td>$crp N.g/ml (mg/L)</td>  
-                                </thead>
-                                    
-                                    </table>";
                                 }
                                 ?>
                                 <?php
@@ -211,10 +214,10 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Blood Film Result</h2>
                                 ";
                                     while ($row = $rs4->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $bf = $row['bf'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -224,6 +227,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -232,19 +236,20 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Blood Group Result</h2>
                                 ";
                                     while ($row = $rs5->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $bg = $row['bg'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>Blood Group</th>
                                     <td>$bg</td>  
-                                </thead>
+                                    </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -255,10 +260,10 @@ require '../../backend/auth.php';
                                 <h2 class='center'>FBS Result</h2>
                                 ";
                                     while ($row = $rs6->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $fbs = $row['fbs'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -267,7 +272,8 @@ require '../../backend/auth.php';
                                     <td>$fbs mg/dl</td>  
                                 </thead>
                                     
-                                    </table>";
+                                </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -276,12 +282,12 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Coagulation Result</h2>
                                 ";
                                     while ($row = $rs7->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $PT = $row['PT'];
                                         $PTT = $row['PTT'];
                                         $INR = $row['INR'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -294,11 +300,12 @@ require '../../backend/auth.php';
                                     <td>$PTT second</td>  
                                 </thead>
                                 <thead>
-                                    <th class='head'>INR</th>
-                                    <td>$INR second</td>  
+                                <th class='head'>INR</th>
+                                <td>$INR second</td>  
                                 </thead>
-                                    
-                                    </table>";
+                                
+                                </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -307,19 +314,20 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Gram Stain Result</h2>
                                 ";
                                     while ($row = $rs8->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $gram_stain = $row['gram_stain'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>Gram Stain</th>
                                     <td>$gram_stain</td>  
-                                </thead>
+                                    </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -328,15 +336,16 @@ require '../../backend/auth.php';
                                 <h2 class='center'>H Pylori Result</h2>
                                 ";
                                     while ($row = $rs9->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $hpylori_ab = $row['hpylori_ab'];
                                     }
                                     $rss9 = $conn->query("SELECT * FROM `hylori_ag` WHERE `patient_id`='$id'");
 
                                     while ($row = $rss9->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $hpylori_ag = $row['hpylori_ag'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -347,9 +356,10 @@ require '../../backend/auth.php';
                                 <thead>
                                     <th class='head'>H Pylori Ab</th>
                                     <td>$hpylori_ab</td>  
-                                </thead>
+                                    </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -360,12 +370,12 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Liver Enzymatic Test Result</h2>
                                 ";
                                     while ($row = $rs10->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $sgot = $row['sgot'];
                                         $sgpt = $row['sgpt'];
                                         $alk_phos = $row['alk_phos'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -376,13 +386,14 @@ require '../../backend/auth.php';
                                 <thead>
                                     <th class='head'>SGPT</th>
                                     <td>$sgpt 1U/L</td>  
-                                </thead>
-                                <thead>
+                                    </thead>
+                                    <thead>
                                     <th class='head'>ALK_Phosphatase</th>
                                     <td>$alk_phos 1U/L</td>  
-                                </thead>
+                                    </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -391,12 +402,12 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Liver Function Test Result</h2>
                                 ";
                                     while ($row = $rs12->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $bt = $row['bt'];
                                         $bd = $row['bd'];
                                         $albumin = $row['albumin'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -414,6 +425,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -422,13 +434,13 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Serum Electrolyte Result</h2>
                                 ";
                                     while ($row = $rs11->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $Sodium = $row['Sodium'];
                                         $Potassium = $row['Potassium'];
                                         $Calsium = $row['Calsium'];
                                         $Other = $row['Others'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -447,9 +459,10 @@ require '../../backend/auth.php';
                                 <thead>
                                     <th class='head'>Other</th>
                                     <td>$Other mmol/dl</td>  
-                                </thead>
+                                    </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -460,11 +473,11 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Liver Viral Test Result</h2>
                                 ";
                                     while ($row = $rs13->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $hbs = $row['hbs'];
                                         $hcv = $row['hcv'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -475,9 +488,10 @@ require '../../backend/auth.php';
                                 <thead>
                                     <th class='head'>HCV</th>
                                     <td>$hcv</td>  
-                                </thead>
+                                    </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -486,19 +500,20 @@ require '../../backend/auth.php';
                                 <h2 class='center'>ESR Result</h2>
                                 ";
                                     while ($row = $rs16->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $esr = $row['ESR'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>ESR</th>
                                     <td>$esr mm/hr</td>  
-                                </thead>
+                                    </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -507,14 +522,14 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Stool Result</h2>
                                 ";
                                     while ($row = $rs14->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $Appearance = $row['Appearance'];
                                         $Consistency = $row['Consistency'];
                                         $o_p = $row['o/p'];
                                         $pus = $row['pus'];
                                         $mucus = $row['mucus'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -540,6 +555,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -548,10 +564,10 @@ require '../../backend/auth.php';
                                 <h2 class='center'>PICT Result</h2>
                                 ";
                                     while ($row = $rs17->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $pict = $row['pict'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -561,7 +577,8 @@ require '../../backend/auth.php';
                                 </thead>
                                 
                                     
-                                    </table>";
+                                </table>";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -570,10 +587,10 @@ require '../../backend/auth.php';
                                 <h2 class='center'>RPR Result</h2>
                                 ";
                                     while ($row = $rs19->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $rpr = $row['rpr'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -584,6 +601,7 @@ require '../../backend/auth.php';
                                 
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
 
@@ -595,6 +613,7 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Urinalysis Result</h2>
                                 ";
                                     while ($row = $rs15->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $color = $row['color'];
                                         $appearance = $row['apprearance'];
                                         $ph = $row['ph'];
@@ -613,9 +632,8 @@ require '../../backend/auth.php';
                                         $rbc = $row['rbc'];
                                         $casts = $row['casts'];
                                         $bacteria = $row['bacteria'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -628,7 +646,7 @@ require '../../backend/auth.php';
                                     <td>$appearance</td>  
                                 </thead>
                                 <thead>
-                                    <th class='head'>PH</th>
+                                <th class='head'>PH</th>
                                     <td>$ph</td>  
                                 </thead>
                                 <thead>
@@ -658,15 +676,15 @@ require '../../backend/auth.php';
                                 <thead>
                                     <th class='head'>Blood</th>
                                     <td>$blood</td>  
-                                </thead>
-                                <thead>
+                                    </thead>
+                                    <thead>
                                     <th class='head'>Leukocyte Esterase</th>
                                     <td>$l_e</td>  
-                                </thead>
-                                <thead>
+                                    </thead>
+                                    <thead>
                                     <th class='head'>Nitrite</th>
                                     <td>$nitrite</td>  
-                                </thead>
+                                    </thead>
                                     </table>
                                     <h2 class='center'>Microscopy</h2>
                                     <table class='table'>
@@ -674,28 +692,29 @@ require '../../backend/auth.php';
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
-                                <thead>
+                                    <thead>
                                     <th class='head'>Epithelial Cells</th>
                                     <td>$epithe</td>  
                                 </thead>
                                 <thead>
                                     <th class='head'>WBC/HPF</th>
                                     <td>$wbc</td>  
-                                </thead>
-                                <thead>
+                                    </thead>
+                                    <thead>
                                     <th class='head'>RBC/HPF</th>
                                     <td>$rbc</td>  
-                                </thead>
-                                <thead>
+                                    </thead>
+                                    <thead>
                                     <th class='head'>Casts</th>
                                     <td>$casts</td>  
-                                </thead>
-                                <thead>
+                                    </thead>
+                                    <thead>
                                     <th class='head'>Bacteria</th>
                                     <td>$bacteria</td>  
-                                </thead>
-                                </table>
+                                    </thead>
+                                    </table>
                                     ";
+                                    }
                                 }
                                 ?>
 
@@ -708,11 +727,11 @@ require '../../backend/auth.php';
                                 <h2 class='center'>RFT Result</h2>
                                 ";
                                     while ($row = $rs18->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $bun = $row['bun'];
                                         $creatinine = $row['creatinine'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -726,7 +745,8 @@ require '../../backend/auth.php';
                                 </thead>
                                 
                                 </table>
-                                    ";
+                                ";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -735,12 +755,12 @@ require '../../backend/auth.php';
                                 <h2 class='center'>TFT Result</h2>
                                 ";
                                     while ($row = $rs20->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $t3 = $row['t3'];
                                         $t4 = $row['t4'];
                                         $tsh = $row['tsh'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -755,10 +775,11 @@ require '../../backend/auth.php';
                                 <thead>
                                     <th class='head'>TSH</th>
                                     <td>$tsh NL</td>  
-                                </thead>
-                                
-                                </table>
+                                    </thead>
+                                    
+                                    </table>
                                     ";
+                                    }
                                 }
                                 ?>
 
@@ -768,19 +789,20 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Uric Acid Result</h2>
                                 ";
                                     while ($row = $rs21->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $uric = $row['uric'];
+                                        echo "<table class='table'>
+                                        <thead>
+                                        <th>Test</th>
+                                        <th>Result</th>
+                                        </thead>
+                                        <thead>
+                                        <th class='head'>Uric Acid</th>
+                                        <td>$uric</td>  
+                                        </thead>
+                                        </table>
+                                        ";
                                     }
-                                    echo "<table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Uric Acid</th>
-                                    <td>$uric</td>  
-                                </thead>
-                                </table>
-                                    ";
                                 }
                                 ?>
 
@@ -792,10 +814,10 @@ require '../../backend/auth.php';
                                 <h2 class='center'>VDRL Result</h2>
                                 ";
                                     while ($row = $rs22->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $vdrl = $row['vdrl'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -804,7 +826,8 @@ require '../../backend/auth.php';
                                     <td>$vdrl</td>  
                                 </thead>
                                 </table>
-                                    ";
+                                ";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -813,10 +836,10 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Weil Felix Result</h2>
                                 ";
                                     while ($row = $rs23->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $weil = $row['weil'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -827,6 +850,7 @@ require '../../backend/auth.php';
                                 
                                 </table>
                                     ";
+                                    }
                                 }
                                 ?>
                                 <?php
@@ -835,10 +859,10 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Widal_H Result</h2>
                                 ";
                                     while ($row = $rs24->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $widalh = $row['widalh'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
@@ -848,7 +872,8 @@ require '../../backend/auth.php';
                                 </thead>
                                 
                                 </table>
-                                    ";
+                                ";
+                                    }
                                 }
                                 ?>
 
@@ -858,25 +883,27 @@ require '../../backend/auth.php';
                                 <h2 class='center'>Widal_O Result</h2>
                                 ";
                                     while ($row = $rs25->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $widalo = $row['widalo'];
-                                    }
-                                    echo "<table class='table'>
-                                    <thead>
+                                        echo "<table class='table'>
+                                        <thead>
                                     <th>Test</th>
                                     <th>Result</th>
                                     </thead>
                                 <thead>
                                     <th class='head'>Widal O</th>
                                     <td>$widalo</td>  
-                                </thead>
-                                </table>
+                                    </thead>
+                                    </table>
                                     ";
+                                    }
                                 }
                                 if ($rs26->num_rows > 0) {
                                     echo "
                                 <h2 class='center'>CSF Analysis Result</h2>
                                 ";
                                     while ($row = $rs26->fetch_assoc()) {
+                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
                                         $appearance = $row['appearance'];
                                         $gravity = $row['gravity'];
                                         $ldh = $row['ldh'];
@@ -892,8 +919,8 @@ require '../../backend/auth.php';
                                         $indian = $row['indian'];
                                         $vdrl = $row['vdrl'];
                                         $rbc = $row['rbc'];
-                                    }
-                                    echo "<table class='table'>
+
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Result</th>
@@ -961,6 +988,7 @@ require '../../backend/auth.php';
                                 
                                 </table>
                                     ";
+                                    }
                                 }
                                 ?>
                             </div>

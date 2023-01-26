@@ -125,7 +125,7 @@ require '../../backend/auth.php';
                         </div>
                         <div class="ultra_result">
                             <div class='lab'>
-                            <?php
+                                <?php
                                 if ($rs1->num_rows > 0) {
                                     echo "
                                 <h2 class='center'>Abdominal Result</h2>
@@ -183,7 +183,7 @@ require '../../backend/auth.php';
                                 ?>
                             </div>
                             <div class='lab'>
-                            <?php
+                                <?php
                                 if ($neck->num_rows > 0) {
                                     echo "
                                 <h2 class='center'>Neck Result</h2>
@@ -221,7 +221,7 @@ require '../../backend/auth.php';
                                 ?>
                             </div>
                             <div class='lab'>
-                            <?php
+                                <?php
                                 if ($chest->num_rows > 0) {
                                     echo "
                                 <h2 class='center'>Chest Result</h2>
@@ -259,7 +259,7 @@ require '../../backend/auth.php';
                                 ?>
                             </div>
                             <div class='lab'>
-                             <?php
+                                <?php
                                 if ($normal_brain->num_rows > 0) {
                                     echo "
                                 <h2 class='center'>normal_brain Result</h2>
@@ -297,7 +297,7 @@ require '../../backend/auth.php';
                                 ?>
                             </div>
                             <div class='lab'>
-                             <?php
+                                <?php
                                 if ($other->num_rows > 0) {
                                     echo "
                                 <h2 class='center'>Other Result</h2>
@@ -334,17 +334,17 @@ require '../../backend/auth.php';
                                 }
                                 ?>
                             </div>
-                            
-                            
+
+
                         </div>
 
                     </div>
                     <div class="lab-header">
-                    <img src="../../img/lab_header.png" alt="">
-                </div>
-                <div class="lab-footer">
-                    <img src="../../img/lab_footer.jpg" alt="">
-                </div>
+                        <img src="../../img/lab_header.png" alt="">
+                    </div>
+                    <div class="lab-footer">
+                        <img src="../../img/lab_footer.jpg" alt="">
+                    </div>
                 </div>
                 <!-- footer -->
             </div>
@@ -376,7 +376,7 @@ require '../../backend/auth.php';
 
 </html>
 <script>
-    	document.getElementById("btnPrint").onclick = function() {
-		window.print();
-	}
+    document.getElementById("btnPrint").onclick = function() {
+        window.print();
+    }
 </script>
