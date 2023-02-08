@@ -1185,6 +1185,9 @@ form table select {
 .lab_result .lab table thead th.head {
   background-color: #343a40;
 }
+.lab_result .lab table thead:empty {
+  display: none !important;
+}
 
 .ultra_result .lab {
   padding: 1rem;

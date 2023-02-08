@@ -145,10 +145,10 @@ require '../../backend/auth.php';
                             <p><?php echo $date; ?></p>
                         </div>
                         <div class="lab_result">
-                            <div class='lab'>
-                                <?php
+                            <?php
                                 if ($rs1->num_rows > 0) {
                                     echo "
+                                    <div class='lab'>
                                 <h2 class='center'>Hematology Result</h2>";
                                     while ($row = $rs1->fetch_assoc()) {
                                         $image = $row['filename'];
@@ -156,8 +156,8 @@ require '../../backend/auth.php';
                                         echo "<img src='../../img/Screenshots/$image'>";
                                     }
                                 }
+                            echo "</div>";
                                 ?>
-                            </div>
                             <div class='lab'>
                                 <?php
                                 if ($rs2->num_rows > 0) {
@@ -606,10 +606,10 @@ require '../../backend/auth.php';
                                 ?>
 
                             </div>
-                            <div class='lab'>
-                                <?php
+                            <?php
                                 if ($rs15->num_rows > 0) {
                                     echo "
+                                    <div class='lab'>
                                 <h2 class='center'>Urinalysis Result</h2>
                                 ";
                                     while ($row = $rs15->fetch_assoc()) {
@@ -713,17 +713,18 @@ require '../../backend/auth.php';
                                     <td>$bacteria</td>  
                                     </thead>
                                     </table>
-                                    ";
+                                    </div>";
+                                    
                                     }
                                 }
                                 ?>
 
 
-                            </div>
-                            <div class='lab'>
-                                <?php
+                            
+<?php
                                 if ($rs18->num_rows > 0) {
                                     echo "
+                                    <div class='lab'>
                                 <h2 class='center'>RFT Result</h2>
                                 ";
                                     while ($row = $rs18->fetch_assoc()) {
@@ -804,9 +805,9 @@ require '../../backend/auth.php';
                                         ";
                                     }
                                 }
+                                echo "</div>";
                                 ?>
 
-                            </div>
                             <div class='lab'>
                                 <?php
                                 if ($rs22->num_rows > 0) {

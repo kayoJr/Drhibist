@@ -60,5 +60,8 @@
 		"Weil",
 		"Widal"
 	],
-	"cSpell.ignoreWords": ["DEPLOYPATH"]
+	"cSpell.ignoreWords": [
+		"DEPLOYPATH"
+	],
+	"liveServer.settings.port": 5501
 }

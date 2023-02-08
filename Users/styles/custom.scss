@@ -712,6 +712,9 @@ form {
 				th.head {
 					background-color: $dark-bg;
 				}
+				&:empty{
+					display: none !important;
+				}
 			}
 		}
 	}
