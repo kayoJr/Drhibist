@@ -481,8 +481,8 @@ input::-webkit-inner-spin-button {
     display: none;
   }
   .table tbody,
-.table tr,
-.table td {
+  .table tr,
+  .table td {
     display: block;
     width: 100%;
   }
@@ -699,7 +699,6 @@ form .search-form input[type=submit] {
 .pharmacy .cart {
   background-color: #fff;
   border-radius: 5px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -1429,7 +1428,8 @@ form table select {
 .cigna_result .body .cigna_detail .inv {
   visibility: hidden;
 }
-.cigna_result .body .sign tr th, .cigna_result .body .sign tr td {
+.cigna_result .body .sign tr th,
+.cigna_result .body .sign tr td {
   padding: 2rem 0 !important;
 }
 
@@ -1482,7 +1482,8 @@ form table select {
   font-family: "Times New Roman", Times, serif !important;
   font-size: 14pt;
 }
-.ultra_result table td, .ultra_result table .head {
+.ultra_result table td,
+.ultra_result table .head {
   font-family: "Times New Roman", Times, serif !important;
   font-size: 12pt;
 }
@@ -1497,108 +1498,108 @@ form table select {
 }
 @media screen {
   .lab-header,
-.lab-header *,
-.lab-footer,
-.lab-footer *,
-.cigna_results,
-.cigna_results * {
+  .lab-header *,
+  .lab-footer,
+  .lab-footer *,
+  .cigna_results,
+  .cigna_results * {
     display: none;
   }
 }
 @media print {
   html,
-body * {
+  body * {
     visibility: hidden;
   }
   .modal-content,
-.modal-content *,
-#withdrawal,
-#withdrawal *,
-.lab_result,
-.lab_result *,
-.ultra_result,
-.ultra_result *,
-.detail,
-.detail *,
-.total *,
-.name,
-.name *,
-.credit_detail,
-.credit_detail *,
-.cigna_result,
-.cigna_result * {
+  .modal-content *,
+  #withdrawal,
+  #withdrawal *,
+  .lab_result,
+  .lab_result *,
+  .ultra_result,
+  .ultra_result *,
+  .detail,
+  .detail *,
+  .total *,
+  .name,
+  .name *,
+  .credit_detail,
+  .credit_detail *,
+  .cigna_result,
+  .cigna_result * {
     color: #000 !important;
     visibility: visible;
   }
   .modal-content table thead,
-.modal-content table th,
-.modal-content * table thead,
-.modal-content * table th,
-#withdrawal table thead,
-#withdrawal table th,
-#withdrawal * table thead,
-#withdrawal * table th,
-.lab_result table thead,
-.lab_result table th,
-.lab_result * table thead,
-.lab_result * table th,
-.ultra_result table thead,
-.ultra_result table th,
-.ultra_result * table thead,
-.ultra_result * table th,
-.detail table thead,
-.detail table th,
-.detail * table thead,
-.detail * table th,
-.total * table thead,
-.total * table th,
-.name table thead,
-.name table th,
-.name * table thead,
-.name * table th,
-.credit_detail table thead,
-.credit_detail table th,
-.credit_detail * table thead,
-.credit_detail * table th,
-.cigna_result table thead,
-.cigna_result table th,
-.cigna_result * table thead,
-.cigna_result * table th {
+  .modal-content table th,
+  .modal-content * table thead,
+  .modal-content * table th,
+  #withdrawal table thead,
+  #withdrawal table th,
+  #withdrawal * table thead,
+  #withdrawal * table th,
+  .lab_result table thead,
+  .lab_result table th,
+  .lab_result * table thead,
+  .lab_result * table th,
+  .ultra_result table thead,
+  .ultra_result table th,
+  .ultra_result * table thead,
+  .ultra_result * table th,
+  .detail table thead,
+  .detail table th,
+  .detail * table thead,
+  .detail * table th,
+  .total * table thead,
+  .total * table th,
+  .name table thead,
+  .name table th,
+  .name * table thead,
+  .name * table th,
+  .credit_detail table thead,
+  .credit_detail table th,
+  .credit_detail * table thead,
+  .credit_detail * table th,
+  .cigna_result table thead,
+  .cigna_result table th,
+  .cigna_result * table thead,
+  .cigna_result * table th {
     border: 2px solid #1b1b1b;
   }
   .modal-content table td,
-.modal-content * table td,
-#withdrawal table td,
-#withdrawal * table td,
-.lab_result table td,
-.lab_result * table td,
-.ultra_result table td,
-.ultra_result * table td,
-.detail table td,
-.detail * table td,
-.total * table td,
-.name table td,
-.name * table td,
-.credit_detail table td,
-.credit_detail * table td,
-.cigna_result table td,
-.cigna_result * table td {
+  .modal-content * table td,
+  #withdrawal table td,
+  #withdrawal * table td,
+  .lab_result table td,
+  .lab_result * table td,
+  .ultra_result table td,
+  .ultra_result * table td,
+  .detail table td,
+  .detail * table td,
+  .total * table td,
+  .name table td,
+  .name * table td,
+  .credit_detail table td,
+  .credit_detail * table td,
+  .cigna_result table td,
+  .cigna_result * table td {
     color: #000 !important;
   }
   .modal-footer *,
-.payment,
-.payment *,
-input[name=pay] {
+  .payment,
+  .payment *,
+  input[name=pay] {
     visibility: hidden;
   }
   .lab_result,
-.ultra_result {
+  .ultra_result {
     margin-bottom: 25rem !important;
   }
   .lab-header,
-.lab-header *,
-.lab-footer,
-.lab-footer * {
+  .lab-header *,
+  .lab-footer,
+  .lab-footer * {
     visibility: visible;
   }
   .lab-header {
@@ -1622,13 +1623,23 @@ input[name=pay] {
   }
 }
 @media (max-width: 1400px) {
-  .system_income .boxes {
+  .system_income .boxes,
+  .daily-report .boxes {
     grid-auto-flow: column;
     overflow-x: scroll;
   }
   .system_income .boxes .box h4,
-.system_income .boxes .box h3 {
+  .system_income .boxes .box h3,
+  .daily-report .boxes .box h4,
+  .daily-report .boxes .box h3 {
     white-space: nowrap;
     margin: 2rem 1rem;
+  }
+  .month-report .boxes {
+    display: flex;
+    align-items: center;
+  }
+  .month-report .boxes .box {
+    width: 40rem;
   }
 }/*# sourceMappingURL=custom.css.map */
