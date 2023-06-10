@@ -132,7 +132,7 @@ if(!$conn->query($sql)){
 						if (isset($_GET['search-date'])) {
 						//$sdate = $_GET['search'];
 						$today = $_GET['date'];
-						$search_sql = "SELECT * FROM `pharma_daily_sell` WHERE `date` = '$today'";
+						$search_sql = "SELECT * FROM `cash_payment_pharm` WHERE `date` = '$today' UNION ALL SELECT * FROM `system_payment_pharm` WHERE `date` = '$today'";
 						$rs = $conn->query($search_sql);
 						echo "
 									<table class='table'>
@@ -140,6 +140,7 @@ if(!$conn->query($sql)){
                                     <thead>
                                     <th>Name</th>
                                     <th>Type</th>
+                                    <th>Type Of Sell</th>
                                     <th>Amount</th>
                                     <th>Price</th>
                                     <th>sub_price</th>
@@ -152,6 +153,7 @@ if(!$conn->query($sql)){
 							$id = $row['id'];
 							$name = $row['name'];
 							$type = $row['type'];
+							$sell_type = $row['type_of_sell'];
 							$price = $row['price'];
 							$amount = $row['quan'];
 							$sub = $row['sub_price'];
@@ -166,6 +168,7 @@ if(!$conn->query($sql)){
 													<tr>
 														<td data-label='Name'>$name</td>
 														<td data-label='Type'>$type</td>
+														<td data-label='Sell Type'>$sell_type</td>
 														<td data-label='amount'>$amount</td>
 														<td data-label='Sell Price'>$price</td>
 														<td data-label='Reg Date'>$sub</td>

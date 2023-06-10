@@ -114,12 +114,12 @@ require '../../../backend/auth.php';
                         ?>
                         <form method="POST" action="../../../backend/upload.php" enctype="multipart/form-data">
                             <div class="form-group">
-                                <input class="form-control" type="file" name="uploadfile" value="" />
+                                <input class="form-control" type="file" name="uploadfile" value="" required/>
                                 <input type="hidden" name="pat_id" value="<?php echo $id ?>">
                              </div>
                             <div class="form-group">
                              
-				            <button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
+				            <button class="btn " type="submit" name="upload">UPLOAD</button>
 			            </div>
 		                </form>
                         </div>

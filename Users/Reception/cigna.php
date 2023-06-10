@@ -98,7 +98,7 @@ require '../../backend/db.php';
 								<div class="form-elements">
                                     <div>
                                     <label for="cigna_id">Cigna Id</label>
-                                    <input type="number" name="cigna_id" id="cigna_id">
+                                    <input type="text" name="cigna_id" id="cigna_id">
                                 </div>
                                 <div>
                                     <label for="pat_id">Patient Id</label>

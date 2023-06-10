@@ -111,13 +111,13 @@ require '../../backend/db.php';
 											$today = date("Y-m-d");
 										}
 									}
-									// 	$sql = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE `date` = '$today'";
-									// 	$rs = $conn->query($sql);
-									// 	$row = $rs->fetch_assoc();
-									// 	$sys_sum = $row['value_sum'];
-									// 	if (!$sys_sum > 0) {
-									// 		$sys_sum = 0;
-									// 	}
+										$sql = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE `date` = '$today'";
+										$rs = $conn->query($sql);
+										$row = $rs->fetch_assoc();
+										$sys_sum = $row['value_sum'];
+								// 		if (!$sys_sum > 0) {
+								// 			$sys_sum = 0;
+								// 		}
 
 									$sql = "SELECT SUM(sub_price) AS value_sum_cash FROM `cash_payment_pharm` WHERE `date` = '$today'";
 									$rs = $conn->query($sql);
@@ -128,13 +128,13 @@ require '../../backend/db.php';
 									// 	}
 
 									//$tot_sum = $sys_sum + $cash_sum;
-									$tot_sum = $cash_sum;
+									$tot_sum = $cash_sum + $sys_sum;
 									?>
 									<h4>Pharmacy (<?php echo $today; ?>)</h4>
 									<div class="sells">
 										<div>
 											<h3>System</h3>
-											<h3><?php //echo $sys_sum; 
+											<h3><?php echo $sys_sum; 
 												?></h3>
 										</div>
 										<div>
@@ -153,7 +153,6 @@ require '../../backend/db.php';
 										</div>
 									</div>
 								</div>
-
 								<div class="box">
 									<h4>Reception (<?php echo $today; ?>)</h4>
 									<?php
@@ -191,7 +190,6 @@ require '../../backend/db.php';
 										</div>
 									</div>
 								</div>
-
 								<div class="box">
 									<h4>Laboratory (<?php echo $today; ?>)</h4>
 									<?php

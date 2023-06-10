@@ -1,11 +1,11 @@
 <?php 
 	require 'DbConnect.php';
-
+	$today =  date("Y-m-d");
 	if(isset($_POST['aid'])) {
 		$name = $_POST['aid'];
 		$db = new DbConnect;
 		$conn = $db->connect();
-		$stmt = $conn->prepare("SELECT * FROM `pharma_daily_sell` WHERE `id` = '$name'");
+		$stmt = $conn->prepare("SELECT * FROM `cash_payment_pharm` WHERE `id` = '$name' AND `date` = '$today'");
 		$stmt->execute();
 		$books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		echo json_encode($books);
@@ -18,7 +18,7 @@
 		$today = date("Y-m-d");
 		$db = new DbConnect;
 		$conn = $db->connect();
-		$stmt = $conn->prepare("SELECT DISTINCT * FROM `pharma_daily_sell` WHERE `date` = '$today'");
+		$stmt = $conn->prepare("SELECT DISTINCT * FROM `cash_payment_pharm` WHERE `date` = '$today'");
 		$stmt->execute();
 		$authors = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		return $authors;

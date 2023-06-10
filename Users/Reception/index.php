@@ -159,7 +159,7 @@ require '../../backend/auth.php';
 										<label for="org">Organization</label>
 										<select name="org" id="org">
 											<option value="" disabled selected>Self</option>
-											<option value="cigma">Cigna</option>
+											<option value="cigna">cigna</option>
 											<option value="stc">Save The Children</option>
 										</select>
 									</div>
@@ -190,6 +190,7 @@ require '../../backend/auth.php';
 					<!-- end dashboard inner -->
 				</div>
 			</div>
+			
 		</div>
 		<!-- jQuery -->
 		<script src="../js/jquery.min.js"></script>

@@ -119,10 +119,7 @@ require '../../backend/auth.php';
                             <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
                             <button class="btn" id="btnPrint">Print</button>
                         </div>
-                        <div class="name">
-                            <p><?php echo $info_det['name']; ?></p>
-                            <p><?php echo $date; ?></p>
-                        </div>
+
                         <div class="ultra_result">
                             <div class='lab'>
                                 <?php
@@ -139,8 +136,14 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
-                                    echo "<table class='table'>
+                                        $date = $row['date'];
+                                ?>
+                                        <div class="name">
+                                            <p><?php echo $info_det['name']; ?></p>
+                                            <p><?php echo $date; ?></p>
+                                        </div>
+                                <?php
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Result</th>
@@ -179,6 +182,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -193,8 +197,14 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
-                                    echo "<table class='table'>
+                                        $date = $row['date'];
+                                        ?>
+                                                <div class="name">
+                                                    <p><?php echo $info_det['name']; ?></p>
+                                                    <p><?php echo $date; ?></p>
+                                                </div>
+                                        <?php
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Result</th>
@@ -217,6 +227,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -231,8 +242,14 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
-                                    echo "<table class='table'>
+                                        $date = $row['date'];
+                                        ?>
+                                                <div class="name">
+                                                    <p><?php echo $info_det['name']; ?></p>
+                                                    <p><?php echo $date; ?></p>
+                                                </div>
+                                        <?php
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Result</th>
@@ -255,6 +272,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -269,8 +287,14 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
-                                    echo "<table class='table'>
+                                        $date = $row['date'];
+                                        ?>
+                                                <div class="name">
+                                                    <p><?php echo $info_det['name']; ?></p>
+                                                    <p><?php echo $date; ?></p>
+                                                </div>
+                                        <?php
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Result</th>
@@ -293,6 +317,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -307,8 +332,14 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
-                                    echo "<table class='table'>
+                                        $date = $row['date'];
+                                        ?>
+                                                <div class="name">
+                                                    <p><?php echo $info_det['name']; ?></p>
+                                                    <p><?php echo $date; ?></p>
+                                                </div>
+                                        <?php
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Result</th>
@@ -331,6 +362,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>

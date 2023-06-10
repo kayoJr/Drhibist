@@ -116,6 +116,7 @@ require '../../backend/auth.php';
 							echo "<p>$msg</p>"
 							?>
 						</div>
+						<!--<a href="./pharmaTest.php" class="btn btn-danger">TEST SERVER</a>-->
 						<div class="pharmacy">
 							<form method="post" id="insert_form" action="../../backend/cart.php">
 								<div class="table-responsive">

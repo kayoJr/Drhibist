@@ -29,7 +29,11 @@ require '../../backend/db.php';
 	<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
 	<link rel="stylesheet" href="../styles/custom.css" />
 </head>
-
+<style>
+    .blocked{
+        display: none !important;
+    }
+</style>
 <body class="dashboard dashboard_1">
 	<div class="full_container">
 		<div class="inner_container">
@@ -146,9 +150,7 @@ require '../../backend/db.php';
 														<td data-label='Phone'>$pt_phone</td>
 														<td data-label='Date'>$date</td>
 														<td>
-														<button type='button' class='btn mgt mgb $block' data-toggle='modal' data-target='#exampleModalCenter'>
-														Update
-														</button>
+													<a class='btn mgt mgb $block' href='./update.php?id=$card'>Update</a>
 														</td>
 														</tr>
 														</tbody>
@@ -231,7 +233,7 @@ require '../../backend/db.php';
 													}
 
 
-													$med = "SELECT SUM(tot_amount) AS tot_med FROM `admission_med` WHERE `patient_id` = '$pat_id'";
+													$med = "SELECT SUM(tot_amount) AS tot_med FROM `admission_med` WHERE `patient_id` = '$pat_id' AND `payment` = 0";
 													$rs = $conn->query($med);
 													$rows = $rs->fetch_assoc();
 													$tot = $rows['tot_med'];
@@ -319,7 +321,8 @@ require '../../backend/db.php';
 								</div>
 							</div>
 							<?php
-							$lab_sql = "SELECT SUM(price) AS totalPay FROM `lab_cart2` WHERE `patient_id`=$card AND `payment`=0 ";
+							$today = date("Y-m-d");
+							$lab_sql = "SELECT SUM(price) AS totalPay FROM `lab_cart2` WHERE `patient_id`=$card AND `payment`=0 AND `date` = '$today'";
 							$sql_res = $conn->query($lab_sql);
 							if ($sql_res) {
 								$row = $sql_res->fetch_assoc();
@@ -327,7 +330,7 @@ require '../../backend/db.php';
 							} else {
 								echo $conn->error;
 							}
-							$ultra_sql = "SELECT SUM(price) AS ultra_payment FROM `ultra_cart` WHERE `patient_id`=$card AND `payment`=0 ";
+							$ultra_sql = "SELECT SUM(price) AS ultra_payment FROM `ultra_cart` WHERE `patient_id`=$card AND `payment`=0 AND `date` = '$today'";
 							$ultra_res = $conn->query($ultra_sql);
 							if ($ultra_res) {
 								$rows = $ultra_res->fetch_assoc();
@@ -336,7 +339,7 @@ require '../../backend/db.php';
 								echo $conn->error;
 							}
 
-							$procedure_sql = "SELECT SUM(price) AS procedure_payment FROM `procedure` WHERE `patient_id`=$card AND `payment`=0 ";
+							$procedure_sql = "SELECT SUM(price) AS procedure_payment FROM `procedure` WHERE `patient_id`=$card AND `payment`=0 AND `date` = '$today'";
 							$procedure_res = $conn->query($procedure_sql);
 							if ($procedure_res) {
 								$rows = $procedure_res->fetch_assoc();

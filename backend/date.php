@@ -3,6 +3,7 @@ require_once './db.php';
 
 if(isset($_POST['submit'])){
     $id = $_POST['id'];
+    echo '<script>console.log($id)</script>';
     @$payment = $_POST['payment'];
     $sql = "SELECT * FROM `patient` WHERE `id` = '$id'";
     $result = $conn->query($sql);
@@ -23,14 +24,14 @@ if(isset($_POST['submit'])){
                     if (!$conn->query($sql)) {
                         echo $conn->error;
                     } else {
-                        header("Location: ../Users/Reception/search.php?msg=User Updated");
+                       header("Location: ../Users/Reception/search.php?search=$id&searching=Search");
                     }
                 }else if($payment == 'cash'){
                     $sql = "INSERT INTO `income` (`price`, `reason`) VALUES (100, 'reception')";
                         if(!$conn->query($sql)){
                             echo $conn->error;
                         }else{
-                            header("Location: ../Users/Reception/search.php?msg=User Updated");
+                            header("Location: ../Users/Reception/search.php?search=$id&searching=Search");
                         }
                 }else if (isset($_POST['credit'])) {
                     $credit = $_POST['credit'];
@@ -38,7 +39,7 @@ if(isset($_POST['submit'])){
                         $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (100, 'reception', '$id', 'cigna')";
                         $rss = $conn->query($sql);
                         if ($rss) {
-                            header("Location: ../Users/Reception/search.php?msg=User Updated");
+                           header("Location: ../Users/Reception/search.php?search=$id&searching=Search");
                         } else {
                             echo $conn->error;
                         }
@@ -46,7 +47,7 @@ if(isset($_POST['submit'])){
                         $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (100, 'reception', '$id', 'stc')";
                         $rss = $conn->query($sql);
                         if ($rss) {
-                            header("Location: ../Users/Reception/search.php?msg=User Updated");
+                           header("Location: ../Users/Reception/search.php?search=$id&searching=Search");
                         } else {
                             echo $conn->error;
                         }

@@ -52,7 +52,7 @@ require './db.php';
                     $rs2 = mysqli_query($conn, $query);
                     if (!$rs2) {
                         echo $conn->error;
-                        header("Location:../Users/Pharmacy/admission.php?msg=Nothing Added");
+                       // header("Location:../Users/Pharmacy/admission.php?msg=Nothing Added");
                     } else {
                         echo "added";
                         $conn->query($update);

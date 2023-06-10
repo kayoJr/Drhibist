@@ -514,6 +514,10 @@ body {
   background-color: #454d55;
 }
 
+.loader {
+  display: none !important;
+}
+
 input[type=checkbox] {
   transform: scale(2) !important;
 }

@@ -135,6 +135,7 @@ $today = date('Y-m-d');
                                     $pt_phone = $result['phone'];
                                     $age = $result['age'];
                                     $sex = $result['sex'];
+                                    $date = $result['date'];
                                     echo "	
 												<tbody>
 													<tr>
@@ -156,82 +157,95 @@ $today = date('Y-m-d');
                                 <div class="lab-name">
                                 <?php
                                 $pat_id = $card;
-                                $sql = "SELECT * FROM `lab_cart2` WHERE `patient_id` = '$pat_id' AND `payment` = 1";
+                                $sql = "SELECT * FROM `lab_cart2` WHERE `patient_id` = '$pat_id' AND `payment` = 1 ";
                                 $res = $conn->query($sql);
                                 if ($res) {
                                     while ($row = $res->fetch_assoc()) {
                                         $name = $row['name'];
+                                        $lab_req_date = $row['date'];
+                                // $now = date('Y-m-d');
+                                $date1 = new DateTime($lab_req_date);
+                                $date2 = new DateTime(date("Y-m-d"));
+                                $interval = $date1->diff($date2);
+                               
+                                if (($interval->days) < 5){
+                                   
+                                    $valid = '';
+                                    
+                                }else{
+                                    $valid = 'blocked';
+                                }
                                         // echo $card;
                                         if ($name == 'CBC') {
-                                            echo "<a class='btn btn-primary' href='res/cbc.php?id=$pat_id'>$name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/cbc.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'Blood_Group') {
 
-                                            echo " <a class='btn btn-primary' href='res/blood_group.php?id=$pat_id'> $name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/blood_group.php?id=$pat_id'> $name</a>";
                                         } elseif ($name == 'ESR') {
 
-                                            echo "<a class='btn btn-primary' href='res/esr.php?id=$pat_id'>$name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/esr.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'STOOL') {
 
-                                            echo " <a class='btn btn-primary' href='res/stool.php?id=$pat_id'> $name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/stool.php?id=$pat_id'> $name</a>";
                                         } elseif ($name == 'Urinalysis') {
-                                            echo "<a class='btn btn-primary' href='res/urinalysis.php?id=$pat_id'>$name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/urinalysis.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'FBS_RBS') {
 
-                                            echo "<a class='btn btn-primary' href='res/fbs_rbs.php?id=$pat_id'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/fbs_rbs.php?id=$pat_id'> $name</a>";
                                         } elseif ($name == 'Uric_Acid') {
 
-                                            echo "<a class='btn btn-primary' href='res/uric_acid.php?id=$pat_id'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/uric_acid.php?id=$pat_id'> $name</a>";
                                         } elseif ($name == 'LET') {
 
-                                            echo "<a class='btn btn-primary' href='res/let.php?id=$pat_id'>$name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/let.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'LFT') {
 
-                                            echo "<a class='btn btn-primary' href='res/lft.php?id=$pat_id'>$name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/lft.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'RFT') {
-                                            echo " <a class='btn btn-primary' href='res/rft.php?id=$pat_id'>$name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/rft.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'Serum') {
-                                            echo " <a class='btn btn-primary' href='res/serum.php?id=$pat_id'>$name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/serum.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'CRP') {
 
-                                            echo " <a class='btn btn-primary' href='res/crp.php?id=$pat_id'>$name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/crp.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'TFT') {
-                                            echo " <a class='btn btn-primary' href='res/tft.php?id=$pat_id'>$name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/tft.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'Coagulation_Profile') {
-                                            echo " <a class='btn btn-primary' href='res/coagulation.php?id=$pat_id'>$name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/coagulation.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'Gram_Stain') {
-                                            echo " <a class='btn btn-primary' href='res/gram_stain.php?id=$pat_id'>$name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/gram_stain.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'AFB_Sputum') {
-                                            echo " <a class='btn btn-primary' href='res/afb_sputum.php?id=$pat_id'>$name</a>";
+                                            echo " <a class='$valid btn btn-primary' href='res/afb_sputum.php?id=$pat_id'>$name</a>";
                                         } elseif ($name == 'PICT') {
 
 
-                                            echo "<a class='btn btn-primary' href='res/pict.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/pict.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'VDRL') {
-                                            echo "<a class='btn btn-primary' href='res/vdrl.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/vdrl.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'RPR') {
-                                            echo "<a class='btn btn-primary' href='res/rpr.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/rpr.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'Widal_H') {
-                                            echo "<a class='btn btn-primary' href='res/widal_h.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/widal_h.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'Widal_O') {
 
-                                            echo "<a class='btn btn-primary' href='res/widal_o.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/widal_o.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'Weil_Felix') {
-                                            echo "<a class='btn btn-primary' href='res/weil_felix.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/weil_felix.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'liver_viral') {
 
-                                            echo "<a class='btn btn-primary' href='res/liver_viral.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/liver_viral.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'h_pylori_ab') {
 
-                                            echo "<a class='btn btn-primary' href='res/h_pylori.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/h_pylori.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'h_pylori_ag') {
 
-                                            echo "<a class='btn btn-primary' href='res/h_pylori_ag.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/h_pylori_ag.php?id=$card&nm=$name'> $name</a>";
                                         } elseif ($name == 'blood_f') {
 
-                                            echo "<a class='btn btn-primary' href='res/blood_film.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/blood_film.php?id=$card&nm=$name'> $name</a>";
                                         }elseif ($name == 'csf_analysis') {
 
-                                            echo "<a class='btn btn-primary' href='res/csf.php?id=$card&nm=$name'> $name</a>";
+                                            echo "<a class='$valid btn btn-primary' href='res/csf.php?id=$card&nm=$name'> $name</a>";
                                         }
                                     }
 

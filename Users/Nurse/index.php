@@ -27,7 +27,14 @@ require '../../backend/auth.php';
 	<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
 	<link rel="stylesheet" href="../styles/custom.css" />
 </head>
-
+<style>
+    .green{
+        background: green !important;
+    }
+    .flash{
+        background: red;
+    }
+</style>
 <body class="dashboard dashboard_1">
 	<div class="full_container">
 		<div class="inner_container">
@@ -110,6 +117,7 @@ require '../../backend/auth.php';
 										<th>Sex</th>
 										<th>Card No</th>
 										<th>Phone</th>
+										<th>Date</th>
 										<th>Action</th>
 									</thead>
 									";
@@ -120,6 +128,16 @@ require '../../backend/auth.php';
 									$pt_phone = $result['phone'];
 									$age = $result['age'];
 									$sex = $result['sex'];
+									$date = $result['date'];
+									$date1 = new DateTime($date);
+									$date2 = new DateTime(date("Y-m-d"));
+									$interval = $date1->diff($date2);
+									// echo "difference " . $interval->days . " days ";
+									if (($interval->days) >= 10) {
+										$flash = "flash";
+									} else {
+										$flash = "green";
+									}
 									echo "	
 												<tbody>
 													<tr>
@@ -129,6 +147,7 @@ require '../../backend/auth.php';
 														<td data-label='Sex'>$sex</td>
 														<td data-label='Card No'>$card</td>
 														<td data-label='Phone'>$pt_phone</td>						
+														<td class='$flash' id='$flash' data-label='Date'>$date</td>						
 														<td class='detail' data-label='Detail'><a href='./detail.php?id=$card'>Add</a></td>
 													</tr>
 												</tbody>
@@ -169,12 +188,14 @@ require '../../backend/auth.php';
 									$head = $result['head_circum'];
 									$muac = $result['MUAC'];
 									$date = $result['date'];
+									// $now = date("Y-m-d");
+
 									echo "	
-												<tbody>
-													<tr>
-													<td data-label='BP'>$bp</td>
-													<td data-label='PR'>$pr</td>
-													<td data-label='Saturation'>$saturation</td>
+								<tbody>
+								<tr>
+								<td data-label='BP'>$bp</td>
+								<td data-label='PR'>$pr</td>
+								<td data-label='Saturation'>$saturation</td>
 													<td data-label='Respiratory'>$respiratory</td>
 													<td data-label='Temperature'>$temp</td>
 													<td data-label='Height'>$height</td>
@@ -220,12 +241,12 @@ require '../../backend/auth.php';
 							$sql = $conn->query("SELECT * FROM `procedure` WHERE `patient_id` = '$phone'");
 							$res = $sql->fetch_assoc();
 							$status = '';
-							$date = $res['date'];
-							if($sql->num_rows > 0){
+							$date = @$res['date'];
+							if ($sql->num_rows > 0) {
 								if ($res['payment'] == 0) {
 									$status = "Unpaid Procedure";
 									$color = 'red';
-								} else if($res['payment'] == 1){
+								} else if ($res['payment'] == 1) {
 									$status = "Paid Procedure";
 									$color = 'green';
 								}
@@ -296,4 +317,8 @@ require '../../backend/auth.php';
 	// window.setInterval(function() {
 	// 	window.location.reload();
 	// }, 3000);
+	const dt = document.getElementById('flash');
+	setInterval(() => {
+			dt.classList.toggle('flash');
+	}, 500);
 </script>

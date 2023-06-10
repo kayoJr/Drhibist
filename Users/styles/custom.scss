@@ -5,7 +5,9 @@ body {
 	font-family: "Dosis";
 	background-color: $light-bg;
 }
-
+.loader{
+	display: none !important;
+}
 input[type="checkbox"] {
 	transform: scale(2) !important;
 }

@@ -103,7 +103,7 @@
                                 <div class="form-elements">
                                     <div>
                                         <label for="bp">BP</label>
-                                        <input type="text" name="bp" id="bp" required min="0">
+                                        <input type="text" name="bp" id="bp" required min="0" step='0.01'>
                                     </div>
                                     <div>
                                         <label for="pr">PR</label>

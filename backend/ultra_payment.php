@@ -1,13 +1,13 @@
 <?php
 include 'db.php';
-@$id = $_GET['id'];
+$id = $_GET['id'];
 if (isset($_POST['ultra_payment'])) {
     $id = $_POST['id'];
     $price = $_POST['price'];
-    @$payment = @$_POST['payment'];
+    $payment = $_POST['payment'];
 
     if ($payment == 'system') {
-        $sql = "INSERT INTO `system_payment` (`price`, `reason`, `pat_id`) VALUES ('$price', 'ultrasound', '$id')";
+         $sql = "INSERT INTO `system_payment` (`price`, `reason`, `pat_id`) VALUES ('$price', 'ultrasound', '$id')";
         if (!$conn->query($sql)) {
             echo $conn->error;
         } else {

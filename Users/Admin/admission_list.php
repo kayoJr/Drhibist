@@ -120,13 +120,11 @@ require '../../backend/db.php';
 						</form>
 						<?php
 						if (isset($_GET['search-date'])) {
-							//$sdate = $_GET['search'];
-							$today = $_GET['date'];
-							$search_sql = "SELECT `price`,`pat_id` FROM `income` WHERE `reason` = 'withdrawal' AND `date` = '$today' 
-							UNION 
-							SELECT `price`,`pat_id` FROM `system_payment` WHERE `reason` = 'withdrawal' AND `date` = '$today'";
-							$rs = $conn->query($search_sql);
-							echo "
+						//$sdate = $_GET['search'];
+						$today = $_GET['date'];
+						$search_sql = "SELECT `price`,`pat_id` FROM `income` WHERE `reason` = 'withdrawal' AND `date` = '$today' UNION SELECT `price`,`pat_id` FROM `system_payment` WHERE `reason` = 'withdrawal' AND `date` = '$today'";
+						$rs = $conn->query($search_sql);
+						echo "
 									<table class='table'>
 									<thead>
                                     <thead>
@@ -139,29 +137,29 @@ require '../../backend/db.php';
                                 </thead>
 									</thead>
 									";
+                            
+						while ($row = mysqli_fetch_array($rs)) {
+							$id = $row['pat_id'];
+                            $total = $row['price'];
 
-							while ($row = mysqli_fetch_array($rs)) {
-								$id = $row['pat_id'];
-								$total = $row['price'];
+                            $pat = $conn->query("SELECT `name` FROM `patient` WHERE `id` = '$id'");
+                            $row = $pat->fetch_assoc();
+                            $pat_name = $row['name'];
 
-								$pat = $conn->query("SELECT `name` FROM `patient` WHERE `id` = '$id'");
-								$row = $pat->fetch_assoc();
-								$pat_name = $row['name'];
+                            $lab = $conn->query("SELECT SUM(price) AS lab_sum FROM `admission_pay` WHERE `reason` = 'laboratory' AND `pat_id` = '$id'");
+                            $lab_row = $lab->fetch_assoc();
+                            $lab_sum = $lab_row['lab_sum'];
 
-								$lab = $conn->query("SELECT SUM(price) AS lab_sum FROM `admission_pay` WHERE `reason` = 'laboratory' AND `pat_id` = '$id'");
-								$lab_row = $lab->fetch_assoc();
-								$lab_sum = $lab_row['lab_sum'];
+                            $ultra = $conn->query("SELECT SUM(price) AS ultra_sum FROM `admission_pay` WHERE `reason` = 'ultrasound' AND `pat_id` = '$id'");
+                            $ultra_row = $ultra->fetch_assoc();
+                            $ultra_sum = $ultra_row['ultra_sum'];
 
-								$ultra = $conn->query("SELECT SUM(price) AS ultra_sum FROM `admission_pay` WHERE `reason` = 'ultrasound' AND `pat_id` = '$id'");
-								$ultra_row = $ultra->fetch_assoc();
-								$ultra_sum = $ultra_row['ultra_sum'];
-
-								$pharm = $conn->query("SELECT SUM(tot_amount) AS pharm_sum FROM `admission_med` WHERE `patient_id` = '$id'");
-								$pharm_row = $pharm->fetch_assoc();
-								$pharm_sum = $pharm_row['pharm_sum'];
-
-								$rest = $total - ($lab_sum + $pharm_sum + $ultra_sum);
-								echo "	
+                            $pharm = $conn->query("SELECT SUM(tot_amount) AS pharm_sum FROM `admission_med` WHERE `patient_id` = '$id'");
+                            $pharm_row = $pharm->fetch_assoc();
+                            $pharm_sum = $pharm_row['pharm_sum'];
+                            
+                            $rest = $total - ($lab_sum + $pharm_sum + $ultra_sum);
+                            echo "	
                             <tbody>
                                 <tr>
                                     <td data-label='Name'>$pat_name</td>
@@ -175,21 +173,21 @@ require '../../backend/db.php';
                                 </tr>
                             </tbody>
                             ";
-							}
+						}
 
-							// display the links to the pages
+						// display the links to the pages
 
 
 
-							//}
-							// } else {
-							// 	echo $conn->error;
-							// }
-							echo "</table>";
-							echo '<div class="pagination">';
-							//echo $_GET['page'];
-							// for ($page = 1; $page <= $number_of_pages; $page++) {
-							// 	
+						//}
+						// } else {
+						// 	echo $conn->error;
+						// }
+						echo "</table>";
+						echo '<div class="pagination">';
+						//echo $_GET['page'];
+						// for ($page = 1; $page <= $number_of_pages; $page++) {
+						// 	
 						}
 						?>
 

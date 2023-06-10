@@ -76,7 +76,7 @@ if(isset($_POST['submiturine'])){ //urinalysis
     $pat_id = $_POST['pat_id'];
     
 
-    $sql="INSERT INTO `stool`( `Appearance`, `Consistency`, `o/p`, `pus`, `mucus`, `petn_id`) VALUES ('$Appearance','$Consistency','$Ova_Parasite','$PUS_cells','$Mucus','$pat_id')";
+    $sql="INSERT INTO `stool`( `Appearance`, `Consistency`, `o/p`, `pus`, `mucus`, `petn_id`) VALUES ('$Appearance','$Consistency','$ph','$PUS_cells','$Mucus','$pat_id')";
     $rs = $conn->query($sql);
     if($rs){
         $sqld="DELETE FROM `lab_cart2` WHERE `name`='STOOL'  AND `patient_id` = '$pat_id'";

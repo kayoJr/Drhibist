@@ -28,7 +28,7 @@ if (isset($_POST['add_pat'])) {
                 header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
             }
         } else if ($payment == "cash") {
-            $sql = "INSERT INTO `income` (`price`, `reason`, `pat_id`) VALUES (100, 'reception', '$idd')";
+                    $sql = "INSERT INTO `income` (`price`, `reason`, `pat_id`) VALUES (100, 'reception', '$idd')";
             if (!$conn->query($sql)) {
                 echo $conn->error;
             } else {

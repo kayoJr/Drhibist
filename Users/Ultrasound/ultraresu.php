@@ -104,11 +104,11 @@ require '../../backend/auth.php';
                             $id = $_GET['id'];
                             $date = date("Y-m-d");
 
-                            $rs1 = $conn->query("SELECT * FROM `abdominal` WHERE `patient_id`= '$id' AND `date` = '$date'");
-                            $neck = $conn->query("SELECT * FROM `neck` WHERE `patient_id`='$id' AND `date` = '$date'");
-                            $chest = $conn->query("SELECT * FROM `breast` WHERE `patient_id`='$id' AND `date` = '$date'");
+                            $rs1 = $conn->query("SELECT * FROM `abdominal` WHERE `patient_id`= '$id'");
+                            $neck = $conn->query("SELECT * FROM `neck` WHERE `patient_id`='$id'");
+                            $chest = $conn->query("SELECT * FROM `breast` WHERE `patient_id`='$id'");
                             $normal_brain = $conn->query("SELECT * FROM `normal_brain` WHERE `patient_id`='$id' AND `date` = '$date'");
-                            $other = $conn->query("SELECT * FROM `other` WHERE `patient_id`='$id' AND `date` = '$date'");
+                            $other = $conn->query("SELECT * FROM `other` WHERE `patient_id`='$id'");
                             $info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
                             $info_det = $info->fetch_assoc();
 
@@ -136,7 +136,7 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
+                                    
                                     echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Abdominal Ultrasound Result</h2>
@@ -178,6 +178,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -190,7 +191,7 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
+                                    
                                     echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Neck Ultrasound Result</h2>
@@ -216,6 +217,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -229,7 +231,7 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
+                                    
                                     echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Chest Ultrasound Result</h2>
@@ -255,6 +257,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -268,7 +271,7 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
+                                    
                                     echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Normal Brain Ultrasound Result</h2>
@@ -294,6 +297,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>
@@ -306,7 +310,7 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    }
+                                    
                                     echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Other Ultrasound Result</h2>
@@ -332,6 +336,7 @@ require '../../backend/auth.php';
                                 </thead>
                                     
                                     </table>";
+                                    }
                                 }
                                 ?>
                             </div>

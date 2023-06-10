@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 $(document).ready(function () {
 	/*-- sidebar js --*/
 	$("#sidebarCollapse").on("click", function () {
@@ -7,7 +7,6 @@ $(document).ready(function () {
 	/*-- tooltip js --*/
 	$('[data-toggle="tooltip"]').tooltip();
 });
-
 var ps = new PerfectScrollbar("#sidebar");
 
 const sell = document.getElementById("sell");

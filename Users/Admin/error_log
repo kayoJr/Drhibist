@@ -1,0 +1,333 @@
+[13-Nov-2022 22:21:46 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[13-Nov-2022 22:22:15 UTC] PHP Notice:  Undefined index: date in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 107
+[13-Nov-2022 22:22:15 UTC] PHP Notice:  Undefined index: date in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 145
+[13-Nov-2022 22:22:33 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[13-Nov-2022 22:23:51 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[14-Nov-2022 05:51:13 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[14-Nov-2022 05:51:20 UTC] PHP Notice:  Undefined index: date in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 107
+[15-Nov-2022 04:42:05 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 196
+[15-Nov-2022 04:42:52 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 196
+[15-Nov-2022 04:44:18 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 196
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 15:18:58 UTC] PHP Notice:  Undefined index: id in /home8/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 145
+[15-Nov-2022 17:46:32 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:46:32 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:46:32 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:49:10 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:49:10 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:49:10 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:50:12 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:50:12 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:50:12 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:56:27 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:56:27 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:56:27 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:56:38 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:56:38 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 17:56:38 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:00:25 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:00:25 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:00:25 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:02:54 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:02:54 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:02:54 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:24:28 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:24:28 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[15-Nov-2022 18:24:28 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[16-Nov-2022 06:21:01 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[16-Nov-2022 06:21:01 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[16-Nov-2022 06:21:01 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[16-Nov-2022 06:21:05 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[16-Nov-2022 06:21:05 UTC] PHP Warning:  require(DbConnect.php): failed to open stream: No such file or directory in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[16-Nov-2022 06:21:05 UTC] PHP Fatal error:  require(): Failed opening required 'DbConnect.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home8/drhibistpedriati/public_html/Users/Admin/data.php on line 2
+[28-Nov-2022 19:51:31 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 284
+[28-Nov-2022 19:53:00 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 323
+[28-Nov-2022 19:57:58 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 323
+[29-Nov-2022 04:15:32 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 284
+[01-Dec-2022 13:47:38 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 323
+[04-Dec-2022 21:46:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home8/drhibistpedriati/public_html/Users/Admin/index.php:148
+Stack trace:
+#0 {main}
+  thrown in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 148
+[04-Dec-2022 21:47:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home8/drhibistpedriati/public_html/Users/Admin/index.php:148
+Stack trace:
+#0 {main}
+  thrown in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 148
+[04-Dec-2022 21:47:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home8/drhibistpedriati/public_html/Users/Admin/index.php:148
+Stack trace:
+#0 {main}
+  thrown in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 148
+[04-Dec-2022 21:47:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home8/drhibistpedriati/public_html/Users/Admin/index.php:148
+Stack trace:
+#0 {main}
+  thrown in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 148
+[04-Dec-2022 21:47:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home8/drhibistpedriati/public_html/Users/Admin/index.php:148
+Stack trace:
+#0 {main}
+  thrown in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 148
+[04-Dec-2022 21:47:29 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home8/drhibistpedriati/public_html/Users/Admin/index.php:148
+Stack trace:
+#0 {main}
+  thrown in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 148
+[04-Dec-2022 21:47:40 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home8/drhibistpedriati/public_html/Users/Admin/index.php:148
+Stack trace:
+#0 {main}
+  thrown in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 148
+[10-Dec-2022 12:15:35 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:15:35 UTC] PHP Notice:  Undefined variable: tots_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 153
+[10-Dec-2022 12:15:35 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 205
+[10-Dec-2022 12:15:35 UTC] PHP Notice:  Undefined variable: totss_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 209
+[10-Dec-2022 12:15:35 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 236
+[10-Dec-2022 12:17:07 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:17:07 UTC] PHP Notice:  Undefined variable: tots_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 153
+[10-Dec-2022 12:17:07 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 205
+[10-Dec-2022 12:17:07 UTC] PHP Notice:  Undefined variable: totss_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 209
+[10-Dec-2022 12:17:07 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 236
+[10-Dec-2022 12:19:33 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:19:33 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 146
+[10-Dec-2022 12:19:33 UTC] PHP Notice:  Undefined variable: phar_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 151
+[10-Dec-2022 12:20:02 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:20:02 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 146
+[10-Dec-2022 12:20:02 UTC] PHP Notice:  Undefined variable: phar_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 151
+[10-Dec-2022 12:20:10 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:20:10 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 146
+[10-Dec-2022 12:20:10 UTC] PHP Notice:  Undefined variable: phar_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 151
+[10-Dec-2022 12:20:13 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:20:13 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 146
+[10-Dec-2022 12:20:13 UTC] PHP Notice:  Undefined variable: phar_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 151
+[10-Dec-2022 12:20:15 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:20:15 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 146
+[10-Dec-2022 12:20:15 UTC] PHP Notice:  Undefined variable: phar_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 151
+[10-Dec-2022 12:20:16 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:20:16 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 146
+[10-Dec-2022 12:20:16 UTC] PHP Notice:  Undefined variable: phar_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 151
+[10-Dec-2022 12:20:17 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:20:17 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 146
+[10-Dec-2022 12:20:17 UTC] PHP Notice:  Undefined variable: phar_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 151
+[10-Dec-2022 12:20:18 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 135
+[10-Dec-2022 12:20:18 UTC] PHP Notice:  Undefined variable: today in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 146
+[10-Dec-2022 12:20:18 UTC] PHP Notice:  Undefined variable: phar_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 151
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: pharmacy in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 579
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: lab in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 593
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: addm in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 607
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: ultra in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 621
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 625
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 628
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: pharmacy in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 666
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: lab in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 680
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: addm in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 694
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: ultra in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 708
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 712
+[17-Dec-2022 10:09:30 UTC] PHP Notice:  Undefined variable: sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 715
+[05-Jan-2023 09:06:51 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home8/drhibistpedriati/public_html/Users/Admin/admission_list.php on line 141
+[05-Jan-2023 09:06:56 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home8/drhibistpedriati/public_html/Users/Admin/admission_list.php on line 141
+[09-Jan-2023 10:18:56 UTC] PHP Notice:  Undefined variable: total in /home8/drhibistpedriati/public_html/Users/Admin/pharmacy_det.php on line 155
+[10-Jan-2023 13:50:10 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 13:50:10 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 13:50:13 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 13:50:13 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 13:50:16 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 13:50:16 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 13:50:21 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 13:50:21 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 13:57:54 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 13:57:54 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 14:01:11 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 14:01:11 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 14:01:33 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 14:01:33 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 15:44:20 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 15:44:20 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 15:44:23 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 15:44:23 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:08:41 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:08:41 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:08:44 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:08:44 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:08:51 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:08:51 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:30:04 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:30:04 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:30:59 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:30:59 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:31:30 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:31:30 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:37:31 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:37:31 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:37:36 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:37:36 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 16:38:52 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 16:38:52 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 17:41:07 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 17:41:07 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 17:41:08 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 17:41:08 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 17:41:19 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 17:41:19 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 17:41:38 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 17:41:38 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 17:46:27 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 17:46:27 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 17:46:34 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 17:46:34 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 17:47:24 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 17:47:24 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[10-Jan-2023 17:47:40 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[10-Jan-2023 17:47:40 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 05:10:48 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 05:10:48 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 05:50:13 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 05:50:13 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 05:50:41 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 05:50:41 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 05:50:50 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 05:50:50 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 05:51:00 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 05:51:00 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 05:51:05 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 05:51:05 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 05:58:09 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 05:58:09 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 06:01:46 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 06:01:46 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 06:02:06 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 06:02:06 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 06:20:36 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 06:20:36 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 07:04:37 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 07:04:37 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 07:29:37 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 07:29:37 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 08:02:32 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 08:02:32 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 08:30:06 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 08:30:06 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[11-Jan-2023 08:31:58 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 137
+[11-Jan-2023 08:31:58 UTC] PHP Notice:  Undefined variable: sys_sum in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 174
+[23-Jan-2023 09:56:10 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 829
+[08-Feb-2023 13:45:35 UTC] PHP Notice:  Undefined index: date in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 866
+[08-Feb-2023 13:45:35 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 868
+[08-Feb-2023 13:47:54 UTC] PHP Notice:  Undefined index: date in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 866
+[08-Feb-2023 13:47:54 UTC] PHP Notice:  Undefined offset: 1 in /home8/drhibistpedriati/public_html/Users/Admin/index.php on line 868
+[02-Apr-2023 06:19:29 UTC] PHP Parse error:  syntax error, unexpected '--' (T_DEC) in /home8/drhibistpedriati/public_html/Users/Admin/return.php on line 142
+[02-Apr-2023 06:19:37 UTC] PHP Parse error:  syntax error, unexpected '--' (T_DEC) in /home8/drhibistpedriati/public_html/Users/Admin/return.php on line 142
+[22-May-2023 20:21:47 UTC] PHP Notice:  Undefined offset: 1 in /home/drhibistpedriati/public_html/Users/Admin/index.php on line 868
+[28-May-2023 19:56:30 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:56:59 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:57:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:57:27 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:57:30 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:00 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:01 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:10 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:25 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:27 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:28 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:39 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 19:58:44 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:01:28 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:01:28 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:01:29 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:01:29 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:01:34 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:01:47 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:01:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:01:52 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:02:02 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:02:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:02:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:02:17 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[28-May-2023 20:02:21 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152

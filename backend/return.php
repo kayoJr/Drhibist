@@ -4,7 +4,8 @@ require 'db.php';
 if(isset($_POST['submit'])){
     $id = $_POST['name'];
     $amount = $_POST['quant'];
-    $sql = "SELECT * FROM `pharma_daily_sell` WHERE `id` = '$id'";
+    $today = date("Y-m-d");
+    $sql = "SELECT * FROM `cash_payment_pharm` WHERE `id` = '$id' AND `date` = '$today'";
     $rs = $conn->query($sql);
     if($rs){
         $row = $rs->fetch_assoc();
@@ -15,7 +16,7 @@ if(isset($_POST['submit'])){
         }else{
         $sold = $old_amount - $amount;
         $new_price = $sold * $price;
-        $sql_upd = "UPDATE `pharma_daily_sell` SET `quan` = '$sold', `sub_price`='$new_price' WHERE `id` = '$id'";
+        $sql_upd = "UPDATE `cash_payment_pharm` SET `quan` = '$sold', `sub_price`='$new_price' WHERE `id` = '$id' AND `date` = '$today'";
         $rs_upd = $conn->query($sql_upd);
         if($rs_upd){
             $sql2 = "SELECT * FROM `meds` WHERE `id` = '$id'";
@@ -29,13 +30,8 @@ if(isset($_POST['submit'])){
                 if(!$rss){
                     echo $conn->error;
                 }else{
-                    $sql = $conn->query("UPDATE `system_payment` SET `price` = '$new_price' WHERE `med_id` = '$id'");
-                    if($sql){
-
                         header("Location: ../Users/Admin/return.php?msg=Returned");
-                    }else{
-                        echo $conn->error;
-                    }
+                   
                 }
             }
         }else{
