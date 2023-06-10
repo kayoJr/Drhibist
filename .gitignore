@@ -10,10 +10,11 @@ lerna-debug.log*
 node_modules
 dist-ssr
 *.local
+/backend/db.php
 
 # Editor directories and files
 .vscode/*
-/backend/db.php
+!/backend/db.php
 !.vscode/extensions.json
 .idea
 .DS_Store
