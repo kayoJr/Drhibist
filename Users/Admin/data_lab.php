@@ -16,11 +16,11 @@
 		}
 	}
 	$today =  date("Y-m-d");
-	if(isset($_POST['sys'])) {
-		$name = $_POST['sys'];
+	if(isset($_POST['aid'])) {
+		$name = $_POST['aid'];
 		$db = new DbConnection;
 		$conn = $db->connect();
-		$stmt = $conn->prepare("SELECT * FROM `system_payment_pharm` WHERE `id` = '$name' AND `date` = '$today'");
+		$stmt = $conn->prepare("SELECT * FROM `laboratory` WHERE `id` = '$name'");
 		$stmt->execute();
 		$books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		echo json_encode($books);
@@ -29,11 +29,11 @@
 		}
 	}
 
-	function loadSys() {
+	function loadLab() {
 		$today = date("Y-m-d");
 		$db = new DbConnection;
 		$conn = $db->connect();
-		$stmt = $conn->prepare("SELECT DISTINCT * FROM `system_payment_pharm` WHERE `date` = '$today'");
+		$stmt = $conn->prepare("SELECT * FROM `laboratory` ");
 		$stmt->execute();
 		$systems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		return $systems;

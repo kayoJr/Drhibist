@@ -12,6 +12,10 @@
             <span>Add Users</span></a>
     </li>
     <li>
+        <a href="editPrice.php"><i class="fa-solid fa-pen"></i>
+            <span>Edit Price</span></a>
+    </li>
+    <li>
         <a href="pharmacy.php"><i class="fa-solid fa-prescription-bottle-medical"></i>
             <span>Pharmacy</span></a>
     </li>
