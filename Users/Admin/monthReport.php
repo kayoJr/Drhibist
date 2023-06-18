@@ -229,10 +229,28 @@ require '../../backend/db.php';
                                     }
                                 }
 
+
+                                $totalPayment_addm = 0;
+                                $sql = "SELECT tot_amount 
+    FROM admission_med 
+    WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year AND `payment` = '1'
+    UNION ALL
+    SELECT price 
+    FROM admission_pay
+    WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year
+    ";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $totalPayment_addm += $row["tot_amount"];
+                                    }
+                                }
+
                                 $totalPayments_rec[$day] = $totalPayment_rec;
                                 $totalPayments_lab[$day] = $totalPayment_lab;
                                 $totalPayments_ultra[$day] = $totalPayment_ultra;
                                 $totalPayments_pharm[$day] = $totalPayment_pharm;
+                                $totalPayments_addm[$day] = $totalPayment_addm;
                             }
 
                             // Create the table
@@ -243,6 +261,7 @@ require '../../backend/db.php';
 <th>Lab</th>
 <th>Ultrasound</th>
 <th>Pharmacy</th>
+<th>Admission</th>
 <th>Total</th>
 </tr>";
                             $m_total = 0;
@@ -250,13 +269,15 @@ require '../../backend/db.php';
                                 $total = $totalPayments_lab[$day]
                                     + $totalPayment_rec
                                     + $totalPayments_ultra[$day]
-                                    + $totalPayments_pharm[$day];
+                                    + $totalPayments_pharm[$day]
+                                    + $totalPayments_addm[$day];
                                 echo "<tr>
             <td>$day</td>
             <td>$totalPayment_rec</td>
             <td>$totalPayments_lab[$day]</td>
             <td>$totalPayments_ultra[$day]</td>
             <td>$totalPayments_pharm[$day]</td>
+            <td>$totalPayments_addm[$day]</td>
             <td>" . $total . "</td>
         </tr>";
 
