@@ -231,11 +231,11 @@ require '../../backend/db.php';
 
 
                                 $totalPayment_addm = 0;
-                                $sql = "SELECT tot_amount 
-    FROM admission_med 
+                                $sql = "SELECT SUM(tot_amount) AS tot_amount 
+    FROM `admission_med` 
     WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year AND `payment` = '1'
     UNION ALL
-    SELECT price 
+    SELECT SUM(price) AS price 
     FROM admission_pay
     WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year
     ";
@@ -296,28 +296,7 @@ require '../../backend/db.php';
 
 
 
-                            <!-- <div class="boxes">
-								<div class="box">
-									<h4>Reception</h4>
-									<h3><?php echo $sum_rec; ?> ETB</h3>
-								</div>
-								<div class="box">
-									<h4>Pharmacy</h4>
-									<h3><?php echo $sum_pharm; ?> ETB</h3>
-								</div>
-								<div class="box">
-									<h4>Laboratory</h4>
-									<h3><?php echo $lab_total; ?> ETB</h3>
-								</div>
-								<div class="box">
-									<h4>Ultrasound</h4>
-									<h3><?php echo $sum_cash_ultra; ?> ETB</h3>
-								</div>
-								<div class="box">
-									<h4>Total</h4>
-									<h3><?php echo $total_month; ?> ETB</h3>
-								</div>
-							</div> -->
+
 
                         </div>
                     </div>
