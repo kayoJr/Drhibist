@@ -13,10 +13,6 @@ a {
   text-decoration: none;
 }
 
-.hide {
-  display: none !important;
-}
-
 .btn {
   padding: 10px 30px;
   border: none;
@@ -235,10 +231,6 @@ ul {
 
 a {
   text-decoration: none;
-}
-
-.hide {
-  display: none !important;
 }
 
 .btn {
@@ -1356,6 +1348,38 @@ form table select {
 .doc_message .message_element .message_detail p {
   padding: 1rem 0;
   line-height: 35px;
+  margin-bottom: 0 !important;
+}
+.doc_message .message_element .message_detail textarea {
+  border: none;
+  width: 100% !important;
+  padding: 1rem 0;
+  background-color: #343a40;
+  color: #fff !important;
+  font-size: 1.5rem;
+  font-weight: 100;
+  line-height: 35px;
+  margin-bottom: 0.5rem;
+  height: -moz-max-content !important;
+  height: max-content !important;
+  overflow-y: visible;
+}
+.doc_message .message_element .actions {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+.doc_message .message_element .actions button {
+  display: inline;
+  margin-right: 1.5rem;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #60b000;
+}
+.doc_message .message_element .actions button:first-child {
+  background-color: #8a1668;
 }
 
 .det_btn {

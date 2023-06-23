@@ -111,8 +111,8 @@ if ($status) {
 					?>
 						<div class="doc_message">
 							<?php
-								$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
-								if ($sql) {
+							$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
+							if ($sql) {
 								while ($row = $sql->fetch_assoc()) {
 									$id = $row['patient_id'];
 									$detail = $row['detail'];
@@ -131,21 +131,25 @@ if ($status) {
 									$info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
 									while ($infoo = $info->fetch_assoc()) {
 										$name = $infoo['name'];
-										echo " 
-                        
-                        <div class='message_element'>
-                            <div class='info'>
-                                <h4>$name</h4>
-                                <h4>Card No: $id</h4>
-                                <h4>$date</h4>
-                                <h4>$adm_status</h4>
-                            </div>
-                            <div class='message_detail'>
-                                <p>$detail
-								</p>
-                            </div>
-                        </div>
-                      ";
+							?>
+
+										<div class='message_element'>
+											<div class='info'>
+												<h4>$name</h4>
+												<h4>Card No: $id</h4>
+												<h4>$date</h4>
+												<h4>$adm_status</h4>
+											</div>
+											<div class='message_detail'>
+												<p>$detail
+												</p>
+											</div>
+											<div class="actions">
+
+											</div>
+										</div>
+
+							<?php
 									}
 								}
 							}
@@ -153,14 +157,15 @@ if ($status) {
 						</div>
 
 					<?php
-					}else{
-						?>
-	<div class="doc_message">
+					} else {
+					?>
+						<div class="doc_message">
 							<?php
 							$date = date("Y-m-d");
-								$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
-								if ($sql) {
+							$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
+							if ($sql) {
 								while ($row = $sql->fetch_assoc()) {
+									$msg_id = $row['id'];
 									$id = $row['patient_id'];
 									$detail = $row['detail'];
 									$date = $row['date'];
@@ -178,28 +183,34 @@ if ($status) {
 									$info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
 									while ($infoo = $info->fetch_assoc()) {
 										$name = $infoo['name'];
-										echo " 
-                        
-                        <div class='message_element'>
-                            <div class='info'>
-                                <h4>$name</h4>
-                                <h4>Card No: $id</h4>
-                                <h4>$date</h4>
-                                <h4>$adm_status</h4>
-                            </div>
-                            <div class='message_detail'>
-                                <p>$detail
-								</p>
-                            </div>
-                        </div>
-                      ";
+							?>
+
+										<div class='message_element'>
+											<div class='info'>
+												<h4><?php echo $name; ?></h4>
+												<h4>Card No:<?php echo $id; ?></h4>
+												<h4><?php echo $date; ?></h4>
+												<h4><?php echo $adm_status; ?></h4>
+											</div>
+											<div class='message_detail'>
+												<!-- <p><?php echo $detail; ?>
+											</p> -->
+												<textarea type="text" readonly name="msg_det" id="msg_det" value=""><?php echo $detail; ?> </textarea>
+											</div>
+											<div class="actions">
+												<p class="hidden" id="msg_id"><?php echo $msg_id; ?></p>
+												<button id="delete" class="delete">Delete</button>
+												<button id="edit" class="edit">edit</button>
+											</div>
+										</div>
+							<?php
 									}
 								}
 							}
 							?>
 						</div>
 
-<?php
+					<?php
 					}
 					?>
 					<!-- footer -->
@@ -223,6 +234,95 @@ if ($status) {
 	</script>
 	<!-- custom js -->
 	<script src="../js/custom.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+		const deleteBtn = document.querySelectorAll('.delete');
+		const editBtn = document.querySelectorAll('.edit');
+		const editField = document.getElementById('msg_det');
+		const msg_id = document.getElementById('msg_id');
+
+		// editField.style.height = 'auto';
+		const scrollHeight = editField.scrollHeight;
+		editField.setAttribute('rows', Math.floor(scrollHeight / 40))
+		editField.addEventListener('input', () => {
+			const scrollHeight = editField.scrollHeight;
+			editField.setAttribute('rows', Math.ceil(scrollHeight / 50))
+			editField.style.height = scrollHeight + 'px';
+		})
+
+		deleteBtn.forEach(deleteItem => {
+			deleteItem.addEventListener('click', () => {
+				const msgId = deleteItem.parentNode.querySelector('#msg_id').textContent;
+				$.ajax({
+					url: 'http://localhost/drhibist/backend/delMsg.php?id=' + msgId,
+					type: 'GET',
+					success: (res) => {
+						window.location.reload();
+					},
+					error: (error) => {
+						console.log(error);
+					}
+				})
+			})
+		})
+		editBtn.forEach(editItem => {
+			editItem.addEventListener('click', () => {
+				const messageContent = editItem.parentElement.previousElementSibling;
+				const textarea = messageContent.querySelector('#msg_det')
+				textarea.removeAttribute('readonly')
+				if (!textarea.hasAttribute('readonly')) {
+					textarea.focus()
+					editItem.classList.add('msg_field')
+					editItem.innerText = 'Update'
+				}
+				const msg_field = document.querySelector('.msg_field');
+				const msgId = editItem.parentNode.querySelector('#msg_id').textContent;
+				msg_field.addEventListener('click', () => {
+					$.ajax({
+						url: 'http://localhost/drhibist/backend/updMsg.php?id=' + msgId,
+						type: 'POST',
+						data: {
+							id: msgId,
+							detail: textarea.value
+						},
+						success: (res) => {
+							window.location.reload();
+						},
+						error: (error) => {
+							console.log(error);
+						}
+					})
+				})
+
+			})
+		})
+
+		// editBtn.addEventListener('click', () => {
+		// 	editField.removeAttribute('readonly')
+		// 	if (!editField.hasAttribute('readonly')) {
+		// 		editField.focus()
+		// 		editBtn.classList.add('msg_field')
+		// 		editBtn.innerText = 'Update'
+		// 	}
+		// 	const msg_field = document.querySelector('.msg_field');
+		// 	msg_field.addEventListener('click', () => {
+		// 		$.ajax({
+		// 			url: 'http://localhost/drhibist/backend/updMsg.php?id=' + msg_id.textContent,
+		// 			type: 'POST',
+		// 			data: {
+		// 				id: msg_id.textContent,
+		// 				detail: editField.value
+		// 			},
+		// 			success: (res) => {
+		// 				window.location.reload();
+		// 			},
+		// 			error: (error) => {
+		// 				console.log(error);
+		// 			}
+		// 		})
+		// 	})
+		// })
+	</script>
 </body>
 
 </html>

@@ -1057,13 +1057,11 @@ form {
 		background-color: $dark-bg;
 		padding: 1rem;
 		margin: 1rem 0;
-
 		.info {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 		}
-
 		p {
 			color: $white;
 			font-size: 1.6rem;
@@ -1071,10 +1069,41 @@ form {
 
 		.message_detail {
 			margin-top: 1rem;
-
 			p {
 				padding: 1rem 0;
 				line-height: 35px;
+				margin-bottom: 0 !important;
+			}
+			textarea{
+				// all: unset !important;
+				border: none;
+				width: 100% !important;
+				padding: 1rem 0;
+				background-color: $dark-bg;
+				color: $white !important;
+				font-size: 1.5rem;
+				font-weight: 100;
+				line-height: 35px;
+				margin-bottom: .5rem;
+				height: max-content !important;
+				overflow-y: visible;
+			}
+		}
+		.actions{
+			display: flex;
+			align-items: start;
+			justify-content: start;
+			button{
+				display: inline;
+				margin-right: 1.5rem;
+				border: none;
+				color: $white;
+				padding: 10px 20px;
+				cursor: pointer;
+				background-color: $green;
+				&:first-child{
+					background-color: $purple;
+				}
 			}
 		}
 	}
