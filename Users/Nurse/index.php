@@ -28,13 +28,15 @@ require '../../backend/auth.php';
 	<link rel="stylesheet" href="../styles/custom.css" />
 </head>
 <style>
-    .green{
-        background: green !important;
-    }
-    .flash{
-        background: red;
-    }
+	.green {
+		background: green !important;
+	}
+
+	.flash {
+		background: red;
+	}
 </style>
+
 <body class="dashboard dashboard_1">
 	<div class="full_container">
 		<div class="inner_container">
@@ -96,7 +98,7 @@ require '../../backend/auth.php';
 				<!-- dashboard inner -->
 				<div class="midde_cont">
 					<div class="container-fluid">
-						<form action="" class="search">
+						<form action="" class="search mt-0">
 							<h3>Search For Patient</h3>
 							<div class="search-form">
 								<input type="number" name="search" id="search" min="0" required placeholder="Phone or Card Number">
@@ -122,6 +124,7 @@ require '../../backend/auth.php';
 									</thead>
 									";
 							if ($rs) {
+								$i = 0;
 								while ($result = $rs->fetch_assoc()) {
 									$card = $result['id'];
 									$pt_name = $result['name'];
@@ -132,6 +135,7 @@ require '../../backend/auth.php';
 									$date1 = new DateTime($date);
 									$date2 = new DateTime(date("Y-m-d"));
 									$interval = $date1->diff($date2);
+									$i++;
 									// echo "difference " . $interval->days . " days ";
 									if (($interval->days) >= 10) {
 										$flash = "flash";
@@ -141,7 +145,59 @@ require '../../backend/auth.php';
 									echo "	
 												<tbody>
 													<tr>
-														<td data-label='SNo'>$card</td>
+														<td data-label='SNo'>$i</td>
+														<td data-label='Name'>$pt_name</td>
+														<td data-label='Age'>$age</td>
+														<td data-label='Sex'>$sex</td>
+														<td data-label='Card No'>$card</td>
+														<td data-label='Phone'>$pt_phone</td>						
+														<td class='$flash' id='$flash' data-label='Date'>$date</td>						
+														<td class='detail' data-label='Detail'><a href='./detail.php?id=$card'>Add</a></td>
+													</tr>
+												</tbody>
+												";
+								}
+							}
+						} else {
+							$today = date("Y-m-d");
+							$search_sql = "SELECT * FROM `patient` WHERE `date`='$today' AND `status`= 0 ORDER BY `date` DESC";
+							$rs = $conn->query($search_sql);
+							echo "
+									<table class='table'>
+									<thead>
+										<th>SNo</th>
+										<th>Name</th>
+										<th>Age</th>
+										<th>Sex</th>
+										<th>Card No</th>
+										<th>Phone</th>
+										<th>Date</th>
+										<th>Action</th>
+									</thead>
+									";
+							if ($rs) {
+								$i = 0;
+								while ($result = $rs->fetch_assoc()) {
+									$card = $result['id'];
+									$pt_name = $result['name'];
+									$pt_phone = $result['phone'];
+									$age = $result['age'];
+									$sex = $result['sex'];
+									$date = $result['date'];
+									$date1 = new DateTime($date);
+									$date2 = new DateTime(date("Y-m-d"));
+									$interval = $date1->diff($date2);
+									$i++;
+									// echo "difference " . $interval->days . " days ";
+									if (($interval->days) >= 10) {
+										$flash = "flash";
+									} else {
+										$flash = "green";
+									}
+									echo "	
+												<tbody>
+													<tr>
+														<td data-label='Name'>$i</td>
 														<td data-label='Name'>$pt_name</td>
 														<td data-label='Age'>$age</td>
 														<td data-label='Sex'>$sex</td>
@@ -319,6 +375,6 @@ require '../../backend/auth.php';
 	// }, 3000);
 	const dt = document.getElementById('flash');
 	setInterval(() => {
-			dt.classList.toggle('flash');
+		dt.classList.toggle('flash');
 	}, 500);
 </script>

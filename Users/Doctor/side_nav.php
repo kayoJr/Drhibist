@@ -1,7 +1,11 @@
 <ul class="list-unstyled components">
     <li>
         <a href="index.php"><i class="fa-solid fa-address-card"></i>
-            <span>Patient</span></a>
+            <span>Patient List</span></a>
+    </li>
+    <li>
+        <a href="search.php"><i class="fa-solid fa-address-card"></i>
+            <span>Search Patient</span></a>
     </li>
     <li>
         <a href="messages.php"><i class="fa-solid fa-address-card"></i>

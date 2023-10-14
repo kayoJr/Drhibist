@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
         `head_circum`='$head',`MUAC`='$muac' WHERE `patient_id` = '$id'";
     $res = $conn->query($sql);
     if($res){
-        header("Location: ../Users/Doctor/index.php?search=$id&searching=Search&msg=Updated");
+        header("Location: ../Users/Doctor/search.php?search=$id&searching=Search&msg=Updated");
     }else{
         echo 'error';
     }

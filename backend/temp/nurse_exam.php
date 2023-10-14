@@ -24,10 +24,7 @@ if(isset($_POST['add'])){
 
         $queue = $conn->query("INSERT INTO `queue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
         if($queue){
-            $sql = $conn->query("UPDATE `patient` SET `status`= 1 WHERE `id` = '$id'");
-            if($sql){
-                header("Location: ../Users/Nurse/index.php?msg=Successfully Registered");
-            }
+            header("Location: ../Users/Nurse/index.php?msg=Successfully Registered");
         }else{
             echo 'error';
         }
