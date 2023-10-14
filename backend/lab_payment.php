@@ -8,7 +8,7 @@ if (isset($_POST['lab_payment'])) {
     $payment = $_POST['payment'];
 
     if ($payment == 'system') {
-          $sql = "INSERT INTO `system_payment` (`price`, `reason`,`pat_id`) VALUES ('$price', 'laboratory', '$id')";
+        $sql = "INSERT INTO `system_payment` (`price`, `reason`,`pat_id`) VALUES ('$price', 'laboratory', '$id')";
         if (!$conn->query($sql)) {
             echo $conn->error;
         } else {
@@ -19,30 +19,30 @@ if (isset($_POST['lab_payment'])) {
                 echo $conn->error;
             }
         }
-    }else if($payment == 'cash'){
-         $sql = "INSERT INTO `income` (`price`, `reason`,`pat_id`) VALUES ('$price', 'laboratory', '$id')";
-            if(!$conn->query($sql)){
+    } else if ($payment == 'cash') {
+        $sql = "INSERT INTO `income` (`price`, `reason`,`pat_id`) VALUES ('$price', 'laboratory', '$id')";
+        if (!$conn->query($sql)) {
+            echo $conn->error;
+        } else {
+            $sql = "UPDATE `lab_cart2` SET `payment` = 1 WHERE `patient_id` = '$id'";
+            if ($conn->query($sql)) {
+                header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
+            } else {
                 echo $conn->error;
-            }else{
-                $sql = "UPDATE `lab_cart2` SET `payment` = 1 WHERE `patient_id` = '$id'";
-                if ($conn->query($sql)) {
-                    header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
-                } else {
-                    echo $conn->error;
-                }
             }
-    }else if($payment == 'admission'){
+        }
+    } else if ($payment == 'admission') {
         $sql = "INSERT INTO `admission_pay` (`price`, `reason`, `pat_id`) VALUES ('$price', 'laboratory', '$id')";
-            if(!$conn->query($sql)){
-                echo "error".$conn->error;
-            }else{
-                $sql = "UPDATE `lab_cart2` SET `payment` = 1 WHERE `patient_id` = '$id'";
-                if ($conn->query($sql)) {
-                    header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
-                } else {
-                    echo $conn->error;
-                }
+        if (!$conn->query($sql)) {
+            echo "error" . $conn->error;
+        } else {
+            $sql = "UPDATE `lab_cart2` SET `payment` = 1 WHERE `patient_id` = '$id'";
+            if ($conn->query($sql)) {
+                header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
+            } else {
+                echo $conn->error;
             }
+        }
     }
     if (isset($_POST['credit'])) {
         $credit = $_POST['credit'];
@@ -55,7 +55,8 @@ if (isset($_POST['lab_payment'])) {
                     header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
                 } else {
                     echo $conn->error;
-                }            } else {
+                }
+            } else {
                 echo $conn->error;
             }
         } else if ($credit == 'stc') {
@@ -67,7 +68,8 @@ if (isset($_POST['lab_payment'])) {
                     header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
                 } else {
                     echo $conn->error;
-                }            } else {
+                }
+            } else {
                 echo $conn->error;
             }
         }

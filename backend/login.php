@@ -29,7 +29,7 @@ if(isset($_POST['login'])){
                 }else if($state == 5){
                     header("Location: ../Users/Laboratory");
                 }else if($state == 6){
-                    header("Location: ../Users/Ultrasound");
+                    header("Location: ../Users/Ultrasound/home.php");
                 }else if($state == 7){
                     header("Location: ../Users/Pharmacy");
                 }else{

@@ -1,7 +1,7 @@
 <?php
 require './db.php';
 
-$lister = $conn->query("SELECT * FROM `queue`");
+$lister = $conn->query("SELECT * FROM `ultraqueue`");
 if ($lister->num_rows > 0) {
     $results = $lister->fetch_all(MYSQLI_ASSOC);
     echo "<div class='d-none curr_val'>" . $lister->num_rows . "</div>";
