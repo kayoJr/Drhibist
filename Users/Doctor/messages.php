@@ -104,9 +104,9 @@ if ($status) {
 					<?php
 					if (isset($_GET['search'])) {
 						$date = $_GET['date'];
-						if ($date == '') {
-							$date = date("Y-m-d");
-						}
+						// if ($date == '') {
+						// 	$date = date("Y-m-d");
+						// }
 
 					?>
 						<div class="doc_message">
@@ -114,6 +114,7 @@ if ($status) {
 							$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
 							if ($sql) {
 								while ($row = $sql->fetch_assoc()) {
+									$msg_id = $row['id'];
 									$id = $row['patient_id'];
 									$detail = $row['detail'];
 									$date = $row['date'];
@@ -135,17 +136,20 @@ if ($status) {
 
 										<div class='message_element'>
 											<div class='info'>
-												<h4>$name</h4>
-												<h4>Card No: $id</h4>
-												<h4>$date</h4>
-												<h4>$adm_status</h4>
+												<h4><?php echo $name; ?></h4>
+												<h4>Card No:<?php echo $id; ?></h4>
+												<h4><?php echo $date; ?></h4>
+												<h4><?php echo $adm_status; ?></h4>
 											</div>
 											<div class='message_detail'>
-												<p>$detail
-												</p>
+												<!-- <p><?php echo $detail; ?>
+											</p> -->
+												<textarea type="text" readonly name="msg_det" id="msg_det" value=""><?php echo $detail; ?> </textarea>
 											</div>
 											<div class="actions">
-
+												<p class="hidden" id="msg_id"><?php echo $msg_id; ?></p>
+												<button id="delete" class="delete">Delete</button>
+												<button id="edit" class="edit">edit</button>
 											</div>
 										</div>
 

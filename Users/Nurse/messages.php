@@ -111,8 +111,8 @@ if ($status) {
 					?>
 						<div class="doc_message">
 							<?php
-								$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
-								if ($sql) {
+							$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
+							if ($sql) {
 								while ($row = $sql->fetch_assoc()) {
 									$id = $row['patient_id'];
 									$detail = $row['detail'];
@@ -153,13 +153,13 @@ if ($status) {
 						</div>
 
 					<?php
-					}else{
-						?>
-	<div class="doc_message">
+					} else {
+					?>
+						<div class="doc_message">
 							<?php
 							$date = date("Y-m-d");
-								$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
-								if ($sql) {
+							$sql = $conn->query("SELECT * FROM `nurse_message` WHERE `date` = '$date' ORDER BY `id` DESC");
+							if ($sql) {
 								while ($row = $sql->fetch_assoc()) {
 									$id = $row['patient_id'];
 									$detail = $row['detail'];
@@ -199,7 +199,7 @@ if ($status) {
 							?>
 						</div>
 
-<?php
+					<?php
 					}
 					?>
 					<!-- footer -->
