@@ -99,6 +99,7 @@ require '../../backend/db.php';
 								<table class='table'>
 								<thead>
 									<th>Reason</th>
+									<th>Organization</th>
 									<th>Price</th>
 									<th>Date</th>
 								</thead>
@@ -109,12 +110,14 @@ require '../../backend/db.php';
 										$reason = $row['reason'];
 										$price = $row['price'];
 										$date = $row['date'];
+										$org = $row['org'];
 										$id = $row['id'];
 										
 										echo "
 										<tbody>
 									<tr>
 										<td data-label='Reason'>$reason</td>
+										<td data-label='Reason'>$org</td>
 										<td data-label='Price'>$price</td>
 										<td data-label='Date'>$date</td>
 										

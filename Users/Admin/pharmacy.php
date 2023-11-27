@@ -37,6 +37,10 @@ require '../../backend/db.php';
 		.btn-group {
 			display: none !important;
 		}
+
+		.flash {
+			background: red;
+		}
 	</style>
 </head>
 
@@ -183,7 +187,7 @@ require '../../backend/db.php';
 							}
 							echo "</table>";
 						} else if (!isset($_GET['searching'])) {
-							//$search_sql = "SELECT * FROM `medicine` ORDER BY `reg_date` DESC LIMIT 10";
+							//$search_sql = "SELECT * FROM `medicine` ORDER BY `exdate` ASC LIMIT 10";
 							//$rs = $conn->query($search_sql);
 							echo "
 									<table class='table'>
@@ -199,64 +203,73 @@ require '../../backend/db.php';
 									</thead>
 									";
 							//if ($rs) {
-								//while ($result = $rs->fetch_assoc()) {
-									
+							//while ($result = $rs->fetch_assoc()) {
 
-									$results_per_page = 10;
 
-									// find out the number of results stored in database
-									$sql = 'SELECT * FROM `meds` ';
-									$result = mysqli_query($conn, $sql);
-									$number_of_results = mysqli_num_rows($result);
+							$results_per_page = 10;
 
-									// determine number of total pages available
-									$number_of_pages = ceil($number_of_results / $results_per_page);
+							// find out the number of results stored in database
+							$sql = 'SELECT * FROM `meds` ';
+							$result = mysqli_query($conn, $sql);
+							$number_of_results = mysqli_num_rows($result);
 
-									// determine which page number visitor is currently on
-									if (!isset($_GET['page'])) {
-										$page = 1;
-									} else {
-										$page = $_GET['page'];
-									}
+							// determine number of total pages available
+							$number_of_pages = ceil($number_of_results / $results_per_page);
 
-									// determine the sql LIMIT starting number for the results on the displaying page
-									$this_page_first_result = ($page - 1) * $results_per_page;
+							// determine which page number visitor is currently on
+							if (!isset($_GET['page'])) {
+								$page = 1;
+							} else {
+								$page = $_GET['page'];
+							}
 
-									// retrieve selected results from database and display them on page
-									$sql = 'SELECT * FROM `meds` ORDER BY `id` ASC LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
-									$result = mysqli_query($con, $sql);
-									while ($row = mysqli_fetch_array($result)) {
-										$id = $row['id'];
-										$card = $row['name'];
-										$pt_name = $row['type'];
-										$amount = $row['amount'];
-										$org_price = $row['cost'];
-										$sell_price = $row['price'];
-										$reg_date = $row['date'];
-										$exp_date = $row['exdate'];
-										echo "	
+							// determine the sql LIMIT starting number for the results on the displaying page
+							$this_page_first_result = ($page - 1) * $results_per_page;
+
+							// retrieve selected results from database and display them on page
+							$sql = 'SELECT * FROM `meds` ORDER BY `exdate` ASC LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
+							$result = mysqli_query($con, $sql);
+							while ($row = mysqli_fetch_array($result)) {
+								$id = $row['id'];
+								$card = $row['name'];
+								$pt_name = $row['type'];
+								$amount = $row['amount'];
+								$org_price = $row['cost'];
+								$sell_price = $row['price'];
+								$reg_date = $row['date'];
+								$exp_date = $row['exdate'];
+
+								$date1 = new DateTime($exp_date);
+								$date2 = new DateTime(date("Y-m-d"));
+								$interval = $date1->diff($date2);
+								if ($amount <= 10) {
+									$flash = "flash";
+								} else {
+									$flash = "green";
+								}
+								echo "	
 												<tbody>
-													<tr>
+													<tr >
 														<td data-label='Name'>$card</td>
 														<td data-label='Type'>$pt_name</td>
-														<td data-label='amount'>$amount</td>
+														<td class='$flash'  data-label='amount'>$amount</td>
 														<td data-label='Cost'>$org_price</td>
 														<td data-label='Price'>$sell_price</td>
 														<td data-label='Reg Date'>$reg_date</td>
-														<td data-label='Exp Date'>$exp_date</td>
+														<td class='$exflash' data-label='Exp Date'>$exp_date</td>
 														<td>
 														<a href='./upd_med.php?id=$id'>update</a>
 														</td>
 													</tr>
 												</tbody>
 												";
-									}
+							}
 
-									// display the links to the pages
-									
+							// display the links to the pages
 
-									
-								//}
+
+
+							//}
 							// } else {
 							// 	echo $conn->error;
 							// }
@@ -264,10 +277,12 @@ require '../../backend/db.php';
 							echo '<div class="pagination">';
 							//echo $_GET['page'];
 							for ($page = 1; $page <= $number_of_pages; $page++) {
-								?>
-								
-								<a class="<?php if(@$_GET['page'] == $page){echo 'current_page';}  ?>" href="pharmacy.php?page=<?php echo $page;  ?>"><?php echo $page;  ?></a>
-								<?php
+						?>
+
+								<a class="<?php if (@$_GET['page'] == $page) {
+												echo 'current_page';
+											}  ?>" href="pharmacy.php?page=<?php echo $page;  ?>"><?php echo $page;  ?></a>
+						<?php
 							}
 
 							echo '</div>';

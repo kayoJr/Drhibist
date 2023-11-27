@@ -1561,27 +1561,6 @@ form table select {
     color: #000 !important;
     visibility: visible;
   }
-  .modal-content table,
-  .modal-content * table,
-  #withdrawal table,
-  #withdrawal * table,
-  .lab_result table,
-  .lab_result * table,
-  .ultra_result table,
-  .ultra_result * table,
-  .detail table,
-  .detail * table,
-  .total * table,
-  .name table,
-  .name * table,
-  .month-report table,
-  .month-report * table,
-  .credit_detail table,
-  .credit_detail * table,
-  .cigna_result table,
-  .cigna_result * table {
-    visibility: visible !important;
-  }
   .modal-content table thead,
   .modal-content table th,
   .modal-content * table thead,
@@ -1650,7 +1629,8 @@ form table select {
   form *,
   .btn,
   .btn * input[name=pay] {
-    visibility: hidden;
+    visibility: hidden !important;
+    display: none !important;
   }
   .lab_result,
   .ultra_result {
@@ -1730,4 +1710,4 @@ form table select {
   .month-report .boxes .box {
     width: 40rem;
   }
-}/*# sourceMappingURL=custom.css.map */
+}/*# sourceMappingURL=test.css.map */

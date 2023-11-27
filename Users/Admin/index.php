@@ -111,13 +111,13 @@ require '../../backend/db.php';
 											$today = date("Y-m-d");
 										}
 									}
-										$sql = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE `date` = '$today'";
-										$rs = $conn->query($sql);
-										$row = $rs->fetch_assoc();
-										$sys_sum = $row['value_sum'];
-								// 		if (!$sys_sum > 0) {
-								// 			$sys_sum = 0;
-								// 		}
+									$sql = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE `date` = '$today'";
+									$rs = $conn->query($sql);
+									$row = $rs->fetch_assoc();
+									$sys_sum = $row['value_sum'];
+									// 		if (!$sys_sum > 0) {
+									// 			$sys_sum = 0;
+									// 		}
 
 									$sql = "SELECT SUM(sub_price) AS value_sum_cash FROM `cash_payment_pharm` WHERE `date` = '$today'";
 									$rs = $conn->query($sql);
@@ -134,7 +134,7 @@ require '../../backend/db.php';
 									<div class="sells">
 										<div>
 											<h3>System</h3>
-											<h3><?php echo $sys_sum; 
+											<h3><?php echo $sys_sum;
 												?></h3>
 										</div>
 										<div>
@@ -849,12 +849,22 @@ require '../../backend/db.php';
 								$sum_lab_sys = $row2['value_sum_sys'];
 								$lab_total = $sum_lab_cash + $sum_lab_sys;
 
+								$sql_addm = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'withdrawal'";
+								$sql_addm_2 = "SELECT SUM(price) AS value_sum_sys FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'withdrawal'";
+								$res_addm = $conn->query($sql_addm);
+								$res_addm2 = $conn->query($sql_addm_2);
+								$row = $res_addm->fetch_assoc();
+								$row2 = $res_addm2->fetch_assoc();
+								$sum_addm_cash = $row['value_sum'];
+								$sum_addm_sys = $row2['value_sum_sys'];
+								$sum_addm = $sum_addm_cash + $sum_addm_sys;
+
 								$sql_ultra = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'ultrasound'";
 								$res_ultra = $conn->query($sql_ultra);
 								$row = $res_ultra->fetch_assoc();
 								$sum_cash_ultra = $row['value_sum'];
 
-								$total_month = $sum_rec + $sum_cash_ultra + $sum_pharm + $lab_total;
+								$total_month = $sum_rec + $sum_cash_ultra + $sum_pharm + $lab_total + $sum_addm;
 							} else {
 								$sum_rec = 0;
 								$sum_pharm = 0;
@@ -886,38 +896,52 @@ require '../../backend/db.php';
 								$sum_lab_sys = $row2['value_sum_sys'];
 								$lab_total = $sum_lab_cash + $sum_lab_sys;
 
+								$sql_addm = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'withdrawal'";
+								$sql_addm_2 = "SELECT SUM(price) AS value_sum_sys FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'withdrawal'";
+								$res_addm = $conn->query($sql_addm);
+								$res_addm2 = $conn->query($sql_addm_2);
+								$row = $res_addm->fetch_assoc();
+								$row2 = $res_addm2->fetch_assoc();
+								$sum_addm_cash = $row['value_sum'];
+								$sum_addm_sys = $row2['value_sum_sys'];
+								$sum_addm = $sum_addm_cash + $sum_addm_sys;
+
 								$sql_ultra = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'ultrasound'";
 								$res_ultra = $conn->query($sql_ultra);
 								$row = $res_ultra->fetch_assoc();
 								$sum_cash_ultra = $row['value_sum'];
 
-								$total_month = $sum_rec + $sum_cash_ultra + $sum_pharm + $lab_total;
+								$total_month = $sum_rec + $sum_cash_ultra + $sum_pharm + $lab_total + $sum_addm;
 							}
 							?>
-							
+
 							<div class="boxes">
 								<div class="box">
 									<h4>Reception</h4>
-									<h3><?php echo $sum_rec;?> ETB</h3>
+									<h3><?php echo $sum_rec; ?> ETB</h3>
 								</div>
 								<div class="box">
 									<h4>Pharmacy</h4>
-									<h3><?php echo $sum_pharm;?> ETB</h3>
+									<h3><?php echo $sum_pharm; ?> ETB</h3>
 								</div>
 								<div class="box">
 									<h4>Laboratory</h4>
-									<h3><?php echo $lab_total;?> ETB</h3>
+									<h3><?php echo $lab_total; ?> ETB</h3>
 								</div>
 								<div class="box">
 									<h4>Ultrasound</h4>
-									<h3><?php echo $sum_cash_ultra;?> ETB</h3>
+									<h3><?php echo $sum_cash_ultra; ?> ETB</h3>
+								</div>
+								<div class="box">
+									<h4>Admission</h4>
+									<h3><?php echo $sum_addm; ?> ETB</h3>
 								</div>
 								<div class="box">
 									<h4>Total</h4>
-									<h3><?php echo $total_month;?> ETB</h3>
+									<h3><?php echo $total_month; ?> ETB</h3>
 								</div>
 							</div>
-					
+
 						</div>
 					</div>
 					<!-- footer -->

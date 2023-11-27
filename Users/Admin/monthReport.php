@@ -164,6 +164,136 @@ require '../../backend/db.php';
                                 default:
                                     return false;
                             }
+                            ?>
+                            <?php
+
+                            if (isset($_GET['month-report'])) {
+                                $sum_rec = 0;
+                                $sum_pharm = 0;
+                                $lab_total = 0;
+                                $sum_ultra = 0;
+
+                                //$today = $_GET['date'];
+                                $todays = explode('-', $_GET['date-month']);
+                                $month = $todays[1];
+                                $year = $todays[0];
+
+                                $sql_rec = "SELECT SUM(payment) AS value_sum FROM `patient` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+                                $res_rec = $conn->query($sql_rec);
+                                $row = $res_rec->fetch_assoc();
+                                $sum_rec = $row['value_sum'];
+
+                                $sql_pharm = "SELECT SUM(sub_price) AS value_sum FROM `cash_payment_pharm` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+                                $res_pharm = $conn->query($sql_pharm);
+                                $row = $res_pharm->fetch_assoc();
+                                $sum_pharm = $row['value_sum'];
+
+                                $sql_lab = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'laboratory'";
+                                $sql_lab_2 = "SELECT SUM(price) AS value_sum_sys FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'laboratory'";
+                                $res_lab = $conn->query($sql_lab);
+                                $res_lab2 = $conn->query($sql_lab_2);
+                                $row = $res_lab->fetch_assoc();
+                                $row2 = $res_lab2->fetch_assoc();
+                                $sum_lab_cash = $row['value_sum'];
+                                $sum_lab_sys = $row2['value_sum_sys'];
+                                $lab_total = $sum_lab_cash + $sum_lab_sys;
+
+                                $sql_addm = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'withdrawal'";
+                                $sql_addm_2 = "SELECT SUM(price) AS value_sum_sys FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'withdrawal'";
+                                $res_addm = $conn->query($sql_addm);
+                                $res_addm2 = $conn->query($sql_addm_2);
+                                $row = $res_addm->fetch_assoc();
+                                $row2 = $res_addm2->fetch_assoc();
+                                $sum_addm_cash = $row['value_sum'];
+                                $sum_addm_sys = $row2['value_sum_sys'];
+                                $sum_addm = $sum_addm_cash + $sum_addm_sys;
+
+                                $sql_ultra = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'ultrasound'";
+                                $res_ultra = $conn->query($sql_ultra);
+                                $row = $res_ultra->fetch_assoc();
+                                $sum_cash_ultra = $row['value_sum'];
+
+                                $total_month = $sum_rec + $sum_cash_ultra + $sum_pharm + $lab_total + $sum_addm;
+                            } else {
+                                $sum_rec = 0;
+                                $sum_pharm = 0;
+                                $lab_total = 0;
+                                $sum_ultra = 0;
+
+                                $today = date('Y-m-d');
+                                $todays = explode('-', $today);
+                                $month = $todays[1];
+                                $year = $todays[0];
+
+                                $sql_rec = "SELECT SUM(payment) AS value_sum FROM `patient` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+                                $res_rec = $conn->query($sql_rec);
+                                $row = $res_rec->fetch_assoc();
+                                $sum_rec = $row['value_sum'];
+
+                                $sql_pharm = "SELECT SUM(sub_price) AS value_sum FROM `cash_payment_pharm` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+                                $res_pharm = $conn->query($sql_pharm);
+                                $row = $res_pharm->fetch_assoc();
+                                $sum_pharm = $row['value_sum'];
+
+                                $sql_lab = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'laboratory'";
+                                $sql_lab_2 = "SELECT SUM(price) AS value_sum_sys FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'laboratory'";
+                                $res_lab = $conn->query($sql_lab);
+                                $res_lab2 = $conn->query($sql_lab_2);
+                                $row = $res_lab->fetch_assoc();
+                                $row2 = $res_lab2->fetch_assoc();
+                                $sum_lab_cash = $row['value_sum'];
+                                $sum_lab_sys = $row2['value_sum_sys'];
+                                $lab_total = $sum_lab_cash + $sum_lab_sys;
+
+                                $sql_addm = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'withdrawal'";
+                                $sql_addm_2 = "SELECT SUM(price) AS value_sum_sys FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'withdrawal'";
+                                $res_addm = $conn->query($sql_addm);
+                                $res_addm2 = $conn->query($sql_addm_2);
+                                $row = $res_addm->fetch_assoc();
+                                $row2 = $res_addm2->fetch_assoc();
+                                $sum_addm_cash = $row['value_sum'];
+                                $sum_addm_sys = $row2['value_sum_sys'];
+                                $sum_addm = $sum_addm_cash + $sum_addm_sys;
+
+                                $sql_ultra = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'ultrasound'";
+                                $res_ultra = $conn->query($sql_ultra);
+                                $row = $res_ultra->fetch_assoc();
+                                $sum_cash_ultra = $row['value_sum'];
+
+                                $total_month = $sum_rec + $sum_cash_ultra + $sum_pharm + $lab_total + $sum_addm;
+                            }
+                            ?>
+                            <div class="boxes">
+                                <div class="box">
+                                    <h3><?php echo $mon; ?>'s total is: <?php echo $total_month; ?> Birr</h3>
+                                    <div class="sells">
+                                        <div>
+                                            <h3>Reception</h3>
+                                            <h3><?php echo $sum_rec; ?></h3>
+                                        </div>
+                                        <div>
+                                            <h3>Pharmacy</h3>
+                                            <h3><?php echo $sum_pharm; ?> ETB</h3>
+                                        </div>
+                                        <div>
+                                            <h3>Laboratory</h3>
+                                            <h3><?php echo $lab_total; ?> ETB</h3>
+                                        </div>
+                                        <div>
+                                            <h3>Ultrasound</h3>
+                                            <h3><?php echo $sum_cash_ultra; ?> ETB</h3>
+                                        </div>
+                                        <div>
+                                            <h3>Admission</h3>
+                                            <h3><?php echo $sum_addm; ?> ETB</h3>
+                                        </div>
+                                        <button class="btn" id="btnPrint">Print</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <?php
                             // Get the total payment for each day of the month
                             $totalPayments_rec = [];
                             $totalPayments_lab = [];
@@ -285,11 +415,11 @@ require '../../backend/db.php';
                             }
                             echo "
 
-<h1 class='month_report'>{$mon}'s total is: <span>{$m_total}</span> ETB 
-    </h1>";
+                            </h1>";
                             echo "</table>";
 
                             ?>
+                            <!-- <h1 class='month_report'>{$mon}'s total is: <span>{$m_total}</span> ETB  -->
 
 
 
@@ -322,5 +452,9 @@ require '../../backend/db.php';
     <!-- custom js -->
     <script src="../js/custom.js"></script>
 </body>
-
+<script>
+    document.getElementById("btnPrint").onclick = function() {
+        window.print();
+    }
+</script>
 </html>
