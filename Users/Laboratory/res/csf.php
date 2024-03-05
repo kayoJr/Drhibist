@@ -148,7 +148,7 @@ require '../../../backend/auth.php';
                                                 <input type="text" name="ep_cells" id="ep_cells" step=".01">
                                             </div>
                                             <div>
-                                                <label for="wbc">WBC & Differ</label>
+                                                <label for="wbc">Differential</label>
                                                 <input type="text" name="wbc" id="wbc" step=".01">
                                             </div>
                                            

@@ -41,7 +41,7 @@ $checkbox1 = $_POST['chkl'] ;
                     if(!$rs){
                         echo $conn->error;
                     }else{
-                        header("Location:../Users/Doctor/search.php?search=$pat&searching=Search");
+                        header("Location:../Users/Doctor/index.php?search=$pat&searching=Search");
                     }
         //}
         }

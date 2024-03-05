@@ -157,7 +157,7 @@ $today = date('Y-m-d');
                                 <div class="lab-name">
                                 <?php
                                 $pat_id = $card;
-                                $sql = "SELECT * FROM `lab_cart2` WHERE `patient_id` = '$pat_id' AND `payment` = 1 ";
+                                $sql = "SELECT * FROM `lab_cart2` WHERE `patient_id` = '$pat_id' AND `payment` = 1 AND `doctor_id` != 1";
                                 $res = $conn->query($sql);
                                 if ($res) {
                                     while ($row = $res->fetch_assoc()) {
@@ -168,7 +168,7 @@ $today = date('Y-m-d');
                                 $date2 = new DateTime(date("Y-m-d"));
                                 $interval = $date1->diff($date2);
                                
-                                if (($interval->days) < 5){
+                                if (($interval->days) <= 5){
                                    
                                     $valid = '';
                                     

@@ -5,7 +5,7 @@
 		$name = $_POST['aid'];
 		$db = new DbConnect;
 		$conn = $db->connect();
-		$stmt = $conn->prepare("SELECT * FROM `meds` WHERE `id` = '$name'");
+		$stmt = $conn->prepare("SELECT * FROM `medicines` WHERE `med_id` = '$name'");
 		$stmt->execute();
 		$books = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		echo json_encode($books);
@@ -15,7 +15,7 @@
 		$db = new DbConnect;
 		$conn = $db->connect();
 
-		$stmt = $conn->prepare("SELECT DISTINCT name, id FROM `meds`");
+		$stmt = $conn->prepare("SELECT DISTINCT name, med_id FROM `medicines`");
 		$stmt->execute();
 		$authors = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		return $authors;

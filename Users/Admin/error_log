@@ -331,3 +331,594 @@ Stack trace:
 [28-May-2023 20:02:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
 [28-May-2023 20:02:17 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
 [28-May-2023 20:02:21 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/selled_list.php on line 152
+[17-Jun-2023 21:31:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/drhibistpedriati/public_html/Users/Admin/data_lab.php:36
+Stack trace:
+#0 /home/drhibistpedriati/public_html/Users/Admin/editPrice.php(140): loadLab()
+#1 {main}
+  thrown in /home/drhibistpedriati/public_html/Users/Admin/data_lab.php on line 36
+[18-Jun-2023 13:31:22 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 287
+[18-Jun-2023 13:31:22 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 291
+[18-Jun-2023 13:31:22 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 295
+[18-Jun-2023 13:31:22 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 299
+[18-Jun-2023 13:31:22 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 303
+[18-Jun-2023 13:31:33 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 287
+[18-Jun-2023 13:31:33 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 291
+[18-Jun-2023 13:31:33 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 295
+[18-Jun-2023 13:31:33 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 299
+[18-Jun-2023 13:31:33 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 303
+[18-Jun-2023 13:31:41 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 287
+[18-Jun-2023 13:31:41 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 291
+[18-Jun-2023 13:31:41 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 295
+[18-Jun-2023 13:31:41 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 299
+[18-Jun-2023 13:31:41 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 303
+[18-Jun-2023 13:35:32 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 13:35:32 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 13:35:32 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 13:35:32 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 13:35:32 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 13:35:38 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 13:35:38 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 13:35:38 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 13:35:38 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 13:35:38 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:20:20 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:20:20 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:20:20 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:20:20 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:20:20 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:21:18 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:21:18 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:21:18 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:21:18 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:21:18 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:22:05 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:22:05 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:22:05 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:22:05 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:22:05 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:22:31 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:22:31 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:22:31 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:22:31 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:22:31 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:22:42 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:22:42 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:22:42 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:22:42 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:22:42 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:22:44 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:22:44 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:22:44 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:22:44 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:22:44 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:22:45 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:22:45 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:22:45 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:22:45 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:22:45 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:37:09 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:43:50 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:43:50 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:43:50 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:43:50 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:43:50 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:44:19 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:44:19 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:44:19 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:44:19 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:44:19 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 18:47:31 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 18:47:31 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 18:47:31 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 18:47:31 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 18:47:31 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:00:31 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:00:31 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:00:31 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:00:31 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:00:31 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:00:40 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:00:40 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:00:40 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:00:40 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:00:40 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:01:43 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:01:43 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:01:43 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:01:43 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:01:43 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:22 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:22 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:22 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:22 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:22 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:27 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:27 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:27 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:27 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:27 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:39 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:39 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:39 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:39 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:39 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:40 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:40 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:40 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:40 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:40 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:41 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:41 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:41 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:41 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:41 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:42 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:42 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:42 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:42 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:42 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:43 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:44 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:09:45 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:09:45 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:09:45 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:09:45 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:09:45 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:14:05 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:14:05 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:14:05 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:14:05 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:14:05 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:14:11 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:14:11 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:14:11 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:14:11 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:14:11 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:14:14 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:14:14 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:14:14 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:14:14 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:14:14 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:14:18 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:14:18 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:14:18 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:14:18 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:14:18 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:14:24 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:14:24 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:14:24 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:14:24 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:14:24 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:14:26 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 281
+[18-Jun-2023 19:14:26 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 285
+[18-Jun-2023 19:14:26 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 289
+[18-Jun-2023 19:14:26 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 293
+[18-Jun-2023 19:14:26 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 297
+[18-Jun-2023 19:51:05 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 302
+[18-Jun-2023 19:51:05 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 306
+[18-Jun-2023 19:51:05 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 310
+[18-Jun-2023 19:51:05 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 314
+[18-Jun-2023 19:51:05 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 318
+[19-Jun-2023 10:25:15 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 302
+[19-Jun-2023 10:25:15 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 306
+[19-Jun-2023 10:25:15 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 310
+[19-Jun-2023 10:25:15 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 314
+[19-Jun-2023 10:25:15 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 318
+[19-Jun-2023 10:25:45 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 302
+[19-Jun-2023 10:25:45 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 306
+[19-Jun-2023 10:25:45 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 310
+[19-Jun-2023 10:25:45 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 314
+[19-Jun-2023 10:25:45 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 318
+[19-Jun-2023 10:26:09 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 302
+[19-Jun-2023 10:26:09 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 306
+[19-Jun-2023 10:26:09 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 310
+[19-Jun-2023 10:26:09 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 314
+[19-Jun-2023 10:26:09 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 318
+[20-Jun-2023 16:28:23 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 302
+[20-Jun-2023 16:28:23 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 306
+[20-Jun-2023 16:28:23 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 310
+[20-Jun-2023 16:28:23 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 314
+[20-Jun-2023 16:28:23 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 318
+[21-Jun-2023 16:09:46 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 302
+[21-Jun-2023 16:09:46 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 306
+[21-Jun-2023 16:09:46 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 310
+[21-Jun-2023 16:09:46 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 314
+[21-Jun-2023 16:09:46 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 318
+[21-Jun-2023 17:00:59 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Can't connect to local server through socket '/var/lib/mysql/mysql.sock' (111) in /home/drhibistpedriati/public_html/backend/db.php on line 7
+[21-Jun-2023 17:00:59 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Can't connect to local server through socket '/var/lib/mysql/mysql.sock' (111) in /home/drhibistpedriati/public_html/backend/db.php on line 8
+[21-Jun-2023 17:00:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/drhibistpedriati/public_html/Users/Admin/index.php:56
+Stack trace:
+#0 {main}
+  thrown in /home/drhibistpedriati/public_html/Users/Admin/index.php on line 56
+[21-Jun-2023 17:01:02 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Can't connect to local server through socket '/var/lib/mysql/mysql.sock' (111) in /home/drhibistpedriati/public_html/backend/db.php on line 7
+[21-Jun-2023 17:01:02 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Can't connect to local server through socket '/var/lib/mysql/mysql.sock' (111) in /home/drhibistpedriati/public_html/backend/db.php on line 8
+[21-Jun-2023 17:01:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/drhibistpedriati/public_html/Users/Admin/index.php:56
+Stack trace:
+#0 {main}
+  thrown in /home/drhibistpedriati/public_html/Users/Admin/index.php on line 56
+[21-Jun-2023 19:57:26 UTC] PHP Notice:  Undefined variable: sum_rec in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 302
+[21-Jun-2023 19:57:26 UTC] PHP Notice:  Undefined variable: sum_pharm in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 306
+[21-Jun-2023 19:57:26 UTC] PHP Notice:  Undefined variable: lab_total in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 310
+[21-Jun-2023 19:57:26 UTC] PHP Notice:  Undefined variable: sum_cash_ultra in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 314
+[21-Jun-2023 19:57:26 UTC] PHP Notice:  Undefined variable: total_month in /home/drhibistpedriati/public_html/Users/Admin/monthReport.php on line 318
+[13-Sep-2023 20:44:17 UTC] PHP Notice:  Undefined offset: 1 in /home/drhibistpedriati/public_html/Users/Admin/index.php on line 829
+[27-Oct-2023 19:48:09 UTC] PHP Notice:  Undefined variable: sum_addm in /home/drhibistpedriati/public_html/Users/Admin/index.php on line 927
+[27-Oct-2023 19:49:09 UTC] PHP Notice:  Undefined variable: sum_addm in /home/drhibistpedriati/public_html/Users/Admin/index.php on line 927
+[16-Nov-2023 09:14:21 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Nov-2023 09:14:21 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Nov-2023 09:14:21 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Nov-2023 09:14:21 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Nov-2023 09:14:21 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[28-Nov-2023 16:11:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[28-Nov-2023 16:11:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[28-Nov-2023 16:11:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[28-Nov-2023 16:11:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[28-Nov-2023 16:11:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[13-Dec-2023 19:00:30 UTC] PHP Notice:  Undefined offset: 1 in /home/drhibistpedriati/public_html/Users/Admin/index.php on line 829
+[12-Jan-2024 08:45:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[12-Jan-2024 08:45:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[12-Jan-2024 08:45:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[12-Jan-2024 08:45:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[12-Jan-2024 08:45:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:15:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:16:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:13 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:18:30 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 08:18:37 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:18:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:20:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:20:50 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:08 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 08:21:23 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 08:21:37 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:22:01 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:22:36 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:22:37 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 08:23:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 08:24:02 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:24:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 08:24:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:24:50 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:25:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 08:25:52 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:16:24 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 10:33:48 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 10:34:14 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 10:34:27 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 10:34:42 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 13:31:27 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:34:14 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:34:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:34:35 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:34:55 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:34:57 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:35:17 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:35:31 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:35:34 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:35:38 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:35:59 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:36:05 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:36:15 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:36:25 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:37:00 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:37:18 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:37:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:37:24 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:37:27 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 13:37:32 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:39:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 13:42:00 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:43 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:48:49 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 14:48:51 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:50:11 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:50:54 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:51:00 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 14:51:30 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:52:03 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:52:05 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:52:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:40 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:53:46 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 14:53:48 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:20 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:54:29 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 14:54:31 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:55:14 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:55:45 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:56:16 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 14:57:06 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 14:57:10 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 14:58:09 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:01:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 15:02:00 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:06:56 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:07:07 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 15:07:11 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 15:08:30 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 15:08:30 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:47 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:14:52 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:30:12 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:47:53 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 240
+[15-Feb-2024 15:48:10 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 167
+[15-Feb-2024 15:48:14 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[15-Feb-2024 15:48:39 UTC] PHP Notice:  Undefined index: cost in /home/drhibistpedriati/public_html/Users/Admin/upd_med.php on line 11
+[16-Feb-2024 21:49:50 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:49:50 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:49:50 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:49:50 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:49:50 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:52:27 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:52:27 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:52:27 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:52:27 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[16-Feb-2024 21:52:27 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:50:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:50:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:50:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:50:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:50:01 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:23 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:28 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:28 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:28 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[25-Feb-2024 19:52:28 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 14:46:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 14:46:07 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 14:46:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 14:51:16 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 14:51:16 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 14:51:16 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 14:51:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 14:51:52 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 14:51:52 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 14:52:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 14:52:06 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 14:52:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 14:55:52 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 14:55:52 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 14:55:52 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 14:56:53 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 14:56:53 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 14:56:53 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 14:56:53 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 14:57:14 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 14:57:14 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 14:57:14 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 14:57:14 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 15:29:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 15:29:22 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 15:29:22 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 16:42:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 16:42:04 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 16:42:04 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 16:42:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 16:42:06 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 16:42:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 16:42:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 16:42:08 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 16:42:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 17:11:54 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:11:54 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:11:54 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:11:54 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:14:45 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:14:45 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:14:45 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:14:45 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:16:06 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 17:16:06 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 17:16:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 17:16:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 17:16:17 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 17:16:17 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 17:16:47 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:16:47 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:16:47 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:16:47 UTC] PHP Notice:  Undefined variable: role in /home/drhibistpedriati/public_html/Users/Admin/user.php on line 144
+[04-Mar-2024 17:16:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 17:16:59 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 17:16:59 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 17:17:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 17:17:14 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 17:17:14 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 17:17:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 17:17:29 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 17:17:29 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 18:29:07 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 18:29:07 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 18:29:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 18:29:09 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 18:29:09 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 18:29:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235
+[04-Mar-2024 18:29:13 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 133
+[04-Mar-2024 18:29:13 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 217
+[04-Mar-2024 18:29:13 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home/drhibistpedriati/public_html/Users/Admin/pharmacy.php on line 235

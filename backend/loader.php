@@ -2,8 +2,10 @@
 require './db.php';
 
 $lister = $conn->query("SELECT * FROM `queue`");
-if ($lister->num_rows > 0) {
-    $results = $lister->fetch_all(MYSQLI_ASSOC);
+// if ($lister->num_rows > 0) {
+    // $results = $lister->fetch_all(MYSQLI_ASSOC);
+    $results = mysqli_fetch_assoc($lister);
+    // $result = $lister->fetchAll(PDO::FETCH_ASSOC);
     echo "<div class='d-none curr_val'>" . $lister->num_rows . "</div>";
     echo "<table class='table'>";
     echo ' <thead>
@@ -14,7 +16,7 @@ if ($lister->num_rows > 0) {
     </tr>
     </thead>';
     echo '<tbody>';
-    foreach ($results as $result) {
+    foreach ($lister as $result) {
         $status = '';
         $cons = '';
         if ($result['status'] == 1) {
@@ -30,8 +32,9 @@ if ($lister->num_rows > 0) {
         <td>' . $result['name'] . '</td>
         <td>' . $result['phone'] . '</td>
         </tr>';
+        
     }
     echo '</tbody>';
     echo '</table>';
 
-}
+// }

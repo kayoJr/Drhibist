@@ -1,4 +1,0 @@
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home8/drhibistpedriati/public_html 
-    - /bin/cp -r * $DEPLOYPATH

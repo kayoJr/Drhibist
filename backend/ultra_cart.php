@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
             if (!$rs) {
                 echo $conn->error;
             } else {
-                header("Location:../Users/search/index.php?msg=Done&search=$pat&searching=Search");
+                header("Location:../Users/Doctor/index.php?msg=Done&search=$pat&searching=Search");
             }
     }
 }

@@ -33,6 +33,34 @@ require '../../backend/auth.php';
         .btn-group {
             display: none !important;
         }
+
+        .lab_result {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .lab_result .result-box {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* .lab_result .result-box ul li{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        } */
+        .lab_result img {
+            width: 100%;
+        }
+         .table-head th {
+            background-color: transparent !important;
+        }
+        .table-head th,
+        .table-head td{
+            text-transform: uppercase;
+        }
+        }
     </style>
 </head>
 
@@ -105,899 +133,30 @@ require '../../backend/auth.php';
                             $id = $_GET['id'];
                             $date = date("Y-m-d");
 
-                            $rs1 = $conn->query("SELECT * FROM `cmc_ps` WHERE patient_id= '$id'");
-                            $rs2 = $conn->query("SELECT * FROM `afb_sputum` WHERE `patient_id`='$id'");
-                            $rs3 = $conn->query("SELECT * FROM `crp` WHERE `patient_id`='$id'");
-                            $rs4 = $conn->query("SELECT * FROM `bf` WHERE `patient_id`='$id'");
-                            $rs5 = $conn->query("SELECT * FROM `bg` WHERE `patient_id`='$id'");
-                            $rs6 = $conn->query("SELECT * FROM `fbs` WHERE `patient_id`='$id'");
-                            $rs7 = $conn->query("SELECT * FROM `coagulation` WHERE `patient_id`='$id'");
-                            $rs8 = $conn->query("SELECT * FROM `gram_stain` WHERE `patient_id`='$id'");
-                            $rs9 = $conn->query("SELECT * FROM `hpylori` WHERE `patient_id`='$id'");
-                            $rs10 = $conn->query("SELECT * FROM `let` WHERE `patient_id`='$id'");
-                            $rs12 = $conn->query("SELECT * FROM `lft` WHERE `patient_id`='$id'");
-                            $rs11 = $conn->query("SELECT * FROM `s/e` WHERE `patient_id`='$id'");
-                            $rs13 = $conn->query("SELECT * FROM `liver_viral` WHERE `patient_id`='$id'");
-                            $rs14 = $conn->query("SELECT * FROM `stool` WHERE `petn_id`='$id'");
-                            $rs15 = $conn->query("SELECT * FROM `urine` WHERE `patient_id`='$id'");
-                            $rs16 = $conn->query("SELECT * FROM `esr` WHERE `patient_id`='$id'");
-                            $rs17 = $conn->query("SELECT * FROM `pict` WHERE `patient_id`='$id'");
-                            $rs18 = $conn->query("SELECT * FROM `rft` WHERE `patient_id`='$id'");
-                            $rs19 = $conn->query("SELECT * FROM `rpr` WHERE `patient_id`='$id'");
-                            $rs20 = $conn->query("SELECT * FROM `tft` WHERE `patient_id`='$id'");
-                            $rs21 = $conn->query("SELECT * FROM `uric_acid` WHERE `patient_id`='$id'");
-                            $rs22 = $conn->query("SELECT * FROM `vdrl` WHERE `patient_id`='$id'");
-                            $rs23 = $conn->query("SELECT * FROM `weil` WHERE `patient_id`='$id'");
-                            $rs24 = $conn->query("SELECT * FROM `widalh` WHERE `patient_id`='$id'");
-                            $rs25 = $conn->query("SELECT * FROM `widalo` WHERE `patient_id`='$id'");
-                            $rs26 = $conn->query("SELECT * FROM `csf` WHERE `patient_id`='$id'");
-
                             $info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
                             $info_det = $info->fetch_assoc();
                             ?>
                         </div>
                         <div class="navigation">
                             <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
+                            <select class="px-4 py-2 fs-5" name="selectDate" id="selectDate" onchange="fetchResult()">
+
+                            </select>
+                            <input type="hidden" name="" id="pat_id" value="<?php echo $id; ?>">
                             <button class="btn" id="btnPrint">Print</button>
                         </div>
-                        <div class="name">
+                        <div class="name d-flex my-0">
                             <p><?php echo $info_det['name']; ?></p>
-                            <p><?php echo $date; ?></p>
-                        </div>
-                        <div class="lab_result">
-                            <div class='lab'>
-                                <?php
-                                if ($rs1->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Hematology Result</h2>";
-                                    while ($row = $rs1->fetch_assoc()) {
-                                        $image = $row['filename'];
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        echo "<img src='../../img/Screenshots/$image'>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($rs2->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>AFB Sputum Result</h2>
-                                ";
-                                    while ($row = $rs2->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $spot = $row['SPOT'];
-                                        $morning = $row['MORNING'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>SPOT</th>
-                                    <td>$spot</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>MORNING</th>
-                                    <td>$morning</td>  
-                                    </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs3->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>CRP Result</h2>
-                                ";
-                                    while ($row = $rs3->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $crp = $row['crp'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                        <th>Test</th>
-                                        <th>Result</th>
-                                        </thead>
-                                        <thead>
-                                        <th class='head'>CRP</th>
-                                        <td>$crp N.g/ml (mg/L)</td>  
-                                        </thead>
-                                        
-                                        </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs4->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Blood Film Result</h2>
-                                ";
-                                    while ($row = $rs4->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $bf = $row['bf'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Blood Film</th>
-                                    <td>$bf</td>  
-                                </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs5->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Blood Group Result</h2>
-                                ";
-                                    while ($row = $rs5->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $bg = $row['bg'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Blood Group</th>
-                                    <td>$bg</td>  
-                                    </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($rs6->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>FBS Result</h2>
-                                ";
-                                    while ($row = $rs6->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $fbs = $row['fbs'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>FBS</th>
-                                    <td>$fbs mg/dl</td>  
-                                </thead>
-                                    
-                                </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs7->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Coagulation Result</h2>
-                                ";
-                                    while ($row = $rs7->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $PT = $row['PT'];
-                                        $PTT = $row['PTT'];
-                                        $INR = $row['INR'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>PT</th>
-                                    <td>$PT second</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>PTT</th>
-                                    <td>$PTT second</td>  
-                                </thead>
-                                <thead>
-                                <th class='head'>INR</th>
-                                <td>$INR second</td>  
-                                </thead>
-                                
-                                </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs8->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Gram Stain Result</h2>
-                                ";
-                                    while ($row = $rs8->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $gram_stain = $row['gram_stain'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Gram Stain</th>
-                                    <td>$gram_stain</td>  
-                                    </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs9->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>H Pylori Result</h2>
-                                ";
-                                    while ($row = $rs9->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $hpylori_ab = $row['hpylori_ab'];
-                                    }
-                                    $rss9 = $conn->query("SELECT * FROM `hylori_ag` WHERE `patient_id`='$id'");
-
-                                    while ($row = $rss9->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $hpylori_ag = $row['hpylori_ag'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>H Pylori Stool Ag</th>
-                                    <td>$hpylori_ag</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>H Pylori Ab</th>
-                                    <td>$hpylori_ab</td>  
-                                    </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($rs10->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Liver Enzymatic Test Result</h2>
-                                ";
-                                    while ($row = $rs10->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $sgot = $row['sgot'];
-                                        $sgpt = $row['sgpt'];
-                                        $alk_phos = $row['alk_phos'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>SGOT</th>
-                                    <td>$sgot 1U/L</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>SGPT</th>
-                                    <td>$sgpt 1U/L</td>  
-                                    </thead>
-                                    <thead>
-                                    <th class='head'>ALK_Phosphatase</th>
-                                    <td>$alk_phos 1U/L</td>  
-                                    </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs12->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Liver Function Test Result</h2>
-                                ";
-                                    while ($row = $rs12->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $bt = $row['bt'];
-                                        $bd = $row['bd'];
-                                        $albumin = $row['albumin'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Bilirubin_T</th>
-                                    <td>$bt md/dl</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Bilirubin_D</th>
-                                    <td>$bd md/dl</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Albumin</th>
-                                    <td>$albumin md/dl</td>  
-                                </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs11->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Serum Electrolyte Result</h2>
-                                ";
-                                    while ($row = $rs11->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $Sodium = $row['Sodium'];
-                                        $Potassium = $row['Potassium'];
-                                        $Calsium = $row['Calsium'];
-                                        $Other = $row['Others'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Sodium</th>
-                                    <td>$Sodium mmol/dl</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Potassium</th>
-                                    <td>$Potassium mmol/dl</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Calcium</th>
-                                    <td>$Calsium mmol/dl</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Other</th>
-                                    <td>$Other mmol/dl</td>  
-                                    </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($rs13->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Liver Viral Test Result</h2>
-                                ";
-                                    while ($row = $rs13->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $hbs = $row['hbs'];
-                                        $hcv = $row['hcv'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>HBS</th>
-                                    <td>$hbs</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>HCV</th>
-                                    <td>$hcv</td>  
-                                    </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs16->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>ESR Result</h2>
-                                ";
-                                    while ($row = $rs16->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $esr = $row['ESR'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>ESR</th>
-                                    <td>$esr mm/hr</td>  
-                                    </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs14->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Stool Result</h2>
-                                ";
-                                    while ($row = $rs14->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $Appearance = $row['Appearance'];
-                                        $Consistency = $row['Consistency'];
-                                        $o_p = $row['o/p'];
-                                        $pus = $row['pus'];
-                                        $mucus = $row['mucus'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Appearance</th>
-                                    <td>$Appearance</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Consistency</th>
-                                    <td>$Consistency</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>O/P</th>
-                                    <td>$o_p</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>PUS</th>
-                                    <td>$pus</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Mucus</th>
-                                    <td>$mucus</td>  
-                                </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs17->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>PICT Result</h2>
-                                ";
-                                    while ($row = $rs17->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $pict = $row['pict'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>PICT</th>
-                                    <td>$pict</td>  
-                                </thead>
-                                
-                                    
-                                </table>";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs19->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>RPR Result</h2>
-                                ";
-                                    while ($row = $rs19->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $rpr = $row['rpr'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>RPR</th>
-                                    <td>$rpr</td>  
-                                </thead>
-                                
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($rs15->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Urinalysis Result</h2>
-                                ";
-                                    while ($row = $rs15->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $color = $row['color'];
-                                        $appearance = $row['apprearance'];
-                                        $ph = $row['ph'];
-                                        $s_g = $row['s_g'];
-                                        $protein = $row['protein'];
-                                        $glucose = $row['glucose'];
-                                        $ketone = $row['ketone'];
-                                        $bilirubin = $row['bilirubin'];
-                                        $urobilinogen = $row['urobilinogen'];
-                                        $blood = $row['blood'];
-                                        $l_e = $row['l_e'];
-                                        $nitrite = $row['nitrite'];
-
-                                        $epithe = $row['epithe'];
-                                        $wbc = $row['wbc'];
-                                        $rbc = $row['rbc'];
-                                        $casts = $row['casts'];
-                                        $bacteria = $row['bacteria'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Color</th>
-                                    <td>$color</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Appearance</th>
-                                    <td>$appearance</td>  
-                                </thead>
-                                <thead>
-                                <th class='head'>PH</th>
-                                    <td>$ph</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Specific Gravity</th>
-                                    <td>$s_g</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Protein</th>
-                                    <td>$protein</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Glucose</th>
-                                    <td>$glucose</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Ketone</th>
-                                    <td>$ketone</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Bilirubin</th>
-                                    <td>$bilirubin</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Urobilinogen</th>
-                                    <td>$urobilinogen</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Blood</th>
-                                    <td>$blood</td>  
-                                    </thead>
-                                    <thead>
-                                    <th class='head'>Leukocyte Esterase</th>
-                                    <td>$l_e</td>  
-                                    </thead>
-                                    <thead>
-                                    <th class='head'>Nitrite</th>
-                                    <td>$nitrite</td>  
-                                    </thead>
-                                    </table>
-                                    <h2 class='center'>Microscopy</h2>
-                                    <table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                    <thead>
-                                    <th class='head'>Epithelial Cells</th>
-                                    <td>$epithe</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>WBC/HPF</th>
-                                    <td>$wbc</td>  
-                                    </thead>
-                                    <thead>
-                                    <th class='head'>RBC/HPF</th>
-                                    <td>$rbc</td>  
-                                    </thead>
-                                    <thead>
-                                    <th class='head'>Casts</th>
-                                    <td>$casts</td>  
-                                    </thead>
-                                    <thead>
-                                    <th class='head'>Bacteria</th>
-                                    <td>$bacteria</td>  
-                                    </thead>
-                                    </table>
-                                    ";
-                                    }
-                                }
-                                ?>
-
-
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($rs18->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>RFT Result</h2>
-                                ";
-                                    while ($row = $rs18->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $bun = $row['bun'];
-                                        $creatinine = $row['creatinine'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>BUN</th>
-                                    <td>$bun mg/dl</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Creatinine</th>
-                                    <td>$creatinine mg/dl</td>  
-                                </thead>
-                                
-                                </table>
-                                ";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs20->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>TFT Result</h2>
-                                ";
-                                    while ($row = $rs20->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $t3 = $row['t3'];
-                                        $t4 = $row['t4'];
-                                        $tsh = $row['tsh'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>T3</th>
-                                    <td>$t3 UL</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>T4</th>
-                                    <td>$t4 NL</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>TSH</th>
-                                    <td>$tsh NL</td>  
-                                    </thead>
-                                    
-                                    </table>
-                                    ";
-                                    }
-                                }
-                                ?>
-
-                                <?php
-                                if ($rs21->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Uric Acid Result</h2>
-                                ";
-                                    while ($row = $rs21->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $uric = $row['uric'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                        <th>Test</th>
-                                        <th>Result</th>
-                                        </thead>
-                                        <thead>
-                                        <th class='head'>Uric Acid</th>
-                                        <td>$uric</td>  
-                                        </thead>
-                                        </table>
-                                        ";
-                                    }
-                                }
-                                ?>
-
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($rs22->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>VDRL Result</h2>
-                                ";
-                                    while ($row = $rs22->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $vdrl = $row['vdrl'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>VDRL</th>
-                                    <td>$vdrl</td>  
-                                </thead>
-                                </table>
-                                ";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs23->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Weil Felix Result</h2>
-                                ";
-                                    while ($row = $rs23->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $weil = $row['weil'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Weil Felix</th>
-                                    <td>$weil</td>  
-                                </thead>
-                                
-                                </table>
-                                    ";
-                                    }
-                                }
-                                ?>
-                                <?php
-                                if ($rs24->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Widal_H Result</h2>
-                                ";
-                                    while ($row = $rs24->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $widalh = $row['widalh'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Widal H</th>
-                                    <td>$widalh</td>  
-                                </thead>
-                                
-                                </table>
-                                ";
-                                    }
-                                }
-                                ?>
-
-                                <?php
-                                if ($rs25->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Widal_O Result</h2>
-                                ";
-                                    while ($row = $rs25->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $widalo = $row['widalo'];
-                                        echo "<table class='table'>
-                                        <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Widal O</th>
-                                    <td>$widalo</td>  
-                                    </thead>
-                                    </table>
-                                    ";
-                                    }
-                                }
-                                if ($rs26->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>CSF Analysis Result</h2>
-                                ";
-                                    while ($row = $rs26->fetch_assoc()) {
-                                        echo "<h2 class='center'>" . $row['date'] . "</h2>";
-                                        $appearance = $row['appearance'];
-                                        $gravity = $row['gravity'];
-                                        $ldh = $row['ldh'];
-                                        $glucose = $row['glucose'];
-                                        $protein = $row['protein'];
-                                        $cells = $row['cells'];
-                                        $ep_cells = $row['ep_cells'];
-                                        $wbc = $row['wbc'];
-                                        $koh = $row['koh'];
-                                        $wet = $row['wet'];
-                                        $gram_stain = $row['gram_stain'];
-                                        $afb = $row['afb'];
-                                        $indian = $row['indian'];
-                                        $vdrl = $row['vdrl'];
-                                        $rbc = $row['rbc'];
-
-                                        echo "<table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Appearance</th>
-                                    <td>$appearance</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Specific Gravity</th>
-                                    <td>$gravity</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>LDH</th>
-                                    <td>$ldh</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Glucose</th>
-                                    <td>$glucose</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Protein</th>
-                                    <td>$protein</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Cells</th>
-                                    <td>$cells</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Epithelial Cells</th>
-                                    <td>$ep_cells</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>WBC & Differ</th>
-                                    <td>$wbc</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>KOH</th>
-                                    <td>$koh</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>WET Mount</th>
-                                    <td>$wet</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Gram Stain</th>
-                                    <td>$gram_stain</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>AFB Stain</th>
-                                    <td>$afb</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Indian INK</th>
-                                    <td>$indian</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>VDRL</th>
-                                    <td>$vdrl</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>RBC</th>
-                                    <td>$rbc</td>  
-                                </thead>
-                                
-                                </table>
-                                    ";
-                                    }
-                                }
-                                ?>
-                            </div>
-
+                            <!-- <p><?php echo $date; ?></p> -->
+                            <p id="dateCont"></p>
                         </div>
 
+                        <div class="lab_result row mt-4" id="lab_result">
+
+                        </div>
                     </div>
                 </div>
-                <div class="lab-header">
+                <div class="lab-header mx-auto">
                     <img src="../../img/lab_header.png" alt="">
                 </div>
                 <div class="lab-footer">
@@ -1036,5 +195,108 @@ require '../../backend/auth.php';
 <script>
     document.getElementById("btnPrint").onclick = function() {
         window.print();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchYears();
+    })
+
+    function fetchYears() {
+        const id = document.getElementById("pat_id").value;
+        fetch(`https://drhibistpedriatician.com/backend/getYear.php?id=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                let yearDropDown = document.getElementById('selectDate')
+                // yearDropDown.innerHTML = '<option value="" selected default disabled>Please Select Year</option>';
+                // const yearDropDown = document.createElement('select');
+                data.forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    yearDropDown.appendChild(option);
+                })
+                let selectedYear = document.getElementById('selectDate').value;
+                if (!selectedYear) {
+                    selectedYear = new Date().getFullYear();
+                    yearDropDown.value = selectedYear
+                }
+                const container = document.getElementById('lab_result');
+                container.innerHtml = '';
+                fetchResults(selectedYear, id)
+            })
+            .catch(error => console.log(error))
+    }
+
+    function fetchResults(date, id) {
+        const dateCont = document.getElementById("dateCont");
+        dateCont.innerText = date
+        const container = document.getElementById('lab_result');
+        fetch(`https://drhibistpedriatician.com/backend/getLabResult.php?id=${id}&year=${date}`)
+            .then(response => response.json())
+            .then(data => {
+                // const container = document.getElementById('lab_result');
+                container.innerHtml = '';
+
+                // Check if data is an object
+                if (typeof data === 'object' && data !== null) {
+                    // Loop through the data object
+                    for (const table in data) {
+                        if (Object.prototype.hasOwnProperty.call(data, table)) { // Check if property is an own property
+                            // Get results object for the current table
+                            const resultsObject = data[table];
+                            // Generate HTML for the results
+                            container.innerHtml = '';
+                            let ul;
+                            if (table == 'cbc') {
+                                const image = resultsObject['filename'];
+                                ul = `
+                                <img src='../../img/Screenshots/${image}'>
+                            `
+                            } else {
+                                ul =
+                                    `<table class='table mt-0'>
+                                <thead>
+                                <th>Test</th>
+                                <th>Result</th>
+                                </thead>
+                                ${Object.keys(resultsObject)
+                                    .filter(key => !['id', 'date', 'table_name', 'patient_id'].includes(key))
+                                    .map(key =>
+                                    `
+                                    <thead class='table-head'>
+                                
+                                        <th>${key}</th>
+                                        <td>${resultsObject[key]}</td>
+                                        </thead>
+                                    
+                                `
+                                )
+                                }
+                                    </table>
+                           `
+                            }
+
+                            const html = `
+                        <div class="result-box" id='result_box'>
+                            <h3 class="text-center" id="result_name">${table} Result</h3>
+                            ${ul}
+                        </div>
+                    `;
+                            // Append the HTML to the container
+                            container.innerHTML += html;
+                        }
+                    }
+                } else {
+                    console.error('Invalid data format:', data);
+                }
+            })
+            .catch(error => console.log(error))
+    }
+
+    function fetchResult() {
+        const id = document.getElementById("pat_id").value;
+        const date = document.getElementById("selectDate").value;
+        const container = document.getElementById('lab_result');
+        container.innerHTML = '';
+        fetchResults(date, id)
     }
 </script>

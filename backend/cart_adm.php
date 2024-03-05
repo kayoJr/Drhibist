@@ -9,13 +9,13 @@ require './db.php';
     $quant = $_POST['quant'];
     $med_id = $_POST['med_id'];
     $pat_id = $_POST['pat_id'];
-    $sql = "SELECT * FROM `meds` WHERE `id` = '$id'";
+    $sql = "SELECT * FROM `medicines` WHERE `med_id` = '$id'";
     $rs = mysqli_query($conn, $sql);
     if (mysqli_num_rows($rs)) {
         while ($row = mysqli_fetch_assoc($rs)) {
-            $pd_id = $row['id'];
+            $pd_id = $row['med_id'];
             $pd_name = $row['name'];
-            $pd_price = $row['cost'];
+            $pd_price = $row['sell_price'];
             $amount = $row['amount'];
             $t_price = $pd_price * $quant;
             $sql = "SELECT * FROM `cart_adm` WHERE `id` = '$pd_id'";
@@ -24,7 +24,7 @@ require './db.php';
             $cart = $row['id'];
             if ($amount >= $quant) {
                 $nw_amount = $amount - $quant;
-                $update = "UPDATE `meds` SET `amount` = '$nw_amount' WHERE `id` = '$id'";
+                $update = "UPDATE `medicines` SET `amount` = '$nw_amount' WHERE `id` = '$id'";
                 if ($row[0] > 1) {
                     $upd = "UPDATE `cart_adm` SET `quant` = '$quant' WHERE `id`= '$pd_id'";
                     $query = "UPDATE `cart_adm` SET `id`='$pd_id',`name`='$pd_name',`price`='$pd_price',`quant`='$quant',`sub_price`='$t_price' WHERE `id`='$pd_id'";

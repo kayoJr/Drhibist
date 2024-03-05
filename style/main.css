@@ -65,15 +65,6 @@ input::-webkit-inner-spin-button {
 .modal .total p:nth-child(2) {
   font-size: 1.5rem;
 }
-.modal .payment {
-  color: #000;
-}
-.modal .payment label {
-  color: #000 !important;
-}
-.modal .payment form {
-  all: unset;
-}
 
 #feedback {
   display: flex;

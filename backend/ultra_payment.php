@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-$id = $_GET['id'];
+// $idd = $_GET['id'];
 if (isset($_POST['ultra_payment'])) {
     $id = $_POST['id'];
     $price = $_POST['price'];
@@ -18,7 +18,7 @@ if (isset($_POST['ultra_payment'])) {
         } else {
             $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
             if ($conn->query($sql)) {
-                $queue = $conn->query("INSERT INTO `ultraQueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
+                $queue = $conn->query("INSERT INTO `ultraqueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
                 if ($queue) {
                     $sql = $conn->query("UPDATE `patient` SET `status`= 1 WHERE `id` = '$id'");
                     if ($sql) {
@@ -34,25 +34,25 @@ if (isset($_POST['ultra_payment'])) {
     } else if ($payment == 'cash') {
         $sql = "INSERT INTO `income` (`price`, `reason`, `pat_id`) VALUES ('$price', 'ultrasound', '$id')";
         if (!$conn->query($sql)) {
-            echo $conn->error;
+            echo $conn->error . 'ONE';
         } else {
             $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
             if ($conn->query($sql)) {
                 if ($conn->query($sql)) {
-                    $queue = $conn->query("INSERT INTO `ultraQueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
+                    $queue = $conn->query("INSERT INTO `ultraqueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
                     if ($queue) {
                         $sql = $conn->query("UPDATE `patient` SET `status`= 1 WHERE `id` = '$id'");
                         if ($sql) {
                             header("Location:../Users/Reception/search.php?search=$id&searching=Search&msg=Payed");
                         }
                     } else {
-                        echo 'error';
+                        echo 'error TWO';
                     }
                 } else {
-                    echo $conn->error;
+                    echo $conn->error . "THREE";
                 }
             } else {
-                echo $conn->error;
+                echo $conn->error . "FOUR";
             }
         }
     } else if ($payment == 'admission') {
@@ -63,7 +63,7 @@ if (isset($_POST['ultra_payment'])) {
             $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
             if ($conn->query($sql)) {
                 if ($conn->query($sql)) {
-                    $queue = $conn->query("INSERT INTO `ultraQueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
+                    $queue = $conn->query("INSERT INTO `ultraqueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
                     if ($queue) {
                         $sql = $conn->query("UPDATE `patient` SET `status`= 1 WHERE `id` = '$id'");
                         if ($sql) {
@@ -90,7 +90,7 @@ if (isset($_POST['ultra_payment'])) {
                 $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
                 if ($conn->query($sql)) {
                     if ($conn->query($sql)) {
-                        $queue = $conn->query("INSERT INTO `ultraQueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
+                        $queue = $conn->query("INSERT INTO `ultraqueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
                         if ($queue) {
                             $sql = $conn->query("UPDATE `patient` SET `status`= 1 WHERE `id` = '$id'");
                             if ($sql) {
@@ -115,7 +115,7 @@ if (isset($_POST['ultra_payment'])) {
                 $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
                 if ($conn->query($sql)) {
                     if ($conn->query($sql)) {
-                        $queue = $conn->query("INSERT INTO `ultraQueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
+                        $queue = $conn->query("INSERT INTO `ultraqueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
                         if ($queue) {
                             $sql = $conn->query("UPDATE `patient` SET `status`= 1 WHERE `id` = '$id'");
                             if ($sql) {

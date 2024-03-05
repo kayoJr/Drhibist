@@ -134,7 +134,7 @@ require '../../backend/auth.php';
 <script>
     function doctor(id) {
         $.ajax({
-            url: 'http://localhost/drhibist/backend/updateUltraQueue.php?id=' + id,
+            url: 'https://drhibistpedriatician.com/backend/updateUltraQueue.php?id=' + id,
             type: 'POST',
             data: {
                 id: id,
@@ -150,7 +150,7 @@ require '../../backend/auth.php';
     }
     function delQueue(id) {
         $.ajax({
-            url: 'http://localhost/drhibist/backend/deleteUltraQueue.php?id=' + id,
+            url: 'https://drhibistpedriatician.com/backend/deleteUltraQueue.php?id=' + id,
             type: 'POST',
             data: {
                 id: id,
@@ -166,7 +166,7 @@ require '../../backend/auth.php';
     }
     function stopQueue(id) {
         $.ajax({
-            url: 'http://localhost/drhibist/backend/stopUltraQueue.php?id=' + id,
+            url: 'https://drhibistpedriatician.com/backend/stopUltraQueue.php?id=' + id,
             type: 'POST',
             data: {
                 id: id,

@@ -30,10 +30,11 @@ require '../../backend/db.php';
 	<link rel="stylesheet" href="../styles/custom.css" />
 </head>
 <style>
-    .blocked{
-        display: none !important;
-    }
+	.blocked {
+		display: none !important;
+	}
 </style>
+
 <body class="dashboard dashboard_1">
 	<div class="full_container">
 		<div class="inner_container">
@@ -248,6 +249,11 @@ require '../../backend/db.php';
 													$rowss = $rsss->fetch_assoc();
 													$tot_ultra = $rowss['lab_tot'];
 
+													$proce = "SELECT SUM(price) AS proc_tot FROM `admission_pay` WHERE `pat_id` = '$pat_id' AND `reason`= 'procedure'";
+													$rsss = $conn->query($proce);
+													$rowss = $rsss->fetch_assoc();
+													$tot_proc = $rowss['proc_tot'];
+
 
 													$date1 = new DateTime($date);
 													$date2 = new DateTime(date("Y-m-d"));
@@ -291,6 +297,11 @@ require '../../backend/db.php';
 															<option value="0.4">0.4</option>
 															<option value="0.5">0.5</option>
 														</select>
+													</div>
+													<div>
+														<label for="laboratory">Procedure</label>
+														<input type="number" name="procedure" id="procedure" value="<?php echo $tot_proc; ?>" readonly>
+														<input type="hidden" name="id" value="<?php echo $pat_id; ?>">
 													</div>
 												</div>
 												<br>
@@ -351,6 +362,7 @@ require '../../backend/db.php';
 							<div class='payments'>
 								<div class='grid-x3'>
 									<div class='grid'>
+										<input type="checkbox" class=" my-0" id="addTest"></input>
 										<form class="mgt mgb" action="../../backend/lab_payment.php" method="POST">
 											<h2>Laboratory Payment</h2>
 											<h3><?php echo $lab_sum; ?> ETB</h3>
@@ -360,19 +372,19 @@ require '../../backend/db.php';
 
 													<?php
 													$sql = $conn->query("SELECT * FROM `lab_cart2` WHERE `patient_id` = '$card' AND `payment` = 0");
-													while($row = $sql->fetch_assoc()){
+													while ($row = $sql->fetch_assoc()) {
 														$name = $row['name'];
 														$id = $row['id'];
 														echo "<li><span>$name</span> <span><a href='../../backend/delete_dup.php?id=$id&pat=$card'><b>X</b></a></span> </li>";
 													}
-													
+
 													?>
-													
-													</ul>
-												
+
+												</ul>
+
 											</div>
-											<input type='hidden' name='price' value='<?php echo $lab_sum; ?>'>
-											<input type="hidden" name="id" value="<?php echo $card; ?>">
+											<input type='hidden' name='price' id="labSum" value='<?php echo $lab_sum; ?>'>
+											<input type="hidden" id="patientId" name="id" value="<?php echo $card; ?>">
 											<div class="payment mgt">
 												<div>
 													<input type="radio" name="payment" id="system" value="system">
@@ -409,16 +421,16 @@ require '../../backend/db.php';
 
 													<?php
 													$sql = $conn->query("SELECT * FROM `ultra_cart` WHERE `patient_id` = '$card' AND `payment` = 0");
-													while($row = $sql->fetch_assoc()){
+													while ($row = $sql->fetch_assoc()) {
 														$name = $row['requests'];
 														$id = $row['id'];
 														echo "<li><span>$name</span> <span><a href='../../backend/delete_dup_ultra.php?id=$id&pat=$card'><b>X</b></a></span> </li>";
 													}
-													
+
 													?>
-													
-													</ul>
-												
+
+												</ul>
+
 											</div>
 											<input type='hidden' name='price' value='<?php echo $ultra_sum; ?>'>
 											<input type="hidden" name="id" value="<?php echo $card; ?>">
@@ -431,7 +443,7 @@ require '../../backend/db.php';
 													<label for="cash">Cash</label>
 													<input type="radio" name="payment" id="cash" value="cash">
 												</div>
-												
+
 											</div>
 											<div>
 												<label for="credit">Credit</label>
@@ -505,6 +517,29 @@ require '../../backend/db.php';
 	</script>
 	<!-- custom js -->
 	<script src="../js/custom.js"></script>
+
+	<script>
+		const addTest = document.getElementById('addTest');
+		const labSum = document.getElementById('labSum');
+		$(document).ready(()=>{
+			$('#addTest').click((e)=>{
+				e.preventDefault()
+				$.ajax({
+					url: '../../backend/tempLab.php',
+					type: 'POST',
+					data: {
+						'id': $('#patientId').val(),
+					},
+					success:(data)=>{
+						location.reload()
+					}
+				})
+			})
+		})
+
+
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 
 </html>

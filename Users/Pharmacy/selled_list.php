@@ -132,7 +132,8 @@ if(!$conn->query($sql)){
 						if (isset($_GET['search-date'])) {
 						//$sdate = $_GET['search'];
 						$today = $_GET['date'];
-						$search_sql = "SELECT * FROM `pharma_daily_sell` WHERE `date` = '$today'";
+				// 		$search_sql = "SELECT * FROM `cash_payment_pharm` WHERE `date` = '$today' UNION ALL SELECT * FROM `system_payment_pharm` WHERE `date` = '$today'";
+				$search_sql = "SELECT * FROM `pharmacy_sale` WHERE `date` = '$today'";
 						$rs = $conn->query($search_sql);
 						echo "
 									<table class='table'>
@@ -141,8 +142,6 @@ if(!$conn->query($sql)){
                                     <th>Name</th>
                                     <th>Type</th>
                                     <th>Amount</th>
-                                    <th>Price</th>
-                                    <th>sub_price</th>
                                     <th>Date</th>
                                 </thead>
 									</thead>
@@ -167,8 +166,6 @@ if(!$conn->query($sql)){
 														<td data-label='Name'>$name</td>
 														<td data-label='Type'>$type</td>
 														<td data-label='amount'>$amount</td>
-														<td data-label='Sell Price'>$price</td>
-														<td data-label='Reg Date'>$sub</td>
 														<td data-label='Exp Date'><span class='rmv'>$date <a href='./selled_list.php?rm=$id'>$rmv</a></span></td>
 
 														

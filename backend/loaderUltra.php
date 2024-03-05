@@ -3,7 +3,8 @@ require './db.php';
 
 $lister = $conn->query("SELECT * FROM `ultraqueue`");
 if ($lister->num_rows > 0) {
-    $results = $lister->fetch_all(MYSQLI_ASSOC);
+    // $results = $lister->fetch_all(MYSQLI_ASSOC);
+    $results = mysqli_fetch_assoc($lister);
     echo "<div class='d-none curr_val'>" . $lister->num_rows . "</div>";
     echo "<table class='table'>";
     echo ' <thead>
@@ -16,7 +17,7 @@ if ($lister->num_rows > 0) {
     </thead>';
     echo '<tbody>';
     // $num = 1;
-    foreach ($results as $result) {
+    foreach ($lister as $result) {
         $id = $result['id'];
         $name = $result['name'];
         echo '<tr>

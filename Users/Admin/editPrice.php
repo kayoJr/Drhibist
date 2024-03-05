@@ -174,7 +174,7 @@ require '../../backend/auth.php';
                                                     <?php
                                                         $sql = ($conn->query("SELECT COLUMN_DEFAULT
                                                         from INFORMATION_SCHEMA.COLUMNS 
-                                                        where TABLE_SCHEMA='drhibist' and TABLE_NAME='patient' and COLUMN_NAME='payment'"))->fetch_assoc();
+                                                        where TABLE_SCHEMA='drhibistpedriati_drhibist' and TABLE_NAME='patient' and COLUMN_NAME='payment'"))->fetch_assoc();
                                                         // var_dump($sql['COLUMN_DEFAULT']);
                                                         $price =  substr($sql['COLUMN_DEFAULT'], 0, 3);
                                                     // $price = $sql['payment']

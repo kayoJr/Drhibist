@@ -108,6 +108,7 @@ require '../../backend/db.php';
 							$oxygen = $_POST['oxygen'];
 							$pharmacy = $_POST['pharmacy'];
 							$laboratory = $_POST['laboratory'];
+							$procedure = $_POST['procedure'];
 							$service = (float)$_POST['service'];
 							if($laboratory == ''){
 								$laboratory = 0;
@@ -121,10 +122,13 @@ require '../../backend/db.php';
 							if($oxygen == ''){
 								$oxygen = 0;
 							}
+							if($procedure == ''){
+								$procedure = 0;
+							}
 							
-							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory;
+							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory + $procedure;
 							$s_charge = $total * $service;
-							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory + $s_charge;
+							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory  + $procedure+ $s_charge;
 							
 							
 						?>
@@ -144,6 +148,7 @@ require '../../backend/db.php';
 										<h2>Laboratory</h2>
 										<h2>Oxygen</h2>
 										<h2>Pharmacy</h2>
+										<h2>Procedure</h2>
 										<h2>Service Charge</h2>
 								</div>
 								<div class="adm_result">
@@ -153,6 +158,7 @@ require '../../backend/db.php';
 									<h2><?php echo $laboratory; ?></h2>
 									<h2><?php echo $oxygen; ?></h2>
 									<h2><?php echo $pharmacy; ?></h2>
+									<h2><?php echo $procedure; ?></h2>
 									<h2><?php echo $s_charge; ?></h2>
 								</div>
 								</div>

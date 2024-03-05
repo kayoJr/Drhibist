@@ -1,0 +1,30 @@
+[05-Aug-2023 12:35:04 UTC] PHP Warning:  require(./backend/db.php): failed to open stream: No such file or directory in /home/drhibistpedriati/public_html/crons/meds.php on line 2
+[05-Aug-2023 12:35:04 UTC] PHP Warning:  require(./backend/db.php): failed to open stream: No such file or directory in /home/drhibistpedriati/public_html/crons/meds.php on line 2
+[05-Aug-2023 12:35:04 UTC] PHP Fatal error:  require(): Failed opening required './backend/db.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/drhibistpedriati/public_html/crons/meds.php on line 2
+[19-Sep-2023 12:17:51 UTC] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/drhibistpedriati/public_html/crons/queue.php on line 5
+[19-Sep-2023 12:18:36 UTC] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/drhibistpedriati/public_html/crons/queue.php on line 5
+[19-Sep-2023 12:18:39 UTC] PHP Warning:  date() expects at least 1 parameter, 0 given in /home/drhibistpedriati/public_html/crons/queue.php on line 5
+[03-Mar-2024 08:00:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/drhibistpedriati/public_html/crons/meds.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/drhibistpedriati/public_html/crons/meds.php on line 5
+[03-Mar-2024 14:00:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/drhibistpedriati/public_html/crons/meds.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/drhibistpedriati/public_html/crons/meds.php on line 5
+[03-Mar-2024 20:00:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/drhibistpedriati/public_html/crons/meds.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/drhibistpedriati/public_html/crons/meds.php on line 5
+[04-Mar-2024 08:00:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/drhibistpedriati/public_html/crons/meds.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/drhibistpedriati/public_html/crons/meds.php on line 5
+[04-Mar-2024 14:00:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/drhibistpedriati/public_html/crons/meds.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/drhibistpedriati/public_html/crons/meds.php on line 5
+[04-Mar-2024 20:00:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in /home/drhibistpedriati/public_html/crons/meds.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/drhibistpedriati/public_html/crons/meds.php on line 5

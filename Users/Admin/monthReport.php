@@ -164,7 +164,7 @@ require '../../backend/db.php';
                                 default:
                                     return false;
                             }
-                            ?>
+                                                        ?>
                             <?php
 
                             if (isset($_GET['month-report'])) {
@@ -183,10 +183,17 @@ require '../../backend/db.php';
                                 $row = $res_rec->fetch_assoc();
                                 $sum_rec = $row['value_sum'];
 
-                                $sql_pharm = "SELECT SUM(sub_price) AS value_sum FROM `cash_payment_pharm` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
-                                $res_pharm = $conn->query($sql_pharm);
-                                $row = $res_pharm->fetch_assoc();
-                                $sum_pharm = $row['value_sum'];
+                                	$sql_pharm = "SELECT SUM(sub_price) AS value_sum FROM `cash_payment_pharm` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+								$res_pharm = $conn->query($sql_pharm);
+								$row = $res_pharm->fetch_assoc();
+								$sum_pharm = $row['value_sum'];
+								
+								$sql_pharm_sys = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+								$res_pharm_sys = $conn->query($sql_pharm_sys);
+								$row_sys = $res_pharm_sys->fetch_assoc();
+								$sum_pharm_sys = $row_sys['value_sum'];
+    
+                                $pharm_total = $sum_pharm_sys + $sum_pharm;
 
                                 $sql_lab = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'laboratory'";
                                 $sql_lab_2 = "SELECT SUM(price) AS value_sum_sys FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'laboratory'";
@@ -213,7 +220,7 @@ require '../../backend/db.php';
                                 $row = $res_ultra->fetch_assoc();
                                 $sum_cash_ultra = $row['value_sum'];
 
-                                $total_month = $sum_rec + $sum_cash_ultra + $sum_pharm + $lab_total + $sum_addm;
+                                $total_month = $sum_rec + $sum_cash_ultra + $pharm_total + $lab_total + $sum_addm;
                             } else {
                                 $sum_rec = 0;
                                 $sum_pharm = 0;
@@ -230,10 +237,17 @@ require '../../backend/db.php';
                                 $row = $res_rec->fetch_assoc();
                                 $sum_rec = $row['value_sum'];
 
-                                $sql_pharm = "SELECT SUM(sub_price) AS value_sum FROM `cash_payment_pharm` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
-                                $res_pharm = $conn->query($sql_pharm);
-                                $row = $res_pharm->fetch_assoc();
-                                $sum_pharm = $row['value_sum'];
+                                	$sql_pharm = "SELECT SUM(sub_price) AS value_sum FROM `cash_payment_pharm` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+								$res_pharm = $conn->query($sql_pharm);
+								$row = $res_pharm->fetch_assoc();
+								$sum_pharm = $row['value_sum'];
+								
+								$sql_pharm_sys = "SELECT SUM(sub_price) AS value_sum FROM `system_payment_pharm` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month'";
+								$res_pharm_sys = $conn->query($sql_pharm_sys);
+								$row_sys = $res_pharm_sys->fetch_assoc();
+								$sum_pharm_sys = $row_sys['value_sum'];
+    
+                                $pharm_total = $sum_pharm_sys + $sum_pharm;
 
                                 $sql_lab = "SELECT SUM(price) AS value_sum FROM `income` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'laboratory'";
                                 $sql_lab_2 = "SELECT SUM(price) AS value_sum_sys FROM `system_payment` WHERE YEAR(Date) = '$year' AND Month(Date) = '$month' AND `reason` = 'laboratory'";
@@ -260,7 +274,7 @@ require '../../backend/db.php';
                                 $row = $res_ultra->fetch_assoc();
                                 $sum_cash_ultra = $row['value_sum'];
 
-                                $total_month = $sum_rec + $sum_cash_ultra + $sum_pharm + $lab_total + $sum_addm;
+                                $total_month = $sum_rec + $sum_cash_ultra + $pharm_total + $lab_total + $sum_addm;
                             }
                             ?>
                             <div class="boxes">
@@ -273,7 +287,7 @@ require '../../backend/db.php';
                                         </div>
                                         <div>
                                             <h3>Pharmacy</h3>
-                                            <h3><?php echo $sum_pharm; ?> ETB</h3>
+                                            <h3><?php echo $pharm_total; ?> ETB</h3>
                                         </div>
                                         <div>
                                             <h3>Laboratory</h3>
@@ -360,19 +374,34 @@ require '../../backend/db.php';
                                 }
 
 
-                                $totalPayment_addm = 0;
-                                $sql = "SELECT SUM(tot_amount) AS tot_amount 
-    FROM `admission_med` 
-    WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year AND `payment` = '1'
+    //                             $totalPayment_addm = 0;
+    //                             $sql = "SELECT SUM(tot_amount) AS tot_amount 
+    // FROM `admission_med` 
+    // WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year AND `payment` = '1'
+    // UNION ALL
+    // SELECT SUM(price) AS price 
+    // FROM admission_pay
+    // WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year
+    // ";
+    //                             $result = $conn->query($sql);
+    //                             if ($result->num_rows > 0) {
+    //                                 while ($row = $result->fetch_assoc()) {
+    //                                     $totalPayment_addm += $row["tot_amount"];
+    //                                 }
+    //                             }
+    $totalPayment_addm = 0;
+                                $sql = "SELECT price 
+    FROM income 
+    WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year AND `reason` = 'withdrawal'
     UNION ALL
-    SELECT SUM(price) AS price 
-    FROM admission_pay
-    WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year
+    SELECT price 
+    FROM system_payment 
+    WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year AND `reason` = 'withdrawal'
     ";
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
-                                        $totalPayment_addm += $row["tot_amount"];
+                                        $totalPayment_addm += $row["price"];
                                     }
                                 }
 
@@ -415,11 +444,11 @@ require '../../backend/db.php';
                             }
                             echo "
 
-                            </h1>";
+    </h1>";
                             echo "</table>";
 
                             ?>
-                            <!-- <h1 class='month_report'>{$mon}'s total is: <span>{$m_total}</span> ETB  -->
+<!--<h1 class='month_report'>{$mon}'s total is: <span>{$m_total}</span> ETB -->
 
 
 

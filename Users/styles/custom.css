@@ -1084,7 +1084,7 @@ form table select {
 .payment {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1fr);
 }
 .payment label,
 .payment input {
@@ -1642,6 +1642,7 @@ form table select {
   .cigna_result table td,
   .cigna_result * table td {
     color: #000 !important;
+    border: 2px solid #1b1b1b;
   }
   .modal-footer *,
   .payment,
@@ -1654,7 +1655,7 @@ form table select {
   }
   .lab_result,
   .ultra_result {
-    margin-bottom: 25rem !important;
+    margin-bottom: 15rem !important;
   }
   .month-report .boxes,
   .month-report .boxes *,
@@ -1695,6 +1696,7 @@ form table select {
     top: 0;
     left: 0;
     width: 100%;
+    margin: 0 auto;
   }
   .lab-footer {
     position: absolute;

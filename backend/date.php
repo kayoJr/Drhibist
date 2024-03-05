@@ -20,14 +20,14 @@ if (isset($_POST['submit'])) {
                 $rs = $conn->query($sql);
                 if ($rs) {
                     if ($payment == 'system') {
-                        $sql = "INSERT INTO `system_payment` (`price`, `reason`) VALUES (100, 'reception')";
+                        $sql = "INSERT INTO `system_payment` (`price`, `reason`) VALUES (200, 'reception')";
                         if (!$conn->query($sql)) {
                             echo $conn->error;
                         } else {
                             header("Location: ../Users/Reception/search.php?search=$id&searching=Search");
                         }
                     } else if ($payment == 'cash') {
-                        $sql = "INSERT INTO `income` (`price`, `reason`) VALUES (100, 'reception')";
+                        $sql = "INSERT INTO `income` (`price`, `reason`) VALUES (200, 'reception')";
                         if (!$conn->query($sql)) {
                             echo $conn->error;
                         } else {
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                     } else if (isset($_POST['credit'])) {
                         $credit = $_POST['credit'];
                         if ($credit == 'cigna') {
-                            $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (100, 'reception', '$id', 'cigna')";
+                            $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (200, 'reception', '$id', 'cigna')";
                             $rss = $conn->query($sql);
                             if ($rss) {
                                 header("Location: ../Users/Reception/search.php?search=$id&searching=Search");
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
                                 echo $conn->error;
                             }
                         } else if ($credit == 'stc') {
-                            $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (100, 'reception', '$id', 'stc')";
+                            $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (200, 'reception', '$id', 'stc')";
                             $rss = $conn->query($sql);
                             if ($rss) {
                                 header("Location: ../Users/Reception/search.php?search=$id&searching=Search");

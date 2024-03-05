@@ -134,7 +134,7 @@ require '../../backend/auth.php';
 <script>
     function doctor(id) {
         $.ajax({
-            url: 'http://localhost/drhibist/backend/updateQueue.php?id=' + id,
+            url: 'https://drhibistpedriatician.com/backend/updateQueue.php?id=' + id,
             type: 'POST',
             data: {
                 id: id,
@@ -150,7 +150,7 @@ require '../../backend/auth.php';
     }
     function delQueue(id) {
         $.ajax({
-            url: 'http://localhost/drhibist/backend/deleteQueue.php?id=' + id,
+            url: 'https://drhibistpedriatician.com/backend/deleteQueue.php?id=' + id,
             type: 'POST',
             data: {
                 id: id,
@@ -166,7 +166,7 @@ require '../../backend/auth.php';
     }
     function stopQueue(id) {
         $.ajax({
-            url: 'http://localhost/drhibist/backend/stopQueue.php?id=' + id,
+            url: 'https://drhibistpedriatician.com/backend/stopQueue.php?id=' + id,
             type: 'POST',
             data: {
                 id: id,

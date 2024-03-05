@@ -1,7 +1,7 @@
 {
 	"name": "Dr Hibist Pediatrician",
 	"short_name": "Dr Hibist",
-	"start_url": "index.html",
+	"start_url": "index.php",
 	"display": "standalone",
 	"background_color": "#fdfdfd",
 	"theme_color": "#8a1668",
@@ -28,8 +28,7 @@
 		{
 			"src": "./img/logo.png",
 			"type": "image/png",
-			"sizes": "144x144",
-			"purpose": "maskable"
+			"sizes": "144x144"
 		},
 		{
 			"src": "./img/logo.png",

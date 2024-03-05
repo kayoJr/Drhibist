@@ -2,7 +2,8 @@
 require '../../backend/auth.php';
 require '../../backend/db.php';
 $pat_id = $_GET['id'];
-$sql = "SELECT * FROM `nurse_exam` WHERE `patient_id` = '$pat_id'";
+$exam_id = $_GET['exam_id'];
+$sql = "SELECT * FROM `nurse_exam` WHERE `id` = '$exam_id' AND `patient_id` = '$pat_id'";
 if ($rs = $conn->query($sql)) {
     while ($row = $rs->fetch_assoc()) {
         $nurse_id = $row['id'];
@@ -161,6 +162,7 @@ if ($rs = $conn->query($sql)) {
                                 </div>
                                 
                                 <input type="hidden" name="id" value="<?php echo $pat_id;  ?>">
+                                <input type="hidden" name="exam_id" value="<?php echo $exam_id;  ?>">
                                 <input type="submit" value="Update" name="submit" class="btn center">
                             </div>
                         </form>

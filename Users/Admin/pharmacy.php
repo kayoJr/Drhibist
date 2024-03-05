@@ -39,6 +39,9 @@ require '../../backend/db.php';
 		}
 
 		.flash {
+			background: red !important;
+		}
+		.green {
 			background: red;
 		}
 	</style>
@@ -244,19 +247,25 @@ require '../../backend/db.php';
 								$interval = $date1->diff($date2);
 								if ($amount <= 10) {
 									$flash = "flash";
-								} else {
-									$flash = "green";
+								} else{
+								    $flash = "";
 								}
+								if(($interval->days) <= 10) {
+									$exflash = "flash";
+								}else{
+								    $exflash = "";
+								}
+								// echo "difference " . $interval->days . " days ";
 								echo "	
 												<tbody>
-													<tr >
+													<tr>
 														<td data-label='Name'>$card</td>
 														<td data-label='Type'>$pt_name</td>
-														<td class='$flash'  data-label='amount'>$amount</td>
+														<td class='$flash' data-label='amount'>$amount</td>
 														<td data-label='Cost'>$org_price</td>
 														<td data-label='Price'>$sell_price</td>
 														<td data-label='Reg Date'>$reg_date</td>
-														<td class='$exflash' data-label='Exp Date'>$exp_date</td>
+														<td data-label='Exp Date'>$exp_date</td>
 														<td>
 														<a href='./upd_med.php?id=$id'>update</a>
 														</td>

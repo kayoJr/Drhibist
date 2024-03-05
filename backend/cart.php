@@ -9,12 +9,12 @@ if (isset($_POST['submit'])) {
     $pat_id = $_POST['pat_id'];
     $user_id = $_POST['user_id'];
 
-    $sql = $conn->query("SELECT * FROM `meds` WHERE `id` = '$id'");
-    if(mysqli_num_rows($sql) > 0){
+    $sql = $conn->query("SELECT * FROM `medicines` WHERE `med_id` = '$id'");
+    if (mysqli_num_rows($sql) > 0) {
         while($row = $sql->fetch_assoc()){
-            $pd_id = $row['id'];
+            $pd_id = $row['med_id'];
             $pd_name = $row['name'];
-            $pd_price = $row['cost'];
+            $pd_price = $row['sell_price'];
             $amount = $row['amount'];
             $t_price = $pd_price * $quant;
             $sql2 = $conn->query("SELECT * FROM `cart` WHERE `id` = '$pd_id' AND `user_id` = '$user_id'");
@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
                 $row = $sql2->fetch_array();
                 if($amount >= $quant){
                     $nw_amount = $amount - $quant;
-                    $update = "UPDATE `meds` SET `amount` = '$nw_amount' WHERE `id` = '$id'";
+                    $update = "UPDATE `medicines` SET `amount` = '$nw_amount' WHERE `med_id` = '$id'";
                     if($row[0] > 1){
                         $query = "UPDATE `cart` SET `quant`='$quant',`sub_price`='$t_price' WHERE `id`='$pd_id' AND `user_id` = '$user_id'";
                         $rs2 = mysqli_query($conn, $query);
@@ -50,9 +50,8 @@ if (isset($_POST['submit'])) {
                 //if the medicine is registered with different pharmacy user
             }
         }
-    }else{
+    }
+     else {
         echo "medicine not found";
     }
-
-
 }

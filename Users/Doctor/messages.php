@@ -258,7 +258,7 @@ if ($status) {
 			deleteItem.addEventListener('click', () => {
 				const msgId = deleteItem.parentNode.querySelector('#msg_id').textContent;
 				$.ajax({
-					url: 'http://localhost/drhibist/backend/delMsg.php?id=' + msgId,
+					url: 'https://drhibistpedriatician.com/backend/delMsg.php?id=' + msgId,
 					type: 'GET',
 					success: (res) => {
 						window.location.reload();
@@ -283,7 +283,7 @@ if ($status) {
 				const msgId = editItem.parentNode.querySelector('#msg_id').textContent;
 				msg_field.addEventListener('click', () => {
 					$.ajax({
-						url: 'http://localhost/drhibist/backend/updMsg.php?id=' + msgId,
+						url: 'https://drhibistpedriatician.com/backend/updMsg.php?id=' + msgId,
 						type: 'POST',
 						data: {
 							id: msgId,

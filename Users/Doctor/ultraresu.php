@@ -119,7 +119,7 @@ require '../../backend/auth.php';
                             <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
                             <button class="btn" id="btnPrint">Print</button>
                         </div>
-                               
+
                         <div class="ultra_result">
                             <div class='lab'>
                                 <?php
@@ -142,47 +142,46 @@ require '../../backend/auth.php';
                                             <p><?php echo $info_det['name']; ?></p>
                                             <p><?php echo $date; ?></p>
                                         </div>
-
-                                        <table class='table'>
-                                            <thead>
-                                                <th>Test</th>
-                                                <th>Result</th>
-                                            </thead>
-                                            <thead>
-                                                <th class='head'>Liver and Spleen</th>
-                                                <td><?php echo $liver; ?></td>
-                                            </thead>
-                                            <thead>
-                                                <th class='head'>GB and Billary Duct</th>
-                                                <td><?php echo $gb; ?></td>
-                                            </thead>
-                                            <thead>
-                                                <th class='head'>Bowels and Peritoneum</th>
-                                                <td><?php echo $bowel; ?></td>
-                                            </thead>
-                                            <thead>
-                                                <th class='head'>Kidney and Retroperitoneal</th>
-                                                <td><?php echo $kidney; ?></td>
-                                            </thead>
-                                            <thead>
-                                                <th class='head'>Pelvic Organ</th>
-                                                <td><?php echo $pelvic; ?></td>
-                                            </thead>
-                                            <thead>
-                                                <th class='head'>Impressions</th>
-                                                <td><?php echo $impression; ?></td>
-                                            </thead>
-                                            <thead>
-                                                <th class='head'>Conclusion</th>
-                                                <td><?php echo $conclusion; ?></td>
-                                            </thead>
-                                            <thead>
-                                                <th class='head'>Reported By:</th>
-                                                <td>Dr. <?php echo $drname; ?></td>
-                                            </thead>
-
-                                        </table>
                                 <?php
+                                        echo "<table class='table'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                <thead>
+                                    <th class='head'>Liver and Spleen</th>
+                                    <td>$liver</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>GB and Billary Duct</th>
+                                    <td>$gb</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Bowels and Peritoneum</th>
+                                    <td>$bowel</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Kidney and Retroperitoneal</th>
+                                    <td>$kidney</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Pelvic Organ</th>
+                                    <td>$pelvic</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Impressions</th>
+                                    <td>$impression</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Conclusion</th>
+                                    <td>$conclusion</td>  
+                                </thead>
+                                <thead>
+                                    <th class='head'>Reported By:</th>
+                                    <td>Dr. $drname</td>  
+                                </thead>
+                                    
+                                    </table>";
                                     }
                                 }
                                 ?>
@@ -199,12 +198,12 @@ require '../../backend/auth.php';
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
                                         $date = $row['date'];
-                                ?>
-                                        <div class="name">
-                                            <p><?php echo $info_det['name']; ?></p>
-                                            <p><?php echo $date; ?></p>
-                                        </div>
-                                <?php
+                                        ?>
+                                                <div class="name">
+                                                    <p><?php echo $info_det['name']; ?></p>
+                                                    <p><?php echo $date; ?></p>
+                                                </div>
+                                        <?php
                                         echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
@@ -244,12 +243,12 @@ require '../../backend/auth.php';
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
                                         $date = $row['date'];
-                                ?>
-                                        <div class="name">
-                                            <p><?php echo $info_det['name']; ?></p>
-                                            <p><?php echo $date; ?></p>
-                                        </div>
-                                <?php
+                                        ?>
+                                                <div class="name">
+                                                    <p><?php echo $info_det['name']; ?></p>
+                                                    <p><?php echo $date; ?></p>
+                                                </div>
+                                        <?php
                                         echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
@@ -289,12 +288,12 @@ require '../../backend/auth.php';
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
                                         $date = $row['date'];
-                                ?>
-                                        <div class="name">
-                                            <p><?php echo $info_det['name']; ?></p>
-                                            <p><?php echo $date; ?></p>
-                                        </div>
-                                <?php
+                                        ?>
+                                                <div class="name">
+                                                    <p><?php echo $info_det['name']; ?></p>
+                                                    <p><?php echo $date; ?></p>
+                                                </div>
+                                        <?php
                                         echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
@@ -334,12 +333,12 @@ require '../../backend/auth.php';
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
                                         $date = $row['date'];
-                                ?>
-                                        <div class="name">
-                                            <p><?php echo $info_det['name']; ?></p>
-                                            <p><?php echo $date; ?></p>
-                                        </div>
-                                <?php
+                                        ?>
+                                                <div class="name">
+                                                    <p><?php echo $info_det['name']; ?></p>
+                                                    <p><?php echo $date; ?></p>
+                                                </div>
+                                        <?php
                                         echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>

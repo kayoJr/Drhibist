@@ -12,6 +12,10 @@
             <span>Add Users</span></a>
     </li>
     <li>
+        <a href="addCredit.php"><i class="fa-solid fa-user-plus"></i>
+            <span>Partners</span></a>
+    </li>
+    <li>
         <a href="editPrice.php"><i class="fa-solid fa-pen"></i>
             <span>Edit Price</span></a>
     </li>

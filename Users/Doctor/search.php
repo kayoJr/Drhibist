@@ -248,7 +248,7 @@ require '../../backend/auth.php';
 													<td data-label='Head'>$head</td>
 													<td data-label='MUAC'>$muac</td>
 													<td data-label='Date'>$date</td>
-													<td class='actions' data-label='Action'><a href='./edit_nurse.php?id=$pat_id'>Edit</a> <span><a href='../../backend/delete_nurse.php?rn=$nurse_id&id=$pat_id'>X</a></span></td>
+													<td class='actions' data-label='Action'><a href='./edit_nurse.php?id=$pat_id&exam_id=$nurse_id'>Edit</a> <span><a href='../../backend/delete_nurse.php?rn=$nurse_id&id=$pat_id'>X</a></span></td>
 													</tr>
 												</tbody>
 												";

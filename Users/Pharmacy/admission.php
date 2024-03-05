@@ -138,7 +138,7 @@ require '../../backend/auth.php';
 														require 'data.php';
 														$authors = loadAuthors();
 														foreach ($authors as $author) {
-															echo "<option id='" . $author['id'] . "' value='" . $author['id'] . "'>" . $author['name'] . "</option>";
+															echo "<option id='" . $author['id'] . "' value='" . $author['med_id'] . "'>" . $author['name'] . "</option>";
 														}
 														?>
 													</select>

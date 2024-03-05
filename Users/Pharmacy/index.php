@@ -136,7 +136,7 @@ require '../../backend/auth.php';
 														require 'data.php';
 														$authors = loadAuthors();
 														foreach ($authors as $author) {
-															echo "<option id='" . $author['id'] . "' value='" . $author['id'] . "'>" . $author['name'] . "</option>";
+															echo "<option id='" . $author['id'] . "' value='" . $author['med_id'] . "'>" . $author['name'] . "</option>";
 														}
 														?>
 													</select>
@@ -275,9 +275,9 @@ require '../../backend/auth.php';
 							echo $num . "$";
 							?></p>
 					</div>
-					<div class="payment">
+					<div class="">
 						<form action="../../backend/confirm.php" method="GET">
-							<div>
+							<!-- <div>
 								<label for="system">System</label>
 								<input type="radio" name="payment" id="system" value="system">
 							</div>
@@ -293,6 +293,37 @@ require '../../backend/auth.php';
 									<option value="" disabled selected>None</option>
 									<option value="cigna">Cigna</option>
 									<option value="stc">Save The Children</option>
+								</select>
+							</div> -->
+							<div>
+								<label for="payment">Payment Method</label>
+								<input type="hidden" name="tot_price" value="<?php echo $num; ?>">
+								<input type="hidden" name="user_id" value="<?php echo $phone_user; ?>">
+								<select name="payment" id="payment" class="w-full">
+
+									<?php
+											$paymentMethods = $conn->query('SELECT * FROM `paymentmethod`');
+											while($payments = $paymentMethods->fetch_assoc()){
+													$paymentId = $payments['id'];
+													$paymentName = $payments['name'];
+												?>
+												<option class="text-dark" value="<?php echo $paymentName;?>"><?php echo $paymentName; ?></option>
+												<?php
+											}
+?>									<option class="text-dark" value="Credit">Credit</option>
+								</select>
+								<select name="credit" id="credit" class="d-none mt-2">
+									<option class="text-dark" disabled selected>Select Credit Provider</option>
+									<?php
+											$creditMethods = $conn->query('SELECT * FROM `creditproviders`');
+											while($credits = $creditMethods->fetch_assoc()){
+													$creditId = $credits['id'];
+													$creditName = $credits['name'];
+												?>
+												<option class="text-dark" value="<?php echo $creditName;?>"><?php echo $creditName; ?></option>
+												<?php
+											}
+?>
 								</select>
 							</div>
 					</div>
@@ -360,4 +391,15 @@ require '../../backend/auth.php';
 	setTimeout(() => {
 		feedback.style.display = "none";
 	}, 3000)
+
+	const payment = document.getElementById('payment');
+	const credit = document.getElementById('credit');
+
+	payment.addEventListener('change', (e)=>{
+		if(e.target.value == 'Credit'){
+			credit.classList.remove('d-none')
+		}else{
+			credit.classList.add('d-none')
+		}
+	})
 </script>

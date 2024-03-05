@@ -12,19 +12,22 @@
     .calling {
         background-color: crimson !important;
         color: white !important;
-        font-size: 4rem !important;
+        font-size: 4.5rem !important;
     }
 
     .consultation {
         background-color: green !important;
         color: white !important;
-        font-size: 1.5rem !important;
+        font-size: 4rem !important;
+    }
+    #show{
+        font-size: 4rem;
     }
 </style>
 
 <body>
     <div class="container">
-        <h1 class="text-center">Display Queue</h1>
+        <h1 class="text-center">Patient List</h1>
         <div id="show"></div>
     </div>
 
@@ -69,8 +72,8 @@
             console.log(name);
             // utterance.voice = synth.getVoices()[5];
             utterance.voice = null;
-            utterance.rate = 1.2;
-            utterance.pitch = 1.1;
+            utterance.rate = 1;
+            utterance.pitch = 1;
             // utterance.lang = 'en-US'
             synth.speak(utterance);
             console.log(utterance);
