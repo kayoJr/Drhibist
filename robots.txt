@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap:https://drhibistpedriatician.com/sitemap.xml
-Sitemap:https://drhibistpedriatician.com/sitemap_1.xml
