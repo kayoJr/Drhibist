@@ -53,14 +53,15 @@ require '../../backend/auth.php';
         .lab_result img {
             width: 100%;
         }
-         .table-head th {
+
+        .table-head th {
             background-color: transparent !important;
         }
+
         .table-head th,
-        .table-head td{
-            text-transform: uppercase;
+        .table-head td {
+            text-transform: capitalize;
         }
-        
     </style>
 </head>
 
@@ -199,10 +200,11 @@ require '../../backend/auth.php';
     document.addEventListener('DOMContentLoaded', () => {
         fetchYears();
     })
+    const url = "<?php echo $url; ?>"
 
     function fetchYears() {
         const id = document.getElementById("pat_id").value;
-        fetch(`https://drhibistpedriatician.com/backend/getYear.php?id=${id}`)
+        fetch(`${url}/getYear.php?id=${id}`)
             .then(response => response.json())
             .then(data => {
                 let yearDropDown = document.getElementById('selectDate')
@@ -227,10 +229,59 @@ require '../../backend/auth.php';
     }
 
     function fetchResults(date, id) {
+        let columns = {
+            'bf': 'Blood Film',
+            'bg': 'Blood Group',
+            'bt': 'Bilirubin_T',
+            'bd': 'Bilirubin_D',
+            'alk_phos': 'alk_phosphatase',
+            's_g': 'Specific Gravity',
+            'l_e': 'Leukocyte Esterase',
+            'weil': 'Weil Felix',
+            'gravity': 'Specific Gravity',
+            'ep_cells': 'Epithelial Cells',
+            'indian': 'Indian INK'
+        }
+        let tableName = {
+            'cbc': 'Hematology',
+            'bf': 'Blood Film',
+            'bg': 'Blood Group',
+            'let': 'Liver Enzymatic Test',
+            'lft': 'Liver Function Test',
+            'se': 'Serum Electrolyte',
+            'coag': 'Coagulation',
+            'gram': 'Gram Stain',
+            'liver': 'Liver Viral Test',
+            'weil': 'Weil Felix',
+            'uric': 'Uric Acid'
+        }
+        let units = {
+            'crp': 'N.g/ml (mg/L)',
+            'sgot': '1U/L',
+            'sgpt': '1U/L',
+            'alk_phos': '1U/L',
+            'fbs': 'mg/dl',
+            'bt': 'md/dl',
+            'bd': 'md/dl',
+            'albumin': 'md/dl',
+            'Sodium': 'mmol/dl',
+            'Potassium': 'mmol/dl',
+            'Calsium': 'mmol/dl',
+            'Others': 'mmol/dl',
+            'PT': 'second',
+            'PTT': 'second',
+            'INR': 'second',
+            'ESR': 'mm/hr',
+            'bun': 'mg/dl',
+            'creatinine': 'mg/dl',
+            't3': 'UL',
+            't4': 'NL',
+            'tsh': 'NL',
+        }
         const dateCont = document.getElementById("dateCont");
         dateCont.innerText = date
         const container = document.getElementById('lab_result');
-        fetch(`https://drhibistpedriatician.com/backend/getLabResult.php?id=${id}&year=${date}`)
+        fetch(`${url}/getLabResult.php?id=${id}&year=${date}`)
             .then(response => response.json())
             .then(data => {
                 // const container = document.getElementById('lab_result');
@@ -264,11 +315,11 @@ require '../../backend/auth.php';
                                     `
                                     <thead class='table-head'>
                                 
-                                        <th>${key}</th>
-                                        <td>${resultsObject[key]}</td>
+                                        <th>${(columns[key] == undefined) ? key : columns[key]}</th>
+                                        <td>${resultsObject[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
                                         </thead>
                                     
-                                `
+                                `,
                                 )
                                 }
                                     </table>
@@ -277,7 +328,7 @@ require '../../backend/auth.php';
 
                             const html = `
                         <div class="result-box" id='result_box'>
-                            <h3 class="text-center" id="result_name">${table} Result</h3>
+                            <h3 class="text-center" id="result_name">${(tableName[table] == undefined) ? table : tableName[table]} Result</h3>
                             ${ul}
                         </div>
                     `;
