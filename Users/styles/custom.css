@@ -1538,6 +1538,7 @@ form table select {
   html,
   body * {
     visibility: hidden;
+    color: #000 !important;
   }
   .modal-content,
   .modal-content *,
@@ -1549,6 +1550,8 @@ form table select {
   .ultra_result *,
   .detail,
   .detail *,
+  .details-page,
+  .details-page *,
   .total *,
   .name,
   .name *,
@@ -1571,6 +1574,8 @@ form table select {
   .ultra_result * table,
   .detail table,
   .detail * table,
+  .details-page table,
+  .details-page * table,
   .total * table,
   .name table,
   .name * table,
@@ -1602,6 +1607,10 @@ form table select {
   .detail table th,
   .detail * table thead,
   .detail * table th,
+  .details-page table thead,
+  .details-page table th,
+  .details-page * table thead,
+  .details-page * table th,
   .total * table thead,
   .total * table th,
   .name table thead,
@@ -1632,6 +1641,8 @@ form table select {
   .ultra_result * table td,
   .detail table td,
   .detail * table td,
+  .details-page table td,
+  .details-page * table td,
   .total * table td,
   .name table td,
   .name * table td,

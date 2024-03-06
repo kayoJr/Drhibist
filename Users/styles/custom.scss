@@ -1295,6 +1295,7 @@ form {
 	html,
 	body * {
 		visibility: hidden;
+		color: #000 !important;
 	}
 
 	.modal-content,
@@ -1307,6 +1308,8 @@ form {
 	.ultra_result *,
 	.detail,
 	.detail *,
+	.details-page,
+	.details-page *,
 	.total *,
 	.name,
 	.name *,
@@ -1334,6 +1337,7 @@ form {
 		}
 	}
 
+	
 	.modal-footer *,
 	.payment,
 	.payment *,

@@ -71,6 +71,7 @@ if (isset($_POST['add_pat'])) {
     $age_type = $_POST['age_type'];
     $org = @$_POST['org'];
     $payment = @$_POST['payment'];
+    $credit = @$_POST['credit'];
 
     $age = $age_num . ' ' . $age_type;
 
@@ -79,55 +80,46 @@ if (isset($_POST['add_pat'])) {
     $res = $conn->query($sql);
     $idd =  mysqli_insert_id($conn);
     if ($res) {
-      //  sendWhatsApp($phone, $name, $idd);
+        //  sendWhatsApp($phone, $name, $idd);
         // sendSms($idd, $phone);
-        if ($payment == "system") {
-            $sql = "INSERT INTO `system_payment` (`price`, `reason`, `pat_id`) VALUES (200, 'reception', '$idd')";
-            if (!$conn->query($sql)) {
-                echo $conn->error;
-            } else {
-                header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
-            }
-        } else if ($payment == "cash") {
-            $sql = "INSERT INTO `income` (`price`, `reason`, `pat_id`) VALUES (200, 'reception', '$idd')";
-            if (!$conn->query($sql)) {
-                echo $conn->error;
-            } else {
-                header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
-            }
-        }
-        if (isset($_POST['credit'])) {
-            $credit = $_POST['credit'];
-            if ($credit == 'cigna') {
-                echo $idd;
-                $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (200, 'reception', '$idd', 'cigna')";
+        $sql = "INSERT INTO `income` (`price`, `reason`, `pat_id`, `payment`) VALUES (200, 'reception', '$idd', '$payment')";
+        if (!$conn->query($sql)) {
+            echo $conn->error;
+        } else {
+            if ($payment == 'Credit') {
+                $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (200, 'reception', '$idd', '$credit')";
                 $rss = $conn->query($sql);
                 if ($rss) {
                     header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
                 } else {
                     echo $conn->error;
                 }
-            } else if ($credit == 'stc') {
-                $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (200, 'reception', '$idd', 'stc')";
-                $rss = $conn->query($sql);
-                if ($rss) {
-                    header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
-                } else {
-                    echo $conn->error;
-                }
+            } else {
+                header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
             }
         }
+        // if (isset($_POST['credit'])) {
+        //     $credit = $_POST['credit'];
+        //     if ($credit == 'cigna') {
+        //         echo $idd;
+        //         $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (200, 'reception', '$idd', 'cigna')";
+        //         $rss = $conn->query($sql);
+        //         if ($rss) {
+        //             header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
+        //         } else {
+        //             echo $conn->error;
+        //         }
+        //     } else if ($credit == 'stc') {
+        //         $sql = "INSERT INTO `credit` (`price`, `reason`, `pat_id`, `org`) VALUES (200, 'reception', '$idd', 'stc')";
+        //         $rss = $conn->query($sql);
+        //         if ($rss) {
+        //             header("Location: ../Users/Reception/index.php?msg=Patient Added at &rn=$idd");
+        //         } else {
+        //             echo $conn->error;
+        //         }
+        //     }
+        // }
     } else {
         header("Location: ../Users/Reception/index.php?err=Patient Not Added");
     }
 }
-
-// else if ($payment == "credit") {
-//     $sql = "INSERT INTO `credit` (`price`, `reason`) VALUES (100, 'reception')";
-//     if (!$conn->query($sql)) {
-//         echo $conn->error;
-//     } else {
-       
-//         header("Location: ../Users/Reception/index.php?msg=Patient Added&rn=$idd");
-//     }
-// }

@@ -33,6 +33,35 @@ require '../../backend/auth.php';
 		.btn-group {
 			display: none !important;
 		}
+
+		.lab_result {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
+		}
+
+		.lab_result .result-box {
+			width: 100%;
+			height: 100%;
+		}
+
+		/* .lab_result .result-box ul li{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        } */
+		.lab_result img {
+			width: 100%;
+		}
+
+		.table-head th {
+			background-color: transparent !important;
+		}
+
+		.table-head th,
+		.table-head td {
+			text-transform: capitalize;
+		}
 	</style>
 </head>
 
@@ -257,90 +286,19 @@ require '../../backend/auth.php';
 
 							?>
 								</table>
-								<div class="center-btn">
+								<div class="d-flex items-center justify-content-around">
+									<select class="px-4 py-1 fs-5" name="selectDate" id="selectDate" onchange="fetchResult()">
+
+									</select>
+									<input type="hidden" name="" id="pat_id" value="<?php echo $pat_id; ?>">
+									<!-- <p id="dateCont"></p> -->
+									<button class="btn" id="btnPrint">Print</button>
 								</div>
-								<?php
-								$pat_det = "SELECT * FROM `pat_detail` WHERE `pat_id` = '$pat_id' ORDER BY `id` DESC";
-								$re = $conn->query($pat_det);
-								while ($det = $re->fetch_assoc()) {
-									// $date = $det['date'];
-									// $detail = $det['detail'];
-									$id_det = $det['id'];
-								?>
-									<div class="navigation">
-										<h3>Patient Detail</h3>
-										<a class="btn mgb mgt" href="../../backend/delete_det.php?id=<?php echo $id_det; ?>&pat=<?php echo $pat_id; ?>">X</a>
-										<p></p>
-									</div>
 
-									<table class='table'>
+								<div class="details-page mt-0" id="lab_result">
 
-										<thead>
-											<th>Date</th>
-											<td><?php echo @$det['date']; ?></td>
-										</thead>
-										<thead>
-											<th>C/c</th>
-											<td><?php echo @$det['cc']; ?></td>
-										</thead>
-										<thead>
-											<th>Duration</th>
-											<td><?php echo @$det['dt']; ?></td>
-										</thead>
-										<thead>
-											<th>Major Associated symptoms</th>
-											<td><?php echo @$det['sy']; ?></td>
-										</thead>
-										<thead>
-											<th>Other important symptoms</th>
-											<td><?php echo @$det['imp']; ?></td>
-										</thead>
-										<thead>
-											<th>Any Taken Medication</th>
-											<td><?php echo @$det['md']; ?></td>
-										</thead>
-										<thead>
-											<th>Current Nutrition</th>
-											<td><?php echo @$det['cn']; ?></td>
-										</thead>
-										<thead>
-											<th>Previous Similar Cases</th>
-											<td><?php echo @$det['pc']; ?></td>
-										</thead>
-										<thead>
-											<th>Vaccination HX</th>
-											<td><?php echo @$det['vh']; ?></td>
-										</thead>
-										<thead>
-											<th>Any known Allergy</th>
-											<td><?php echo @$det['aka']; ?></td>
-										</thead>
-										<thead>
-											<th>Pertinent Physical Exam</th>
-											<td><?php echo @$det['lab']; ?></td>
-										</thead>
-										<thead>
-											<th>Possible DX</th>
-											<td><?php echo @$det['dx']; ?></td>
-										</thead>
-										<thead>
-											<th>RX Given</th>
-											<td><?php echo @$det['rx']; ?></td>
-										</thead>
-										<thead>
-											<th>Plan</th>
-											<td><?php echo @$det['plan']; ?></td>
-										</thead>
-										<thead>
-											<th>Action</th>
-											<td><a class="btn mgb" href="edit.php?id=<?php echo @$det['id']; ?>">Edit</a></td>
-										</thead>
+								</div>
 
-									</table>
-
-								<?php
-								}
-								?>
 								<div class="action">
 									<button class="btn btn-primary" id="btn-lab">Laboratory</button>
 									<button class="btn btn-primary" id="btn-detail">Detail</button>
@@ -603,8 +561,8 @@ require '../../backend/auth.php';
 									</form>
 									<form method="post" class="lab_req_form" id="insert_form " action="../../backend/procedure.php">
 										<h3>Procedure</h3>
-										
-										
+
+
 										<div style="display: grid; place-items: center;">
 											<div style="display: flex; flex-direction: row;">
 												<label style="margin-right: 1rem;" for="proc">Price</label>
@@ -629,6 +587,12 @@ require '../../backend/auth.php';
 							}
 							?>
 					</div>
+				</div>
+				<div class="lab-header mx-auto">
+					<img src="../../img/lab_header.png" alt="">
+				</div>
+				<div class="lab-footer">
+					<img src="../../img/lab_footer.jpg" alt="">
 				</div>
 				<!-- footer -->
 			</div>
@@ -660,6 +624,9 @@ require '../../backend/auth.php';
 
 </html>
 <script>
+	document.getElementById("btnPrint").onclick = function() {
+		window.print();
+	}
 	$(document).ready(function() {
 		$("#authors").change(function() {
 			var aid = $("#authors").val();
@@ -681,4 +648,131 @@ require '../../backend/auth.php';
 	setTimeout(() => {
 		feedback.style.display = "none";
 	}, 3000)
+
+
+	const url = "<?php echo $url; ?>"
+
+	document.addEventListener('DOMContentLoaded', () => {
+		fetchYears();
+	})
+
+	function fetchYears() {
+		const id = document.getElementById("pat_id").value;
+		fetch(`${url}/getDetailYear.php?id=${id}`)
+			.then(response => response.json())
+			.then(data => {
+				let yearDropDown = document.getElementById('selectDate')
+				// yearDropDown.innerHTML = '<option value="" selected default disabled>Please Select Year</option>';
+				// const yearDropDown = document.createElement('select');
+				data.forEach(year => {
+					const option = document.createElement('option');
+					option.value = year;
+					option.textContent = year;
+					yearDropDown.appendChild(option);
+				})
+				let selectedYear = document.getElementById('selectDate').value;
+				if (!selectedYear) {
+					selectedYear = new Date().getFullYear();
+					yearDropDown.value = selectedYear
+				}
+				const container = document.getElementById('lab_result');
+				container.innerHtml = '';
+				fetchResults(selectedYear, id)
+			})
+			.catch(error => console.log(error))
+	}
+
+	function fetchResults(date, id) {
+		let columns = {
+			'cc': 'C/c',
+			'dt': 'Duration',
+			'sy': 'Major Associated Symptoms',
+			'imp': 'Other Important Symptoms',
+			'md': 'Any Taken Medication',
+			'cn': 'Current Nutrition',
+			'pc': 'Previous Similar Cases',
+			'vh': 'Vaccination HX',
+			'aka': 'Any Known Allergy',
+			'lab': 'Pertinent Physical Exam',
+			'dx': 'Possible DX',
+			'rx': 'RX Given',
+			'plan': 'Plan'
+		}
+		const dateCont = document.getElementById("dateCont");
+		// dateCont.innerText = date
+		const container = document.getElementById('lab_result');
+		fetch(`${url}/getDetail.php?id=${id}&year=${date}`)
+			.then(response => response.json())
+			.then(data => {
+				// const container = document.getElementById('lab_result');
+				container.innerHtml = '';
+
+				// Check if data is an object
+				if (typeof data === 'object' && data !== null) {
+					// Loop through the data object
+					for (const table in data) {
+						if (Object.prototype.hasOwnProperty.call(data, table)) { // Check if property is an own property
+							// Get results object for the current table
+							const resultsObject = data[table];
+							// Generate HTML for the results
+							container.innerHtml = '';
+							let ul;
+
+							ul = `
+    <table class='table mt-0'>
+        <thead>
+            <th>Test</th>
+            <th>Result</th>
+        </thead>
+        <tbody class='table-head'>
+            ${Object.keys(resultsObject)
+                .filter(key => !['id', 'date', 'table_name', 'pat_id'].includes(key))
+                .map(key => `
+                    <tr>
+                        <th>${columns[key]}</th>
+                        <td>${resultsObject[key]}</td>
+                    </tr>
+                `).join('') /* Use join('') to convert array to string */
+            }
+            <tr>
+                <th>Actions</th>
+                <td class='d-flex items-center justify-content-around' data-label='Action'>
+                    <a class="btn mgb" href='./edit.php?id=${resultsObject.id}'>Edit</a> 
+                    <span>
+                        <a class="btn mgb" href='../../backend/delete_det.php?id=${resultsObject.id}&pat_id=${resultsObject.pat_id}'>X</a>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+`;
+
+							// Now 'ul' contains the HTML string with edit and delete links, where the 'id' parameter is dynamically added based on the 'resultsObject.id'.
+
+
+
+							const html = `
+                        <div class="" id='result_box'>
+                            <h3 class="text-center" id="result_name">${table}</h3>
+                            ${ul}
+                        </div>
+                    `;
+							// Append the HTML to the container
+							container.innerHTML += html;
+						}
+					}
+				} else {
+					console.error('Invalid data format:', data);
+				}
+			})
+			.catch(error => console.log(error))
+	}
+
+	function fetchResult() {
+		const id = document.getElementById("pat_id").value;
+		const date = document.getElementById("selectDate").value;
+		const container = document.getElementById('lab_result');
+		container.innerHTML = '';
+		fetchResults(date, id)
+	}
 </script>

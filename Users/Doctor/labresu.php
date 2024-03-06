@@ -60,7 +60,7 @@ require '../../backend/auth.php';
         .table-head td{
             text-transform: uppercase;
         }
-        }
+        
     </style>
 </head>
 
