@@ -16,6 +16,10 @@
             <span>Partners</span></a>
     </li>
     <li>
+        <a href="addPayment.php"><i class="fa-solid fa-user-plus"></i>
+            <span>Payments</span></a>
+    </li>
+    <li>
         <a href="editPrice.php"><i class="fa-solid fa-pen"></i>
             <span>Edit Price</span></a>
     </li>
