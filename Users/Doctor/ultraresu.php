@@ -33,6 +33,35 @@ require '../../backend/auth.php';
         .btn-group {
             display: none !important;
         }
+
+        .lab_result {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .lab_result .result-box {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* .lab_result .result-box ul li{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        } */
+        .lab_result img {
+            width: 100%;
+        }
+
+        .table-head th {
+            background-color: transparent !important;
+        }
+
+        .table-head th,
+        .table-head td {
+            text-transform: capitalize;
+        }
     </style>
 </head>
 
@@ -117,259 +146,22 @@ require '../../backend/auth.php';
                         </div>
                         <div class="navigation">
                             <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
+                            <select class="px-4 py-2 fs-5" name="selectDate" id="selectDate" onchange="fetchResult()">
+
+                            </select>
+                            <input type="hidden" name="" id="pat_id" value="<?php echo $id; ?>">
                             <button class="btn" id="btnPrint">Print</button>
                         </div>
+                        <div class="d-flex items-center justify-content-between print_info">
+                            <p class="text-white fs-2" id="dateCont">
 
-                        <div class="ultra_result">
-                            <div class='lab'>
-                                <?php
-                                if ($rs1->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Abdominal Result</h2>
-                                ";
-                                    while ($row = $rs1->fetch_assoc()) {
-                                        $liver = $row['liver'];
-                                        $gb = $row['gb'];
-                                        $bowel = $row['bowel'];
-                                        $kidney = $row['kidney'];
-                                        $pelvic = $row['pelvic'];
-                                        $impression = $row['impression'];
-                                        $conclusion = $row['conclusion'];
-                                        $drname = $row['drname'];
-                                        $date = $row['date'];
-                                ?>
-                                        <div class="name">
-                                            <p><?php echo $info_det['name']; ?></p>
-                                            <p><?php echo $date; ?></p>
-                                        </div>
-                                <?php
-                                        echo "<table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Liver and Spleen</th>
-                                    <td>$liver</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>GB and Billary Duct</th>
-                                    <td>$gb</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Bowels and Peritoneum</th>
-                                    <td>$bowel</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Kidney and Retroperitoneal</th>
-                                    <td>$kidney</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Pelvic Organ</th>
-                                    <td>$pelvic</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impressions</th>
-                                    <td>$impression</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Conclusion</th>
-                                    <td>$conclusion</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Reported By:</th>
-                                    <td>Dr. $drname</td>  
-                                </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($neck->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Neck Result</h2>
-                                ";
-                                    while ($row = $neck->fetch_assoc()) {
-                                        $result = $row['result'];
-                                        $impression = $row['impression'];
-                                        $conclusion = $row['conclusion'];
-                                        $drname = $row['drname'];
-                                        $date = $row['date'];
-                                        ?>
-                                                <div class="name">
-                                                    <p><?php echo $info_det['name']; ?></p>
-                                                    <p><?php echo $date; ?></p>
-                                                </div>
-                                        <?php
-                                        echo "<table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Result</th>
-                                    <td>$result</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impression</th>
-                                    <td>$impression</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Conclusion</th>
-                                    <td>$conclusion</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Reported By:</th>
-                                    <td>Dr. $drname</td>  
-                                </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($chest->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Chest Result</h2>
-                                ";
-                                    while ($row = $chest->fetch_assoc()) {
-                                        $result = $row['result'];
-                                        $impression = $row['impression'];
-                                        $conclusion = $row['conclusion'];
-                                        $drname = $row['drname'];
-                                        $date = $row['date'];
-                                        ?>
-                                                <div class="name">
-                                                    <p><?php echo $info_det['name']; ?></p>
-                                                    <p><?php echo $date; ?></p>
-                                                </div>
-                                        <?php
-                                        echo "<table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Result</th>
-                                    <td>$result</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impression</th>
-                                    <td>$impression</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Conclusion</th>
-                                    <td>$conclusion</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Reported By:</th>
-                                    <td>Dr. $drname</td>  
-                                </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($normal_brain->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>normal_brain Result</h2>
-                                ";
-                                    while ($row = $normal_brain->fetch_assoc()) {
-                                        $result = $row['result'];
-                                        $impression = $row['impression'];
-                                        $conclusion = $row['conclusion'];
-                                        $drname = $row['drname'];
-                                        $date = $row['date'];
-                                        ?>
-                                                <div class="name">
-                                                    <p><?php echo $info_det['name']; ?></p>
-                                                    <p><?php echo $date; ?></p>
-                                                </div>
-                                        <?php
-                                        echo "<table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Result</th>
-                                    <td>$result</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impression</th>
-                                    <td>$impression</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Conclusion</th>
-                                    <td>$conclusion</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Reported By:</th>
-                                    <td>Dr. $drname</td>  
-                                </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <div class='lab'>
-                                <?php
-                                if ($other->num_rows > 0) {
-                                    echo "
-                                <h2 class='center'>Other Result</h2>
-                                ";
-                                    while ($row = $other->fetch_assoc()) {
-                                        $result = $row['result'];
-                                        $impression = $row['impression'];
-                                        $conclusion = $row['conclusion'];
-                                        $drname = $row['drname'];
-                                        $date = $row['date'];
-                                        ?>
-                                                <div class="name">
-                                                    <p><?php echo $info_det['name']; ?></p>
-                                                    <p><?php echo $date; ?></p>
-                                                </div>
-                                        <?php
-                                        echo "<table class='table'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                <thead>
-                                    <th class='head'>Result</th>
-                                    <td>$result</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Impression</th>
-                                    <td>$impression</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Conclusion</th>
-                                    <td>$conclusion</td>  
-                                </thead>
-                                <thead>
-                                    <th class='head'>Reported By:</th>
-                                    <td>Dr. $drname</td>  
-                                </thead>
-                                    
-                                    </table>";
-                                    }
-                                }
-                                ?>
-                            </div>
-
-
+                            </p>
+                            <p class="text-white fs-2"><?php echo $info_det['name']; ?></p>
                         </div>
 
+                        <div class="details-page mt-0 row mt-4" id="lab_result">
+
+                        </div>
                     </div>
                     <div class="lab-header">
                         <img src="../../img/lab_header.png" alt="">
@@ -410,5 +202,109 @@ require '../../backend/auth.php';
 <script>
     document.getElementById("btnPrint").onclick = function() {
         window.print();
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchYears();
+    })
+    const url = "<?php echo $url; ?>"
+
+    function fetchYears() {
+        const id = document.getElementById("pat_id").value;
+        fetch(`${url}/getYearUltra.php?id=${id}`)
+            .then(response => response.json())
+            .then(data => {
+                let yearDropDown = document.getElementById('selectDate')
+                // yearDropDown.innerHTML = '<option value="" selected default disabled>Please Select Year</option>';
+                // const yearDropDown = document.createElement('select');
+                data.forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    yearDropDown.appendChild(option);
+                })
+                let selectedYear = document.getElementById('selectDate').value;
+                if (!selectedYear) {
+                    selectedYear = new Date().getFullYear();
+                    yearDropDown.value = selectedYear
+                }
+                const container = document.getElementById('lab_result');
+                container.innerHtml = '';
+                fetchResults(selectedYear, id)
+            })
+            .catch(error => console.log(error))
+    }
+
+    function fetchResults(date, id) {
+        const dateCont = document.getElementById("dateCont");
+        dateCont.innerText = date
+        const container = document.getElementById('lab_result');
+        fetch(`${url}/getUltraResult.php?id=${id}&year=${date}`)
+            .then(response => response.json())
+            .then(data => {
+                // const container = document.getElementById('lab_result');
+                container.innerHtml = '';
+
+                // Check if data is an object
+                if (typeof data === 'object' && data !== null) {
+                    // Loop through the data object
+                    for (const table in data) {
+                        if (Object.prototype.hasOwnProperty.call(data, table)) { // Check if property is an own property
+                            // Get results object for the current table
+                            const resultsObject = data[table];
+                            // Generate HTML for the results
+                            container.innerHtml = '';
+                            let ul;
+                            if (table == 'cbc') {
+                                const image = resultsObject['filename'];
+                                ul = `
+                                <img src='../../img/Screenshots/${image}'>
+                            `
+                            } else {
+                                ul =
+                                    `<table class='table mt-0'>
+                                <thead>
+                                <th>Test</th>
+                                <th>Result</th>
+                                </thead>
+                                ${Object.keys(resultsObject)
+                                    .filter(key => !['id', 'date', 'table_name', 'patient_id'].includes(key))
+                                    .map(key =>
+                                    `
+                                    <thead class='table-head'>
+                                
+                                        <th>${key}</th>
+                                        <td>${resultsObject[key]}</td>
+                                        </thead>
+                                    
+                                `,
+                                )
+                                }
+                                    </table>
+                           `
+                            }
+
+                            const html = `
+                        <div class="result-box" id='result_box'>
+                            <h3 class="text-center" id="result_name">${table} Result</h3>
+                            ${ul}
+                        </div>
+                    `;
+                            // Append the HTML to the container
+                            container.innerHTML += html;
+                        }
+                    }
+                } else {
+                    console.error('Invalid data format:', data);
+                }
+            })
+            .catch(error => console.log(error))
+    }
+
+    function fetchResult() {
+        const id = document.getElementById("pat_id").value;
+        const date = document.getElementById("selectDate").value;
+        const container = document.getElementById('lab_result');
+        container.innerHTML = '';
+        fetchResults(date, id)
     }
 </script>
