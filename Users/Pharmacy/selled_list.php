@@ -129,9 +129,12 @@ if(!$conn->query($sql)){
 						</form>
 
 						<?php
+						$today = date('Y-m-d');
 						if (isset($_GET['search-date'])) {
+							$today = $_GET['date'];
+						}
 						//$sdate = $_GET['search'];
-						$today = $_GET['date'];
+						
 				// 		$search_sql = "SELECT * FROM `cash_payment_pharm` WHERE `date` = '$today' UNION ALL SELECT * FROM `system_payment_pharm` WHERE `date` = '$today'";
 				$search_sql = "SELECT * FROM `pharmacy_sale` WHERE `date` = '$today'";
 						$rs = $conn->query($search_sql);
@@ -186,8 +189,7 @@ if(!$conn->query($sql)){
 						echo '<div class="pagination">';
 						//echo $_GET['page'];
 						// for ($page = 1; $page <= $number_of_pages; $page++) {
-						// 	
-						}
+						// 
 						?>
 
 
