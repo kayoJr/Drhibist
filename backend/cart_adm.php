@@ -24,7 +24,7 @@ require './db.php';
             $cart = $row['id'];
             if ($amount >= $quant) {
                 $nw_amount = $amount - $quant;
-                $update = "UPDATE `medicines` SET `amount` = '$nw_amount' WHERE `id` = '$id'";
+                $update = "UPDATE `medicines` SET `amount` = '$nw_amount' WHERE `med_id` = '$id'";
                 if ($row[0] > 1) {
                     $upd = "UPDATE `cart_adm` SET `quant` = '$quant' WHERE `id`= '$pd_id'";
                     $query = "UPDATE `cart_adm` SET `id`='$pd_id',`name`='$pd_name',`price`='$pd_price',`quant`='$quant',`sub_price`='$t_price' WHERE `id`='$pd_id'";
