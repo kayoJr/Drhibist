@@ -2,12 +2,12 @@
 require '../../backend/auth.php';
 require '../../backend/db.php';
 
-$med_id = @$_GET['rm'];
-$today = date("Y-m-d");
-@$sql = "DELETE FROM `pharma_daily_sell` WHERE `id` = '$med_id'";
-if(!$conn->query($sql)){
-	echo $conn->error;
-}
+// $med_id = @$_GET['rm'];
+// $today = date("Y-m-d");
+// @$sql = "DELETE FROM `pharma_daily_sell` WHERE `id` = '$med_id'";
+// if(!$conn->query($sql)){
+// 	echo $conn->error;
+// }
 
 // define how many results you want per page
 
@@ -23,7 +23,7 @@ if(!$conn->query($sql)){
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 	<!-- site metas -->
-	<title>Admin</title>
+	<title>Sailed List</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
@@ -136,7 +136,7 @@ if(!$conn->query($sql)){
 						//$sdate = $_GET['search'];
 						
 				// 		$search_sql = "SELECT * FROM `cash_payment_pharm` WHERE `date` = '$today' UNION ALL SELECT * FROM `system_payment_pharm` WHERE `date` = '$today'";
-				$search_sql = "SELECT * FROM `pharmacy_sale` WHERE `date` = '$today'";
+				$search_sql = "SELECT DISTINCT * FROM `pharmacy_sale` WHERE `date` = '$today' ORDER BY `name` ASC";
 						$rs = $conn->query($search_sql);
 						echo "
 									<table class='table'>
@@ -145,6 +145,7 @@ if(!$conn->query($sql)){
                                     <th>Name</th>
                                     <th>Type</th>
                                     <th>Amount</th>
+                                    <th>Payment</th>
                                     <th>Date</th>
                                 </thead>
 									</thead>
@@ -156,6 +157,7 @@ if(!$conn->query($sql)){
 							$type = $row['type'];
 							$price = $row['price'];
 							$amount = $row['quan'];
+							$payment = $row['payment'];
 							$sub = $row['sub_price'];
 							$date = $row['date'];
 							if($amount == 0){
@@ -169,6 +171,7 @@ if(!$conn->query($sql)){
 														<td data-label='Name'>$name</td>
 														<td data-label='Type'>$type</td>
 														<td data-label='amount'>$amount</td>
+														<td data-label='amount'>$payment</td>
 														<td data-label='Exp Date'><span class='rmv'>$date <a href='./selled_list.php?rm=$id'>$rmv</a></span></td>
 
 														
