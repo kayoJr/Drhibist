@@ -62,6 +62,10 @@ require '../../backend/auth.php';
         .table-head td {
             text-transform: capitalize;
         }
+        .result-box h2{
+            text-transform: capitalize;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 
@@ -240,7 +244,15 @@ require '../../backend/auth.php';
             'weil': 'Weil Felix',
             'gravity': 'Specific Gravity',
             'ep_cells': 'Epithelial Cells',
-            'indian': 'Indian INK'
+            'indian': 'Indian INK',
+            'hpylori_ab': 'H Pylori Ab',
+            'hbs': 'HBS',
+            'hcv': 'HCV',
+            'tsh': 'TSH',
+            'crp': 'CRP',
+            'fbs': 'FBS',
+            'rpr': 'RPR',
+            'hpylori_ag': 'H Pylori Stool Ag',
         }
         let tableName = {
             'cbc': 'Hematology',
@@ -253,7 +265,18 @@ require '../../backend/auth.php';
             'gram': 'Gram Stain',
             'liver': 'Liver Viral Test',
             'weil': 'Weil Felix',
-            'uric': 'Uric Acid'
+            'uric': 'Uric Acid',
+            'hylori_ag': 'Hpylori_Ag',
+            'esr': 'ESR',
+            'rft': 'RFT',
+            'tft': 'TFT',
+            'vdrl': 'VDRL',
+            'rpr': 'RPR',
+            'fbs': 'FBS',
+            'afb': 'AFB',
+            'csf': 'CSF',
+            'crp': 'CRP',
+            'urine': 'Urinalysis'
         }
         let units = {
             'crp': 'N.g/ml (mg/L)',
@@ -310,7 +333,7 @@ require '../../backend/auth.php';
                                 <th>Result</th>
                                 </thead>
                                 ${Object.keys(resultsObject)
-                                    .filter(key => !['id', 'date', 'table_name', 'patient_id'].includes(key))
+                                    .filter(key => !['id', 'date', 'table_name', 'patient_id', 'petn_id'].includes(key))
                                     .map(key =>
                                     `
                                     <thead class='table-head'>
@@ -328,7 +351,7 @@ require '../../backend/auth.php';
 
                             const html = `
                         <div class="result-box" id='result_box'>
-                            <h3 class="text-center" id="result_name">${(tableName[table] == undefined) ? table : tableName[table]} Result</h3>
+                            <h2 class="text-center" id="result_name">${(tableName[table] == undefined) ? table : tableName[table]} Result</h2>
                             ${ul}
                         </div>
                     `;
