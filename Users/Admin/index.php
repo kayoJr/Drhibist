@@ -102,7 +102,7 @@ require '../../backend/db.php';
 								</div>
 							</form>
 							<div class="boxes">
-								<div class="box">
+								<!-- <div class="box">
 									<?php
 									$today = date("Y-m-d");
 									if (isset($_GET['search_income'])) {
@@ -115,19 +115,12 @@ require '../../backend/db.php';
 										$rs = $conn->query($sql);
 										$row = $rs->fetch_assoc();
 										$sys_sum = $row['value_sum'];
-								// 		if (!$sys_sum > 0) {
-								// 			$sys_sum = 0;
-								// 		}
+							
 
 									$sql = "SELECT SUM(sub_price) AS value_sum_cash FROM `cash_payment_pharm` WHERE `date` = '$today'";
 									$rs = $conn->query($sql);
 									$row = $rs->fetch_assoc();
 									$cash_sum = $row['value_sum_cash'];
-									// 	if (!$cash_sum > 0) {
-									// 		$cash_sum = 0;
-									// 	}
-
-									//$tot_sum = $sys_sum + $cash_sum;
 									$tot_sum = $cash_sum + $sys_sum;
 									?>
 									<h4>Pharmacy (<?php echo $today; ?>)</h4>
@@ -152,7 +145,7 @@ require '../../backend/db.php';
 											<h3><?php echo $tot_sum; ?></h3>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<div class="box">
 									<h4>Reception (<?php echo $today; ?>)</h4>
 									<?php
@@ -346,7 +339,9 @@ require '../../backend/db.php';
 									<div class="sells">
 										<?php
 
-										$total_gen = $tot_sum  + $rec_cash_sum +
+										// $total_gen = $tot_sum  + $rec_cash_sum +
+										// 	$lab_cash_sum + $total_procedure;
+										$total_gen = $rec_cash_sum +
 											$lab_cash_sum + $total_procedure;
 										?>
 										<div class="center">
@@ -358,280 +353,13 @@ require '../../backend/db.php';
 							</div>
 
 						</div>
-						<div class="daily-report">
-							<h2 class="report">Daily Report</h4>
-								<div class="boxes">
-									<div class="box">
-										<h4>Reception</h4>
-										<form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search" class="btn btn-primary">
-											</div>
-										</form>
-										<?php
-										$today = date("Y-m-d");
-										if (isset($_GET['search'])) {
-											$today = $_GET['date'];
-
-											$sql = "SELECT SUM(payment) AS value_sum FROM `patient` WHERE `date` = '$today'";
-											$sql2 = "SELECT COUNT(payment) AS count_sum FROM `patient` WHERE `date` = '$today'";
-											$res = $conn->query($sql);
-											$res2 = $conn->query($sql2);
-											if ($res) {
-												while ($row = $res->fetch_assoc()) {
-													$sum = $row['value_sum'];
-												}
-												echo "
-												<h3>$sum ETB</h3>
-												";
-											}
-											if ($res2) {
-												while ($row = $res2->fetch_assoc()) {
-													$count = $row['count_sum'];
-												}
-												echo "
-												<h3>$count Patients Registered Today</h3>
-												";
-											}
-										}
-										?>
-									</div>
-									<div class="box">
-										<h4>Laboratory</h4>
-										<form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search" class="btn btn-primary">
-											</div>
-										</form>
-										<?php
-										$today = date("Y-m-d");
-										if (isset($_GET['search'])) {
-											$today = $_GET['date'];
-
-											$sql = "SELECT SUM(price) AS lab_sum FROM `income` WHERE `date` = '$today' AND `reason`= 'laboratory'";
-											$sql2 = "SELECT COUNT(price) AS count_lab FROM `income` WHERE `date` = '$today' AND `reason` = 'laboratory'";
-
-											$sql_ultra = "SELECT SUM(price) AS lab_sys FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'laboratory'";
-											$sql_ultra_count = "SELECT COUNT(price) AS lab_sys_count FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'laboratory'";
-
-											$res = $conn->query($sql);
-											$res_sys = $conn->query($sql_ultra);
-
-											$res2 = $conn->query($sql2);
-											$res2_sys = $conn->query($sql_ultra_count);
-											if ($res) {
-												while ($row = $res->fetch_assoc()) {
-													$sum_first = $row['lab_sum'];
-													// echo "
-													// <h3>$sum ETB</h3>
-													// ";
-													if ($res_sys) {
-														while ($row = $res->fetch_assoc()) {
-															$sum = $row['lab_sys'];
-														}
-														$sum_sec = $sum_first + $sum;
-														echo "
-														<h3>$sum_sec ETB</h3>
-														";
-													}
-												}
-											}
-											if ($res2) {
-												while ($row = $res2->fetch_assoc()) {
-													$sum = $row['count_lab'];
-													// echo "
-													// <h3>$sum ETB</h3>
-													// ";
-													if ($res2_sys) {
-														while ($row = $res2_sys->fetch_assoc()) {
-															$count = $row['lab_sys_count'];
-														}
-														$count = $count + $sum;
-													} else {
-														echo $conn->error;
-													}
-												}
-											} else {
-												echo $conn->error;
-											}
-										}
-										?>
-
-									</div>
-									<div class="box">
-										<h4>Pharmacy</h4>
-										<form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search" class="btn btn-primary">
-											</div>
-										</form>
-										<?php
-										$today = date("Y-m-d");
-										if (isset($_GET['search'])) {
-											$today = $_GET['date'];
-
-											$sql = "SELECT SUM(sub_price) AS value_sum FROM `pharma_daily_sell` WHERE `date` = '$today'";
-											$sql2 = "SELECT COUNT(id) AS count_sum FROM `pharma_daily_sell` WHERE `date` = '$today'";
-											$res = $conn->query($sql);
-											$res2 = $conn->query($sql2);
-											if ($res) {
-												while ($row = $res->fetch_assoc()) {
-													$sum = $row['value_sum'];
-												}
-												if ($sum == '') {
-													$sum = 0;
-												}
-												echo "
-												<h3>$sum ETB</h3>
-												";
-											}
-											if ($res2) {
-												while ($row = $res2->fetch_assoc()) {
-													$count = $row['count_sum'];
-												}
-											}
-										}
-
-										?>
-										<a class="btn btn-primary" href="selled_list.php?date=<?php echo $today ?>&search-date=Search">List</a>
-									</div>
-									<div class="box">
-										<h4>Ultrasound</h4>
-										<form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search" class="btn btn-primary">
-											</div>
-										</form>
-										<?php
-										$today = date("Y-m-d");
-										if (isset($_GET['search'])) {
-											$today = $_GET['date'];
-
-											$sql = "SELECT SUM(price) AS lab_sum FROM `income` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
-											$sql2 = "SELECT COUNT(price) AS count_lab FROM `income` WHERE `date` = '$today' AND `reason` = 'ultrasound'";
-
-											$sql_ultra = "SELECT SUM(price) AS lab_sys FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
-											$sql_ultra_count = "SELECT COUNT(price) AS lab_sys_count FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'ultrasound'";
-
-											$res = $conn->query($sql);
-											$res_sys = $conn->query($sql_ultra);
-
-											$res2 = $conn->query($sql2);
-											$res2_sys = $conn->query($sql_ultra_count);
-											if ($res) {
-												while ($row = $res->fetch_assoc()) {
-													$sum_first = $row['lab_sum'];
-													// echo "
-													// <h3>$sum ETB</h3>
-													// ";
-													if ($res_sys) {
-														while ($row = $res_sys->fetch_assoc()) {
-															$sum_ultra = $row['lab_sys'];
-															$sum_ultra_total = $sum_first + $sum_ultra;
-														}
-														echo "
-														<h3>$sum_ultra_total ETB</h3>
-														";
-													}
-												}
-											}
-											if ($res2) {
-												while ($row = $res2->fetch_assoc()) {
-													$sum = $row['count_lab'];
-													// echo "
-													// <h3>$sum ETB</h3>
-													// ";
-													if ($res2_sys) {
-														while ($row = $res2_sys->fetch_assoc()) {
-															$count = $row['lab_sys_count'];
-														}
-														$count = $count + $sum;
-													} else {
-														echo $conn->error;
-													}
-												}
-											} else {
-												echo $conn->error;
-											}
-										}
-										?>
-									</div>
-									<div class="box">
-										<h4>Admission</h4>
-										<form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search" class="btn btn-primary">
-											</div>
-										</form>
-										<?php
-										$today = date("Y-m-d");
-										if (isset($_GET['search'])) {
-											$today = $_GET['date'];
-
-											$adm_cash = "SELECT SUM(price) AS adm_cash FROM `income` WHERE `date` = '$today' AND `reason`= 'withdrawal'";
-											$adm_sys = "SELECT SUM(price) AS adm_sys FROM `system_payment` WHERE `date` = '$today' AND `reason`= 'withdrawal'";
-
-											$res = $conn->query($adm_cash);
-											$res_sys = $conn->query($adm_sys);
-
-											if ($res) {
-												while ($row = $res->fetch_assoc()) {
-													$sum_first = $row['adm_cash'];
-													// echo "
-													// <h3>$sum ETB</h3>
-													// ";
-													if ($res_sys) {
-														while ($row = $res_sys->fetch_assoc()) {
-															$sum_ultra = $row['adm_sys'];
-															$sum_ultra_total = $sum_first + $sum_ultra;
-														}
-														echo "
-														<h3>$sum_ultra_total ETB</h3>
-														";
-													}
-												}
-											}
-											if ($res2) {
-												while ($row = $res2->fetch_assoc()) {
-													$sum = $row['count_lab'];
-													// echo "
-													// <h3>$sum ETB</h3>
-													// ";
-													if ($res2_sys) {
-														while ($row = $res2_sys->fetch_assoc()) {
-															$count = $row['lab_sys_count'];
-														}
-														$count = $count + $sum;
-													} else {
-														echo $conn->error;
-													}
-												}
-											} else {
-												echo $conn->error;
-											}
-										}
-										?>
-										<a class="btn btn-primary" href="admission_list.php?date=<?php echo $today ?>&search-date=Search">List</a>
-
-									</div>
-								</div>
-						</div>
-						<div class="daily-report">
+						
+						<!-- <div class="daily-report">
 							<h2 class="report">Credit Report</h4>
 								<div class="boxes">
 									<div class="box">
 										<h4>Save The Children</h4>
-										<!-- <form action="index.php" method="GET">
-											<div class="form-elements">
-												<input type="date" name="date" id="date">
-												<input type="submit" value="Search" name="search_credit" class="btn btn-primary">
-											</div>
-										</form> -->
+										
 										<?php
 										$today = date("Y-m-d");
 
@@ -806,7 +534,7 @@ require '../../backend/db.php';
 
 
 								</div>
-						</div>
+						</div> -->
 						<div class="month-report daily-report">
 							<div class="report">
 								<h2>Month Report</h2>
@@ -926,7 +654,8 @@ require '../../backend/db.php';
 								$row = $res_ultra->fetch_assoc();
 								$sum_cash_ultra = $row['value_sum'];
 
-							    $total_month = $sum_rec + $sum_cash_ultra + $pharm_total + $lab_total + $sum_addm;
+							    // $total_month = $sum_rec + $sum_cash_ultra + $pharm_total + $lab_total + $sum_addm;
+							    $total_month = $sum_rec + $sum_cash_ultra + $lab_total + $sum_addm;
 							}
 							?>
 							
@@ -935,10 +664,10 @@ require '../../backend/db.php';
 									<h4>Reception</h4>
 									<h3><?php echo $sum_rec;?> ETB</h3>
 								</div>
-								<div class="box">
+								<!-- <div class="box">
 									<h4>Pharmacy</h4>
 									<h3><?php echo $pharm_total;?> ETB</h3>
-								</div>
+								</div> -->
 								<div class="box">
 									<h4>Laboratory</h4>
 									<h3><?php echo $lab_total;?> ETB</h3>

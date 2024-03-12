@@ -220,7 +220,8 @@ require '../../backend/db.php';
                                 $row = $res_ultra->fetch_assoc();
                                 $sum_cash_ultra = $row['value_sum'];
 
-                                $total_month = $sum_rec + $sum_cash_ultra + $pharm_total + $lab_total + $sum_addm;
+                                // $total_month = $sum_rec + $sum_cash_ultra + $pharm_total + $lab_total + $sum_addm;
+                                $total_month = $sum_rec + $sum_cash_ultra + $lab_total + $sum_addm;
                             } else {
                                 $sum_rec = 0;
                                 $sum_pharm = 0;
@@ -274,7 +275,8 @@ require '../../backend/db.php';
                                 $row = $res_ultra->fetch_assoc();
                                 $sum_cash_ultra = $row['value_sum'];
 
-                                $total_month = $sum_rec + $sum_cash_ultra + $pharm_total + $lab_total + $sum_addm;
+                                // $total_month = $sum_rec + $sum_cash_ultra + $pharm_total + $lab_total + $sum_addm;
+                                $total_month = $sum_rec + $sum_cash_ultra + $lab_total + $sum_addm;
                             }
                             ?>
                             <div class="boxes">
@@ -285,10 +287,10 @@ require '../../backend/db.php';
                                             <h3>Reception</h3>
                                             <h3><?php echo $sum_rec; ?></h3>
                                         </div>
-                                        <div>
+                                        <!-- <div>
                                             <h3>Pharmacy</h3>
                                             <h3><?php echo $pharm_total; ?> ETB</h3>
-                                        </div>
+                                        </div> -->
                                         <div>
                                             <h3>Laboratory</h3>
                                             <h3><?php echo $lab_total; ?> ETB</h3>
@@ -373,22 +375,6 @@ require '../../backend/db.php';
                                     }
                                 }
 
-
-    //                             $totalPayment_addm = 0;
-    //                             $sql = "SELECT SUM(tot_amount) AS tot_amount 
-    // FROM `admission_med` 
-    // WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year AND `payment` = '1'
-    // UNION ALL
-    // SELECT SUM(price) AS price 
-    // FROM admission_pay
-    // WHERE DAY(date) = $day AND MONTH(date) = $month AND YEAR(date) = $year
-    // ";
-    //                             $result = $conn->query($sql);
-    //                             if ($result->num_rows > 0) {
-    //                                 while ($row = $result->fetch_assoc()) {
-    //                                     $totalPayment_addm += $row["tot_amount"];
-    //                                 }
-    //                             }
     $totalPayment_addm = 0;
                                 $sql = "SELECT price 
     FROM income 
@@ -408,7 +394,7 @@ require '../../backend/db.php';
                                 $totalPayments_rec[$day] = $totalPayment_rec;
                                 $totalPayments_lab[$day] = $totalPayment_lab;
                                 $totalPayments_ultra[$day] = $totalPayment_ultra;
-                                $totalPayments_pharm[$day] = $totalPayment_pharm;
+                                // $totalPayments_pharm[$day] = $totalPayment_pharm;
                                 $totalPayments_addm[$day] = $totalPayment_addm;
                             }
 
@@ -419,7 +405,6 @@ require '../../backend/db.php';
 <th>Reception</th>
 <th>Lab</th>
 <th>Ultrasound</th>
-<th>Pharmacy</th>
 <th>Admission</th>
 <th>Total</th>
 </tr>";
@@ -428,14 +413,12 @@ require '../../backend/db.php';
                                 $total = $totalPayments_lab[$day]
                                     + $totalPayment_rec
                                     + $totalPayments_ultra[$day]
-                                    + $totalPayments_pharm[$day]
                                     + $totalPayments_addm[$day];
                                 echo "<tr>
             <td>$day</td>
             <td>$totalPayment_rec</td>
             <td>$totalPayments_lab[$day]</td>
             <td>$totalPayments_ultra[$day]</td>
-            <td>$totalPayments_pharm[$day]</td>
             <td>$totalPayments_addm[$day]</td>
             <td>" . $total . "</td>
         </tr>";

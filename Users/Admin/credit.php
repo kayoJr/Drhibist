@@ -93,7 +93,7 @@ require '../../backend/db.php';
 						<div class="credit">
                         <?php
 								$phone = $_SESSION['user'];
-								$sql = "SELECT * FROM `credit` WHERE `status` = 1";
+								$sql = "SELECT * FROM `credit` WHERE `status` = 1 ORDER BY `date` DESC";
 								$res = $conn->query($sql);
 								echo "
 								<table class='table'>

@@ -27,14 +27,14 @@
         <a href="monthReport.php"><i class="fa-solid fa-calendar"></i>
             <span>Month Report</span></a>
     </li>
-    <li>
+    <!-- <li>
         <a href="pharmacy.php"><i class="fa-solid fa-prescription-bottle-medical"></i>
             <span>Pharmacy</span></a>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
         <a href="return.php"><i class="fa-solid fa-rotate-left"></i>
             <span>Return Pharm</span></a>
-    </li>
+    </li> -->
     <li>
         <a href="return_other.php"><i class="fa-solid fa-rotate-left"></i>
             <span>Return Others</span></a>

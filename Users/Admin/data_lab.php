@@ -2,8 +2,8 @@
 	class DbConnection {
 		private $host = 'localhost';
 		private $dbName = 'drhibistpedriati_drhibist';
-		private $user = 'drhibistpedriati_root';
-		private $pass = '8T75YLCACKWe5Ep';
+		private $user = 'root';
+		private $pass = '';
 
 		public function connect() {
 			try {
