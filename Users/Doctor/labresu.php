@@ -62,7 +62,8 @@ require '../../backend/auth.php';
         .table-head td {
             text-transform: capitalize;
         }
-        .result-box h2{
+
+        .result-box h2 {
             text-transform: capitalize;
             margin-bottom: 1rem;
         }
@@ -309,7 +310,6 @@ require '../../backend/auth.php';
             .then(data => {
                 // const container = document.getElementById('lab_result');
                 container.innerHtml = '';
-
                 // Check if data is an object
                 if (typeof data === 'object' && data !== null) {
                     // Loop through the data object
@@ -319,27 +319,28 @@ require '../../backend/auth.php';
                             const resultsObject = data[table];
                             // Generate HTML for the results
                             container.innerHtml = '';
-                            let ul;
+                            let ul = '';
                             if (table == 'cbc') {
                                 const image = resultsObject['filename'];
                                 ul = `
                                 <img src='../../img/Screenshots/${image}'>
                             `
-                            } else {
-                                ul =
-                                    `<table class='table mt-0'>
+                            } else if (resultsObject.length > 0) {
+                                Array.from(resultsObject).forEach((moreData) => {
+                                    ul +=
+                                        `<table class='table mt-0'>
                                 <thead>
                                 <th>Test</th>
                                 <th>Result</th>
                                 </thead>
-                                ${Object.keys(resultsObject)
-                                    .filter(key => !['id', 'date', 'table_name', 'patient_id', 'petn_id'].includes(key))
+                                ${Object.keys(moreData)
+                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id'].includes(key))
                                     .map(key =>
                                     `
                                     <thead class='table-head'>
                                 
                                         <th>${(columns[key] == undefined) ? key : columns[key]}</th>
-                                        <td>${resultsObject[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
+                                        <td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
                                         </thead>
                                     
                                 `,
@@ -347,7 +348,31 @@ require '../../backend/auth.php';
                                 }
                                     </table>
                            `
+                                })
                             }
+                                else {
+                                    ul =
+                                        `<table class='table mt-0'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                    ${Object.keys(resultsObject)
+                                        .filter(key => !['id', 'date', 'table_name', 'patient_id', 'petn_id'].includes(key))
+                                        .map(key =>
+                                        `
+                                        <thead class='table-head'>
+
+                                            <th>${(columns[key] == undefined) ? key : columns[key]}</th>
+                                            <td>${resultsObject[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
+                                            </thead>
+
+                                    `,
+                                    )
+                                    }
+                                        </table>
+                               `
+                                }
 
                             const html = `
                         <div class="result-box" id='result_box'>
