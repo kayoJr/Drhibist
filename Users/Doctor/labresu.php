@@ -321,10 +321,14 @@ require '../../backend/auth.php';
                             container.innerHtml = '';
                             let ul = '';
                             if (table == 'cbc') {
-                                const image = resultsObject['filename'];
-                                ul = `
-                                <img src='../../img/Screenshots/${image}'>
-                            `
+                                let image;
+                                Array.from(resultsObject).forEach((img) => {
+                                    // console.log(img['filename']);
+                                    const image = img['filename'];
+                                    ul += `
+                                    <img src='../../img/Screenshots/${image}'>
+                                `
+                                })
                             } else if (resultsObject.length > 0) {
                                 Array.from(resultsObject).forEach((moreData) => {
                                     ul +=
@@ -349,10 +353,9 @@ require '../../backend/auth.php';
                                     </table>
                            `
                                 })
-                            }
-                                else {
-                                    ul =
-                                        `<table class='table mt-0'>
+                            } else {
+                                ul =
+                                    `<table class='table mt-0'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Result</th>
@@ -372,7 +375,7 @@ require '../../backend/auth.php';
                                     }
                                         </table>
                                `
-                                }
+                            }
 
                             const html = `
                         <div class="result-box" id='result_box'>
