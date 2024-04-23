@@ -277,7 +277,8 @@ require '../../backend/auth.php';
             'afb': 'AFB',
             'csf': 'CSF',
             'crp': 'CRP',
-            'urine': 'Urinalysis'
+            'urine': 'Urinalysis',
+            'pict': 'PICT'
         }
         let units = {
             'crp': 'N.g/ml (mg/L)',
