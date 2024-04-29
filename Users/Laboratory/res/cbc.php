@@ -108,20 +108,60 @@ require '../../../backend/auth.php';
                             <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
                         </div>
                         <div class="titel">
-                        <h2 class="center">HEMATOLOGY RESULT</h2>
-                        <?php
-                        $id = $_GET['id'];
-                        ?>
-                        <form method="POST" action="../../../backend/upload.php" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <input class="form-control" type="file" name="uploadfile" value="" required/>
-                                <input type="hidden" name="pat_id" value="<?php echo $id ?>">
-                             </div>
-                            <div class="form-group">
-                             
-				            <button class="btn " type="submit" name="upload">UPLOAD</button>
-			            </div>
-		                </form>
+                            <h2 class="center">HEMATOLOGY RESULT</h2>
+                            <?php
+                            $id = $_GET['id'];
+                            $date = date("Y-m-d");
+                            ?>
+                            <form method="POST" action="../../../backend/upload.php" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input class="form-control" type="file" name="uploadfile" value="" required />
+                                    <input type="hidden" name="pat_id" value="<?php echo $id ?>">
+                                </div>
+                                <div class="form-group d-flex">
+                                    <input class="btn btn-primary" type="submit" name="upload" value="UPLOAD" />
+                                </div>
+
+                            </form>
+
+                            <?php
+                            // Query for data
+                            $sql = $conn->query("SELECT * FROM `cbc` WHERE `patient_id` ='$id' AND `date` = '$date'");
+
+                            // Fetch column names
+                            $columns = array();
+                            while ($column = $sql->fetch_field()) {
+                                $columns[] = $column->name;
+                            }
+
+                            // Fetch data rows
+                            $data = array();
+                            while ($row = $sql->fetch_assoc()) {
+                                $data[] = $row;
+                            }
+
+                            // Display results in vertical HTML format
+                            if (sizeof($data) > 0) {
+
+                                echo '<table class="table">';
+                                foreach ($columns as $column) {
+                                    echo '<tr>';
+                                    echo '<th>' . $column . '</th>';
+                                    foreach ($data as $row) {
+                                        echo '<td>' . $row[$column] . '</td>';
+                                    }
+                                    echo '</tr>';
+                                }
+                                echo '</table>';
+                            ?>
+                                <div class="form-group">
+                                    <a class="btn btn-primary w-100 text-white" href="../../../backend/upload.php?id=<?php echo $id; ?>" type="submit" name="uploaded">UPLOADED<a />
+                                </div>
+                            <?php
+                            }
+
+                            ?>
+
                         </div>
                     </div>
                 </div>

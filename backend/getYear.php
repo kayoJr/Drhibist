@@ -4,6 +4,8 @@ $id = $_GET['id'];
 // $id = 1500;
 $fetchYear = $conn->query(
    "SELECT DISTINCT `date` AS year FROM `cmc_ps`WHERE `patient_id`='$id'
+   UNION
+   SELECT DISTINCT `date` AS year FROM `cbc`WHERE `patient_id`='$id'
         UNION
      SELECT DISTINCT `date` AS year FROM `afb_sputum`  WHERE `patient_id`='$id'
         UNION
