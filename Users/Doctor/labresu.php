@@ -257,6 +257,7 @@ require '../../backend/auth.php';
         }
         let tableName = {
             'cbc': 'Hematology',
+            'cbc_new': 'Hematology',
             'bf': 'Blood Film',
             'bg': 'Blood Group',
             'let': 'Liver Enzymatic Test',
@@ -302,6 +303,25 @@ require '../../backend/auth.php';
             't3': 'UL',
             't4': 'NL',
             'tsh': 'NL',
+            'WBC': 'x 10^9/L',
+            'LYM#': 'x 10^9/L',
+            'MID#': 'x 10^9/L',
+            'GRA#': 'x 10^9/L',
+            'PLT': 'x 10^9/L',
+            'RBC': 'x 10^12/L',
+            'LYM%': '%',
+            'MID%': '%',
+            'GRA%': '%',
+            'HCT': '%',
+            'RDW-CV': '%',
+            'PCT': '%',
+            'MPV': 'fL',
+            'RDW-SD': 'fL',
+            'MCV': 'fL',
+            'HGB': 'g/dL',
+            'MCHC': 'g/dL',
+            'MCH': 'pg',
+
         }
         const dateCont = document.getElementById("dateCont");
         dateCont.innerText = date
@@ -339,7 +359,7 @@ require '../../backend/auth.php';
                                 <th>Result</th>
                                 </thead>
                                 ${Object.keys(moreData)
-                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id'].includes(key))
+                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                     .map(key =>
                                     `
                                     <thead class='table-head'>

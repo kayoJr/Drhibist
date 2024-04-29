@@ -8,6 +8,7 @@ $date = $_GET['year'];
 
 $table_results = array();
 $cbc = $conn->query("SELECT *, 'cmc_ps' AS table_name FROM `cmc_ps` WHERE `patient_id`= '$id' AND `date` = '$date'");
+$cbc_new = $conn->query("SELECT *, 'cbc' AS table_name FROM `cbc` WHERE `patient_id`= '$id' AND `date` = '$date'");
 $afb = $conn->query("SELECT *, 'afb_sputum' AS table_name FROM `afb_sputum` WHERE `patient_id`='$id' AND `date` = '$date'");
 $crp = $conn->query("SELECT *, 'crp' AS table_name FROM `crp` WHERE `patient_id`='$id' AND `date` = '$date'");
 $bf = $conn->query("SELECT *, 'bf' AS table_name FROM `bf` WHERE `patient_id`='$id' AND `date` = '$date'");
@@ -51,6 +52,13 @@ if (!empty($cbc)) {
     while($row = $cbc->fetch_assoc()){
         $rows[] = $row;
         $table_results['cbc'] = $rows;
+    }
+}
+if (!empty($cbc_new)) {
+    $rows = array();
+    while($row = $cbc_new->fetch_assoc()){
+        $rows[] = $row;
+        $table_results['cbc_new'] = $rows;
     }
 }
 // if (!empty($afb)) {
