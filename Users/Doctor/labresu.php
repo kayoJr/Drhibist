@@ -254,6 +254,8 @@ require '../../backend/auth.php';
             'fbs': 'FBS',
             'rpr': 'RPR',
             'hpylori_ag': 'H Pylori Stool Ag',
+            'pict': 'PICT',
+            'vdrl': 'VDRL',
         }
         let tableName = {
             'cbc': 'Hematology',

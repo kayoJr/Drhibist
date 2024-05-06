@@ -1,0 +1,56 @@
+ if (table == 'cbc') {
+                                let image;
+                                Array.from(resultsObject).forEach((img) => {
+                                    // console.log(img['filename']);
+                                    const image = img['filename'];
+                                    ul += `
+                                    <img src='../../img/Screenshots/${image}'>
+                                `
+                                })
+                            } else if (resultsObject.length > 0) {
+                                Array.from(resultsObject).forEach((moreData) => {
+                                    ul +=
+                                        `<table class='table mt-0'>
+                                <thead>
+                                <th>Test</th>
+                                <th>Result</th>
+                                </thead>
+                                ${Object.keys(moreData)
+                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                    .map(key =>
+                                    `
+                                    <thead class='table-head'>
+                                
+                                        <th>${(columns[key] == undefined) ? key : columns[key]}</th>
+                                        <td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
+                                        </thead>
+                                    
+                                `,
+                                )
+                                }
+                                    </table>
+                           `
+                                })
+                            } else {
+                                ul =
+                                    `<table class='table mt-0'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                    ${Object.keys(resultsObject)
+                                        .filter(key => !['id', 'date', 'table_name', 'patient_id', 'petn_id'].includes(key))
+                                        .map(key =>
+                                        `
+                                        <thead class='table-head'>
+
+                                            <th>${(columns[key] == undefined) ? key : columns[key]}</th>
+                                            <td>${resultsObject[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
+                                            </thead>
+
+                                    `,
+                                    )
+                                    }
+                                        </table>
+                               `
+                            }
