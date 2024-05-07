@@ -61,12 +61,19 @@ if (!empty($cbc_new)) {
         $table_results['cbc_new'] = $rows;
     }
 }
+// $table_results['hematology'] = $hematology = [
+//     "hematology" =>[
+//         "cbc" =>$cbc_rows,
+//         "cbc_new" =>$cbc_new_rows
+//     ]
+//     ];
+
 // if (!empty($afb)) {
 //     $table_results['afb'] = $afb;
 // }
 if (!empty($afb)) {
     $rows = array();
-    while($row = $afb->fetch_assoc()){
+    while ($row = $afb->fetch_assoc()) {
         $rows[] = $row;
         $table_results['afb'] = $rows;
     }
@@ -76,7 +83,7 @@ if (!empty($afb)) {
 // }
 if (!empty($crp)) {
     $rows = array();
-    while($row = $crp->fetch_assoc()){
+    while ($row = $crp->fetch_assoc()) {
         $rows[] = $row;
         $table_results['crp'] = $rows;
     }
@@ -86,7 +93,7 @@ if (!empty($crp)) {
 // }
 if (!empty($bf)) {
     $rows = array();
-    while($row = $bf->fetch_assoc()){
+    while ($row = $bf->fetch_assoc()) {
         $rows[] = $row;
         $table_results['bf'] = $rows;
     }
@@ -96,7 +103,7 @@ if (!empty($bf)) {
 // }
 if (!empty($bg)) {
     $rows = array();
-    while($row = $bg->fetch_assoc()){
+    while ($row = $bg->fetch_assoc()) {
         $rows[] = $row;
         $table_results['bg'] = $rows;
     }
@@ -106,7 +113,7 @@ if (!empty($bg)) {
 // }
 if (!empty($fbs)) {
     $rows = array();
-    while($row = $fbs->fetch_assoc()){
+    while ($row = $fbs->fetch_assoc()) {
         $rows[] = $row;
         $table_results['fbs'] = $rows;
     }
@@ -116,7 +123,7 @@ if (!empty($fbs)) {
 // }
 if (!empty($coag)) {
     $rows = array();
-    while($row = $coag->fetch_assoc()){
+    while ($row = $coag->fetch_assoc()) {
         $rows[] = $row;
         $table_results['coag'] = $rows;
     }
@@ -126,7 +133,7 @@ if (!empty($coag)) {
 // }
 if (!empty($gram)) {
     $rows = array();
-    while($row = $gram->fetch_assoc()){
+    while ($row = $gram->fetch_assoc()) {
         $rows[] = $row;
         $table_results['gram'] = $rows;
     }
@@ -136,7 +143,7 @@ if (!empty($gram)) {
 // }
 if (!empty($hpylori)) {
     $rows = array();
-    while($row = $hpylori->fetch_assoc()){
+    while ($row = $hpylori->fetch_assoc()) {
         $rows[] = $row;
         $table_results['hpylori'] = $rows;
     }
@@ -146,7 +153,7 @@ if (!empty($hpylori)) {
 // }
 if (!empty($hpylori_ag)) {
     $rows = array();
-    while($row = $hpylori_ag->fetch_assoc()){
+    while ($row = $hpylori_ag->fetch_assoc()) {
         $rows[] = $row;
         $table_results['hpylori_ag'] = $rows;
     }
@@ -156,7 +163,7 @@ if (!empty($hpylori_ag)) {
 // }
 if (!empty($let)) {
     $rows = array();
-    while($row = $let->fetch_assoc()){
+    while ($row = $let->fetch_assoc()) {
         $rows[] = $row;
         $table_results['let'] = $rows;
     }
@@ -166,7 +173,7 @@ if (!empty($let)) {
 // }
 if (!empty($lft)) {
     $rows = array();
-    while($row = $lft->fetch_assoc()){
+    while ($row = $lft->fetch_assoc()) {
         $rows[] = $row;
         $table_results['lft'] = $rows;
     }
@@ -176,7 +183,7 @@ if (!empty($lft)) {
 // }
 if (!empty($se)) {
     $rows = array();
-    while($row = $se->fetch_assoc()){
+    while ($row = $se->fetch_assoc()) {
         $rows[] = $row;
         $table_results['se'] = $rows;
     }
@@ -186,7 +193,7 @@ if (!empty($se)) {
 // }
 if (!empty($liver)) {
     $rows = array();
-    while($row = $liver->fetch_assoc()){
+    while ($row = $liver->fetch_assoc()) {
         $rows[] = $row;
         $table_results['liver'] = $rows;
     }
@@ -196,7 +203,7 @@ if (!empty($liver)) {
 // }
 if (!empty($stool)) {
     $rows = array();
-    while($row = $stool->fetch_assoc()){
+    while ($row = $stool->fetch_assoc()) {
         $rows[] = $row;
         $table_results['stool'] = $rows;
     }
@@ -206,7 +213,7 @@ if (!empty($stool)) {
 // }
 if (!empty($urine)) {
     $rows = array();
-    while($row = $urine->fetch_assoc()){
+    while ($row = $urine->fetch_assoc()) {
         $rows[] = $row;
         $table_results['urine'] = $rows;
     }
@@ -216,7 +223,7 @@ if (!empty($urine)) {
 // }
 if (!empty($esr)) {
     $rows = array();
-    while($row = $esr->fetch_assoc()){
+    while ($row = $esr->fetch_assoc()) {
         $rows[] = $row;
         $table_results['esr'] = $rows;
     }
@@ -226,7 +233,7 @@ if (!empty($esr)) {
 // }
 if (!empty($pict)) {
     $rows = array();
-    while($row = $pict->fetch_assoc()){
+    while ($row = $pict->fetch_assoc()) {
         $rows[] = $row;
         $table_results['pict'] = $rows;
     }
@@ -236,7 +243,7 @@ if (!empty($pict)) {
 // }
 if (!empty($rft)) {
     $rows = array();
-    while($row = $rft->fetch_assoc()){
+    while ($row = $rft->fetch_assoc()) {
         $rows[] = $row;
         $table_results['rft'] = $rows;
     }
@@ -246,7 +253,7 @@ if (!empty($rft)) {
 // }
 if (!empty($rpr)) {
     $rows = array();
-    while($row = $rpr->fetch_assoc()){
+    while ($row = $rpr->fetch_assoc()) {
         $rows[] = $row;
         $table_results['rpr'] = $rows;
     }
@@ -256,7 +263,7 @@ if (!empty($rpr)) {
 // }
 if (!empty($tft)) {
     $rows = array();
-    while($row = $tft->fetch_assoc()){
+    while ($row = $tft->fetch_assoc()) {
         $rows[] = $row;
         $table_results['tft'] = $rows;
     }
@@ -266,7 +273,7 @@ if (!empty($tft)) {
 // }
 if (!empty($uric)) {
     $rows = array();
-    while($row = $uric->fetch_assoc()){
+    while ($row = $uric->fetch_assoc()) {
         $rows[] = $row;
         $table_results['uric'] = $rows;
     }
@@ -276,7 +283,7 @@ if (!empty($uric)) {
 // }
 if (!empty($vdrl)) {
     $rows = array();
-    while($row = $vdrl->fetch_assoc()){
+    while ($row = $vdrl->fetch_assoc()) {
         $rows[] = $row;
         $table_results['vdrl'] = $rows;
     }
@@ -286,7 +293,7 @@ if (!empty($vdrl)) {
 // }
 if (!empty($weil)) {
     $rows = array();
-    while($row = $weil->fetch_assoc()){
+    while ($row = $weil->fetch_assoc()) {
         $rows[] = $row;
         $table_results['weil'] = $rows;
     }
@@ -296,7 +303,7 @@ if (!empty($weil)) {
 // }
 if (!empty($widalh)) {
     $rows = array();
-    while($row = $widalh->fetch_assoc()){
+    while ($row = $widalh->fetch_assoc()) {
         $rows[] = $row;
         $table_results['widalh'] = $rows;
     }
@@ -306,7 +313,7 @@ if (!empty($widalh)) {
 // }
 if (!empty($csf)) {
     $rows = array();
-    while($row = $csf->fetch_assoc()){
+    while ($row = $csf->fetch_assoc()) {
         $rows[] = $row;
         $table_results['csf'] = $rows;
     }
@@ -316,7 +323,7 @@ if (!empty($csf)) {
 // }
 if (!empty($widalo)) {
     $rows = array();
-    while($row = $widalo->fetch_assoc()){
+    while ($row = $widalo->fetch_assoc()) {
         $rows[] = $row;
         $table_results['widalo'] = $rows;
     }

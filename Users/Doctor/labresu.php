@@ -157,7 +157,7 @@ require '../../backend/auth.php';
                             <p id="dateCont"></p>
                         </div>
 
-                        <div class="lab_result row mt-4" id="lab_result">
+                        <div class=" row mt-4" id="lab_result">
 
                         </div>
                     </div>
@@ -331,89 +331,106 @@ require '../../backend/auth.php';
         fetch(`${url}/getLabResult.php?id=${id}&year=${date}`)
             .then(response => response.json())
             .then(data => {
-                // const container = document.getElementById('lab_result');
-                container.innerHtml = '';
+                const container = document.getElementById('lab_result');
+                container.innerHTML = ''; // Clear previous content
                 // Check if data is an object
                 if (typeof data === 'object' && data !== null) {
+                    // Object to store already created accordion content
+                    const accordionContent = {};
                     // Loop through the data object
                     for (const table in data) {
-                        if (Object.prototype.hasOwnProperty.call(data, table)) { // Check if property is an own property
+                        if (Object.prototype.hasOwnProperty.call(data, table)) {
                             // Get results object for the current table
                             const resultsObject = data[table];
+                            // Check if accordion with same group name exists
+                            if (!accordionContent[table]) {
+                                accordionContent[table] = ''; // Initialize accordion content
+                            }
                             // Generate HTML for the results
-                            container.innerHtml = '';
                             let ul = '';
                             if (table == 'cbc') {
                                 let image;
                                 Array.from(resultsObject).forEach((img) => {
-                                    // console.log(img['filename']);
+                                    console.log(img['filename']);
                                     const image = img['filename'];
-                                    ul += `
-                                    <img src='../../img/Screenshots/${image}'>
-                                `
+                                    accordionContent[table] += `<tr>
+                                        <td><img class='w-50' src='../../img/Screenshots/${image}'></td>
+                            </tr>`;
+                                    //     accordionContent[table] += `
+                                    //     <img src='../../img/Screenshots/${image}'>
+                                    // `
                                 })
                             } else if (resultsObject.length > 0) {
                                 Array.from(resultsObject).forEach((moreData) => {
-                                    ul +=
-                                        `<table class='table mt-0'>
-                                <thead>
-                                <th>Test</th>
-                                <th>Result</th>
-                                </thead>
+                                    // Append content to existing accordion
+                                    accordionContent[table] +=
+                                        `<tr>
                                 ${Object.keys(moreData)
                                     .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                     .map(key =>
-                                    `
-                                    <thead class='table-head'>
-                                
-                                        <th>${(columns[key] == undefined) ? key : columns[key]}</th>
-                                        <td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
-                                        </thead>
-                                    
-                                `,
-                                )
-                                }
-                                    </table>
-                           `
-                                })
+                                        `<td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>`
+                                    ).join('')}
+                            </tr>`;
+                                });
                             } else {
-                                ul =
-                                    `<table class='table mt-0'>
-                                    <thead>
-                                    <th>Test</th>
-                                    <th>Result</th>
-                                    </thead>
-                                    ${Object.keys(resultsObject)
-                                        .filter(key => !['id', 'date', 'table_name', 'patient_id', 'petn_id'].includes(key))
-                                        .map(key =>
-                                        `
-                                        <thead class='table-head'>
-
-                                            <th>${(columns[key] == undefined) ? key : columns[key]}</th>
-                                            <td>${resultsObject[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
-                                            </thead>
-
-                                    `,
-                                    )
-                                    }
-                                        </table>
-                               `
+                                Array.from(resultsObject).forEach((moreData) => {
+                                    // Append content to existing accordion
+                                    accordionContent[table] +=
+                                        `<tr>
+                                ${Object.keys(moreData)
+                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                    .map(key =>
+                                        `<td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>`
+                                    ).join('')}
+                            </tr>`;
+                                });
                             }
-
-                            const html = `
-                        <div class="result-box" id='result_box'>
-                            <h2 class="text-center" id="result_name">${(tableName[table] == undefined) ? table : tableName[table]} Result</h2>
-                            ${ul}
+                            // if (resultsObject.length > 0) {
+                            //     Array.from(resultsObject).forEach((moreData) => {
+                            //         // Append content to existing accordion
+                            //         accordionContent[table] +=
+                            //             `<tr>
+                            //                 ${Object.keys(moreData)
+                            //                     .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                            //                     .map(key =>
+                            //                         `<td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>`
+                            //                     ).join('')}
+                            //             </tr>`;
+                            //     });
+                            // }
+                            // Create accordion for the current table
+                            container.innerHTML +=
+                                `<div class="accordion-item bg-transparent w-full">
+                        <h2 class="accordion-header" id="heading${table}">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${table}" aria-expanded="true" aria-controls="collapse${table}">
+                                ${(tableName[table] == undefined) ? table : tableName[table]} Result
+                            </button>
+                        </h2>
+                        <div id="collapse${table}" class="accordion-collapse collapse show" aria-labelledby="heading${table}" data-bs-parent="#lab_result">
+                            <div class="accordion-body custom-grid">
+                                <table class='table mt-0'>
+                                    <thead>
+                                        <tr>
+                                            ${Object.keys(resultsObject[0])
+                                                .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                                .map(key =>
+                                                    `<th>${(columns[key] == undefined) ? key : columns[key]}</th>`
+                                                ).join('')}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${accordionContent[table]}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    `;
-                            // Append the HTML to the container
-                            container.innerHTML += html;
+                    </div>`;
                         }
                     }
-                } else {
-                    console.error('Invalid data format:', data);
                 }
             })
+
+
             .catch(error => console.log(error))
     }
 
