@@ -401,7 +401,7 @@ require '../../backend/auth.php';
                             // Create accordion for the current table
                             container.innerHTML +=
                                 `<div class="accordion-item bg-transparent w-full">
-                        <h2 class="accordion-header" id="heading${table}">
+                        <h2 class="accordion-header w-25 mx-auto" id="heading${table}">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${table}" aria-expanded="true" aria-controls="collapse${table}">
                                 ${(tableName[table] == undefined) ? table : tableName[table]} Result
                             </button>
