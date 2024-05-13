@@ -1286,6 +1286,8 @@ form {
 	.lab-footer,
 	.lab-footer *,
 	.cigna_results,
+	.print_lab_result,
+	.print_lab_result *,
 	.cigna_results * {
 		display: none;
 	}
@@ -1304,6 +1306,8 @@ form {
 	#withdrawal *,
 	.lab_result,
 	.lab_result *,
+	.print_lab_result,
+	.print_lab_result *,
 	.ultra_result,
 	.ultra_result *,
 	.detail,

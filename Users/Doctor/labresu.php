@@ -34,26 +34,33 @@ require '../../backend/auth.php';
             display: none !important;
         }
 
-        .lab_result {
+        .print_lab_result {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
         }
 
-        .lab_result .result-box {
+        .print_lab_result .result-box {
             width: 100%;
             height: 100%;
         }
 
-        /* .lab_result .result-box ul li{
+        /* .print_lab_result .result-box ul li{
             display: flex;
             align-items: center;
             justify-content: space-between;
         } */
-        .lab_result img {
+        .print_lab_result img {
             width: 100%;
         }
-
+        .print_lab_result table{
+            width: 50%;
+        }
+        .print_lab_result table td,
+        .print_lab_result table th{
+            font-size: 16px;
+            padding: 0;
+        }
         .table-head th {
             background-color: transparent !important;
         }
@@ -157,7 +164,10 @@ require '../../backend/auth.php';
                             <p id="dateCont"></p>
                         </div>
 
-                        <div class=" row mt-4" id="lab_result">
+                        <div class="print_lab_result row mt-4" id="print_lab_result">
+
+                        </div>
+                        <div class="row mt-4" id="lab_result">
 
                         </div>
                     </div>
@@ -226,9 +236,11 @@ require '../../backend/auth.php';
                     selectedYear = new Date().getFullYear();
                     yearDropDown.value = selectedYear
                 }
-                const container = document.getElementById('lab_result');
+                const container = document.getElementById('print_lab_result');
                 container.innerHtml = '';
                 fetchResults(selectedYear, id)
+                printLabs(selectedYear, id)
+
             })
             .catch(error => console.log(error))
     }
@@ -406,7 +418,7 @@ require '../../backend/auth.php';
                                 ${(tableName[table] == undefined) ? table : tableName[table]} Result
                             </button>
                         </h2>
-                        <div id="collapse${table}" class="accordion-collapse collapse show" aria-labelledby="heading${table}" data-bs-parent="#lab_result">
+                        <div id="collapse${table}" class="accordion-collapse collapse show" aria-labelledby="heading${table}" data-bs-parent="#print_lab_result">
                             <div class="accordion-body custom-grid">
                                 <table class='table mt-0'>
                                     <thead>
@@ -438,7 +450,205 @@ require '../../backend/auth.php';
         const id = document.getElementById("pat_id").value;
         const date = document.getElementById("selectDate").value;
         const container = document.getElementById('lab_result');
+        const container2 = document.getElementById('print_lab_result');
         container.innerHTML = '';
+        container2.innerHTML = '';
         fetchResults(date, id)
+        printLabs(date, id)
+    }
+
+
+
+    function printLabs(date, id) {
+        let columns = {
+            'bf': 'Blood Film',
+            'bg': 'Blood Group',
+            'bt': 'Bilirubin_T',
+            'bd': 'Bilirubin_D',
+            'alk_phos': 'alk_phosphatase',
+            's_g': 'Specific Gravity',
+            'l_e': 'Leukocyte Esterase',
+            'weil': 'Weil Felix',
+            'gravity': 'Specific Gravity',
+            'ep_cells': 'Epithelial Cells',
+            'indian': 'Indian INK',
+            'hpylori_ab': 'H Pylori Ab',
+            'hbs': 'HBS',
+            'hcv': 'HCV',
+            'tsh': 'TSH',
+            'crp': 'CRP',
+            'fbs': 'FBS',
+            'rpr': 'RPR',
+            'hpylori_ag': 'H Pylori Stool Ag',
+            'pict': 'PICT',
+            'vdrl': 'VDRL',
+        }
+        let tableName = {
+            'cbc': 'Hematology',
+            'cbc_new': 'Hematology',
+            'bf': 'Blood Film',
+            'bg': 'Blood Group',
+            'let': 'Liver Enzymatic Test',
+            'lft': 'Liver Function Test',
+            'se': 'Serum Electrolyte',
+            'coag': 'Coagulation',
+            'gram': 'Gram Stain',
+            'liver': 'Liver Viral Test',
+            'weil': 'Weil Felix',
+            'uric': 'Uric Acid',
+            'hylori_ag': 'Hpylori_Ag',
+            'esr': 'ESR',
+            'rft': 'RFT',
+            'tft': 'TFT',
+            'vdrl': 'VDRL',
+            'rpr': 'RPR',
+            'fbs': 'FBS',
+            'afb': 'AFB',
+            'csf': 'CSF',
+            'crp': 'CRP',
+            'urine': 'Urinalysis',
+            'pict': 'PICT'
+        }
+        let units = {
+            'crp': 'N.g/ml (mg/L)',
+            'sgot': '1U/L',
+            'sgpt': '1U/L',
+            'alk_phos': '1U/L',
+            'fbs': 'mg/dl',
+            'bt': 'md/dl',
+            'bd': 'md/dl',
+            'albumin': 'md/dl',
+            'Sodium': 'mmol/dl',
+            'Potassium': 'mmol/dl',
+            'Calsium': 'mmol/dl',
+            'Others': 'mmol/dl',
+            'PT': 'second',
+            'PTT': 'second',
+            'INR': 'second',
+            'ESR': 'mm/hr',
+            'bun': 'mg/dl',
+            'creatinine': 'mg/dl',
+            't3': 'UL',
+            't4': 'NL',
+            'tsh': 'NL',
+            'WBC': 'x 10^9/L',
+            'LYM#': 'x 10^9/L',
+            'MID#': 'x 10^9/L',
+            'GRA#': 'x 10^9/L',
+            'PLT': 'x 10^9/L',
+            'RBC': 'x 10^12/L',
+            'LYM%': '%',
+            'MID%': '%',
+            'GRA%': '%',
+            'HCT': '%',
+            'RDW-CV': '%',
+            'PCT': '%',
+            'MPV': 'fL',
+            'RDW-SD': 'fL',
+            'MCV': 'fL',
+            'HGB': 'g/dL',
+            'MCHC': 'g/dL',
+            'MCH': 'pg',
+
+        }
+        const dateCont = document.getElementById("dateCont");
+        dateCont.innerText = date
+        const container = document.getElementById('print_lab_result');
+        fetch(`${url}/getLabResult.php?id=${id}&year=${date}`)
+            .then(response => response.json())
+            .then(data => {
+                // const container = document.getElementById('print_lab_result');
+                container.innerHtml = '';
+                // Check if data is an object
+                if (typeof data === 'object' && data !== null) {
+                    // Loop through the data object
+                    for (const table in data) {
+                        if (Object.prototype.hasOwnProperty.call(data, table)) { // Check if property is an own property
+                            // Get results object for the current table
+                            const resultsObject = data[table];
+                            // Generate HTML for the results
+                            container.innerHtml = '';
+                            let ul = '';
+                            if (table == 'cbc') {
+                                let image;
+                                Array.from(resultsObject).forEach((img) => {
+                                    // console.log(img['filename']);
+                                    const image = img['filename'];
+                                    ul += `
+                                    <img src='../../img/Screenshots/${image}'>
+                                `
+                                })
+                            } else if (resultsObject.length > 0) {
+                                Array.from(resultsObject).forEach((moreData) => {
+                                    ul +=
+                                        `<table class='table mt-0'>
+                                <thead>
+                                <th>Test</th>
+                                <th>Result</th>
+                                </thead>
+                                ${Object.keys(moreData)
+                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                    .map(key =>
+                                    `
+                                    <thead class='table-head'>
+                                
+                                        <th>${(columns[key] == undefined) ? key : columns[key]}</th>
+                                        <td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
+                                        </thead>
+                                    
+                                `,
+                                )
+                                }
+                                    </table>
+                           `
+                                })
+                            } else {
+                                ul =
+                                    `<table class='table mt-0'>
+                                    <thead>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    </thead>
+                                    ${Object.keys(resultsObject)
+                                        .filter(key => !['id', 'date', 'table_name', 'patient_id', 'petn_id'].includes(key))
+                                        .map(key =>
+                                        `
+                                        <thead class='table-head'>
+
+                                            <th>${(columns[key] == undefined) ? key : columns[key]}</th>
+                                            <td>${resultsObject[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
+                                            </thead>
+
+                                    `,
+                                    )
+                                    }
+                                        </table>
+                               `
+                            }
+
+                            const html = `
+                        <div class="result-box" id='result_box'>
+                            <h2 class="text-center" id="result_name">${(tableName[table] == undefined) ? table : tableName[table]} Result</h2>
+                            ${ul}
+                        </div>
+                    `;
+                            // Append the HTML to the container
+                            container.innerHTML += html;
+                        }
+                    }
+                } else {
+                    console.error('Invalid data format:', data);
+                }
+            })
+            .catch(error => console.log(error))
+    }
+
+    function printLab() {
+        const id = document.getElementById("pat_id").value;
+        const date = document.getElementById("selectDate").value;
+        const container = document.getElementById('print_lab_result');
+        container.innerHTML = '';
+        console.log(date);
+        printLabs(date, id)
     }
 </script>
