@@ -183,6 +183,7 @@ require '../../backend/db.php';
 										</div>
 									</div>
 								</div>
+								<a href="./labDetail.php?date=<?php echo $today; ?>">
 								<div class="box">
 									<h4>Laboratory (<?php echo $today; ?>)</h4>
 									<?php
@@ -217,6 +218,8 @@ require '../../backend/db.php';
 										</div>
 									</div>
 								</div>
+								</a>
+								<a href="./ultraDetail.php?date=<?php echo $today; ?>">
 								<div class="box">
 									<h4>Ultrasound (<?php echo $today; ?>)</h4>
 									<?php
@@ -248,6 +251,7 @@ require '../../backend/db.php';
 										</div>
 									</div>
 								</div>
+								</a>
 								<div class="box">
 									<h4>Credit Payment (<?php echo $today; ?>)</h4>
 									<?php
