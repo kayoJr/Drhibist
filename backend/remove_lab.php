@@ -1,7 +1,7 @@
 <?php
 require "db.php";
 $id = $_GET['id'];
-$table_name = $_GET['table_name'];
+$table_name = $_GET['table'];
 if($table_name == 'income'){
     $delete = $conn->query("DELETE FROM `income` WHERE `id` = '$id'");
 if($delete){
