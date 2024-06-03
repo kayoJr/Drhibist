@@ -61,10 +61,11 @@ if (isset($_POST['ultra_payment'])) {
         if (!$conn->query($sql)) {
             echo "error" . $conn->error;
         } else {
+            $idd = mysqli_insert_id($conn);
             $sql = "UPDATE `ultra_cart` SET `payment` = 1 WHERE `patient_id` = '$id'";
             if ($conn->query($sql)) {
                 if ($conn->query($sql)) {
-                    $queue = $conn->query("INSERT INTO `ultraqueue` (`name`, `phone`, `patient_id`) VALUES ('$name', '$phone', '$id')");
+                    $queue = $conn->query("INSERT INTO `ultraqueue` (`name`, `ultraId`, `phone`, `patient_id`) VALUES ('$name', $idd, '$phone', '$id')");
                     if ($queue) {
                         $sql = $conn->query("UPDATE `patient` SET `status`= 1 WHERE `id` = '$id'");
                         if ($sql) {
