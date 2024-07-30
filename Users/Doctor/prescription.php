@@ -118,7 +118,7 @@ $pat_id = $_GET['id'];
                         </div>
                         <!--<a href="./pharmaTest.php" class="btn btn-danger">TEST SERVER</a>-->
                         <div class="pharmacy">
-                            <form method="post" id="insert_form" class="presForm" action="../../backend/prescart.php">
+                            <form method="post" id="insert_form" class="presForm" action="../../backend/presCart.php">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="item_table">
                                         <tr class="mob_table">
@@ -233,7 +233,7 @@ $pat_id = $_GET['id'];
                                                 <div class="element">
                                                     <div class="d-flex align-items-center">
                                                         <?php
-                                                        echo "<a href='../../backend/remove_prescart.php?id=$cartId&user=$phone_user&pat_id=$pat_id'><b>X</b></a>";
+                                                        echo "<a href='../../backend/remove_presCart.php?id=$cartId&user=$phone_user&pat_id=$pat_id'><b>X</b></a>";
                                                         echo  "<h4 class='my-0'>" . $row['name']  . "</h4>";
                                                         ?>
                                                     </div>
