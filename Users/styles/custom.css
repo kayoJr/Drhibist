@@ -661,6 +661,17 @@ form .search-form input[type=submit] {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
+.pharmacy .presForm {
+  max-width: 100% !important;
+  margin-right: 1rem;
+  overflow-y: visible !important;
+}
+.pharmacy .presForm .table-responsive {
+  overflow: visible !important;
+}
+.pharmacy .presForm .table-responsive table tbody tr .medName:first-child {
+  width: 60% !important;
+}
 .pharmacy form {
   overflow-y: visible;
   margin: 0;
@@ -787,6 +798,12 @@ form .search-form input[type=submit] {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.presPaper {
+  max-width: 80%;
+  position: relative;
+  z-index: 1000;
 }
 
 .now {

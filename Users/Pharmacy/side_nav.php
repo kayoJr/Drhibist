@@ -11,6 +11,10 @@
         <a href="selled_list.php"><i class="fa-solid fa-address-card"></i>
             <span>Selled List</span></a>
     </li>
+    <li class="active">
+        <a href="prescription.php"><i class="fa-solid fa-address-card"></i>
+            <span>Prescription</span></a>
+    </li>
     <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>

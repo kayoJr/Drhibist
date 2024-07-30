@@ -296,7 +296,7 @@ require '../../backend/auth.php';
 								</div>
 
 								<div class="details-page mt-0" id="lab_result">
-
+									
 								</div>
 
 								<div class="action">
@@ -306,6 +306,7 @@ require '../../backend/auth.php';
 									<?php echo "<a class='btn btn-primary'href='lab_req.php?id=$pat_id'>Lab Request</a>" ?>
 									<?php echo "<a class='btn btn-primary'href='ultrareq.php?id=$pat_id'>Ultrasound Request</a>" ?>
 									<?php echo "<a class='btn btn-primary'href='ultraresu.php?id=$pat_id'>Ultrasound Result</a>" ?>
+									<?php echo "<a class='btn btn-primary'href='prescription.php?id=$pat_id'>Prescription</a>" ?>
 									<!-- <button class="btn btn-primary" id="btn-radio">
 									Ultrasound
 								</button> -->

@@ -186,7 +186,19 @@ form {
 	margin: 2rem auto;
 	display: grid;
 	grid-template-columns: 3fr 1fr;
-
+	.presForm {
+		max-width: 100% !important;
+		margin-right: 1rem;
+		overflow-y: visible !important;
+		.table-responsive {
+			overflow: visible !important;
+			table {
+				tbody tr .medName:first-child {
+					width: 60% !important;
+				}
+			}
+		}
+	}
 	form {
 		overflow-y: visible;
 		margin: 0;
@@ -348,6 +360,14 @@ form {
 		}
 	}
 }
+
+//prescription paper
+.presPaper{
+	max-width: 80%;
+	position: relative;
+	z-index: 1000;
+}
+
 
 .now {
 	background-color: $purple;
