@@ -139,7 +139,7 @@ require '../../backend/auth.php';
                                         <th>Type</th>
                                         <th>Dosage</th>
                                         <th>Route</th>
-                                        <th>Dose Per Day</th>
+                                        <th>Frequency</th>
                                         <th>Duration</th>
                                         <th>Amount</th>
                                         <th>Note</th>

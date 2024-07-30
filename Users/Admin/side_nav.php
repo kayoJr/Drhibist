@@ -44,6 +44,10 @@
             <span>Credit</span></a>
     </li>
     <li>
+        <a href="prescription.php"><i class="fa-solid fa-notes-medical"></i>
+            <span>Prescription</span></a>
+    </li>
+    <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>
     </li>

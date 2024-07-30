@@ -118,7 +118,7 @@ $pat_id = $_GET['id'];
                         </div>
                         <!--<a href="./pharmaTest.php" class="btn btn-danger">TEST SERVER</a>-->
                         <div class="pharmacy">
-                            <form method="post" id="insert_form" class="presForm" action="../../backend/presCart.php">
+                            <form method="post" id="insert_form" class="presForm" action="../../backend/prescart.php">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="item_table">
                                         <tr class="mob_table">
@@ -157,7 +157,7 @@ $pat_id = $_GET['id'];
                                     <table class="table " id="item_table">
                                         <tr class="mob_table">
                                             <th>Route</th>
-                                            <th>Dose per Day</th>
+                                            <th>Frequency</th>
                                             <th>Duration</th>
                                             <th>amount</th>
                                         </tr>
@@ -176,7 +176,7 @@ $pat_id = $_GET['id'];
                                                 </td>
                                                 <td data-label="dosePerDay">
                                                     <select required name="dosePerDay" id="dosePerDay" name="name" class="form-control selectpicker" data-live-search="true">
-                                                        <option selected="" disabled="">Dose per Day</option>
+                                                        <option selected="" disabled="">Frequency</option>
                                                         <?php
                                                         $sql = $conn->query("SELECT * FROM `dosage`");
                                                         while ($row = mysqli_fetch_assoc($sql)) {
@@ -233,7 +233,7 @@ $pat_id = $_GET['id'];
                                                 <div class="element">
                                                     <div class="d-flex align-items-center">
                                                         <?php
-                                                        echo "<a href='../../backend/remove_presCart.php?id=$cartId&user=$phone_user&pat_id=$pat_id'><b>X</b></a>";
+                                                        echo "<a href='../../backend/remove_prescart.php?id=$cartId&user=$phone_user&pat_id=$pat_id'><b>X</b></a>";
                                                         echo  "<h4 class='my-0'>" . $row['name']  . "</h4>";
                                                         ?>
                                                     </div>
@@ -275,7 +275,7 @@ $pat_id = $_GET['id'];
                             <th>Type</th>
                             <th>Dosage</th>
                             <th>Route</th>
-                            <th>Dose Per Day</th>
+                            <th>Frequency</th>
                             <th>Duration</th>
                             <th>Amount</th>
                             <th>Note</th>
