@@ -53,14 +53,17 @@ require '../../backend/auth.php';
         .print_lab_result img {
             width: 100%;
         }
-        .print_lab_result table{
+
+        .print_lab_result table {
             width: 50%;
         }
+
         .print_lab_result table td,
-        .print_lab_result table th{
+        .print_lab_result table th {
             font-size: 16px;
             padding: 0;
         }
+
         .table-head th {
             background-color: transparent !important;
         }
@@ -263,11 +266,14 @@ require '../../backend/auth.php';
             'hcv': 'HCV',
             'tsh': 'TSH',
             'crp': 'CRP',
-            'fbs': 'FBS',
+            'fbs': 'FBS/RBS',
             'rpr': 'RPR',
+            'widalh': 'Widal H',
+            'widalo': 'Widal O',
             'hpylori_ag': 'H Pylori Stool Ag',
             'pict': 'PICT',
             'vdrl': 'VDRL',
+            'id': "Result Order"
         }
         let tableName = {
             'cbc': 'Hematology',
@@ -288,10 +294,12 @@ require '../../backend/auth.php';
             'tft': 'TFT',
             'vdrl': 'VDRL',
             'rpr': 'RPR',
-            'fbs': 'FBS',
+            'fbs': 'FBS/RBS',
             'afb': 'AFB',
             'csf': 'CSF',
             'crp': 'CRP',
+            'widalh': 'Widal H',
+            'widalo': 'Widal O',
             'urine': 'Urinalysis',
             'pict': 'PICT'
         }
@@ -363,10 +371,12 @@ require '../../backend/auth.php';
                             if (table == 'cbc') {
                                 let image;
                                 Array.from(resultsObject).forEach((img) => {
-                                    console.log(img['filename']);
+                                    console.log(img['date']);
                                     const image = img['filename'];
                                     accordionContent[table] += `<tr>
+                                    <td>${img['id']}</td>
                                         <td><img class='w-50' src='../../img/Screenshots/${image}'></td>
+                                        <td>${img['date']}</td>
                             </tr>`;
                                     //     accordionContent[table] += `
                                     //     <img src='../../img/Screenshots/${image}'>
@@ -378,7 +388,7 @@ require '../../backend/auth.php';
                                     accordionContent[table] +=
                                         `<tr>
                                 ${Object.keys(moreData)
-                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                    .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                     .map(key =>
                                         `<td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>`
                                     ).join('')}
@@ -390,7 +400,7 @@ require '../../backend/auth.php';
                                     accordionContent[table] +=
                                         `<tr>
                                 ${Object.keys(moreData)
-                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                    .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                     .map(key =>
                                         `<td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>`
                                     ).join('')}
@@ -424,7 +434,7 @@ require '../../backend/auth.php';
                                     <thead>
                                         <tr>
                                             ${Object.keys(resultsObject[0])
-                                                .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                                .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                                 .map(key =>
                                                     `<th>${(columns[key] == undefined) ? key : columns[key]}</th>`
                                                 ).join('')}
@@ -477,7 +487,7 @@ require '../../backend/auth.php';
             'hcv': 'HCV',
             'tsh': 'TSH',
             'crp': 'CRP',
-            'fbs': 'FBS',
+            'fbs': 'FBS/RBS',
             'rpr': 'RPR',
             'hpylori_ag': 'H Pylori Stool Ag',
             'pict': 'PICT',
@@ -502,7 +512,7 @@ require '../../backend/auth.php';
             'tft': 'TFT',
             'vdrl': 'VDRL',
             'rpr': 'RPR',
-            'fbs': 'FBS',
+            'fbs': 'FBS/RBS',
             'afb': 'AFB',
             'csf': 'CSF',
             'crp': 'CRP',

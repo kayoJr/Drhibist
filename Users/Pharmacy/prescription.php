@@ -1,17 +1,6 @@
 <?php
 require '../../backend/db.php';
 require '../../backend/auth.php';
-// $pat_id = $_GET['id'];
-// function clear_cart(){
-// 	require '../../backend/db.php';
-// 	$sql = "TRUNCATE TABLE `cart`";
-// 	$res = $conn->query($sql);
-// 	if($res){
-// 		header("Location:index.php");
-// 	}else{
-// 		echo mysqli_error($conn);
-// 	}
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -129,9 +118,7 @@ require '../../backend/auth.php';
                         if (isset($_GET['searching'])) {
                             $searchId = $_GET['search'];
                         ?>
-                            <select class="px-4 py-2 fs-5" name="selectDate" id="selectDate" onchange="fetchResult()">
 
-                            </select>
                             <div class="modal-body table-responsive">
                                 <table class="table table-bordered">
                                     <tr class="mob_table">
@@ -149,7 +136,7 @@ require '../../backend/auth.php';
 
                                         <?php
 
-                                        $sql = "SELECT * FROM `prescription` WHERE `pat_id` = '$searchId' AND `date` BETWEEN DATE_SUB(CURDATE(), INTERVAL 1 DAY) AND CURDATE() ORDER BY `date` DESC ";
+                                        $sql = "SELECT * FROM `prescription` WHERE `pat_id` = '$searchId' AND `date`= CURDATE() ORDER BY `date` DESC ";
                                         $rs = mysqli_query($conn, $sql);
                                         while ($row = mysqli_fetch_assoc($rs)) {
                                             $presId = $row['id'];
@@ -191,7 +178,10 @@ require '../../backend/auth.php';
                                 </table>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" disabled id="btnPrint" data-dismiss="modal">PRINT</button>
+                                <select class="px-4 py-2 mt-0 fs-5" name="selectDate" id="selectDate" onchange="fetchResult()">
+
+                                </select>
+                                <button type="button" class="btn btn-secondary my-0" id="printPage">VIEW</button>
                             </div>
                         <?php
                         }
@@ -232,45 +222,14 @@ require '../../backend/auth.php';
         fetchYears();
     })
     const url = "<?php echo $url; ?>"
-    $(document).ready(function() {
-        $("#authors").change(function() {
-            var aid = $("#authors").val();
-            $.ajax({
-                url: 'pharmData.php',
-                method: 'post',
-                data: 'aid=' + aid
-            }).done(function(books) {
-                console.log(aid);
-                console.log(books);
-                books = JSON.parse(books);
-                $('#books').empty();
-                books.forEach(function(book) {
-                    //$('#books').append('<option>Hello</option>')
-                    $('#books').val(book.type),
-                        $('#med_id').val(book.id)
-                })
-            })
-        })
-    })
-
-    document.getElementById("btnPrint").onclick = function() {
-        window.print();
-    }
+    // document.getElementById("btnPrint").onclick = function() {
+    //     window.print();
+    // }
     const feedback = document.getElementById("feedback");
     setTimeout(() => {
         feedback.style.display = "none";
     }, 3000)
 
-    const payment = document.getElementById('payment');
-    const credit = document.getElementById('credit');
-
-    payment.addEventListener('change', (e) => {
-        if (e.target.value == 'Credit') {
-            credit.classList.remove('d-none')
-        } else {
-            credit.classList.add('d-none')
-        }
-    })
 
     function fetchYears() {
         const id = document.getElementById("pat_id").value;
@@ -290,11 +249,17 @@ require '../../backend/auth.php';
                     yearDropDown.value = selectedYear
                 }
                 const container = document.getElementById('print_lab_result');
-                container.innerHtml = '';
-                fetchResults(selectedYear, id)
-                printLabs(selectedYear, id)
+                // container.innerHtml = '';
+                // fetchResults(selectedYear, id)
+                // printLabs(selectedYear, id)
 
             })
             .catch(error => console.log(error))
     }
+
+    document.getElementById('printPage').addEventListener('click', function() {
+        const id = document.getElementById("pat_id").value;
+        const selectedYear = document.getElementById('selectDate').value;
+        window.location.href = `printPrescription.php?year=${selectedYear}&id=${id}`;
+    });
 </script>

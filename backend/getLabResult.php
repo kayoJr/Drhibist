@@ -7,34 +7,34 @@ $date = $_GET['year'];
 // $date = '2023-02-20';
 
 $table_results = array();
-$cbc = $conn->query("SELECT *, 'cmc_ps' AS table_name FROM `cmc_ps` WHERE `patient_id`= '$id' AND `date` = '$date'");
-$cbc_new = $conn->query("SELECT *, 'cbc' AS table_name FROM `cbc` WHERE `patient_id`= '$id' AND `date` = '$date'");
-$afb = $conn->query("SELECT *, 'afb_sputum' AS table_name FROM `afb_sputum` WHERE `patient_id`='$id' AND `date` = '$date'");
-$crp = $conn->query("SELECT *, 'crp' AS table_name FROM `crp` WHERE `patient_id`='$id' AND `date` = '$date'");
-$bf = $conn->query("SELECT *, 'bf' AS table_name FROM `bf` WHERE `patient_id`='$id' AND `date` = '$date'");
-$bg = $conn->query("SELECT *, 'bg' AS table_name FROM `bg` WHERE `patient_id`='$id' AND `date` = '$date'");
-$fbs = $conn->query("SELECT *, 'fbs' AS table_name FROM `fbs` WHERE `patient_id`='$id' AND `date` = '$date'");
-$coag = $conn->query("SELECT *, 'coagulation' AS table_name FROM `coagulation` WHERE `patient_id`='$id' AND `date` = '$date'");
-$gram = $conn->query("SELECT *, 'gram_stain' AS table_name FROM `gram_stain` WHERE `patient_id`='$id' AND `date` = '$date'");
-$hpylori = $conn->query("SELECT *, 'hpylori' AS table_name FROM `hpylori` WHERE `patient_id`='$id' AND `date` = '$date'");
-$hpylori_ag = $conn->query("SELECT *, 'hylori_ag' AS table_name FROM `hylori_ag` WHERE `patient_id`='$id' AND `date` = '$date'");
-$let = $conn->query("SELECT *, 'let' AS table_name FROM `let` WHERE `patient_id`='$id' AND `date` = '$date'");
-$lft = $conn->query("SELECT *, 'lft' AS table_name FROM `lft` WHERE `patient_id`='$id' AND `date` = '$date'");
-$se = $conn->query("SELECT *, 's/e' AS table_name FROM `s/e` WHERE `patient_id`='$id' AND `date` = '$date'");
-$liver = $conn->query("SELECT *, 'liver_viral' AS table_name FROM `liver_viral` WHERE `patient_id`='$id' AND `date` = '$date'");
-$stool = $conn->query("SELECT *, 'stool' AS table_name FROM `stool` WHERE `petn_id`='$id' AND `date` = '$date'");
-$urine = $conn->query("SELECT *, 'urine' AS table_name FROM `urine` WHERE `patient_id`='$id' AND `date` = '$date'");
-$esr = $conn->query("SELECT *, 'esr' AS table_name FROM `esr` WHERE `patient_id`='$id' AND `date` = '$date'");
-$pict = $conn->query("SELECT *, 'pict' AS table_name FROM `pict` WHERE `patient_id`='$id' AND `date` = '$date'");
-$rft = $conn->query("SELECT *, 'rft' AS table_name FROM `rft` WHERE `patient_id`='$id' AND `date` = '$date'");
-$rpr = $conn->query("SELECT *, 'rpr' AS table_name FROM `rpr` WHERE `patient_id`='$id' AND `date` = '$date'");
-$tft = $conn->query("SELECT *, 'tft' AS table_name FROM `tft` WHERE `patient_id`='$id' AND `date` = '$date'");
-$uric = $conn->query("SELECT *, 'uric_acid' AS table_name FROM `uric_acid` WHERE `patient_id`='$id' AND `date` = '$date'");
-$vdrl = $conn->query("SELECT *, 'vdrl' AS table_name FROM `vdrl` WHERE `patient_id`='$id' AND `date` = '$date'");
-$weil = $conn->query("SELECT *, 'weil' AS table_name FROM `weil` WHERE `patient_id`='$id' AND `date` = '$date'");
-$widalh = $conn->query("SELECT *, 'widalh' AS table_name FROM `widalh` WHERE `patient_id`='$id' AND `date` = '$date'");
-$widalo = $conn->query("SELECT *, 'widalo' AS table_name FROM `widalo` WHERE `patient_id`='$id' AND `date` = '$date'");
-$csf = $conn->query("SELECT *, 'csf' AS table_name FROM `csf` WHERE `patient_id`='$id' AND `date` = '$date'");
+$cbc = $conn->query("SELECT *, 'cmc_ps' AS table_name FROM `cmc_ps` WHERE `patient_id`= '$id' AND `date` = '$date' ORDER BY `id` DESC");
+$cbc_new = $conn->query("SELECT *, 'cbc' AS table_name FROM `cbc` WHERE `patient_id`= '$id' AND `date` = '$date' ORDER BY `id` DESC");
+$afb = $conn->query("SELECT *, 'afb_sputum' AS table_name FROM `afb_sputum` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$crp = $conn->query("SELECT *, 'crp' AS table_name FROM `crp` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$bf = $conn->query("SELECT *, 'bf' AS table_name FROM `bf` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$bg = $conn->query("SELECT *, 'bg' AS table_name FROM `bg` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$fbs = $conn->query("SELECT *, 'fbs' AS table_name FROM `fbs` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$coag = $conn->query("SELECT *, 'coagulation' AS table_name FROM `coagulation` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$gram = $conn->query("SELECT *, 'gram_stain' AS table_name FROM `gram_stain` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$hpylori = $conn->query("SELECT *, 'hpylori' AS table_name FROM `hpylori` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$hpylori_ag = $conn->query("SELECT *, 'hylori_ag' AS table_name FROM `hylori_ag` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$let = $conn->query("SELECT *, 'let' AS table_name FROM `let` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$lft = $conn->query("SELECT *, 'lft' AS table_name FROM `lft` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$se = $conn->query("SELECT *, 's/e' AS table_name FROM `s/e` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$liver = $conn->query("SELECT *, 'liver_viral' AS table_name FROM `liver_viral` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$stool = $conn->query("SELECT *, 'stool' AS table_name FROM `stool` WHERE `petn_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$urine = $conn->query("SELECT *, 'urine' AS table_name FROM `urine` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$esr = $conn->query("SELECT *, 'esr' AS table_name FROM `esr` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$pict = $conn->query("SELECT *, 'pict' AS table_name FROM `pict` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$rft = $conn->query("SELECT *, 'rft' AS table_name FROM `rft` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$rpr = $conn->query("SELECT *, 'rpr' AS table_name FROM `rpr` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$tft = $conn->query("SELECT *, 'tft' AS table_name FROM `tft` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$uric = $conn->query("SELECT *, 'uric_acid' AS table_name FROM `uric_acid` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$vdrl = $conn->query("SELECT *, 'vdrl' AS table_name FROM `vdrl` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$weil = $conn->query("SELECT *, 'weil' AS table_name FROM `weil` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$widalh = $conn->query("SELECT *, 'widalh' AS table_name FROM `widalh` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$widalo = $conn->query("SELECT *, 'widalo' AS table_name FROM `widalo` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$csf = $conn->query("SELECT *, 'csf' AS table_name FROM `csf` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
 
 // $results = array_merge($cbc, $afb, $crp, $bf, $bg, 
 // $fbs, $coag, $gram, $hpylori, $let, $se, 
@@ -49,14 +49,14 @@ $csf = $conn->query("SELECT *, 'csf' AS table_name FROM `csf` WHERE `patient_id`
 // }
 if (!empty($cbc)) {
     $rows = array();
-    while($row = $cbc->fetch_assoc()){
+    while ($row = $cbc->fetch_assoc()) {
         $rows[] = $row;
         $table_results['cbc'] = $rows;
     }
 }
 if (!empty($cbc_new)) {
     $rows = array();
-    while($row = $cbc_new->fetch_assoc()){
+    while ($row = $cbc_new->fetch_assoc()) {
         $rows[] = $row;
         $table_results['cbc_new'] = $rows;
     }

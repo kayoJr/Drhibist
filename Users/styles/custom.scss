@@ -362,12 +362,11 @@ form {
 }
 
 //prescription paper
-.presPaper{
+.presPaper {
 	max-width: 80%;
 	position: relative;
 	z-index: 1000;
 }
-
 
 .now {
 	background-color: $purple;
@@ -1308,7 +1307,9 @@ form {
 	.cigna_results,
 	.print_lab_result,
 	.print_lab_result *,
-	.cigna_results * {
+	.cigna_results *,
+	.prescription-paper,
+	.prescription-paper * {
 		display: none;
 	}
 }
@@ -1319,7 +1320,10 @@ form {
 		visibility: hidden;
 		color: #000 !important;
 	}
-
+	.presTable,
+	.presTable * {
+		display: none !important;
+	}
 	.modal-content,
 	.modal-content *,
 	#withdrawal,
@@ -1344,7 +1348,9 @@ form {
 	.credit_detail,
 	.credit_detail *,
 	.cigna_result,
-	.cigna_result * {
+	.cigna_result *,
+	.prescription-paper,
+	.prescription-paper * {
 		color: #000 !important;
 		visibility: visible;
 
@@ -1403,7 +1409,6 @@ form {
 	.lab-header {
 		position: absolute;
 		top: 0;
-		left: 0;
 		width: 100%;
 		margin: 0 auto;
 	}
