@@ -1551,7 +1551,9 @@ form table select {
   .print_lab_result *,
   .cigna_results *,
   .prescription-paper,
-  .prescription-paper * {
+  .prescription-paper *,
+  .pres-header,
+  .pres-header * {
     display: none;
   }
 }
@@ -1589,9 +1591,7 @@ form table select {
   .credit_detail,
   .credit_detail *,
   .cigna_result,
-  .cigna_result *,
-  .prescription-paper,
-  .prescription-paper * {
+  .cigna_result * {
     color: #000 !important;
     visibility: visible;
   }
@@ -1619,9 +1619,7 @@ form table select {
   .credit_detail table,
   .credit_detail * table,
   .cigna_result table,
-  .cigna_result * table,
-  .prescription-paper table,
-  .prescription-paper * table {
+  .cigna_result * table {
     visibility: visible !important;
   }
   .modal-content table thead,
@@ -1673,11 +1671,7 @@ form table select {
   .cigna_result table thead,
   .cigna_result table th,
   .cigna_result * table thead,
-  .cigna_result * table th,
-  .prescription-paper table thead,
-  .prescription-paper table th,
-  .prescription-paper * table thead,
-  .prescription-paper * table th {
+  .cigna_result * table th {
     border: 2px solid #1b1b1b;
   }
   .modal-content table td,
@@ -1704,9 +1698,7 @@ form table select {
   .credit_detail table td,
   .credit_detail * table td,
   .cigna_result table td,
-  .cigna_result * table td,
-  .prescription-paper table td,
-  .prescription-paper * table td {
+  .cigna_result * table td {
     color: #000 !important;
     border: 2px solid #1b1b1b;
   }

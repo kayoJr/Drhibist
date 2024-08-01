@@ -49,12 +49,76 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
             display: none !important;
         }
 
-        /* .prescription-paper {
-            background-image: url('../../img/logo2.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            padding: 20px;
-        } */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0 auto;
+            }
+
+            .prescription-paper * {
+                visibility: visible;
+            }
+
+            .prescription-paper {
+                visibility: visible;
+                max-width: 50% !important;
+
+                input {
+                    text-transform: capitalize;
+                }
+
+                /* #prescriptionBody {
+                    margin: 2rem !important;
+                } */
+                table {
+                    margin: 1.5rem;
+                }
+
+                table thead tr th {
+                    text-align: center;
+                    padding: .5rem 0;
+                    border: none !important;
+                    font-weight: bold;
+                }
+
+                table tbody tr td {
+                    text-align: center;
+                    padding: .5rem 0;
+                    border: 1px solid #eee !important;
+                }
+
+                label,
+                placeholder,
+                table th {
+                    font-size: 1rem !important;
+                    font-weight: normal !important;
+                }
+
+                .pres-header {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 50% !important;
+
+                    img {
+                        width: 100% !important;
+                        overflow: hidden !important;
+                    }
+                }
+            }
+
+            .signature {
+                margin-top: 1.5rem;
+            }
+
+            label,
+            placeholder,
+            table th {
+                font-size: 1rem !important;
+                font-weight: normal !important;
+            }
+        }
+
         .form-control {
             border: none;
             border-bottom: 1px solid #ccc;
@@ -66,7 +130,7 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
         }
 
         .prescription-paper form {
-            max-width: 100%;
+            /* max-width: 100%; */
             background-color: transparent;
 
             .row {
@@ -225,26 +289,26 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                             </div>
                         </div>
 
-                        <div class="container prescription-paper">
+                        <div class="prescription-paper">
                             <form>
-                                <div class="lab-header mx-auto">
+                                <div class="pres-header mx-auto">
                                     <img src="../../img/lab_header.png" alt="">
                                 </div>
                                 <!-- title and date -->
-                                <div class="d-flex align-items-center justify-content-between mt-2 mb-5">
-                                    <h1 class="fs-1">Prescription Paper</h1>
+                                <div class="d-flex align-items-center justify-content-between mt-2">
+                                    <h1 class="fs-3">Prescription Paper</h1>
                                     <div class="d-flex">
                                         <label for="date" class="col-sm-2 col-form-label mr-2">Date:</label>
                                         <input type="text" class="form-control bg-transparent text-white" id="date" name="date" readonly>
                                     </div>
                                 </div>
                                 <!-- patient name -->
-                                <div class="d-flex my-2 mb-5">
+                                <div class="d-flex my-2">
                                     <label for="patientName" class="mr-2 text-nowrap">Patient's Name:</label>
                                     <input type="text" class="form-control bg-transparent text-white" id="patientName" name="patientName" readonly>
                                 </div>
                                 <!-- age sex and card number -->
-                                <div class="d-flex align-items-center justify-content-between mt-2 mb-5">
+                                <div class="d-flex align-items-center justify-content-between mt-2 mb-1">
                                     <div class="d-flex">
                                         <label for="age" class="text-nowrap">Age:</label>
                                         <input type="text" class="form-control bg-transparent text-white" id="age" name="age" readonly>
@@ -259,20 +323,22 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                                     </div>
                                 </div>
                                 <!-- inpatient or outpatient -->
-                                <div class="d-flex align-items-center justify-content-center gap-5 mt-2 mb-5">
+                                <div class="d-flex align-items-center justify-content-center gap-5">
                                     <div class="d-flex">
-                                        <label for="age" class="mr-3 text-nowrap">In Patient:</label>
+                                        <label for="age" class="mr-3 text-nowrap fs-4">In Patient:</label>
                                         <input type="radio" class="" name="pat_type" value="inpatient" <?php echo $isInPatientChecked; ?>>
                                     </div>
                                     <div class="d-flex">
-                                        <label for="age" class="mr-3 text-nowrap">Out Patient:</label>
+                                        <label for="age" class="mr-3 text-nowrap fs-4">Out Patient:</label>
                                         <input type="radio" class="" name="pat_type" value="outpatient" <?php echo $isOutPatientChecked; ?>>
                                     </div>
                                 </div>
-                                <table class="table table-bordered">
+                                <table class="">
                                     <thead>
                                         <tr>
-                                            <th>Treatment given (Drug name, strength, Dosage form, dose, and duration)</th>
+                                            <th class="fs-4">Drug Name</th>
+                                            <th class="fs-4">Route</th>
+                                            <th class="fs-4">Duration</th>
                                             <!-- <th>Price of each item (for dispenser use only)</th> -->
                                         </tr>
                                     </thead>
@@ -280,15 +346,15 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                                         <!-- Prescription rows will be populated here by PHP -->
                                     </tbody>
                                 </table>
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
+                                <div class="signature row w-80 flex align-items-center justify-content-between">
+                                    <div class="col-sm-5">
                                         <label>Prescriber's</label>
                                         <input type="text" class="form-control bg-transparent text-white" id="prescriberName" name="prescriberName" placeholder="Full name" readonly>
                                         <input type="text" class="form-control bg-transparent text-white" id="prescriberQualification" name="prescriberQualification" placeholder="Qualification" readonly>
                                         <input type="text" class="form-control bg-transparent text-white" id="prescriberRegNo" name="prescriberRegNo" placeholder="Registration" readonly>
                                         <input type="text" class="form-control bg-transparent text-white" id="prescriberSignature" name="prescriberSignature" placeholder="Signature" readonly>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-5">
                                         <label>Dispenser's</label>
                                         <input type="text" class="form-control bg-transparent text-white" id="dispenserName" name="dispenserName" placeholder="Full name" readonly>
                                         <input type="text" class="form-control bg-transparent text-white" id="dispenserQualification" name="dispenserQualification" placeholder="Qualification" readonly>
@@ -378,7 +444,9 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                 let newRow = document.createElement('tr');
                 newRow.dataset.presId = row.querySelector('.button').getAttribute('data-pres-id'); // Add presId to the new row
                 newRow.innerHTML = `
-            <td>${row.cells[0].textContent}, ${row.cells[1].textContent}, ${row.cells[2].textContent}, ${row.cells[3].textContent}, ${row.cells[4].textContent} , for ${row.cells[5].textContent}, ${row.cells[6].textContent}</td>
+            <td>${row.cells[0].textContent}</td>
+            <td>${row.cells[3].textContent}</td>
+            <td>${row.cells[5].textContent}</td>
         `;
                 prescriptionBody.appendChild(newRow);
             });

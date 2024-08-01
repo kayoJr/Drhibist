@@ -1309,7 +1309,9 @@ form {
 	.print_lab_result *,
 	.cigna_results *,
 	.prescription-paper,
-	.prescription-paper * {
+	.prescription-paper *,
+	.pres-header,
+	.pres-header *{
 		display: none;
 	}
 }
@@ -1348,9 +1350,7 @@ form {
 	.credit_detail,
 	.credit_detail *,
 	.cigna_result,
-	.cigna_result *,
-	.prescription-paper,
-	.prescription-paper * {
+	.cigna_result * {
 		color: #000 !important;
 		visibility: visible;
 

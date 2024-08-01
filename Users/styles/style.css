@@ -895,7 +895,7 @@ a[data-toggle="collapse"] {
 	transition: ease all 0.3s;
 	position: relative;
 	padding: 60px 25px 25px 250px;
-
+	overflow-x: scroll;
 }
 
 .page_title {
