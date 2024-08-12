@@ -34,6 +34,13 @@ require '../../backend/auth.php';
             display: none !important;
         }
 
+        @media print {
+            .ultraResult {
+                visibility: visible !important;
+                display:  block !important;
+            }
+        }
+
         .lab_result {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -159,7 +166,10 @@ require '../../backend/auth.php';
                             <p class="text-white fs-2"><?php echo $info_det['name']; ?></p>
                         </div>
 
-                        <div class="details-page mt-0 row mt-4" id="lab_result">
+                        <!-- <div class="details-page mt-0 row mt-4" id="lab_result">
+
+                        </div> -->
+                        <div class="row mt-4 ultraResult lab_result" id="lab_result">
 
                         </div>
                     </div>
@@ -241,9 +251,139 @@ require '../../backend/auth.php';
         fetch(`${url}/getUltraResult.php?id=${id}&year=${date}`)
             .then(response => response.json())
             .then(data => {
-                // const container = document.getElementById('lab_result');
-                container.innerHtml = '';
+                const container = document.getElementById('lab_result');
+                container.innerHTML = ''; // Clear previous content
+                // Check if data is an object
+                if (typeof data === 'object' && data !== null) {
+                    // Object to store already created accordion content
+                    const accordionContent = {};
+                    // Loop through the data object
+                    for (const table in data) {
+                        if (Object.prototype.hasOwnProperty.call(data, table)) {
+                            // Get results object for the current table
+                            const resultsObject = data[table];
+                            // Check if accordion with same group name exists
+                            if (!accordionContent[table]) {
+                                accordionContent[table] = ''; // Initialize accordion content
+                            }
+                            // Generate HTML for the results
+                            let ul = '';
+                            let rows = '';
+                            if (resultsObject.length > 0) {
+                                //     Array.from(resultsObject).forEach((moreData) => {
+                                //         // Append content to existing accordion
+                                //         accordionContent[table] +=
+                                //             `<tr>
+                                //     ${Object.keys(moreData)
+                                //         .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                //         .map(key =>
+                                //             `<td>${moreData[key]}}</td>`
+                                //         ).join('')}
+                                // </tr>`;
+                                //     });
+                                resultsObject.forEach(moreData => {
+                                    rows += `<table class='table mt-0'>
+                                            <thead>
+                                              
+                                            </thead>
+                                            <tbody>`;
 
+                                    Object.keys(moreData)
+                                        .filter(key => !['table_name', 'patient_id', 'petn_id', 'lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                        .forEach(key => {
+                                            rows += `<tr>
+                                                    <th>${key}</th>
+                                                    <td>${moreData[key]}</td>
+                                                 </tr>`;
+                                        });
+
+                                    rows += `</tbody></table><br/>`; // End of this specific table
+                                });
+                            } else {
+                                Array.from(resultsObject).forEach((moreData) => {
+                                    // Append content to existing accordion
+                                    accordionContent[table] +=
+                                        `<tr>
+                                ${Object.keys(moreData)
+                                    .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                    .map(key =>
+                                        `<td>${moreData[key]}}</td>`
+                                    ).join('')}
+                            </tr>`;
+                                });
+                            }
+                            // if (resultsObject.length > 0) {
+                            //     Array.from(resultsObject).forEach((moreData) => {
+                            //         // Append content to existing accordion
+                            //         accordionContent[table] +=
+                            //             `<tr>
+                            //                 ${Object.keys(moreData)
+                            //                     .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                            //                     .map(key =>
+                            //                         `<td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>`
+                            //                     ).join('')}
+                            //             </tr>`;
+                            //     });
+                            // }
+                            // Create accordion for the current table
+                            //         container.innerHTML +=
+                            //             `<div class="accordion-item bg-transparent w-full">
+                            //     <h2 class="accordion-header w-25 mx-auto" id="heading${table}">
+                            //         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${table}" aria-expanded="true" aria-controls="collapse${table}">
+                            //             ${table} Result
+                            //         </button>
+                            //     </h2>
+                            //     <div id="collapse${table}" class="accordion-collapse collapse show" aria-labelledby="heading${table}" data-bs-parent="#print_lab_result">
+                            //         <div class="accordion-body custom-grid">
+                            //             <table class='table mt-0'>
+                            //                 <thead>
+                            //                     <tr>
+                            //                         ${Object.keys(resultsObject[0])
+                            //                             .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                            //                             .map(key =>
+                            //                                 `<th>${key}</th>`
+                            //                             ).join('')}
+                            //                     </tr>
+                            //                 </thead>
+                            //                 <tbody>
+                            //                     ${accordionContent[table]}
+                            //                 </tbody>
+                            //             </table>
+                            //         </div>
+                            //     </div>
+                            // </div>`;
+                            container.innerHTML += `
+                            <div class="accordion-item bg-transparent w-full">
+                                <h2 class="accordion-header w-25 mx-auto" id="heading${table}">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${table}" aria-expanded="true" aria-controls="collapse${table}">
+                                        ${table} Result
+                                    </button>
+                                </h2>
+                                <div id="collapse${table}" class="accordion-collapse collapse show" aria-labelledby="heading${table}" data-bs-parent="#print_lab_result">
+                                    <div class="accordion-body custom-grid">
+                                        ${rows}
+                                    </div>
+                                </div>
+                            </div>`;
+                        }
+                    }
+                }
+            })
+
+
+            .catch(error => console.log(error))
+    }
+
+    function printLabs(date, id) {
+
+        const dateCont = document.getElementById("dateCont");
+        dateCont.innerText = date
+        const container = document.getElementById('print_lab_result');
+        fetch(`${url}/getLabResult.php?id=${id}&year=${date}`)
+            .then(response => response.json())
+            .then(data => {
+                // const container = document.getElementById('print_lab_result');
+                container.innerHtml = '';
                 // Check if data is an object
                 if (typeof data === 'object' && data !== null) {
                     // Loop through the data object
@@ -253,27 +393,23 @@ require '../../backend/auth.php';
                             const resultsObject = data[table];
                             // Generate HTML for the results
                             container.innerHtml = '';
-                            let ul;
-                            if (table == 'cbc') {
-                                const image = resultsObject['filename'];
-                                ul = `
-                                <img src='../../img/Screenshots/${image}'>
-                            `
-                            } else {
-                                ul =
-                                    `<table class='table mt-0'>
+                            let ul = '';
+                            if (resultsObject.length > 0) {
+                                Array.from(resultsObject).forEach((moreData) => {
+                                    ul +=
+                                        `<table class='table mt-0'>
                                 <thead>
                                 <th>Test</th>
                                 <th>Result</th>
                                 </thead>
-                                ${Object.keys(resultsObject)
-                                    .filter(key => !['id', 'date', 'table_name', 'patient_id'].includes(key))
+                                ${Object.keys(moreData)
+                                    .filter(key => !['id', 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                     .map(key =>
                                     `
                                     <thead class='table-head'>
                                 
-                                        <th>${key}</th>
-                                        <td>${resultsObject[key]}</td>
+                                        <th>${(columns[key] == undefined) ? key : columns[key]}</th>
+                                        <td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>
                                         </thead>
                                     
                                 `,
@@ -281,11 +417,12 @@ require '../../backend/auth.php';
                                 }
                                     </table>
                            `
+                                })
                             }
 
                             const html = `
                         <div class="result-box" id='result_box'>
-                            <h3 class="text-center" id="result_name">${table} Result</h3>
+                            <h2 class="text-center" id="result_name">${(tableName[table] == undefined) ? table : tableName[table]} Result</h2>
                             ${ul}
                         </div>
                     `;
@@ -298,6 +435,15 @@ require '../../backend/auth.php';
                 }
             })
             .catch(error => console.log(error))
+    }
+
+    function printLab() {
+        const id = document.getElementById("pat_id").value;
+        const date = document.getElementById("selectDate").value;
+        const container = document.getElementById('print_lab_result');
+        container.innerHTML = '';
+        console.log(date);
+        fetchResults(date, id)
     }
 
     function fetchResult() {

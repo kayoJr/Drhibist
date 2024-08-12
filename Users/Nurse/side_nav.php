@@ -20,6 +20,10 @@
         <a href="messages.php?status=1"><i class="fa-solid fa-message"></i>
             <span>Messages</span> <span class="unread <?php echo $hide; ?>"><?php echo $count; ?></span></a>
     </li>
+    <!-- <li class="active message_counter">
+        <a href="prescription.php?status=1"><i class="fa-solid fa-prescription"></i>
+            <span>Prescription</span></a>
+    </li> -->
     <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>

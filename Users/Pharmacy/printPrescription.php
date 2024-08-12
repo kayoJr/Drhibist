@@ -291,9 +291,13 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
 
                         <div class="prescription-paper">
                             <form>
-                                <div class="pres-header mx-auto">
-                                    <img src="../../img/lab_header.png" alt="">
-                                </div>
+                                <header>
+                                    <img src="../../img/pharmacyHeader.jpg" alt="">
+                                </header>
+
+                                <!-- <div class="pres-header mx-auto"> -->
+                                <!-- <img src="../../img/lab_header.png" alt=""> -->
+                                <!-- </div> -->
                                 <!-- title and date -->
                                 <div class="d-flex align-items-center justify-content-between mt-2">
                                     <h1 class="fs-3">Prescription Paper</h1>
@@ -303,65 +307,68 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                                     </div>
                                 </div>
                                 <!-- patient name -->
-                                <div class="d-flex my-2">
-                                    <label for="patientName" class="mr-2 text-nowrap">Patient's Name:</label>
-                                    <input type="text" class="form-control bg-transparent text-white" id="patientName" name="patientName" readonly>
+                                    <div class="d-flex">
+                                        <label for="patientName" class="mr-2 text-nowrap">Patient's Name:</label>
+                                        <input type="text" class="form-control bg-transparent text-white" id="patientName" name="patientName" readonly>
+                                    </div>
+                                    <!-- age sex and card number -->
+                                    <div class="d-flex align-items-center justify-content-between mt-2 mb-1">
+                                        <div class="d-flex">
+                                            <label for="age" class="text-nowrap">Age:</label>
+                                            <input type="text" class="form-control bg-transparent text-white" id="age" name="age" readonly>
+                                        </div>
+                                        <div class="d-flex">
+                                            <label for="age" class="text-nowrap">Sex:</label>
+                                            <input type="text" class="form-control bg-transparent text-white" id="sex" name="sex" readonly>
+                                        </div>
+                                        <div class="d-flex">
+                                            <label for="age" class="text-nowrap">Card No.:</label>
+                                            <input type="text" class="form-control bg-transparent text-white" id="cardNo" name="cardNo" readonly>
+                                        </div>
+                                    </div>
+                                    <!-- inpatient or outpatient -->
+                                    <div class="d-flex align-items-center justify-content-center gap-5">
+                                        <div class="d-flex">
+                                            <label for="age" class="mr-3 text-nowrap fs-4">In Patient:</label>
+                                            <input type="radio" class="" name="pat_type" value="inpatient" <?php echo $isInPatientChecked; ?>>
+                                        </div>
+                                        <div class="d-flex">
+                                            <label for="age" class="mr-3 text-nowrap fs-4">Out Patient:</label>
+                                            <input type="radio" class="" name="pat_type" value="outpatient" <?php echo $isOutPatientChecked; ?>>
+                                        </div>
+                                    </div>
+                                    <table class="">
+                                        <thead>
+                                            <tr>
+                                                <th>Treatment given (Drug name, strength, Dosage form, dose, and duration)</th>
+                                                <!-- <th>Price of each item (for dispenser use only)</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody id="prescriptionBody">
+                                            <!-- Prescription rows will be populated here by PHP -->
+                                        </tbody>
+                                    </table>
+                                    <div class="signature row w-80 flex align-items-center justify-content-between">
+                                        <div class="col-sm-5">
+                                            <label>Prescriber's</label>
+                                            <input type="text" class="form-control bg-transparent text-white" id="prescriberName" name="prescriberName" placeholder="Full name" readonly>
+                                            <input type="text" class="form-control bg-transparent text-white" id="prescriberQualification" name="prescriberQualification" placeholder="Qualification" readonly>
+                                            <input type="text" class="form-control bg-transparent text-white" id="prescriberRegNo" name="prescriberRegNo" placeholder="Registration" readonly>
+                                            <input type="text" class="form-control bg-transparent text-white" id="prescriberSignature" name="prescriberSignature" placeholder="Signature" readonly>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <label>Dispenser's</label>
+                                            <input type="text" class="form-control bg-transparent text-white" id="dispenserName" name="dispenserName" placeholder="Full name" readonly>
+                                            <input type="text" class="form-control bg-transparent text-white" id="dispenserQualification" name="dispenserQualification" placeholder="Qualification" readonly>
+                                            <input type="text" class="form-control bg-transparent text-white" id="dispenserRegNo" name="dispenserRegNo" placeholder="Registration" readonly>
+                                            <input type="text" class="form-control bg-transparent text-white" id="dispenserSignature" name="dispenserSignature" placeholder="Signature" readonly>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- age sex and card number -->
-                                <div class="d-flex align-items-center justify-content-between mt-2 mb-1">
-                                    <div class="d-flex">
-                                        <label for="age" class="text-nowrap">Age:</label>
-                                        <input type="text" class="form-control bg-transparent text-white" id="age" name="age" readonly>
-                                    </div>
-                                    <div class="d-flex">
-                                        <label for="age" class="text-nowrap">Sex:</label>
-                                        <input type="text" class="form-control bg-transparent text-white" id="sex" name="sex" readonly>
-                                    </div>
-                                    <div class="d-flex">
-                                        <label for="age" class="text-nowrap">Card No.:</label>
-                                        <input type="text" class="form-control bg-transparent text-white" id="cardNo" name="cardNo" readonly>
-                                    </div>
-                                </div>
-                                <!-- inpatient or outpatient -->
-                                <div class="d-flex align-items-center justify-content-center gap-5">
-                                    <div class="d-flex">
-                                        <label for="age" class="mr-3 text-nowrap fs-4">In Patient:</label>
-                                        <input type="radio" class="" name="pat_type" value="inpatient" <?php echo $isInPatientChecked; ?>>
-                                    </div>
-                                    <div class="d-flex">
-                                        <label for="age" class="mr-3 text-nowrap fs-4">Out Patient:</label>
-                                        <input type="radio" class="" name="pat_type" value="outpatient" <?php echo $isOutPatientChecked; ?>>
-                                    </div>
-                                </div>
-                                <table class="">
-                                    <thead>
-                                        <tr>
-                                            <th class="fs-4">Drug Name</th>
-                                            <th class="fs-4">Route</th>
-                                            <th class="fs-4">Duration</th>
-                                            <!-- <th>Price of each item (for dispenser use only)</th> -->
-                                        </tr>
-                                    </thead>
-                                    <tbody id="prescriptionBody">
-                                        <!-- Prescription rows will be populated here by PHP -->
-                                    </tbody>
-                                </table>
-                                <div class="signature row w-80 flex align-items-center justify-content-between">
-                                    <div class="col-sm-5">
-                                        <label>Prescriber's</label>
-                                        <input type="text" class="form-control bg-transparent text-white" id="prescriberName" name="prescriberName" placeholder="Full name" readonly>
-                                        <input type="text" class="form-control bg-transparent text-white" id="prescriberQualification" name="prescriberQualification" placeholder="Qualification" readonly>
-                                        <input type="text" class="form-control bg-transparent text-white" id="prescriberRegNo" name="prescriberRegNo" placeholder="Registration" readonly>
-                                        <input type="text" class="form-control bg-transparent text-white" id="prescriberSignature" name="prescriberSignature" placeholder="Signature" readonly>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <label>Dispenser's</label>
-                                        <input type="text" class="form-control bg-transparent text-white" id="dispenserName" name="dispenserName" placeholder="Full name" readonly>
-                                        <input type="text" class="form-control bg-transparent text-white" id="dispenserQualification" name="dispenserQualification" placeholder="Qualification" readonly>
-                                        <input type="text" class="form-control bg-transparent text-white" id="dispenserRegNo" name="dispenserRegNo" placeholder="Registration" readonly>
-                                        <input type="text" class="form-control bg-transparent text-white" id="dispenserSignature" name="dispenserSignature" placeholder="Signature" readonly>
-                                    </div>
-                                </div>
+
+                                <footer>
+                                    <img src="../../img/pharmacyFooter.jpg" alt="">
+                                </footer>
                             </form>
                         </div>
                     </div>
@@ -444,9 +451,13 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                 let newRow = document.createElement('tr');
                 newRow.dataset.presId = row.querySelector('.button').getAttribute('data-pres-id'); // Add presId to the new row
                 newRow.innerHTML = `
-            <td>${row.cells[0].textContent}</td>
-            <td>${row.cells[3].textContent}</td>
-            <td>${row.cells[5].textContent}</td>
+            <td>${row.cells[0].textContent} &nbsp; &nbsp; &nbsp;
+            ${row.cells[1].textContent} &nbsp; &nbsp;
+            ${row.cells[2].textContent} &nbsp; &nbsp;
+            ${row.cells[3].textContent} &nbsp; &nbsp;
+            ${row.cells[4].textContent} &nbsp; &nbsp;
+            ${row.cells[5].textContent} &nbsp; &nbsp;
+            ${row.cells[6].textContent} &nbsp; &nbsp;
         `;
                 prescriptionBody.appendChild(newRow);
             });

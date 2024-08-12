@@ -107,7 +107,8 @@ require '../../backend/auth.php';
 						</form>
 						<?php
 						if (isset($_GET['searching'])) {
-							$phone = $_GET['search'];
+                            $phone = $_GET['search'];
+                            echo "<a class='btn btn-primary my-0'href='prescription.php?id=$phone'>Prescription</a>";
 							$search_sql = "SELECT * FROM `patient` WHERE `phone`='$phone' OR `id` = '$phone'";
 							$rs = $conn->query($search_sql);
 							echo "
@@ -142,7 +143,7 @@ require '../../backend/auth.php';
 									} else {
 										$flash = "green";
 									}
-									echo "	
+									echo "
 												<tbody>
 													<tr>
 														<td data-label='SNo'>$i</td>
@@ -150,8 +151,8 @@ require '../../backend/auth.php';
 														<td data-label='Age'>$age</td>
 														<td data-label='Sex'>$sex</td>
 														<td data-label='Card No'>$card</td>
-														<td data-label='Phone'>$pt_phone</td>						
-														<td class='$flash' id='$flash' data-label='Date'>$date</td>						
+														<td data-label='Phone'>$pt_phone</td>
+														<td class='$flash' id='$flash' data-label='Date'>$date</td>
 														<td class='detail' data-label='Detail'><a href='./detail.php?id=$card'>Add</a></td>
 													</tr>
 												</tbody>
@@ -194,7 +195,7 @@ require '../../backend/auth.php';
 									} else {
 										$flash = "green";
 									}
-									echo "	
+									echo "
 												<tbody>
 													<tr>
 														<td data-label='Name'>$i</td>
@@ -202,8 +203,8 @@ require '../../backend/auth.php';
 														<td data-label='Age'>$age</td>
 														<td data-label='Sex'>$sex</td>
 														<td data-label='Card No'>$card</td>
-														<td data-label='Phone'>$pt_phone</td>						
-														<td class='$flash' id='$flash' data-label='Date'>$date</td>						
+														<td data-label='Phone'>$pt_phone</td>
+														<td class='$flash' id='$flash' data-label='Date'>$date</td>
 														<td class='detail' data-label='Detail'><a href='./detail.php?id=$card'>Add</a></td>
 													</tr>
 												</tbody>
@@ -246,7 +247,7 @@ require '../../backend/auth.php';
 									$date = $result['date'];
 									// $now = date("Y-m-d");
 
-									echo "	
+									echo "
 								<tbody>
 								<tr>
 								<td data-label='BP'>$bp</td>
