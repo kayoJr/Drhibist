@@ -130,75 +130,75 @@ require '../../backend/auth.php';
                             $rs23 = $conn->query("SELECT * FROM `weil` WHERE `patient_id`='$id'");
                             $rs24 = $conn->query("SELECT * FROM `widalh` WHERE `patient_id`='$id'");
                             $rs25 = $conn->query("SELECT * FROM `widalo` WHERE `patient_id`='$id'");
-                            
+
                             $info = $conn->query("SELECT * FROM `patient` WHERE `id` = '$id'");
                             $info_det = $info->fetch_assoc();
                             ?>
                         </div>
                         <div class="navigation">
                             <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
-                     
+
                         </div>
                         <div class="detail" id="patient-detail">
-								<h3>Update Detail</h3>
-								<div class="lab-res">
-                                    <?php
-                                    $sql = $conn->query("SELECT * FROM `pat_detail` WHERE `id`='$id'");
-                                    while ($row = $sql->fetch_assoc()){
-                                        $cc = $row['cc'];
-                                        $dt = $row['dt'];
-                                        $sy = $row['sy'];
-                                        $imp = $row['imp'];
-                                        $md = $row['md'];
-                                        $cn = $row['cn'];
-                                        $pc = $row['pc'];
-                                        $vh = $row['vh'];
-                                        $aka = $row['aka'];
-                                        $lab = $row['lab'];
-                                        $dx = $row['dx'];
-                                        $rx = $row['rx'];
-                                    }
-                                    ?>
-									<form action="../../backend/upd_detail.php" method="POST" class="add-detail">
-										<div class="form">
+                            <h3>Update Detail</h3>
+                            <div class="lab-res">
+                                <?php
+                                $sql = $conn->query("SELECT * FROM `pat_detail` WHERE `id`='$id'");
+                                while ($row = $sql->fetch_assoc()) {
+                                    $cc = $row['cc'];
+                                    $dt = $row['dt'];
+                                    $sy = $row['sy'];
+                                    $imp = $row['imp'];
+                                    $md = $row['md'];
+                                    $cn = $row['cn'];
+                                    $pc = $row['pc'];
+                                    $vh = $row['vh'];
+                                    $aka = $row['aka'];
+                                    $lab = $row['lab'];
+                                    $dx = $row['dx'];
+                                    $rx = $row['rx'];
+                                }
+                                ?>
+                                <form action="../../backend/upd_detail.php" method="POST" class="add-detail">
+                                    <div class="form">
 
-											<div class="column">
+                                        <div class="column">
 
-												<label for="C/c">C/C</label>
-												<input type="text" name="cc" value="<?php echo $cc; ?>">
-												<label for="dt">Duration</label>
-												<input type="text" name="dt" value="<?php echo $dt; ?>">
-												<label for="sy">Major Associated symptoms</label>
-												<input type="text" name="sy" value="<?php echo $sy; ?>">
-												<label for="imp">Other important symptoms</label>
-												<input type="text" name="imp" value="<?php echo $imp; ?>">
-												<label for="md">Any taken Medication</label>
-												<input type="text" name="md" value="<?php echo $md; ?>">
-												<label for="cn">Current Nutrition</label>
-												<input type="text" name="cn" value="<?php echo $cn; ?>">
+                                            <label for="C/c">C/C</label>
+                                            <input type="text" name="cc" value="<?php echo $cc; ?>">
+                                            <label for="dt">Duration</label>
+                                            <input type="text" name="dt" value="<?php echo $dt; ?>">
+                                            <label for="sy">Major Associated symptoms</label>
+                                            <input type="text" name="sy" value="<?php echo $sy; ?>">
+                                            <label for="imp">Other important symptoms</label>
+                                            <input type="text" name="imp" value="<?php echo $imp; ?>">
+                                            <label for="md">Any taken Medication</label>
+                                            <input type="text" name="md" value="<?php echo $md; ?>">
+                                            <label for="cn">Current Nutrition</label>
+                                            <input type="text" name="cn" value="<?php echo $cn; ?>">
 
 
-											</div>
-											<div class="column">
-												<label for="pc">Previous Similar Cases</label>
-												<input type="text" name="pc" value="<?php echo $pc; ?>">
-												<label for="vh">Vaccination HX</label>
-												<input type="text" name="vh" value="<?php echo $vh; ?>">
-												<label for="aka">Any known Allergy</label>
-												<input type="text" name="aka" value="<?php echo $aka; ?>">
-												<label for="lab">Pertinent Physical Exam</label>
-												<input type="text" name="lab" value="<?php echo $lab; ?>">
-												<label for="dx">Possible DX</label>
-												<input type="text" name="dx" value="<?php echo $dx; ?>">
-												<label for="rx">RX Given</label>
-												<input type="text" name="rx" value="<?php echo $rx; ?>">
-												<input type="hidden" name="pat_id" value="<?php echo $id; ?>">
-											</div>
-											<input type="submit" value="Update Detail" name="submit" class="btn btn-primary" />
-										</div>
-									</form>
-								</div>
-							</div>
+                                        </div>
+                                        <div class="column">
+                                            <label for="pc">Previous Similar Cases</label>
+                                            <input type="text" name="pc" value="<?php echo $pc; ?>">
+                                            <label for="vh">Vaccination HX</label>
+                                            <input type="text" name="vh" value="<?php echo $vh; ?>">
+                                            <label for="aka">Any known Allergy</label>
+                                            <input type="text" name="aka" value="<?php echo $aka; ?>">
+                                            <label for="lab">Pertinent Physical Exam</label>
+                                            <input type="text" name="lab" value="<?php echo $lab; ?>">
+                                            <label for="dx">Possible DX</label>
+                                            <input type="text" name="dx" value="<?php echo $dx; ?>">
+                                            <label for="rx">RX Given</label>
+                                            <input type="text" name="rx" value="<?php echo $rx; ?>">
+                                            <input type="hidden" name="pat_id" value="<?php echo $id; ?>">
+                                        </div>
+                                        <input type="submit" value="Update Detail" name="submit" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -206,7 +206,7 @@ require '../../backend/auth.php';
                     <img src="../../img/lab_header.png" alt="">
                 </div>
                 <div class="lab-footer">
-                    <img src="../../img/lab_footer.jpg" alt="">
+                    <img src="../../img/pharmacyFooter.jpg" alt="">
                 </div>
                 <!-- footer -->
             </div>
@@ -239,7 +239,7 @@ require '../../backend/auth.php';
 </html>
 
 <script>
-    	document.getElementById("btnPrint").onclick = function() {
-		window.print();
-	}
+    document.getElementById("btnPrint").onclick = function() {
+        window.print();
+    }
 </script>

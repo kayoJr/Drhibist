@@ -296,7 +296,7 @@ require '../../backend/auth.php';
 								</div>
 
 								<div class="details-page mt-0" id="lab_result">
-									
+
 								</div>
 
 								<div class="action">
@@ -498,6 +498,10 @@ require '../../backend/auth.php';
 													<input type="checkbox" id="blood_f" name="lab[]" value="blood_f">
 													<label for="blood_f">Blood Film</label><br>
 												</th>
+												<th>
+													<input type="checkbox" id="body_fluid" name="lab[]" value="body_fluid">
+													<label for="body_fluid">Body Fluid Analysis</label><br>
+												</th>
 											</thead>
 										</table>
 										<div align="center">
@@ -593,7 +597,7 @@ require '../../backend/auth.php';
 					<img src="../../img/lab_header.png" alt="">
 				</div>
 				<div class="lab-footer">
-					<img src="../../img/lab_footer.jpg" alt="">
+					<img src="../../img/pharmacyFooter.jpg" alt="">
 				</div>
 				<!-- footer -->
 			</div>

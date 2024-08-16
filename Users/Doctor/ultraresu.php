@@ -34,10 +34,24 @@ require '../../backend/auth.php';
             display: none !important;
         }
 
+        .accordion-button {
+            text-transform: capitalize;
+        }
+
         @media print {
             .ultraResult {
                 visibility: visible !important;
-                display:  block !important;
+                display: block !important;
+            }
+
+            .lab-footer {
+                width: 100% !important;
+                height: 8rem !important;
+
+                img {
+                    height: auto !important;
+                    width: 100% !important;
+                }
             }
         }
 
@@ -177,7 +191,7 @@ require '../../backend/auth.php';
                         <img src="../../img/lab_header.png" alt="">
                     </div>
                     <div class="lab-footer">
-                        <img src="../../img/lab_footer.jpg" alt="">
+                        <img src="../../img/pharmacyFooter.jpg" alt="">
                     </div>
                 </div>
                 <!-- footer -->

@@ -35,13 +35,21 @@ $weil = $conn->query("SELECT *, 'weil' AS table_name FROM `weil` WHERE `patient_
 $widalh = $conn->query("SELECT *, 'widalh' AS table_name FROM `widalh` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
 $widalo = $conn->query("SELECT *, 'widalo' AS table_name FROM `widalo` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
 $csf = $conn->query("SELECT *, 'csf' AS table_name FROM `csf` WHERE `patient_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
+$bfa = $conn->query("SELECT *, 'blood_fs' AS table_name FROM `bfa` WHERE `pat_id`='$id' AND `date` = '$date' ORDER BY `id` DESC");
 
 // $results = array_merge($cbc, $afb, $crp, $bf, $bg, 
 // $fbs, $coag, $gram, $hpylori, $let, $se, 
 // $liver, $stool, $urine, $esr, $pict,$rft, 
 // $rpr, $tft, $uric, $vdrl, $weil, $widalh, $widalo, $csf);
 
-
+if (!empty($bfa)) {
+    $rows = array();
+    while ($row = $bfa->fetch_assoc()
+    ) {
+        $rows[] = $row;
+        $table_results['blood_fs'] = $rows;
+    }
+}
 // if (!empty($cbc)) {
 //     while($cbc){
 //         $table_results['cbc'] = $cbc;
@@ -328,6 +336,7 @@ if (!empty($widalo)) {
         $table_results['widalo'] = $rows;
     }
 }
+
 
 
 

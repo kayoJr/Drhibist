@@ -37,6 +37,10 @@ require '../../backend/auth.php';
         .btn-group {
             display: none !important;
         }
+
+        table {
+            width: 800px !important;
+        }
     </style>
 </head>
 
@@ -107,7 +111,7 @@ require '../../backend/auth.php';
                         </div>
                         <!--<a href="./pharmaTest.php" class="btn btn-danger">TEST SERVER</a>-->
 
-                        <form action="prescription.php" class="search">
+                        <form action="prescriptionList.php" class="search mb-0">
                             <h3>Search Patient</h3>
                             <div class="search-form">
                                 <input type="number" name="search" id="search" min="0" required placeholder="Phone or Card Number" />
@@ -119,69 +123,52 @@ require '../../backend/auth.php';
                             $searchId = $_GET['search'];
                         ?>
 
-                            <div class="modal-body table-responsive">
-                                <table class="table table-bordered">
+                            <div class="modal-body table-responsive ">
+                                <table class="table table-bordered my-0">
                                     <tr class="mob_table">
-                                        <th>Name</th>
-                                        <th>Type</th>
-                                        <th>Dosage</th>
-                                        <th>Route</th>
-                                        <th>Frequency</th>
-                                        <th>Duration</th>
-                                        <th>Amount</th>
-                                        <th>Note</th>
+                                        <th>Patient Name</th>
                                         <th>Date</th>
+                                        <th>Action</th>
                                     </tr>
                                     <tbody>
 
                                         <?php
 
-                                        $sql = "SELECT * FROM `prescription` WHERE `pat_id` = '$searchId' AND `date`= CURDATE() ORDER BY `date` DESC ";
+                                        $sql = "SELECT 
+                                                    p.name AS patient_name,
+                                                    pr.date
+                                                FROM 
+                                                    prescription pr
+                                                JOIN 
+                                                    patient p ON pr.pat_id = p.id
+                                                WHERE 
+                                                    pr.pat_id = '$searchId'
+                                                GROUP BY 
+                                                    pr.pat_id, pr.date
+                                                ORDER BY 
+                                                    pr.date DESC;
+                                                ";
                                         $rs = mysqli_query($conn, $sql);
                                         while ($row = mysqli_fetch_assoc($rs)) {
-                                            $presId = $row['id'];
+                                            // $presId = $row['id'];
                                         ?>
                                             <input type="hidden" name="pat_id" id="pat_id" value="<?php echo $searchId; ?>">
                                             <tr>
                                                 <td><?php
-                                                    echo $row['med_name'];
-                                                    ?></td>
-                                                <td><?php
-                                                    echo $row['med_type'];
-                                                    ?></td>
-                                                <td><?php
-                                                    echo $row['dosage'];
-                                                    ?></td>
-                                                <td><?php
-                                                    echo $row['route'];
-                                                    ?></td>
-                                                <td><?php
-                                                    echo $row['dose_per_day'];
-                                                    ?></td>
-                                                <td><?php
-                                                    echo $row['duration'];
-                                                    ?></td>
-                                                <td><?php
-                                                    echo $row['amount'];
-                                                    ?></td>
-                                                <td><?php
-                                                    echo $row['note'];
+                                                    echo $row['patient_name'];
                                                     ?></td>
                                                 <td><?php
                                                     echo $row['date'];
                                                     ?></td>
+                                                <td>
+                                                    <a class="btn btn-primary my-0" href="prescriptionDetail.php?id=<?php echo $searchId; ?>&date=<?php echo $row['date']; ?>">Detail</a>
+                                                </td>
                                             </tr>
                                         <?php
                                         }
                                         ?>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="modal-footer">
-                                <select class="px-4 py-2 mt-0 fs-5" name="selectDate" id="selectDate" onchange="fetchResult()">
-
-                                </select>
-                                <button type="button" class="btn btn-secondary my-0" id="printPage">VIEW</button>
                             </div>
                         <?php
                         }

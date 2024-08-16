@@ -2,7 +2,7 @@
 require '../../backend/db.php';
 require '../../backend/auth.php';
 $pat_id = $_GET['id'];
-$date = $_GET['year'];
+$date = $_GET['date'];
 $patientSql = "SELECT * FROM `patient` WHERE id = '$pat_id'";
 $patientResult = mysqli_query($conn, $patientSql);
 $patient = mysqli_fetch_assoc($patientResult);
@@ -54,7 +54,9 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                 size: landscape;
                 margin: 0 auto;
             }
-
+            .navigation{
+                display: none !important; 
+            }
             .prescription-paper * {
                 visibility: visible;
             }
@@ -89,6 +91,7 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                     top: 0;
                     left: 0;
                     width: 50% !important;
+
                     img {
                         width: 100% !important;
                         overflow: hidden !important;
@@ -100,16 +103,19 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                     bottom: 0;
                     left: 0;
                     width: 50% !important;
+
                     img {
                         width: 100% !important;
                         overflow: hidden !important;
                     }
                 }
+
                 table {
                     margin-top: 12rem;
 
                     page-break-inside: auto;
                 }
+
                 table thead tr th {
                     text-align: center;
                     padding: .5rem 0;
@@ -139,6 +145,7 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                 bottom: 5rem;
 
             }
+
             label,
             placeholder,
             table th {
@@ -159,6 +166,7 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
 
         .prescription-paper form {
             background-color: transparent;
+
             .row {
                 flex-wrap: nowrap !important;
             }
@@ -230,6 +238,10 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                             @$msg = $_REQUEST['msg'];
                             echo "<p>$msg</p>"
                             ?>
+                        </div>
+                        <div class="navigation">
+                            <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
+                            <button type="button" class="btn btn-secondary my-0" id="btnPrint">PRINT</button>
                         </div>
                         <div class="modal-body table-responsive presTable">
                             <table class="table table-bordered ">
@@ -310,9 +322,6 @@ $prescriptionResult = mysqli_query($conn, $prescriptionSql);
                                     ?>
                                 </tbody>
                             </table>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary my-0" id="btnPrint">PRINT</button>
-                            </div>
                         </div>
 
                         <div class="prescription-paper">

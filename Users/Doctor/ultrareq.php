@@ -104,7 +104,7 @@ require '../../backend/auth.php';
                             echo "<p>$msg</p>";
                             $id = $_GET['id'];
                             $date = date("Y-m-d");
-                            
+
                             ?>
                         </div>
                         <div class="navigation">
@@ -113,8 +113,8 @@ require '../../backend/auth.php';
                         <div class="lab_requests">
                             <?php
                             $pat_id = $_GET['id'];
-                                $rs = $conn->query("SELECT * FROM `ultra_cart` WHERE `patient_id` = '$pat_id'");
-                                echo "
+                            $rs = $conn->query("SELECT * FROM `ultra_cart` WHERE `patient_id` = '$pat_id'");
+                            echo "
                                 <table class='table'>
 									<thead>
 										<th>Request</th>
@@ -122,12 +122,12 @@ require '../../backend/auth.php';
 										<th>Action</th>
 									</thead>
                                 ";
-                                if ($rs){
-                                    while($row = $rs->fetch_assoc()){
-                                        $name = $row['requests'];
-                                        $date = $row['date'];
-                                        $detail = $row['detail'];
-                                        echo "	
+                            if ($rs) {
+                                while ($row = $rs->fetch_assoc()) {
+                                    $name = $row['requests'];
+                                    $date = $row['date'];
+                                    $detail = $row['detail'];
+                                    echo "	
 												<tbody>
 													<tr>
 													<td data-label='Request'>$name ($detail)</td>
@@ -136,8 +136,8 @@ require '../../backend/auth.php';
 													</tr>
 												</tbody>
 												";
-                                    }
                                 }
+                            }
                             ?>
                         </div>
 
@@ -147,7 +147,7 @@ require '../../backend/auth.php';
                     <img src="../../img/lab_header.png" alt="">
                 </div>
                 <div class="lab-footer">
-                    <img src="../../img/lab_footer.jpg" alt="">
+                    <img src="../../img/pharmacyFooter.jpg" alt="">
                 </div>
                 <!-- footer -->
             </div>
@@ -180,7 +180,7 @@ require '../../backend/auth.php';
 </html>
 
 <script>
-    	document.getElementById("btnPrint").onclick = function() {
-		window.print();
-	}
+    document.getElementById("btnPrint").onclick = function() {
+        window.print();
+    }
 </script>

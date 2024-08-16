@@ -56,6 +56,8 @@ UNION
  SELECT DISTINCT `date` AS year FROM `widalo`  WHERE `patient_id`='$id'
         UNION
  SELECT DISTINCT `date` AS year FROM `csf`   WHERE `patient_id`='$id'
+         UNION
+     SELECT DISTINCT `date` AS year FROM `bfa` WHERE `pat_id`='$id'
  ORDER BY year ASC;
  "
 );

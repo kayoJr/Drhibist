@@ -3,7 +3,6 @@ require_once './db.php';
 
 if (isset($_POST['submit'])) {
     $id = $_POST['id'];
-    echo '<script>console.log($id)</script>';
     @$payment = $_POST['payment'];
     $sql = "SELECT * FROM `patient` WHERE `id` = '$id'";
     $result = $conn->query($sql);
@@ -15,7 +14,7 @@ if (isset($_POST['submit'])) {
             $date2 = new DateTime(date("Y-m-d"));
             $interval = $date1->diff($date2);
             // echo "difference " . $interval->days . " days ";
-            if (($interval->days) >= 10) {
+            if (($interval->days) > 10) {
                 $sql = "UPDATE `patient` SET `date` = '$now', `status` = 0 WHERE `id` = '$id'";
                 $rs = $conn->query($sql);
                 if ($rs) {

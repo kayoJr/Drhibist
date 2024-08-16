@@ -1,6 +1,6 @@
 <?php
-require_once '../../backend/db.php';
-require '../../backend/auth.php';
+require_once '../../../backend/db.php';
+require '../../../backend/auth.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,21 +13,21 @@ require '../../backend/auth.php';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <!-- site metas -->
-    <title>Doctor</title>
+    <title>Laboratory</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="../../img/favicon.ico" type="image/png" />
-    <link rel="stylesheet" href="../styles/bootstrap.min.css" />
+    <link rel="icon" href="../../../img/favicon.ico" type="image/png" />
+    <link rel="stylesheet" href="../../styles/bootstrap.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="../styles/responsive.css" />
-    <link rel="stylesheet" href="../styles/bootstrap-select.css" />
-    <link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="../styles/custom.css" />
+    <link rel="stylesheet" href="../../styles/style.css" />
+    <link rel="stylesheet" href="../../styles/responsive.css" />
+    <link rel="stylesheet" href="../../styles/bootstrap-select.css" />
+    <link rel="stylesheet" href="../../styles/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../../styles/custom.css" />
 
     <style>
         .btn-group {
@@ -44,14 +44,14 @@ require '../../backend/auth.php';
                 <div class="sidebar_blog_1">
                     <div class="sidebar-header">
                         <div class="logo_section">
-                            <a href="index.html"><img class="logo_icon img-responsive" src="../../img/logo.png" alt="#" /></a>
+                            <a href="../index.html"><img class="logo_icon img-responsive" src="../../../img/logo.png" alt="#" /></a>
                         </div>
                     </div>
                     <div class="sidebar_user_info">
                         <div class="icon_setting"></div>
                         <div class="user_profle_side">
                             <div class="user_img">
-                                <img class="img-responsive" src="../../img/logo.png" alt="#" />
+                                <img class="img-responsive" src="../../../img/logo.png" alt="#" />
                             </div>
                             <div class="user_info">
                                 <?php
@@ -74,7 +74,7 @@ require '../../backend/auth.php';
                 </div>
                 <div class="sidebar_blog_2">
                     <?php
-                    include './side_nav.php';
+                    include 'side_nav.php';
                     ?>
                 </div>
             </nav>
@@ -101,52 +101,70 @@ require '../../backend/auth.php';
                         <div id="feedback">
                             <?php
                             @$msg = $_REQUEST['msg'];
-                            echo "<p>$msg</p>";
-                            $id = $_GET['id'];
-                            $date = date("Y-m-d");
-
+                            echo "<p>$msg</p>"
                             ?>
                         </div>
                         <div class="navigation">
                             <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
                         </div>
-                        <div class="lab_requests">
-                            <?php
-                            $pat_id = $_GET['id'];
-                            $rs = $conn->query("SELECT * FROM `lab_cart2` WHERE `patient_id` = '$pat_id'");
-                            echo "
-                                <table class='table'>
-									<thead>
-										<th>Request</th>
-										<th>Date</th>
-										<th>Action</th>
-									</thead>
-                                ";
-                            if ($rs) {
-                                while ($row = $rs->fetch_assoc()) {
-                                    $name = $row['name'];
-                                    $date = $row['date'];
-                                    echo "	
-												<tbody>
-													<tr>
-													<td data-label='Request'>$name</td>
-													<td data-label='Date'>$date</td>
-													<td data-label='Date'><a href='../../backend/delete_dup_doc.php?name=$name&pat=$pat_id'><b>X</b></a></td>
-													</tr>
-												</tbody>
-												";
-                                }
-                            }
-                            ?>
+                        <div class="titel">
+                            <h2 class="center">Body Fluid Analysis</h2>
+                        </div>
+                        <?php
+                        $id = $_GET['id'];
+                        ?>
+
+                        <div class="lab-res">
+                            <form action="../../../backend/lab_res.php" method="POST">
+                                <div class="form">
+
+                                    <div class="column">
+                                        <div>
+                                            <label for="appearance">Appearance</label>
+                                            <input type="text" name="appearance" id="appearance">
+                                        </div>
+                                        <div>
+                                            <label for="wbc">WBC</label>
+                                            <input type="text" name="wbc" id="wbc">
+                                        </div>
+                                        <div>
+                                            <label for="rbc">RBC</label>
+                                            <input type="text" name="rbc" id="rbc">
+                                        </div>
+                                        <div>
+                                            <label for="protein">Protein</label>
+                                            <input type="text" name="protein" id="protein">
+                                        </div>
+                                        <div>
+                                            <label for="glucose">Glucose</label>
+                                            <input type="text" name="glucose" id="glucose">
+                                        </div>
+                                        <div>
+                                            <label for="ldh">LDH</label>
+                                            <input type="text" name="ldh" id="ldh">
+                                        </div>
+                                        <div>
+                                            <label for="sg">Specific Gravity</label>
+                                            <input type="text" name="sg" id="sg">
+                                        </div>
+                                        <div>
+                                            <label for="koh">KOH</label>
+                                            <input type="text" name="koh" id="koh">
+                                        </div>
+                                        <div>
+                                            <label for="afb">AFB Stain</label>
+                                            <input type="text" name="afb" id="afb">
+                                        </div>
+
+                                    </div>
+                                    <input type="submit" name="submit_blood_fs" value="SEND" class="btn bnt-primary">
+                                    <input type="hidden" name="pat_id" value="<?php echo $id; ?>">
+                                </div>
+                            </form>
                         </div>
 
+
                     </div>
-                </div>
-                <div class="lab-header">
-                    <img src="../../img/lab_header.png" alt="">
-                </div>
-                <div class="lab-footer">
-                    <img src="../../img/pharmacyFooter.jpg" alt="">
                 </div>
                 <!-- footer -->
             </div>
@@ -177,9 +195,3 @@ require '../../backend/auth.php';
 </body>
 
 </html>
-
-<script>
-    document.getElementById("btnPrint").onclick = function() {
-        window.print();
-    }
-</script>

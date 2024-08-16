@@ -124,7 +124,7 @@ require '../../backend/auth.php';
                         </div>
                         <div class="ultra_result">
                             <div class='lab'>
-                            <?php
+                                <?php
                                 if ($rs1->num_rows > 0) {
                                     while ($row = $rs1->fetch_assoc()) {
                                         $res_id = $row['id'];
@@ -136,14 +136,14 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    
-                                    echo "
+
+                                        echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Abdominal Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=Abdominal&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
-                                    echo "<table class='table'>
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Findings</th>
@@ -183,7 +183,7 @@ require '../../backend/auth.php';
                                 ?>
                             </div>
                             <div class='lab'>
-                            <?php
+                                <?php
                                 if ($neck->num_rows > 0) {
                                     while ($row = $neck->fetch_assoc()) {
                                         $res_id = $row['id'];
@@ -191,14 +191,14 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    
-                                    echo "
+
+                                        echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Neck Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=Neck&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
-                                    echo "<table class='table'>
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Findings</th>
@@ -222,23 +222,23 @@ require '../../backend/auth.php';
                                 ?>
                             </div>
                             <div class='lab'>
-                            <?php
+                                <?php
                                 if ($chest->num_rows > 0) {
-                                    
+
                                     while ($row = $chest->fetch_assoc()) {
                                         $res_id = $row['id'];
                                         $result = $row['result'];
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    
-                                    echo "
+
+                                        echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Chest Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=Chest&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
-                                    echo "<table class='table'>
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Findings</th>
@@ -262,23 +262,23 @@ require '../../backend/auth.php';
                                 ?>
                             </div>
                             <div class='lab'>
-                            <?php
+                                <?php
                                 if ($normal_brain->num_rows > 0) {
-                                    
+
                                     while ($row = $normal_brain->fetch_assoc()) {
                                         $res_id = $row['id'];
                                         $result = $row['result'];
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    
-                                    echo "
+
+                                        echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Normal Brain Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=normal_brain&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
-                                    echo "<table class='table'>
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Findings</th>
@@ -310,14 +310,14 @@ require '../../backend/auth.php';
                                         $impression = $row['impression'];
                                         $conclusion = $row['conclusion'];
                                         $drname = $row['drname'];
-                                    
-                                    echo "
+
+                                        echo "
                                     <div class='edit_ultraresu'>
                                     <h2 class='center'>Other Ultrasound Result</h2>
                                     <a href='./edit_ultra.php?id=$res_id&name=other&pat_id=$id'>Edit</a>
                                     </div>
                                 ";
-                                    echo "<table class='table'>
+                                        echo "<table class='table'>
                                     <thead>
                                     <th>Test</th>
                                     <th>Findings</th>
@@ -340,17 +340,17 @@ require '../../backend/auth.php';
                                 }
                                 ?>
                             </div>
-                            
-                            
+
+
                         </div>
 
                     </div>
                     <div class="lab-header">
-                    <img src="../../img/lab_header.png" alt="">
-                </div>
-                <div class="lab-footer">
-                    <img src="../../img/lab_footer.jpg" alt="">
-                </div>
+                        <img src="../../img/lab_header.png" alt="">
+                    </div>
+                    <div class="lab-footer">
+                        <img src="../../img/pharmacyFooter.jpg" alt="">
+                    </div>
                 </div>
                 <!-- footer -->
             </div>
@@ -382,7 +382,7 @@ require '../../backend/auth.php';
 
 </html>
 <script>
-    	document.getElementById("btnPrint").onclick = function() {
-		window.print();
-	}
+    document.getElementById("btnPrint").onclick = function() {
+        window.print();
+    }
 </script>

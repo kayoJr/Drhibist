@@ -90,13 +90,13 @@ require '../../backend/db.php';
 				<!-- dashboard inner -->
 				<div class="midde_cont">
 					<div class="container-fluid">
-					<div class="navigation">
-                            <button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
-                            <button class="btn" id="btnPrint">Print</button>
-                        </div>
+						<div class="navigation">
+							<button class="button" onclick="history.go(-1);"><i class="fa-solid fa-chevron-left fa-2x"></i></button>
+							<button class="btn" id="btnPrint">Print</button>
+						</div>
 						<?php
 						if (isset($_POST['submit'])) {
-				
+
 							$ultra = 0;
 							$oxygen = 0;
 							$pharmacy = 0;
@@ -110,63 +110,63 @@ require '../../backend/db.php';
 							$laboratory = $_POST['laboratory'];
 							$procedure = $_POST['procedure'];
 							$service = (float)$_POST['service'];
-							if($laboratory == ''){
+							if ($laboratory == '') {
 								$laboratory = 0;
 							}
-							if($ultra == ''){
+							if ($ultra == '') {
 								$ultra = 0;
 							}
-							if($pharmacy == ''){
+							if ($pharmacy == '') {
 								$pharmacy = 0;
 							}
-							if($oxygen == ''){
+							if ($oxygen == '') {
 								$oxygen = 0;
 							}
-							if($procedure == ''){
+							if ($procedure == '') {
 								$procedure = 0;
 							}
-							
+
 							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory + $procedure;
 							$s_charge = $total * $service;
-							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory  + $procedure+ $s_charge;
-							
-							
+							@$total = $bed + $ultra + $oxygen + $pharmacy + $laboratory  + $procedure + $s_charge;
+
+
 						?>
 							<div class="detail">
 								<form action="../../backend/withdraw_pay.php" method="POST">
-								<div class="lab-header">
-                    <img src="../../img/lab_header.png" alt="">
-                </div>				
-							<div class="add_result">
-								<h3 class="center">Discharge</h3>
-								<div class="results">
+									<div class="lab-header">
+										<img src="../../img/lab_header.png" alt="">
+									</div>
+									<div class="add_result">
+										<h3 class="center">Discharge</h3>
+										<div class="results">
 
-									<div class="adm_title">
-										<h2>Patient Name</h2>
-										<h2>Bed</h2>
-										<h2>Ultrasound</h2>
-										<h2>Laboratory</h2>
-										<h2>Oxygen</h2>
-										<h2>Pharmacy</h2>
-										<h2>Procedure</h2>
-										<h2>Service Charge</h2>
-								</div>
-								<div class="adm_result">
-									<h2><?php echo $name; ?></h2>
-									<h2><?php echo $bed; ?></h2>
-									<h2><?php echo $ultra; ?></h2>
-									<h2><?php echo $laboratory; ?></h2>
-									<h2><?php echo $oxygen; ?></h2>
-									<h2><?php echo $pharmacy; ?></h2>
-									<h2><?php echo $procedure; ?></h2>
-									<h2><?php echo $s_charge; ?></h2>
-								</div>
-								</div>
-								<div class="total">
-									<h2 class="total">Total:- <?php echo $total; ?></h2>
-								</div>
-							</div>
-							<div class="payment">
+											<div class="adm_title">
+												<h2>Patient Name</h2>
+												<h2>Bed</h2>
+												<h2>Ultrasound</h2>
+												<h2>Laboratory</h2>
+												<h2>Oxygen</h2>
+												<h2>Pharmacy</h2>
+												<h2>Procedure</h2>
+												<h2>Service Charge</h2>
+											</div>
+											<div class="adm_result">
+												<h2><?php echo $name; ?></h2>
+												<h2><?php echo $bed; ?></h2>
+												<h2><?php echo $ultra; ?></h2>
+												<h2><?php echo $laboratory; ?></h2>
+												<h2><?php echo $oxygen; ?></h2>
+												<h2><?php echo $pharmacy; ?></h2>
+												<h2><?php echo $procedure; ?></h2>
+												<h2><?php echo $s_charge; ?></h2>
+											</div>
+										</div>
+										<div class="total">
+											<h2 class="total">Total:- <?php echo $total; ?></h2>
+										</div>
+									</div>
+									<div class="payment">
 										<div>
 											<label for="system">System</label>
 											<input type="radio" name="payment" id="system" value="system">
@@ -225,19 +225,20 @@ require '../../backend/db.php';
 										</div>
 									</div> -->
 									<div>
-												<label for="credit">Credit</label>
-												<select name="credit" id="credit">
-													<option value="" disabled selected>None</option>
-													<option value="cigna">Cigna</option>
-													<option value="stc">Save The Children</option>
-												</select>
-											</div>
+										<label for="credit">Credit</label>
+										<select name="credit" id="credit">
+											<option value="" disabled selected>None</option>
+											<option value="cigna">Cigna</option>
+											<option value="stc">Save The Children</option>
+										</select>
+									</div>
 									<input type="submit" class="btn" value="Pay" name="pay">
 								</form>
 							</div>
 						<?php
 						}
-						function bed(){
+						function bed()
+						{
 							return $bed = "hello";
 						}
 						?>
@@ -246,8 +247,8 @@ require '../../backend/db.php';
 					<!-- end dashboard inner -->
 				</div>
 				<div class="lab-footer">
-                    <img src="../../img/lab_footer.jpg" alt="">
-                </div>
+					<img src="../../img/lab_footer.jpg" alt="">
+				</div>
 			</div>
 		</div>
 		<!-- jQuery -->

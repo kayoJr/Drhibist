@@ -536,4 +536,31 @@ if(isset($_POST['submiturine'])){ //urinalysis
            // header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search?msg=Error");
             
     }
+}elseif(isset($_POST['submit_blood_fs'])){
+    $appearance = $_POST['appearance'];
+    $wbc = $_POST['wbc'];
+    $rbc = $_POST['rbc'];
+    $protein = $_POST['protein'];
+    $glucose = $_POST['glucose'];
+    $ldh = $_POST['ldh'];
+    $sg = $_POST['sg'];
+    $koh = $_POST['koh'];
+    $afb = $_POST['afb'];
+    $pat_id = $_POST['pat_id'];
+
+    $sql = $conn->query("INSERT INTO `bfa`(`pat_id`, `appearance`, `wbc`, `rbc`, `protein`, `glucose`, `ldh`, `sg`, `koh`, `afb_stain`) VALUES (
+    '$pat_id', '$appearance', '$wbc', '$rbc', '$protein', '$glucose', '$ldh', '$sg', '$koh', '$afb'
+    )");
+    if ($sql) {
+        $sqld = "DELETE FROM `lab_cart2` WHERE `name`='body_fluid' AND `patient_id` = '$pat_id'";
+        $rsd = $conn->query($sqld);
+        if ($rsd) {
+            header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search&msg=Sent");
+        }
+    } else {
+        echo $conn->error;
+        // header("Location: ../Users/Laboratory/index.php?search=$pat_id&searching=Search?msg=Error");
+
+    }
+
 }

@@ -246,6 +246,9 @@ $today = date('Y-m-d');
                                         }elseif ($name == 'csf_analysis') {
 
                                             echo "<a class='$valid btn btn-primary' href='res/csf.php?id=$card&nm=$name'> $name</a>";
+                                        }elseif ($name == 'body_fluid') {
+
+                                            echo "<a class='$valid btn btn-primary' href='res/blood_fs.php?id=$card&nm=$name'> $name</a>";
                                         }
                                     }
 

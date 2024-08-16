@@ -12,6 +12,10 @@
             <span>Messages</span></a>
     </li>
     <li>
+        <a class="fs-5" href="prescriptionList.php"><i class="fa-solid fa-prescription"></i>
+            Prescription List</a>
+    </li>
+    <li>
         <a href="../../backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>
             <span>Logout</span></a>
     </li>

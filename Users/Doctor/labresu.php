@@ -73,6 +73,19 @@ require '../../backend/auth.php';
             text-transform: capitalize;
         }
 
+        table thead tr th {
+            text-transform: capitalize;
+        }
+        @media print{
+            .lab-footer{
+                width: 100% !important;
+                height: 8rem !important;
+                img{
+                    height: auto !important;
+                    width: 100% !important;
+                }
+            }
+        }
         .result-box h2 {
             text-transform: capitalize;
             margin-bottom: 1rem;
@@ -179,7 +192,7 @@ require '../../backend/auth.php';
                     <img src="../../img/lab_header.png" alt="">
                 </div>
                 <div class="lab-footer">
-                    <img src="../../img/lab_footer.jpg" alt="">
+                    <img src="../../img/pharmacyFooter.jpg" alt="">
                 </div>
                 <!-- footer -->
             </div>
@@ -254,6 +267,15 @@ require '../../backend/auth.php';
             'bg': 'Blood Group',
             'bt': 'Bilirubin_T',
             'bd': 'Bilirubin_D',
+            'wbc': 'WBC',
+            'rbc': 'RBC',
+            'protein': 'Protein',
+            'glucose': 'Glucose',
+            'ldh': 'LDH',
+            'koh': 'KOH',
+            'sg': 'Specific Gravity',
+            'afb_stain': 'AFB Stain',
+            'appearance': 'Appearance',
             'alk_phos': 'alk_phosphatase',
             's_g': 'Specific Gravity',
             'l_e': 'Leukocyte Esterase',
@@ -280,6 +302,7 @@ require '../../backend/auth.php';
             'cbc_new': 'Hematology',
             'bf': 'Blood Film',
             'bg': 'Blood Group',
+            'blood_fs': 'Body Fluid Analysis',
             'let': 'Liver Enzymatic Test',
             'lft': 'Liver Function Test',
             'se': 'Serum Electrolyte',
@@ -388,7 +411,7 @@ require '../../backend/auth.php';
                                     accordionContent[table] +=
                                         `<tr>
                                 ${Object.keys(moreData)
-                                    .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                    .filter(key => ![ 'table_name', 'patient_id', 'petn_id', 'pat_id', 'lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                     .map(key =>
                                         `<td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>`
                                     ).join('')}
@@ -400,7 +423,7 @@ require '../../backend/auth.php';
                                     accordionContent[table] +=
                                         `<tr>
                                 ${Object.keys(moreData)
-                                    .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                    .filter(key => ![ 'table_name', 'patient_id', 'petn_id', 'pat_id', 'lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                     .map(key =>
                                         `<td>${moreData[key]} ${(units[key] == undefined) ? '' : units[key]}</td>`
                                     ).join('')}
@@ -434,7 +457,7 @@ require '../../backend/auth.php';
                                     <thead>
                                         <tr>
                                             ${Object.keys(resultsObject[0])
-                                                .filter(key => ![ 'table_name', 'patient_id', 'petn_id','lab_user', 'P-LCR', 'P-LCC'].includes(key))
+                                                .filter(key => ![ 'table_name', 'patient_id', 'petn_id', 'pat_id', 'lab_user', 'P-LCR', 'P-LCC'].includes(key))
                                                 .map(key =>
                                                     `<th>${(columns[key] == undefined) ? key : columns[key]}</th>`
                                                 ).join('')}
@@ -475,6 +498,15 @@ require '../../backend/auth.php';
             'bg': 'Blood Group',
             'bt': 'Bilirubin_T',
             'bd': 'Bilirubin_D',
+            'wbc': 'WBC',
+            'rbc': 'RBC',
+            'protein': 'Protein',
+            'glucose': 'Glucose',
+            'ldh': 'LDH',
+            'koh': 'KOH',
+            'sg': 'Specific Gravity',
+            'afb_stain': 'AFB Stain',
+            'appearance': 'Appearance',
             'alk_phos': 'alk_phosphatase',
             's_g': 'Specific Gravity',
             'l_e': 'Leukocyte Esterase',
@@ -498,6 +530,7 @@ require '../../backend/auth.php';
             'cbc_new': 'Hematology',
             'bf': 'Blood Film',
             'bg': 'Blood Group',
+            'blood_fs': 'Blood Fluid Analysis',
             'let': 'Liver Enzymatic Test',
             'lft': 'Liver Function Test',
             'se': 'Serum Electrolyte',
