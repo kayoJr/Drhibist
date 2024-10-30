@@ -1,3 +1,10 @@
+<?php
+require '../../backend/db.php';
+$id = $_GET['id'];
+$sql = $conn->query("SELECT `name` FROM `patient` WHERE `id` = '$id'");
+$row = $sql->fetch_assoc();
+$name = $row['name'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -24,11 +31,11 @@
 			referrerpolicy="no-referrer"
 		/>
 		<link rel="icon" href="../../img/favicon.ico" type="image/png" />
-		<link rel="stylesheet" href="../styles/bootstrap.min.css" />
 		<link rel="stylesheet" href="../styles/style.css" />
 		<link rel="stylesheet" href="../styles/responsive.css" />
 		<link rel="stylesheet" href="../styles/bootstrap-select.css" />
 		<link rel="stylesheet" href="../styles/perfect-scrollbar.css" />
+		<link rel="stylesheet" href="../styles/bootstrap.min.css" />
 		<link rel="stylesheet" href="../styles/custom.css" />
 	</head>
 	<body class="dashboard dashboard_1">
@@ -100,6 +107,11 @@
 						<div class="container-fluid">
                             <form action="../../backend/nurse_exam.php" method="POST" class="search">
                                 <h3>Add Result</h3>
+								<div class="d-flex flex-row align-items-center justify-content-between">
+									<h2 class="fs-1 text-white">ID: <?php echo $id; ?></h2>
+									<h2 class="fs-1 text-white"><?php echo $name; ?></h2>
+								</div>
+								<hr class="text-white bg-white">
                                 <div class="form-elements">
                                     <div>
                                         <label for="bp">BP</label>
@@ -138,9 +150,6 @@
                                         <input type="number" name="muac" id="muac" min="0" required step=".01">
                                     </div>
                                     <div>
-										<?php
-										$id = $_GET['id'];
-										?>
 										<input type="hidden" name="id" value="<?php echo $id; ?>">
 										<label for="me">hello</label>
 										<input type="submit" name="add" class="btn btn-primary mgt" value="Add Record">
