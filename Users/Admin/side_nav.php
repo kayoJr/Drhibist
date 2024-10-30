@@ -24,6 +24,10 @@
             <span>Edit Price</span></a>
     </li>
     <li>
+        <a href="removeLab.php"><i class="fa-solid fa-x"></i>
+            <span>Remove Lab</span></a>
+    </li>
+    <li>
         <a href="monthReport.php"><i class="fa-solid fa-calendar"></i>
             <span>Month Report</span></a>
     </li>
