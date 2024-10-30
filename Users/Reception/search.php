@@ -152,6 +152,7 @@ require '../../backend/db.php';
 														<td data-label='Date'>$date</td>
 														<td>
 													<a class='btn mgt mgb $block' href='./update.php?id=$card'>Update</a>
+													<a class='btn mgt mgb' href='./edit_pat.php?id=$card'>Edit</a>
 														</td>
 														</tr>
 														</tbody>
