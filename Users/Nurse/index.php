@@ -138,7 +138,7 @@ require '../../backend/auth.php';
 									$interval = $date1->diff($date2);
 									$i++;
 									// echo "difference " . $interval->days . " days ";
-									if (($interval->days) >= 10) {
+									if (($interval->days) > 10) {
 										$flash = "flash";
 									} else {
 										$flash = "green";
