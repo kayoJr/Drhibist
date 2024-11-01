@@ -135,7 +135,7 @@ require '../../backend/db.php';
 									$date2 = new DateTime(date("Y-m-d"));
 									$interval = $date1->diff($date2);
 
-									if (($interval->days) >= 10) {
+									if (($interval->days) > 10) {
 										$block = "";
 									} else {
 										$block = "blocked";
