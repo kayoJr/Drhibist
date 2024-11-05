@@ -3,7 +3,7 @@ require_once  "./db.php";
 $id = $_GET['id'];
 // $id = 1500;
 $fetchYear = $conn->query(
-    "SELECT DISTINCT `date` AS year FROM `prescription` WHERE `pat_id`='$id'
+    "SELECT DISTINCT DATE(`date`) AS year FROM `prescription` WHERE `pat_id`='$id'
         ORDER BY year ASC;
  "
 );
